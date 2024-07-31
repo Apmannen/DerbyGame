@@ -991,6 +991,7 @@ MonoBehaviour:
   - {fileID: 1542081238}
   defaultRendererIndex: 1
   collectedRendererIndex: 0
+  walkTarget: {fileID: 0}
 --- !u!1 &511112904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1640,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5683821618311090348, guid: 8930dffe758e8d84ab5d59891d352696, type: 3}
   m_PrefabInstance: {fileID: 805856891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &868848433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868848434}
+  m_Layer: 0
+  m_Name: walktarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868848434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868848433}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.249, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 987906563}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &987906562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1715,6 +1747,10 @@ PrefabInstance:
       propertyPath: tmpName
       value: Matta
       objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: walkTarget
+      value: 
+      objectReference: {fileID: 868848434}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: nameTranslationId
       value: 21
@@ -1816,6 +1852,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 637814631}
+    - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 868848434}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
 --- !u!4 &987906563 stripped

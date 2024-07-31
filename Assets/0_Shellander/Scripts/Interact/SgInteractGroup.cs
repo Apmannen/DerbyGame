@@ -13,6 +13,7 @@ public class SgInteractGroup : SgBehavior
 	public SpriteRenderer[] spriteRenderers;
 	public int defaultRendererIndex = 0;
 	public int collectedRendererIndex = 1;
+	public Transform walkTarget;
 
 	private int m_RenderIndex = 0;
 	private SgInteractable[] m_Interactables;

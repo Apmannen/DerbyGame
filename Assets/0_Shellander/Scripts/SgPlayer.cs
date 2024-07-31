@@ -95,6 +95,8 @@ public class SgPlayer : SgBehavior
 		m_State = newState;
 		m_StateActivatedTime = Time.time;
 
+		Debug.Log("*** NEW STATE:"+m_State);
+
 		if (IsStateAnyInteract())
 		{
 			SetCursor(SgInteractType.Wait);
@@ -260,13 +262,13 @@ public class SgPlayer : SgBehavior
 		{
 			if (m_ClickAction.WasPressedThisFrame())
 			{
-				m_WalkTarget = cursorWorldPos;
-				m_WalkTarget.z = this.transform.position.z;
+				Vector3 walkTarget = cursorWorldPos;
+				walkTarget.z = this.transform.position.z;
 
 				SetState(SgPlayerState.Walking);
 				walkAnimation.Play();
 
-				m_Agent.SetDestination(m_WalkTarget);
+				SetDestination(walkTarget);
 
 				if(IsCursorAnyInteract())
 				{
@@ -304,6 +306,12 @@ public class SgPlayer : SgBehavior
 		m_PrevPos = this.transform.position;
 	}
 
+	private void SetDestination(Vector3 targetPosition)
+	{
+		m_WalkTarget = targetPosition;
+		m_Agent.SetDestination(targetPosition);
+	}
+
 	private void HandleInteractClick(SgInteractGroup hoveredInteractGroup, SgItembarItem hoveredItembarItem)
 	{
 		if (hoveredInteractGroup != null)
@@ -316,8 +324,7 @@ public class SgPlayer : SgBehavior
 			}
 			else
 			{
-				m_WalkTarget = this.transform.position;
-				m_Agent.SetDestination(m_WalkTarget);
+				SetDestination(this.transform.position);
 				walkAnimation.Stop();
 				SetState(SgPlayerState.Interacting);
 			}
@@ -326,8 +333,7 @@ public class SgPlayer : SgBehavior
 		else if (hoveredItembarItem != null)
 		{
 			SetInteraction(null, hoveredItembarItem, CurrentCursor.interactType);
-			m_WalkTarget = this.transform.position;
-			m_Agent.SetDestination(m_WalkTarget);
+			SetDestination(this.transform.position);
 			walkAnimation.Stop();
 			SetState(SgPlayerState.Interacting);
 		}
@@ -348,7 +354,15 @@ public class SgPlayer : SgBehavior
 		return false;
 	}
 
-	private void Interact(SgInteraction interaction)
+	//if(
+	//				//null propagation shouldn't be used on Unity objects
+	//				m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null && 
+	//				m_CurrentInteraction.interactGroup.walkTarget != null) 
+	//			{
+	//				m_WalkTarget = m_CurrentInteraction.interactGroup.walkTarget.position;
+	//			}
+
+private void Interact(SgInteraction interaction)
 	{
 		StartCoroutine(InteractRoutine(interaction));
 	}
