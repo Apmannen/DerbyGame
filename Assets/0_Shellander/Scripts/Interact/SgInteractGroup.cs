@@ -13,7 +13,9 @@ public class SgInteractGroup : SgBehavior
 	public SpriteRenderer[] spriteRenderers;
 	public int defaultRendererIndex = 0;
 	public int collectedRendererIndex = 1;
+	public bool toggleSpriteOnUse = false;
 
+	private int m_RenderIndex = 0;
 	private SgInteractable[] m_Interactables;
 	private SgInteractable[] Interactables => SgUtil.LazyChildComponents(this, ref m_Interactables);
 	public bool IsConnectedToItem => itemType != SgItemType.Illegal;
@@ -22,7 +24,7 @@ public class SgInteractGroup : SgBehavior
 	{
 		get
 		{
-			if(IsConnectedToItem && m_ItemDefinition == null)
+			if (IsConnectedToItem && m_ItemDefinition == null)
 			{
 				m_ItemDefinition = ItemManager.Get(itemType);
 			}
@@ -32,14 +34,14 @@ public class SgInteractGroup : SgBehavior
 
 	protected virtual void Start()
 	{
-		RefreshVisibility();
+		RefreshPickedUpVisibility();
 	}
 
 	public string TranslatedName
 	{
 		get
 		{
-			if(nameTranslationId < 0 && IsConnectedToItem)
+			if (nameTranslationId < 0 && IsConnectedToItem)
 			{
 				return ItemDefinition.TranslatedName;
 			}
@@ -49,16 +51,17 @@ public class SgInteractGroup : SgBehavior
 
 	protected void SetVisibleSprite(int renderIndex)
 	{
-		for(int i = 0; i < spriteRenderers.Length; i++)
+		m_RenderIndex = renderIndex;
+		for (int i = 0; i < spriteRenderers.Length; i++)
 		{
 			spriteRenderers[i].gameObject.SetActive(i == renderIndex);
 		}
 	}
 
-	private void RefreshVisibility()
+	private void RefreshPickedUpVisibility()
 	{
 		SetVisibleSprite(IsConnectedToItem && ItemDefinition.IsColleted ? collectedRendererIndex : defaultRendererIndex);
-		foreach(SgInteractable childInteractable in Interactables)
+		foreach (SgInteractable childInteractable in Interactables)
 		{
 			childInteractable.gameObject.SetActive(!IsConnectedToItem || !ItemDefinition.IsColleted);
 		}
@@ -67,11 +70,11 @@ public class SgInteractGroup : SgBehavior
 	public SgInteractTranslation GetInteractTranslation(SgInteractType interactType)
 	{
 		SgInteractTranslation translation = null;
-		if(IsConnectedToItem)
+		if (IsConnectedToItem)
 		{
 			translation = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType);
 		}
-		if(translation == null)
+		if (translation == null)
 		{
 			translation = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType);
 		}
@@ -89,10 +92,14 @@ public class SgInteractGroup : SgBehavior
 
 	public virtual void OnBeforeInteract(SgInteractType interactType)
 	{
-		if(IsConnectedToItem && interactType == SgInteractType.Pickup)
+		if (IsConnectedToItem && interactType == SgInteractType.Pickup)
 		{
 			ItemDefinition.Collect();
-			RefreshVisibility();
+			RefreshPickedUpVisibility();
 		}
+		//else if (toggleSpriteOnUse && interactType == SgInteractType.Use)
+		//{
+		//	SetVisibleSprite(m_RenderIndex == 0 ? 1 : 0);
+		//}
 	}
 }
