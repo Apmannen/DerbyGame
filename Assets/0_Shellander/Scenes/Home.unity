@@ -3365,6 +3365,12 @@ MonoBehaviour:
   - interactType: 5
     translationIds: 01000000
     walkToItFirst: 0
+  - interactType: 3
+    translationIds: 13000000
+    walkToItFirst: 0
+  - interactType: 4
+    translationIds: 14000000
+    walkToItFirst: 0
 --- !u!1 &1947392219
 GameObject:
   m_ObjectHideFlags: 0
