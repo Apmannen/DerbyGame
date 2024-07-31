@@ -320,6 +320,12 @@ public class SgPlayer : SgBehavior
 			SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CurrentCursor.interactType);
 			if (interactConfig.walkToItFirst)
 			{
+				bool overrideDestination = m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null &&
+					m_CurrentInteraction.interactGroup.walkTarget != null; //null propagation shouldn't be used on Unity objects
+				if (overrideDestination) 
+				{
+					SetDestination(m_CurrentInteraction.interactGroup.walkTarget.position);
+				}
 				SetState(SgPlayerState.InteractWalking);
 			}
 			else
@@ -354,15 +360,7 @@ public class SgPlayer : SgBehavior
 		return false;
 	}
 
-	//if(
-	//				//null propagation shouldn't be used on Unity objects
-	//				m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null && 
-	//				m_CurrentInteraction.interactGroup.walkTarget != null) 
-	//			{
-	//				m_WalkTarget = m_CurrentInteraction.interactGroup.walkTarget.position;
-	//			}
-
-private void Interact(SgInteraction interaction)
+	private void Interact(SgInteraction interaction)
 	{
 		StartCoroutine(InteractRoutine(interaction));
 	}
