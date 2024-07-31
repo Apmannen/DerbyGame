@@ -9,11 +9,10 @@ public class SgInteractGroup : SgBehavior
 	public string nameId;
 	public int nameTranslationId = -1;
 	public SgItemType itemType = SgItemType.Illegal;
-	public SgInteractTranslation[] interactTranslations;
+	public SgInteractTranslation[] interactTranslations; //interact translation is a obsolete name, more of an interact config. Shouldn't be handled by translation manager anymore.
 	public SpriteRenderer[] spriteRenderers;
 	public int defaultRendererIndex = 0;
 	public int collectedRendererIndex = 1;
-	public bool toggleSpriteOnUse = false;
 
 	private int m_RenderIndex = 0;
 	private SgInteractable[] m_Interactables;
@@ -67,7 +66,7 @@ public class SgInteractGroup : SgBehavior
 		}
 	}
 
-	public SgInteractTranslation GetInteractTranslation(SgInteractType interactType)
+	public SgInteractTranslation GetInteractConfig(SgInteractType interactType)
 	{
 		SgInteractTranslation translation = null;
 		if (IsConnectedToItem)
@@ -87,19 +86,21 @@ public class SgInteractGroup : SgBehavior
 
 	public int[] GetInteractTranslationIds(SgInteractType interactType)
 	{
-		return GetInteractTranslation(interactType).translationIds;
+		return GetInteractConfig(interactType).translationIds;
 	}
 
+	//Should use more customizable predefined actions like toggle and pick up. In other words, pick up should be configurable in the same way as toggle. 
 	public virtual void OnBeforeInteract(SgInteractType interactType)
 	{
+		SgInteractTranslation interactConfig = GetInteractConfig(interactType);
 		if (IsConnectedToItem && interactType == SgInteractType.Pickup)
 		{
 			ItemDefinition.Collect();
 			RefreshPickedUpVisibility();
 		}
-		//else if (toggleSpriteOnUse && interactType == SgInteractType.Use)
-		//{
-		//	SetVisibleSprite(m_RenderIndex == 0 ? 1 : 0);
-		//}
+		else if(interactConfig != null && interactConfig.toggleSprite)
+		{
+			SetVisibleSprite(m_RenderIndex == 0 ? 1 : 0);
+		}
 	}
 }

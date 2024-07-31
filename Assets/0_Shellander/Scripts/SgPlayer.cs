@@ -309,8 +309,8 @@ public class SgPlayer : SgBehavior
 		if (hoveredInteractGroup != null)
 		{
 			SetInteraction(hoveredInteractGroup, null, CurrentCursor.interactType);
-			SgInteractTranslation interactTranslation = hoveredInteractGroup.GetInteractTranslation(CurrentCursor.interactType);
-			if (interactTranslation.walkToItFirst)
+			SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CurrentCursor.interactType);
+			if (interactConfig.walkToItFirst)
 			{
 				SetState(SgPlayerState.InteractWalking);
 			}
