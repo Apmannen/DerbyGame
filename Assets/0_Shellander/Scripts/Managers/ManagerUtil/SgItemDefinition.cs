@@ -1,7 +1,7 @@
 using UnityEngine;
 using static SgSaveDataManager;
 
-public enum SgItemType { Illegal, BussCard}
+public enum SgItemType { Illegal, BussCard, Scissors }
 
 public class SgItemDefinition : SgBehavior
 {
@@ -15,7 +15,7 @@ public class SgItemDefinition : SgBehavior
 	{
 		get
 		{
-			if(m_Savable == null)
+			if (m_Savable == null)
 			{
 				m_Savable = SaveDataManager.CurrentSaveFile.items[itemType];
 			}
