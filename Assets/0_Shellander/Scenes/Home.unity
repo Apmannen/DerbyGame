@@ -2539,6 +2539,18 @@ PrefabInstance:
       propertyPath: interactTranslations.Array.data[2].translationIds.Array.data[1]
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5925242072325652750, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: dependencies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5925242072325652750, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: dependencies.Array.data[0].gameObject
+      value: 
+      objectReference: {fileID: 1904217422}
+    - target: {fileID: 5925242072325652750, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: dependencies.Array.data[0].mustBeActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7110489863182733389, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3849,6 +3861,11 @@ MonoBehaviour:
     translationIds: 14000000
     walkToItFirst: 0
     toggleSprite: 0
+--- !u!1 &1904217422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 250972894157954788, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
+  m_PrefabInstance: {fileID: 1019359949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1947392219
 GameObject:
   m_ObjectHideFlags: 0
