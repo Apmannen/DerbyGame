@@ -14,6 +14,7 @@ public class SgInteractGroup : SgBehavior
 	public int defaultRendererIndex = 0;
 	public int collectedRendererIndex = 1;
 	public Transform walkTarget;
+	public bool interactableAfterPickup;
 
 	private int m_RenderIndex = 0;
 	private SgInteractable[] m_Interactables;
@@ -67,7 +68,7 @@ public class SgInteractGroup : SgBehavior
 		SetVisibleSprite(IsConnectedToItem && ItemDefinition.IsColleted ? collectedRendererIndex : defaultRendererIndex);
 		foreach (SgInteractable childInteractable in Interactables)
 		{
-			childInteractable.gameObject.SetActive(!IsConnectedToItem || !ItemDefinition.IsColleted);
+			childInteractable.gameObject.SetActive(interactableAfterPickup || !IsConnectedToItem || !ItemDefinition.IsColleted);
 		}
 	}
 
