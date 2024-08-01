@@ -37,3 +37,5 @@ Stol
 Min skrivbordsstol.
 Jag står hellre.
 Jag behöver den inte.
+Skrivbord
+Mitt skrivbord.
