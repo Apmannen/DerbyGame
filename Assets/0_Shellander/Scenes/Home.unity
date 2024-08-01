@@ -332,7 +332,7 @@ MonoBehaviour:
     translationIds: 3400000035000000
     walkToItFirst: 0
     toggleSprite: 0
-    onlyWhenCollected: 0
+    onlyWhenCollected: 1
     onlyWhenNotCollected: 0
 --- !u!1001 &195552649
 PrefabInstance:
