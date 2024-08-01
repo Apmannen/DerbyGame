@@ -1,7 +1,7 @@
 using UnityEngine;
 using static SgSaveDataManager;
 
-public enum SgItemType { Illegal, BussCard, Scissors }
+public enum SgItemType { Illegal, BussCard, Scissors, Ticket }
 
 public class SgItemDefinition : SgBehavior
 {
