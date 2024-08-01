@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   translationId: 51
-  sprite: {fileID: 21300000, guid: c3b41aa3518b6bf4f94e1be974bf3c01, type: 3}
+  sprite: {fileID: 21300000, guid: fc0e26e50cbd669419e0348ed7b6e458, type: 3}
   interactTranslations:
   - interactType: 2
     translationIds: 3400000035000000
@@ -905,8 +905,20 @@ PrefabInstance:
       value: Matta
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: itemType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: nameTranslationId
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: collectedRendererIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: spriteRenderers.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.size
@@ -918,19 +930,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].interactType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[2].interactType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[3].interactType
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[4].interactType
+      propertyPath: interactTranslations.Array.data[2].interactType
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[3].interactType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[4].interactType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].walkToItFirst
@@ -938,11 +950,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].walkToItFirst
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[2].walkToItFirst
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].onlyWhenCollected
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].onlyWhenCollected
@@ -950,7 +966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[4].onlyWhenCollected
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].onlyWhenNotCollected
@@ -958,6 +974,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].onlyWhenNotCollected
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[2].onlyWhenNotCollected
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
@@ -966,11 +986,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].translationIds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].translationIds.Array.size
@@ -990,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.data[0]
-      value: 46
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.data[1]
@@ -998,15 +1018,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].translationIds.Array.data[0]
-      value: 15
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[2].translationIds.Array.data[1]
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].translationIds.Array.data[0]
-      value: 50
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[4].translationIds.Array.data[0]
-      value: 49
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5925242072325652750, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: priority
@@ -2303,6 +2327,7 @@ MonoBehaviour:
   itemDefinitions:
   - {fileID: 1488896201}
   - {fileID: 1174184021}
+  - {fileID: 164395102}
 --- !u!1001 &1019359949
 PrefabInstance:
   m_ObjectHideFlags: 0
