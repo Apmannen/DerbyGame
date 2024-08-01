@@ -15,6 +15,7 @@ public class SgInteractGroup : SgBehavior
 	public int collectedRendererIndex = 1;
 	public Transform walkTarget;
 	public bool interactableAfterPickup;
+	public bool redirectToItem = true;
 
 	private int m_RenderIndex = 0;
 	private SgInteractable[] m_Interactables;
@@ -77,7 +78,7 @@ public class SgInteractGroup : SgBehavior
 	public SgInteractTranslation GetInteractConfig(SgInteractType interactType)
 	{
 		SgInteractTranslation translation = null;
-		if (IsConnectedToItem)
+		if (IsConnectedToItem && redirectToItem)
 		{
 			translation = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected);
 		}
