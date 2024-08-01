@@ -210,15 +210,38 @@ public class SgPlayer : SgBehavior
 		Vector3 cursorScreenPos = m_PointerAction.ReadValue<Vector2>();
 		Vector3 cursorWorldPos = mainCam.ScreenToWorldPoint(cursorScreenPos);
 		UiCursor.transform.position = cursorScreenPos;
-		RaycastHit2D hit = Physics2D.Raycast(cursorWorldPos, Vector2.zero);
+		
 		SgInteractGroup hoveredInteractGroup = null;
 		SgItembarItem hoveredItembarItem = null;
 
+		//RaycastHit2D prioHit;	
+		
+
 		//UI
-		if(IsActionsAllowed() && hit.collider != null && hit.collider.gameObject.layer == SgLayerManager.layerInteractable)
+		if(IsActionsAllowed())
 		{
-			hoveredInteractGroup = hit.collider.gameObject.GetComponent<SgInteractable>().InteractGroup;
-			UiCursor.text.text = hoveredInteractGroup.TranslatedName;
+			RaycastHit2D[] hits = Physics2D.RaycastAll(cursorWorldPos, Vector2.zero);
+			int bestPrio = -1;
+			SgInteractable selectedInteractable = null;
+			foreach (RaycastHit2D hit in hits)
+			{
+				if(hit.collider == null || hit.collider.gameObject.layer != SgLayerManager.layerInteractable)
+				{
+					continue;
+				}
+				SgInteractable interactable = hit.collider.gameObject.GetComponent<SgInteractable>();
+				if(interactable.priority < bestPrio)
+				{
+					continue;
+				}
+				selectedInteractable = interactable;
+			}
+
+			if(selectedInteractable != null)
+			{
+				hoveredInteractGroup = selectedInteractable.InteractGroup;
+				UiCursor.text.text = hoveredInteractGroup.TranslatedName;
+			}
 		}
 		else
 		{

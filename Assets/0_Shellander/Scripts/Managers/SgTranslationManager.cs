@@ -39,17 +39,26 @@ public class SgTranslationManager : SgBehavior
 	
 	public SgInteractTranslation GetDefaultTranslation(SgInteractType interactType)
 	{
-		return GetInteractTranslation(defaultTranslations, interactType);
+		return GetInteractTranslation(defaultTranslations, interactType, false);
 	}
 
-	public static int[] GetInteractTranslationIds(SgInteractTranslation[] interactTranslations, SgInteractType interactType)
+	public static int[] GetInteractTranslationIds(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
 	{
-		return GetInteractTranslation(interactTranslations, interactType).translationIds;
+		return GetInteractTranslation(interactTranslations, interactType, isCollected).translationIds;
 	}
-	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactTranslations, SgInteractType interactType)
+	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
 	{
 		foreach (SgInteractTranslation interactTranslation in interactTranslations)
 		{
+			if(interactTranslation.onlyWhenCollected && !isCollected)
+			{
+				continue;
+			}
+			if(interactTranslation.onlyWhenNotCollected && isCollected)
+			{
+				continue;
+			}
+
 			if (interactTranslation.interactType == interactType)
 			{
 				return interactTranslation;
@@ -66,4 +75,6 @@ public class SgInteractTranslation
 	public int[] translationIds;
 	public bool walkToItFirst;
 	public bool toggleSprite = false;
+	public bool onlyWhenCollected;
+	public bool onlyWhenNotCollected;
 }

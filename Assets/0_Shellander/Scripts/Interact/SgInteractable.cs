@@ -3,6 +3,7 @@ using UnityEngine;
 public class SgInteractable : SgBehavior
 {
 	public SgObjectDependency[] dependencies;
+	public int priority;
 
 	private SgInteractGroup m_InteractGroup;
 	public SgInteractGroup InteractGroup => SgUtil.LazyParentComponent(this, ref m_InteractGroup);

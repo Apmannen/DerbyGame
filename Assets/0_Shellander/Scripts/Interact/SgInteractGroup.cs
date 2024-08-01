@@ -71,16 +71,18 @@ public class SgInteractGroup : SgBehavior
 		}
 	}
 
+	private bool IsItemCollected => ItemManager.IsCollected(this.itemType);
+
 	public SgInteractTranslation GetInteractConfig(SgInteractType interactType)
 	{
 		SgInteractTranslation translation = null;
 		if (IsConnectedToItem)
 		{
-			translation = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType);
+			translation = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected);
 		}
 		if (translation == null)
 		{
-			translation = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType);
+			translation = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected);
 		}
 		if (translation == null)
 		{

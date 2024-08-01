@@ -18,6 +18,12 @@ public class SgItemManager : SgBehavior
 		return null;
 	}
 
+	public bool IsCollected(SgItemType itemType)
+	{
+		SgItemDefinition definition = Get(itemType);
+		return definition != null && definition.IsColleted;
+	}
+
 	public void Collect(SgItemType itemType)
 	{
 		SgItemDefinition definition = Get(itemType);

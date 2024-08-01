@@ -38,7 +38,7 @@ public class SgItemDefinition : SgBehavior
 
 	public int[] GetInteractTranslationIds(SgInteractType interactType)
 	{
-		return SgTranslationManager.GetInteractTranslationIds(interactTranslations, interactType);
+		return SgTranslationManager.GetInteractTranslationIds(interactTranslations, interactType, IsColleted);
 	}
 
 	public bool IsColleted => Savable.isCollected.Get();
