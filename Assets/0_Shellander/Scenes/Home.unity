@@ -179,11 +179,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5683821618311090348, guid: 8930dffe758e8d84ab5d59891d352696, type: 3}
   m_PrefabInstance: {fileID: 5881985798708034723}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &130370046 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-  m_PrefabInstance: {fileID: 475929209}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &130489661
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +492,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 377962645032178158, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1378805341}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
 --- !u!4 &236300709 stripped
@@ -925,8 +923,12 @@ PrefabInstance:
       value: BussCard
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: nameTranslationId
-      value: 12
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: spriteRenderers.Array.size
@@ -935,22 +937,22 @@ PrefabInstance:
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: spriteRenderers.Array.data[0]
       value: 
-      objectReference: {fileID: 416479286}
+      objectReference: {fileID: 1542081238}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: spriteRenderers.Array.data[1]
       value: 
-      objectReference: {fileID: 1542081238}
+      objectReference: {fileID: 416479286}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[0].interactType
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[1].interactType
+      propertyPath: interactTranslations.Array.data[0].interactType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[1].interactType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].interactType
@@ -958,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].walkToItFirst
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].walkToItFirst
@@ -966,7 +968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.size
@@ -978,7 +980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[0]
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[1]
@@ -986,7 +988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.data[0]
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.data[1]
@@ -1008,8 +1010,7 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
@@ -1018,46 +1019,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1542081237}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 475929211}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
 --- !u!4 &475929210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
   m_PrefabInstance: {fileID: 475929209}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &475929211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130370046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e911c17a075b94abe57b808024c302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameId: BussCard
-  nameTranslationId: -1
-  itemType: 1
-  interactTranslations:
-  - interactType: 3
-    translationIds: 0f000000
-    walkToItFirst: 0
-    toggleSprite: 0
-  - interactType: 4
-    translationIds: 10000000
-    walkToItFirst: 1
-    toggleSprite: 0
-  spriteRenderers:
-  - {fileID: 416479286}
-  - {fileID: 1542081238}
-  defaultRendererIndex: 1
-  collectedRendererIndex: 0
-  walkTarget: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Drawer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6204748430075965369, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1811,7 +1783,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6de6de26ba5e56b49aea8685c7254bb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2377,7 +2349,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1691989009}
+    m_TransformParent: {fileID: 1634871653}
     m_Modifications:
     - target: {fileID: 409524126327557039, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalScale.x
@@ -2385,15 +2357,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409524126327557039, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.20084415
+      value: 0.11498933
       objectReference: {fileID: 0}
     - target: {fileID: 409524126327557039, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2925
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 409524126327557039, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.656
+      value: -0.0029
       objectReference: {fileID: 0}
     - target: {fileID: 409524126327557039, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2437,11 +2409,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.042
+      value: 0.042000256
       objectReference: {fileID: 0}
     - target: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.36
+      value: 0.366
       objectReference: {fileID: 0}
     - target: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2477,11 +2449,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: nameId
-      value: BussCard
+      value: Scissors
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: itemType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: nameTranslationId
-      value: 12
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: defaultRendererIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: collectedRendererIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: spriteRenderers.Array.size
@@ -2490,22 +2474,22 @@ PrefabInstance:
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: spriteRenderers.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1035873228}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: spriteRenderers.Array.data[1]
       value: 
-      objectReference: {fileID: 1035873228}
-    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.size
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[0].interactType
+      propertyPath: interactTranslations.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[1].interactType
+      propertyPath: interactTranslations.Array.data[0].interactType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[1].interactType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].interactType
@@ -2513,7 +2497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].walkToItFirst
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].walkToItFirst
@@ -2521,7 +2505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.size
@@ -2533,7 +2517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[0]
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[1]
@@ -2541,7 +2525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.data[0]
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].translationIds.Array.data[1]
@@ -2563,58 +2547,19 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1035873227}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1378805343}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
 --- !u!4 &1378805341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
   m_PrefabInstance: {fileID: 1378805340}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1378805342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-  m_PrefabInstance: {fileID: 1378805340}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1378805343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378805342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e911c17a075b94abe57b808024c302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameId: Scissors
-  nameTranslationId: -1
-  itemType: 2
-  interactTranslations:
-  - interactType: 3
-    translationIds: 0f000000
-    walkToItFirst: 0
-    toggleSprite: 0
-  - interactType: 4
-    translationIds: 19000000
-    walkToItFirst: 1
-    toggleSprite: 0
-  spriteRenderers:
-  - {fileID: 0}
-  - {fileID: 1035873228}
-  defaultRendererIndex: 1
-  collectedRendererIndex: 0
-  walkTarget: {fileID: 0}
 --- !u!1 &1382633495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3377,6 +3322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822a2b7d0cb7c004da1f51e100dffa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1634871653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 377962645032178158, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
+  m_PrefabInstance: {fileID: 236300708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1667639721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3608,11 +3558,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774283578201314540, guid: a5b20c1ca35318343b94b8e24c4b6583, type: 3}
   m_PrefabInstance: {fileID: 1688778443}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1691989009 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 377962645032178158, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
-  m_PrefabInstance: {fileID: 8604005470100015771}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1719599403
 GameObject:
@@ -5050,12 +4995,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Drawer
       objectReference: {fileID: 0}
+    - target: {fileID: 6204748430075965369, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 377962645032178158, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1378805341}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc100f2a52e2b74580ae06eb43a333b, type: 3}
 --- !u!1660057539 &9223372036854775807

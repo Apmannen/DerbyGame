@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: save to file
 public class SgSaveDataManager : SgBehavior
 {
 	public int saveInterval = 120;
