@@ -1588,6 +1588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDefinitions:
   - {fileID: 1488896201}
+  - {fileID: 1174184021}
 --- !u!1001 &1019359949
 PrefabInstance:
   m_ObjectHideFlags: 0

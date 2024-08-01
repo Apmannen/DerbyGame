@@ -54,6 +54,10 @@ public class SgInteractGroup : SgBehavior
 		m_RenderIndex = renderIndex;
 		for (int i = 0; i < spriteRenderers.Length; i++)
 		{
+			if(spriteRenderers[i] == null)
+			{
+				continue;
+			}
 			spriteRenderers[i].gameObject.SetActive(i == renderIndex);
 		}
 	}
