@@ -77,4 +77,5 @@ public class SgInteractTranslation
 	public bool toggleSprite = false;
 	public bool onlyWhenCollected;
 	public bool onlyWhenNotCollected;
+	public SgRoomName transitionToRoom = SgRoomName.Illegal;
 }

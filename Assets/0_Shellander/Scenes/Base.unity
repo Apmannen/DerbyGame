@@ -1701,6 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rooms:
   - {fileID: 1516207972}
+  - {fileID: 1367177874}
 --- !u!4 &1811018496
 Transform:
   m_ObjectHideFlags: 0
