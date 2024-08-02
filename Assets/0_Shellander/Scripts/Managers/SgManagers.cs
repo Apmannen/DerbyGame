@@ -8,6 +8,7 @@ public class SgManagers : MonoBehaviour
 	public SgItemManager itemManager;
 	public SgLayerManager layerManager;
 	public SgSaveDataManager saveDataManager;
+	public SgSceneManager sceneManager;
 	public SgTranslationManager translationManager;
 
 	private static SgManagers s_Instance;
