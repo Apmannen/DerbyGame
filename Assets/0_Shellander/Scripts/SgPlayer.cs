@@ -43,10 +43,6 @@ public class SgPlayer : SgBehavior
 		speechText.text = "";
 
 		m_PrevPos = this.transform.position;
-		if (mainCam == null)
-		{
-			mainCam = Camera.main;
-		}
 
 		m_WalkTarget = this.transform.position;
 
