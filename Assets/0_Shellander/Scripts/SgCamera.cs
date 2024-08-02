@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class SgCamera : MonoBehaviour
 {
-    public Camera cam;
+	public Camera cam;
 	public bool isStatic = true;
 	public Transform boundsLeft;
 	public Transform boundsRight;	
 
-    private SgPlayer m_Player;
+	private SgPlayer m_Player;
 
 	public void AttachPlayer(SgPlayer player)
-    {
-        m_Player = player;    
+	{
+		m_Player = player;	
 	}
 
 	private void Update()
