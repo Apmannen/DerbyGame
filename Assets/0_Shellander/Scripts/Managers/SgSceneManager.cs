@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +11,22 @@ public class SgSceneManager : MonoBehaviour
 
 	private bool m_IsTransitioning = false;
 	private SgRoomName m_CurrentRoom = SgRoomName.Illegal;
+	private SgRoomName[] m_RoomNames;
+	private SgRoomName[] RoomNames
+	{
+		get
+		{
+			if(m_RoomNames == null)
+			{
+				m_RoomNames = (SgRoomName[]) Enum.GetValues(typeof(SgRoomName));
+			}
+			return m_RoomNames;
+		}
+	}
 
 	private void Start()
 	{
-		SetRoom(SgRoomName.Home);
+		//SetRoom(SgRoomName.Home);
 	}
 
 	public void SetRoom(SgRoomName roomName)
@@ -28,9 +41,17 @@ public class SgSceneManager : MonoBehaviour
 
 	private IEnumerator RoomTransition(SgRoomName roomName)
 	{
-		if (m_CurrentRoom != SgRoomName.Illegal)
+		foreach(SgRoomName otherRoomName in RoomNames)
 		{
-			yield return SceneManager.UnloadSceneAsync(m_CurrentRoom.ToString());
+			if(otherRoomName == roomName)
+			{
+				continue;
+			}
+			Scene aScene = SceneManager.GetSceneByName(otherRoomName.ToString());
+			if(aScene.isLoaded)
+			{
+				yield return SceneManager.UnloadSceneAsync(aScene);
+			}
 		}
 
 		yield return AsyncLoadScene(roomName.ToString());
