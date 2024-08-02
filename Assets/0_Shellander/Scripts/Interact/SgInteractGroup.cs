@@ -106,10 +106,24 @@ public class SgInteractGroup : SgBehavior
 		{
 			ItemDefinition.Collect();
 			RefreshPickedUpVisibility();
+			return;
 		}
-		else if(interactConfig != null && interactConfig.toggleSprite)
+
+		if(interactConfig == null)
+		{
+			return;
+		}
+
+		if(interactConfig.toggleSprite)
 		{
 			SetVisibleSprite(m_RenderIndex == 0 ? 1 : 0);
+			return;
+		}
+		
+		if(interactConfig.transitionToRoom != SgRoomName.Illegal)
+		{
+			SceneManager.SetRoom(interactConfig.transitionToRoom);
+			return;
 		}
 	}
 }

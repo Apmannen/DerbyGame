@@ -8,5 +8,6 @@ public class SgBehavior : MonoBehaviour
 	protected SgItemManager ItemManager => SgManagers._.itemManager;
 	protected SgLayerManager LayerManager => SgManagers._.layerManager;
 	protected SgSaveDataManager SaveDataManager => SgManagers._.saveDataManager;
+	protected SgSceneManager SceneManager => SgManagers._.sceneManager;
 	protected SgTranslationManager TranslationManager => SgManagers._.translationManager;
 }

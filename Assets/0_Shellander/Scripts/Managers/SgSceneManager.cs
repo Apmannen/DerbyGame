@@ -41,6 +41,12 @@ public class SgSceneManager : MonoBehaviour
 
 	private IEnumerator AsyncLoadScene(string sceneName)
 	{
+		Scene scene = SceneManager.GetSceneByName(sceneName);
+		if (scene.isLoaded)
+		{
+			yield break;
+		}
+
 		LoadSceneParameters parameters = new LoadSceneParameters();
 		parameters.loadSceneMode = LoadSceneMode.Additive;
 		long t0 = SgUtil.CurrentTimeMs();
