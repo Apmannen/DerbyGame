@@ -12,6 +12,7 @@ public class SgPlayer : SgBehavior
 	public SgCursorTypeDefinition[] cursors;
 	public SgCursorTypeDefinition waitCursor;
 	public TMPro.TextMeshPro speechText;
+	public SgSpawnPosition[] spawnPositions;
 
 	private enum SgPlayerState { None, Walking, InteractWalking, Interacting }
 	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
@@ -36,6 +37,15 @@ public class SgPlayer : SgBehavior
 	private void Start()
 	{
 		ResetInput();
+
+		foreach(SgSpawnPosition spawnPos in spawnPositions)
+		{
+			if(SceneManager.PrevRoom == spawnPos.connectedRoom)
+			{
+				this.transform.position = spawnPos.transform.position;
+				break;
+			}
+		}
 
 		m_PrevCursor = GetCursor(SgInteractType.Walk);
 		ClearInteraction();

@@ -10,7 +10,7 @@ public class SgSceneManager : MonoBehaviour
 	public SgRoom[] rooms;
 
 	private bool m_IsTransitioning = false;
-	private SgRoomName m_CurrentRoom = SgRoomName.Illegal;
+	private SgRoomName m_PrevRoom = SgRoomName.Illegal;
 	private SgRoomName[] m_RoomNames;
 	private SgRoomName[] RoomNames
 	{
@@ -23,11 +23,7 @@ public class SgSceneManager : MonoBehaviour
 			return m_RoomNames;
 		}
 	}
-
-	private void Start()
-	{
-		//SetRoom(SgRoomName.Home);
-	}
+	public SgRoomName PrevRoom => m_PrevRoom;
 
 	public void SetRoom(SgRoomName roomName)
 	{
@@ -51,12 +47,12 @@ public class SgSceneManager : MonoBehaviour
 			if(aScene.isLoaded)
 			{
 				yield return SceneManager.UnloadSceneAsync(aScene);
+				m_PrevRoom = otherRoomName;
 			}
 		}
 
 		yield return AsyncLoadScene(roomName.ToString());
 
-		m_CurrentRoom = roomName;
 		m_IsTransitioning = false;
 	}
 
