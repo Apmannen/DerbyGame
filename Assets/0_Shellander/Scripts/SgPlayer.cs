@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class SgPlayer : SgBehavior
 {
-	public Camera mainCam;
+	public SgCamera mainCam;
 	public SgAnimation walkAnimation;
 	public SpriteRenderer mainRenderer;
 	public SgCursorTypeDefinition[] cursors;
@@ -53,6 +53,7 @@ public class SgPlayer : SgBehavior
 		m_Agent.isStopped = false;
 
 		SetCursor(0);
+		mainCam.AttachPlayer(this);
 	}
 
 	private void ResetInput()
@@ -204,7 +205,7 @@ public class SgPlayer : SgBehavior
 	{
 		//Variables
 		Vector3 cursorScreenPos = m_PointerAction.ReadValue<Vector2>();
-		Vector3 cursorWorldPos = mainCam.ScreenToWorldPoint(cursorScreenPos);
+		Vector3 cursorWorldPos = mainCam.cam.ScreenToWorldPoint(cursorScreenPos);
 		UiCursor.transform.position = cursorScreenPos;
 		SgInteractGroup hoveredInteractGroup = null;
 		SgItembarItem hoveredItembarItem = null;

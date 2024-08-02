@@ -3976,6 +3976,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b620244b59a1ef4eaab8e22edc64562, type: 3}
+--- !u!114 &537423196534831295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4955819835775035610, guid: 6b620244b59a1ef4eaab8e22edc64562, type: 3}
+  m_PrefabInstance: {fileID: 537423196534831294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56fd95f3df53bc4b8ad6f5f20fb1d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1521378755555208319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3987,7 +3998,7 @@ PrefabInstance:
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: mainCam
       value: 
-      objectReference: {fileID: 519420031}
+      objectReference: {fileID: 537423196534831295}
     - target: {fileID: 1050728045699134630, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_SortingOrder
       value: 10
