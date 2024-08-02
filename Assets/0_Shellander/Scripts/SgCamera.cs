@@ -10,4 +10,16 @@ public class SgCamera : MonoBehaviour
     {
         m_Player = player;    
 	}
+
+	private void Update()
+	{
+		if(m_Player == null)
+		{
+			return;
+		}
+
+		Vector3 position = cam.transform.position;
+		position.x = m_Player.transform.position.x;
+		cam.transform.position = position;
+	}
 }
