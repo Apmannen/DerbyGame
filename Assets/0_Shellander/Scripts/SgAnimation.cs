@@ -7,10 +7,19 @@ public class SgAnimation : SgBehavior
 	public SpriteRenderer spriteRenderer;
 	public Sprite[] sprites;
 	public float changeInterval = 0.4f;
+	public bool autoPlay = false;
 
 	private int m_CurrentIndex = 0;
 	private bool m_IsPlaying = false;
 	private float m_TimeCounter;
+
+	private void Start()
+	{
+		if(autoPlay)
+		{
+			Play();
+		}
+	}
 
 	public void Play()
 	{
