@@ -98,6 +98,8 @@ public class SgPlayer : SgBehavior
 		}
 	}
 
+	public InputAction ClickAction => m_ClickAction;
+
 	private void ResetInput()
 	{
 		m_CurrentActionMap = null;

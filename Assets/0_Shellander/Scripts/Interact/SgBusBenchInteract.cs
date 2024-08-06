@@ -7,31 +7,70 @@ public class SgBusBenchInteract : SgInteractGroup
 	public int busCardMissingTranslationId;
 	public SgRoomName goToRoom = SgRoomName.Illegal;
 
+	private bool CutsceneAborted => m_AbortClicks >= 2;
+	private int m_AbortClicks = 0;
+
 	public override IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
 		if (interactType == SgInteractType.Use)
 		{
+			m_AbortClicks = 0;
+
 			player.SetStance(SgPlayerStance.Sitting);
 			bus.gameObject.SetActive(true);
 			Coroutine busRoutine = bus.StartAnimation();
-			yield return new WaitForSeconds(5);
+			yield return Wait(5);
+			CheckHandleAborted();
 
-			if(ItemManager.IsCollected(SgItemType.BussCard))
+			if (ItemManager.IsCollected(SgItemType.BussCard))
 			{
 				player.SetStance(SgPlayerStance.Hidden);
-				yield return busRoutine;
+				yield return Wait(5);
 				SceneManager.SetRoom(goToRoom);
 			}
 			else
 			{
 				player.SetStance(SgPlayerStance.Normal);
-				yield return busRoutine;
+				yield return Wait(5);
+				CheckHandleAborted();
 				yield return player.Talk(new int[] { busCardMissingTranslationId });
 			}			
 		}
 		else
 		{
 			yield return base.InteractRoutine(player, interactType);
+		}
+	}
+
+	private void Update()
+	{
+		SgPlayer player = SgPlayer.Get();
+		if(player == null)
+		{
+			return;
+		}
+		if(player.ClickAction.WasPressedThisFrame())
+		{
+			m_AbortClicks++;
+		}
+	}
+
+	private void CheckHandleAborted()
+	{
+		if(!CutsceneAborted)
+		{
+			return;
+		}
+		bus.gameObject.SetActive(false);
+	}
+
+	private IEnumerator Wait(float maxDuration)
+	{
+		float time = 0;
+		while (time < maxDuration && !CutsceneAborted)
+		{
+			time += Time.deltaTime;
+			yield return null;
 		}
 	}
 }
