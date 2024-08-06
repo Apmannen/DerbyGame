@@ -126,4 +126,8 @@ public class SgInteractGroup : SgBehavior
 			return;
 		}
 	}
+	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
+	{
+		yield break;
+	}
 }

@@ -55,3 +55,5 @@ Järnkamin
 Den håller mig varm om natten.
 Dörr
 Port
+Bänk
+Här sitter man och väntar på bussen.

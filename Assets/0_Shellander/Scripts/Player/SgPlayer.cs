@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-
+public enum SgPlayerStance { Normal, Sitting }
 public class SgPlayer : SgBehavior
 {
 	public SgCamera mainCam;
@@ -76,6 +76,21 @@ public class SgPlayer : SgBehavior
 	public static SgPlayer Get()
 	{
 		return s_Player;
+	}
+
+	public void SetStance(SgPlayerStance stance)
+	{
+		switch(stance)
+		{
+			case SgPlayerStance.Sitting:
+				sitSprite.enabled = true;
+				mainRenderer.enabled = false;
+				break;
+			case SgPlayerStance.Normal:
+				sitSprite.enabled = false;
+				mainRenderer.enabled = true;
+				break;
+		}
 	}
 
 	private void ResetInput()
@@ -420,7 +435,8 @@ public class SgPlayer : SgBehavior
 			this.speechText.text = translation;
 			m_SpeechAborted = false;
 			yield return Wait(3f);
-		}		
+		}
+		yield return interaction.interactGroup.InteractRoutine(this, interaction.type);
 
 		ClearInteraction();
 		speechText.text = "";
