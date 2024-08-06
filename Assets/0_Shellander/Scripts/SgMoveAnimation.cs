@@ -14,9 +14,9 @@ public class SgMoveAnimation : MonoBehaviour
 		}
 	}
 
-	private void StartAnimation()
+	public Coroutine StartAnimation()
 	{
-		StartCoroutine(AnimationRoutine());
+		return StartCoroutine(AnimationRoutine());
 	}
 
 	public IEnumerator AnimationRoutine()

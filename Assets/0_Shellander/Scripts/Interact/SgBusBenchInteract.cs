@@ -12,8 +12,10 @@ public class SgBusBenchInteract : SgInteractGroup
 		{
 			player.SetStance(SgPlayerStance.Sitting);
 			bus.gameObject.SetActive(true);
-			yield return bus.AnimationRoutine();
+			Coroutine busRoutine = bus.StartAnimation();
+			yield return new WaitForSeconds(5);
 			player.SetStance(SgPlayerStance.Normal);
+			yield return busRoutine;
 		}
 		yield return base.InteractRoutine(player, interactType);
 	}
