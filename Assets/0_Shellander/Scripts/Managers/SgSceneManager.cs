@@ -25,6 +25,24 @@ public class SgSceneManager : MonoBehaviour
 	}
 	public SgRoomName PrevRoom => m_PrevRoom;
 
+	private void Start()
+	{
+		bool isAnyLoaded = false;
+		foreach (SgRoomName roomName in RoomNames)
+		{
+			Scene aScene = SceneManager.GetSceneByName(roomName.ToString());
+			if (aScene.isLoaded)
+			{
+				isAnyLoaded = true;
+				break;
+			}
+		}
+		if(!isAnyLoaded)
+		{
+			SetRoom(SgRoomName.Home);
+		}
+	}
+
 	public void SetRoom(SgRoomName roomName)
 	{
 		if(m_IsTransitioning)
@@ -76,8 +94,7 @@ public class SgSceneManager : MonoBehaviour
 			{
 				break;
 			}
-		}
-		//m_Scene = SceneManager.GetSceneByName(sceneName);		
+		}	
 	}
 }
 
