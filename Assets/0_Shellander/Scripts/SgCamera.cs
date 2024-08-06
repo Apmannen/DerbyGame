@@ -23,9 +23,15 @@ public class SgCamera : MonoBehaviour
 
 		Vector3 position = cam.transform.position;
 		position.x = m_Player.transform.position.x;
-		if(position.x < boundsRight.position.x && position.x > boundsLeft.position.x)
+
+		if(position.x > boundsRight.position.x)
 		{
-			cam.transform.position = position;
-		}		
+			position.x = boundsRight.position.x;
+		}
+		else if(position.x < boundsLeft.position.x)
+		{
+			position.x = boundsLeft.position.x;
+		}
+		cam.transform.position = position;
 	}
 }
