@@ -18,20 +18,21 @@ public class SgBusBenchInteract : SgInteractGroup
 
 			player.SetStance(SgPlayerStance.Sitting);
 			bus.gameObject.SetActive(true);
-			Coroutine busRoutine = bus.StartAnimation();
+			bus.StartAnimation();
 			yield return Wait(5);
 			CheckHandleAborted();
+			float busLeaveTime = 3;
 
 			if (ItemManager.IsCollected(SgItemType.BussCard))
 			{
 				player.SetStance(SgPlayerStance.Hidden);
-				yield return Wait(5);
+				yield return Wait(busLeaveTime);
 				SceneManager.SetRoom(goToRoom);
 			}
 			else
 			{
 				player.SetStance(SgPlayerStance.Normal);
-				yield return Wait(5);
+				yield return Wait(busLeaveTime);
 				CheckHandleAborted();
 				yield return player.Talk(new int[] { busCardMissingTranslationId });
 			}			
