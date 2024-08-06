@@ -280,6 +280,7 @@ MonoBehaviour:
     toggleSprite: 0
     onlyWhenCollected: 1
     onlyWhenNotCollected: 0
+    transitionToRoom: 0
 --- !u!1001 &357707468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -997,6 +998,7 @@ MonoBehaviour:
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
+    transitionToRoom: 0
 --- !u!1 &1235134318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1533,7 @@ MonoBehaviour:
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
+    transitionToRoom: 0
 --- !u!1 &1516207971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,18 +1774,21 @@ MonoBehaviour:
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
+    transitionToRoom: 0
   - interactType: 3
     translationIds: 13000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
+    transitionToRoom: 0
   - interactType: 4
     translationIds: 14000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
+    transitionToRoom: 0
 --- !u!1 &1947392219
 GameObject:
   m_ObjectHideFlags: 0

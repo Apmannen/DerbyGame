@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SgBusBenchInteract : SgInteractGroup
 {
+	public SgMoveAnimation bus;
+
 	public override IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
 		if (interactType == SgInteractType.Use)
