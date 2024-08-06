@@ -1,12 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class SgMoveAnimation : MonoBehaviour
 {
     public bool autoStart;
     public SgMoveAnimationStep[] steps;
-	private int m_CurrentStepIndex = -1;
-	private float m_TimeCounter = 0;
-	private Vector3 m_StartPosition;
+	//private int m_CurrentStepIndex = -1;
+	//private float m_TimeCounter = 0;
+	//private Vector3 m_StartPosition;
 
 	private void Start()
 	{
@@ -18,27 +19,40 @@ public class SgMoveAnimation : MonoBehaviour
 
 	private void StartAnimation()
 	{
-		m_StartPosition = this.transform.position;
-		m_TimeCounter = 0;
-		m_CurrentStepIndex = 0;
-		Debug.Log("**** STARTANIM");
+		//m_StartPosition = this.transform.position;
+		//m_TimeCounter = 0;
+		//m_CurrentStepIndex = 0;
+		//Debug.Log("**** STARTANIM");
+		StartCoroutine(AnimationRoutine());
 	}
 
-	private void Update()
+	public IEnumerator AnimationRoutine()
 	{
-		if(m_CurrentStepIndex < 0 || m_CurrentStepIndex >= steps.Length)
+		foreach(SgMoveAnimationStep step in steps)
 		{
-			return;
-		}
+			float timeCounter = 0;
+			Vector3 startPos = this.transform.position;
 
-		m_TimeCounter += Time.deltaTime;
-		SgMoveAnimationStep step = steps[m_CurrentStepIndex];
-		//float speed = step.speed;
-		//float stepValue = speed * Time.deltaTime;
-		//Debug.Log("**** STEPV="+stepValue);
-		//this.transform.position = Vector3.MoveTowards(this.transform.position, step.transform.position, stepValue);
-		this.transform.position = Vector3.Lerp(m_StartPosition, step.transform.position, m_TimeCounter / step.time);
+			while(timeCounter < step.time)
+			{
+				timeCounter += Time.deltaTime;
+				this.transform.position = Vector3.Lerp(startPos, step.transform.position, timeCounter / step.time);
+				yield return null;
+			}
+		}
 	}
+
+	//private void Update()
+	//{
+	//	if(m_CurrentStepIndex < 0 || m_CurrentStepIndex >= steps.Length)
+	//	{
+	//		return;
+	//	}
+
+	//	m_TimeCounter += Time.deltaTime;
+	//	SgMoveAnimationStep step = steps[m_CurrentStepIndex];
+	//	this.transform.position = Vector3.Lerp(m_StartPosition, step.transform.position, m_TimeCounter / step.time);
+	//}
 }
 
 [System.Serializable]

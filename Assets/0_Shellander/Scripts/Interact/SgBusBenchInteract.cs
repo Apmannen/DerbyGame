@@ -11,7 +11,8 @@ public class SgBusBenchInteract : SgInteractGroup
 		if (interactType == SgInteractType.Use)
 		{
 			player.SetStance(SgPlayerStance.Sitting);
-			yield return new WaitForSeconds(5f);
+			bus.gameObject.SetActive(true);
+			yield return bus.AnimationRoutine();
 			player.SetStance(SgPlayerStance.Normal);
 		}
 		yield return base.InteractRoutine(player, interactType);
