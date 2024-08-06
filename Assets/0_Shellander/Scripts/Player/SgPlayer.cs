@@ -9,6 +9,7 @@ public class SgPlayer : SgBehavior
 	public SgCamera mainCam;
 	public SgAnimation walkAnimation;
 	public SpriteRenderer mainRenderer;
+	public SpriteRenderer sitSprite;
 	public SgCursorTypeDefinition[] cursors;
 	public SgCursorTypeDefinition waitCursor;
 	public TMPro.TextMeshPro speechText;
@@ -26,6 +27,7 @@ public class SgPlayer : SgBehavior
 	private readonly SgInteraction m_CurrentInteraction = new();
 	private float m_StateActivatedTime;
 	private bool m_SpeechAborted;
+	private static SgPlayer s_Player;
 
 	//Input
 	private InputActionMap m_CurrentActionMap;
@@ -33,6 +35,11 @@ public class SgPlayer : SgBehavior
 	private InputAction m_ClickAction;
 	private InputAction m_PointerAction;
 	private InputAction m_ShiftCursorRight;
+
+	private void Awake()
+	{
+		s_Player = this;
+	}
 
 	private void Start()
 	{
@@ -64,6 +71,11 @@ public class SgPlayer : SgBehavior
 
 		SetCursor(0);
 		mainCam.AttachPlayer(this);
+	}
+	
+	public static SgPlayer Get()
+	{
+		return s_Player;
 	}
 
 	private void ResetInput()
