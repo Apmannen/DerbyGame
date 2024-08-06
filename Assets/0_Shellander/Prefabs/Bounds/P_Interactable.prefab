@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050917f43a3400f4fa6e8a6a980caa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dependencies: []
+  priority: 0
 --- !u!61 &4954437104371970968
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,7 +129,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
