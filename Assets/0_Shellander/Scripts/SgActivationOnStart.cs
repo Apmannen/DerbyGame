@@ -1,15 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SgActivationOnStart : MonoBehaviour
 {
     public bool deactivate;
     public bool onAwake;
+	public bool onStart;
 
 	private void Awake()
 	{
 		if(onAwake)
+		{
+			Execute();
+		}
+	}
+	private void Start()
+	{
+		if (onStart)
 		{
 			Execute();
 		}

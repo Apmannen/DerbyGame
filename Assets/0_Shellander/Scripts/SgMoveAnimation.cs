@@ -7,12 +7,12 @@ public class SgMoveAnimation : MonoBehaviour
 	public SgMoveAnimationStep[] steps;
 	private Vector3 m_DefaultPosition;
 
-	private void Start()
+	private void Awake()
 	{
 		m_DefaultPosition = this.transform.position;
 		foreach(SgMoveAnimationStep step in steps)
 		{
-			step.transform.SetParent(this.transform.parent);
+			step.transform.SetParent(this.transform.parent, true);
 		}
 		if (autoStart)
 		{

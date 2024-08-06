@@ -297,7 +297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivate: 1
-  onAwake: 1
+  onAwake: 0
+  onStart: 1
 --- !u!1001 &390487145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1268,10 +1269,6 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 2081165698}
-    - target: {fileID: 2778077560273534758, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.34
