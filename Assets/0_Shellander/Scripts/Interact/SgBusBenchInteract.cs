@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SgBusBenchInteract : SgInteractGroup
@@ -15,11 +14,22 @@ public class SgBusBenchInteract : SgInteractGroup
 			bus.gameObject.SetActive(true);
 			Coroutine busRoutine = bus.StartAnimation();
 			yield return new WaitForSeconds(5);
-			player.SetStance(SgPlayerStance.Normal);
-			yield return busRoutine;
 
-			yield return player.Talk(new int[] { busCardMissingTranslationId });
+			if(ItemManager.IsCollected(SgItemType.BussCard))
+			{
+				yield return busRoutine;
+				SceneManager.SetRoom(SgRoomName.Solna);
+			}
+			else
+			{
+				player.SetStance(SgPlayerStance.Normal);
+				yield return busRoutine;
+				yield return player.Talk(new int[] { busCardMissingTranslationId });
+			}			
 		}
-		yield return base.InteractRoutine(player, interactType);
+		else
+		{
+			yield return base.InteractRoutine(player, interactType);
+		}
 	}
 }

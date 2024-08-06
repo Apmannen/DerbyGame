@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Shellander/Scenes/Stockholm.unity
     guid: 03aa5dd8bc69d7c4cbb3fe78ec7cf188
+  - enabled: 1
+    path: Assets/0_Shellander/Scenes/Solna.unity
+    guid: a0cced890960b79489c93f8f143589df
   m_configObjects: {}

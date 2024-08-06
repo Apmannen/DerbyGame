@@ -1,7 +1,13 @@
 using UnityEngine;
 using static SgSaveDataManager;
 
-public enum SgItemType { Illegal, BussCard, Scissors, Ticket }
+public enum SgItemType
+{
+	Illegal, 
+	BussCard, //TODO: refactor name
+	Scissors, 
+	Ticket 
+}
 
 public class SgItemDefinition : SgBehavior
 {
