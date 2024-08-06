@@ -5,6 +5,7 @@ public class SgBusBenchInteract : SgInteractGroup
 {
 	public SgMoveAnimation bus;
 	public int busCardMissingTranslationId;
+	public SgRoomName goToRoom = SgRoomName.Illegal;
 
 	public override IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
@@ -19,7 +20,7 @@ public class SgBusBenchInteract : SgInteractGroup
 			{
 				player.SetStance(SgPlayerStance.Hidden);
 				yield return busRoutine;
-				SceneManager.SetRoom(SgRoomName.Solna);
+				SceneManager.SetRoom(goToRoom);
 			}
 			else
 			{
