@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-public enum SgPlayerStance { Normal, Sitting }
+public enum SgPlayerStance { Normal, Sitting, Hidden }
 public class SgPlayer : SgBehavior
 {
 	public SgCamera mainCam;
@@ -90,6 +90,10 @@ public class SgPlayer : SgBehavior
 			case SgPlayerStance.Normal:
 				sitSprite.enabled = false;
 				mainRenderer.enabled = true;
+				break;
+			case SgPlayerStance.Hidden:
+				sitSprite.enabled = false;
+				mainRenderer.enabled = false;
 				break;
 		}
 	}

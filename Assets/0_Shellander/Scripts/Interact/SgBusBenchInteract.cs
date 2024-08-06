@@ -17,6 +17,7 @@ public class SgBusBenchInteract : SgInteractGroup
 
 			if(ItemManager.IsCollected(SgItemType.BussCard))
 			{
+				player.SetStance(SgPlayerStance.Hidden);
 				yield return busRoutine;
 				SceneManager.SetRoom(SgRoomName.Solna);
 			}
