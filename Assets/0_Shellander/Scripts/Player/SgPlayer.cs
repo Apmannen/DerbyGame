@@ -372,11 +372,17 @@ public class SgPlayer : SgBehavior
 
 	private void HandleInteractClick(SgInteractGroup hoveredInteractGroup, SgItembarItem hoveredItembarItem)
 	{
+		SgInteractTranslation interactConfig = null;
 		if (hoveredInteractGroup != null)
 		{
+			interactConfig = hoveredInteractGroup.GetInteractConfig(CurrentCursor.interactType);
+		}
+
+		if (hoveredInteractGroup != null && interactConfig != null)
+		{
 			SetInteraction(hoveredInteractGroup, null, CurrentCursor.interactType);
-			SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CurrentCursor.interactType);
-			if (interactConfig.walkToItFirst)
+			
+			if (interactConfig != null && interactConfig.walkToItFirst)
 			{
 				bool overrideDestination = m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null &&
 					m_CurrentInteraction.interactGroup.walkTarget != null; //null propagation shouldn't be used on Unity objects

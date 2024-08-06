@@ -20,11 +20,7 @@ public class SgInteractable : SgBehavior
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		Debug.Log("**** TRIGGER:"+collision);
-	}
-	private void OnTriggerEnter(Collider other)
-	{
-		Debug.Log("**** TRIGGER2:" + other);
+		InteractGroup.OnBeforeInteract(SgInteractType.Collision);
 	}
 }
 
