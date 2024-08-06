@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Shellander/Scenes/Solna.unity
     guid: a0cced890960b79489c93f8f143589df
+  - enabled: 1
+    path: Assets/0_Shellander/Scenes/ApartmentBuilding.unity
+    guid: b85d54c8ea897d3419734167d0256fdd
   m_configObjects: {}
