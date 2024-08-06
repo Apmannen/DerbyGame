@@ -5,6 +5,7 @@ using UnityEngine;
 public class SgBusBenchInteract : SgInteractGroup
 {
 	public SgMoveAnimation bus;
+	public int busCardMissingTranslationId;
 
 	public override IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
@@ -16,6 +17,8 @@ public class SgBusBenchInteract : SgInteractGroup
 			yield return new WaitForSeconds(5);
 			player.SetStance(SgPlayerStance.Normal);
 			yield return busRoutine;
+
+			yield return player.Talk(new int[] { busCardMissingTranslationId });
 		}
 		yield return base.InteractRoutine(player, interactType);
 	}

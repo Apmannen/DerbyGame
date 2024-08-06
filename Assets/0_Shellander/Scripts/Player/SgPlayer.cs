@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -427,21 +428,27 @@ public class SgPlayer : SgBehavior
 		else
 		{
 			interactTranslationIds = interaction.itembarItem.Definition.GetInteractTranslationIds(interaction.type);
-		}		
-
-		foreach (int id in interactTranslationIds)
-		{
-			string translation = TranslationManager.Get(id);
-			this.speechText.text = translation;
-			m_SpeechAborted = false;
-			yield return Wait(3f);
 		}
+
+		yield return Talk(interactTranslationIds);
+
 		yield return interaction.interactGroup.InteractRoutine(this, interaction.type);
 
 		ClearInteraction();
 		speechText.text = "";
 		SetCursor(m_PrevCursor.interactType);
 		SetState(SgPlayerState.None);
+	}
+
+	public IEnumerator Talk(IList<int> translationIds)
+	{
+		foreach (int id in translationIds)
+		{
+			string translation = TranslationManager.Get(id);
+			this.speechText.text = translation;
+			m_SpeechAborted = false;
+			yield return Wait(3f);
+		}
 	}
 
 	private IEnumerator Wait(float maxDuration)
