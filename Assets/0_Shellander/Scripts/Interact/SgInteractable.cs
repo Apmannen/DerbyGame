@@ -17,6 +17,15 @@ public class SgInteractable : SgBehavior
 			Collider.enabled = dependency.gameObject.activeSelf;
 		}
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		Debug.Log("**** TRIGGER:"+collision);
+	}
+	private void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("**** TRIGGER2:" + other);
+	}
 }
 
 [System.Serializable]

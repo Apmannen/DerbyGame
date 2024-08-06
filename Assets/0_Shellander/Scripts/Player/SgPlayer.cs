@@ -270,7 +270,7 @@ public class SgPlayer : SgBehavior
 				continue;
 			}
 			selectedInteractable = interactable;
-		}
+		}		
 
 		//UI
 		if (IsActionsAllowed() && selectedInteractable != null)
