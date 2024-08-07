@@ -6,7 +6,8 @@ public enum SgItemType
 	Illegal, 
 	BussCard, //TODO: refactor name
 	Scissors, 
-	Ticket 
+	Ticket,
+	Crowbar,
 }
 
 public class SgItemDefinition : SgBehavior
