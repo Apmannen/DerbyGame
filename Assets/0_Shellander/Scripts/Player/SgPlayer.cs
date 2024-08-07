@@ -254,23 +254,41 @@ public class SgPlayer : SgBehavior
 		SgInteractGroup hoveredInteractGroup = null;
 		SgItembarItem hoveredItembarItem = null;
 
-		//Detect hover
-		RaycastHit2D[] hits = Physics2D.RaycastAll(cursorWorldPos, Vector2.zero);
-		int bestPrio = -1;
-		SgInteractable selectedInteractable = null;
-		foreach (RaycastHit2D hit in hits)
+		//Detect item bar hover
+		foreach (SgItembarItem itembarItem in HudManager.itembar.items)
 		{
-			if (hit.collider == null || hit.collider.gameObject.layer != SgLayerManager.layerInteractable)
+			if (itembarItem.IsHovered)
 			{
-				continue;
+				hoveredItembarItem = itembarItem;
+				break;
 			}
-			SgInteractable interactable = hit.collider.gameObject.GetComponent<SgInteractable>();
-			if (interactable.priority < bestPrio)
+		}
+		if (hoveredItembarItem != null)
+		{
+			UiCursor.text.text = hoveredItembarItem.Definition.TranslatedName;
+		}
+
+		//Detect interactable hover
+		SgInteractable selectedInteractable = null;
+		if (hoveredItembarItem == null)
+		{
+			RaycastHit2D[] hits = Physics2D.RaycastAll(cursorWorldPos, Vector2.zero);
+			int bestPrio = -1;
+
+			foreach (RaycastHit2D hit in hits)
 			{
-				continue;
+				if (hit.collider == null || hit.collider.gameObject.layer != SgLayerManager.layerInteractable)
+				{
+					continue;
+				}
+				SgInteractable interactable = hit.collider.gameObject.GetComponent<SgInteractable>();
+				if (interactable.priority < bestPrio)
+				{
+					continue;
+				}
+				selectedInteractable = interactable;
 			}
-			selectedInteractable = interactable;
-		}		
+		}
 
 		//UI
 		if (IsActionsAllowed() && selectedInteractable != null)
@@ -278,28 +296,12 @@ public class SgPlayer : SgBehavior
 			hoveredInteractGroup = selectedInteractable.InteractGroup;
 			UiCursor.text.text = hoveredInteractGroup.TranslatedName;
 		}
-		else
+		else if(hoveredItembarItem == null)
 		{
-			foreach(SgItembarItem itembarItem in HudManager.itembar.items)
+			UiCursor.text.text = "";
+			if (IsActionsAllowed())
 			{
-				if(itembarItem.IsHovered)
-				{
-					hoveredItembarItem = itembarItem;
-					break;
-				}
-			}
-
-			if(hoveredItembarItem != null)
-			{
-				UiCursor.text.text = hoveredItembarItem.Definition.TranslatedName;
-			}
-			else
-			{
-				UiCursor.text.text = "";
-				if (IsActionsAllowed())
-				{
-					ClearInteraction();
-				}
+				ClearInteraction();
 			}
 		}
 

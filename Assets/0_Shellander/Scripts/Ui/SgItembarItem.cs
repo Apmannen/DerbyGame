@@ -27,6 +27,7 @@ public class SgItembarItem : MonoBehaviour
 
 	public void OnPointerEnter()
 	{
+		//Debug.Log("*** PENTER:"+this);
 		m_IsHovered = true;
 	}
 	public void OnPointerExit()
