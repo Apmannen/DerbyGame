@@ -160,8 +160,6 @@ public class SgPlayer : SgBehavior
 		{
 			m_PrevCursor = cursors[prevIndex];
 		}
-
-		//Cursor.SetCursor(cursors[index].texture, Vector2.zero, CursorMode.ForceSoftware);
 		
 	}
 
@@ -446,7 +444,10 @@ public class SgPlayer : SgBehavior
 
 		yield return Talk(interactTranslationIds);
 
-		yield return interaction.interactGroup.InteractRoutine(this, interaction.type);
+		if(interaction.interactGroup != null)
+		{
+			yield return interaction.interactGroup.InteractRoutine(this, interaction.type);
+		}
 
 		ClearInteraction();
 		speechText.text = "";
