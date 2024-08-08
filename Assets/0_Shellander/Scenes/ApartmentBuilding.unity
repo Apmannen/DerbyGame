@@ -1502,25 +1502,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 537423196534831295}
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: cursors.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: spawnPositions.Array.size
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: cursors.Array.data[6].sprite
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: spawnPositions.Array.data[0]
       value: 
       objectReference: {fileID: 8105757069028215213}
-    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: cursors.Array.data[6].interactType
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.4

@@ -163,6 +163,12 @@ public class SgPlayer : SgBehavior
 		
 	}
 
+	private void SetItemCursor(SgItemType itemType)
+	{
+		SgCursorTypeDefinition cursor = GetCursor(SgInteractType.Item);
+		cursor.sprite = ItemManager.Get(itemType).sprite;
+		SetCursor(SgInteractType.Item);
+	}
 	private void SetCursor(SgInteractType type)
 	{
 		for(int i = 0; i < cursors.Length; i++)
@@ -431,11 +437,15 @@ public class SgPlayer : SgBehavior
 
 	private IEnumerator InteractRoutine(SgInteraction interaction)
 	{
-		int[] interactTranslationIds;
-		if (interaction.interactGroup != null)
+		int[] interactTranslationIds = new int[] { };
+		if (interaction.IsRoomInteraction)
 		{
 			interactTranslationIds = interaction.interactGroup.GetInteractTranslationIds(interaction.type);
 			interaction.interactGroup.OnBeforeInteract(interaction.type);
+		}
+		else if(interaction.type == SgInteractType.Use)
+		{
+			SetItemCursor(interaction.itembarItem.Definition.itemType);	
 		}
 		else
 		{
@@ -444,7 +454,7 @@ public class SgPlayer : SgBehavior
 
 		yield return Talk(interactTranslationIds);
 
-		if(interaction.interactGroup != null)
+		if(interaction.IsRoomInteraction)
 		{
 			yield return interaction.interactGroup.InteractRoutine(this, interaction.type);
 		}
@@ -486,6 +496,7 @@ public class SgPlayer : SgBehavior
 		public SgInteractGroup interactGroup;
 		public SgItembarItem itembarItem;
 		public SgInteractType type;
+		public bool IsRoomInteraction => interactGroup != null;
 	}
 }
 

@@ -120,6 +120,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2a49dee26b7a8d14f9641bc1d28e229a, type: 3}
   - interactType: 5
     sprite: {fileID: 21300000, guid: 52792fcf29f4032409f7d358ff110307, type: 3}
+  - interactType: 8
+    sprite: {fileID: 0}
   - interactType: 6
     sprite: {fileID: 21300000, guid: 676498c45f03d9b48a40a53d22e835a2, type: 3}
   waitCursor:
