@@ -443,13 +443,19 @@ public class SgPlayer : SgBehavior
 			interactTranslationIds = interaction.interactGroup.GetInteractTranslationIds(interaction.type);
 			interaction.interactGroup.OnBeforeInteract(interaction.type);
 		}
-		else if(interaction.type == SgInteractType.Use)
+		else if(interaction.IsItemInteraction)
 		{
-			SetItemCursor(interaction.itembarItem.Definition.itemType);	
-		}
-		else
-		{
-			interactTranslationIds = interaction.itembarItem.Definition.GetInteractTranslationIds(interaction.type);
+			switch(interaction.type)
+			{
+				case SgInteractType.Look:
+					interactTranslationIds = interaction.itembarItem.Definition.GetInteractTranslationIds(interaction.type);
+					break;
+				case SgInteractType.Use:
+					SetItemCursor(interaction.itembarItem.Definition.itemType);
+					break;
+				default: 
+					break;
+			}			
 		}
 
 		yield return Talk(interactTranslationIds);
@@ -497,6 +503,7 @@ public class SgPlayer : SgBehavior
 		public SgItembarItem itembarItem;
 		public SgInteractType type;
 		public bool IsRoomInteraction => interactGroup != null;
+		public bool IsItemInteraction => itembarItem != null;
 	}
 }
 
