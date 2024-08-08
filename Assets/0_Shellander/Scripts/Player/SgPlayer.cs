@@ -203,7 +203,7 @@ public class SgPlayer : SgBehavior
 		{
 			newIndex = cursors.Length - 1;
 		}
-		if(cursors[newIndex].interactType == SgInteractType.Wait)
+		if(cursors[newIndex].interactType == SgInteractType.Wait || cursors[newIndex].sprite == null)
 		{
 			newIndex = 0;
 		}
