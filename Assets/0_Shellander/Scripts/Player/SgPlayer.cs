@@ -467,7 +467,10 @@ public class SgPlayer : SgBehavior
 
 		ClearInteraction();
 		speechText.text = "";
-		SetCursor(m_PrevCursor.interactType);
+		if(CurrentCursor.interactType == SgInteractType.Wait)
+		{
+			SetCursor(m_PrevCursor.interactType);
+		}
 		SetState(SgPlayerState.None);
 	}
 
