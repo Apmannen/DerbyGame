@@ -31,6 +31,7 @@ public class SgPlayer : SgBehavior
 	private float m_StateActivatedTime;
 	private bool m_SpeechAborted;
 	private static SgPlayer s_Player;
+	private string? m_HighlightedActionTranslation;
 
 	//Input
 	private InputActionMap m_CurrentActionMap;
@@ -92,6 +93,13 @@ public class SgPlayer : SgBehavior
 				SetCursor(HudManager.GetWheelSliceMapping(wheelEvent.slice.sliceName).interactType);
 				break;
 			case SgWeaponWheelEventType.Highlight:
+				m_HighlightedActionTranslation = TranslationManager.Get(HudManager.GetWheelSliceMapping(wheelEvent.slice.sliceName).translationId);
+				break;
+			case SgWeaponWheelEventType.Dehighlight:
+				m_HighlightedActionTranslation = null;
+				break;
+			case SgWeaponWheelEventType.WheelInvisible:
+				m_HighlightedActionTranslation = null;
 				break;
 		}
 	}
@@ -318,6 +326,10 @@ public class SgPlayer : SgBehavior
 		{
 			hoveredInteractGroup = selectedInteractable.InteractGroup;
 			UiCursor.text.text = hoveredInteractGroup.TranslatedName;
+		}
+		else if(m_HighlightedActionTranslation != null)
+		{
+			UiCursor.text.text = m_HighlightedActionTranslation;
 		}
 		else
 		{
