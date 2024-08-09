@@ -56,6 +56,11 @@ public class SgHudManager : SgBehavior
 
 	public SgWheelSliceMapping GetWheelSliceMapping(string sliceName)
 	{
+		if(sliceName.StartsWith("Item"))
+		{
+			SgItemType itemType = (SgItemType) System.Enum.Parse(typeof(SgItemType), sliceName.Replace("Item", ""));
+			return new SgWheelSliceMapping { sliceName = sliceName, interactType = SgInteractType.Item, translationId = ItemManager.Get(itemType).translationId };
+		}
 		return sliceMappings.Single(m => m.sliceName == sliceName);
 	}
 

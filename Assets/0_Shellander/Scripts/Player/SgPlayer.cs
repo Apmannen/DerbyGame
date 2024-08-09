@@ -87,13 +87,19 @@ public class SgPlayer : SgBehavior
 	//Has Weapon Wheel Generator dependency, could be handled by HudManager
 	private void OnItemWheelChange(SgWeaponWheelEvent wheelEvent)
 	{
+		SgWheelSliceMapping sliceMapping = null;
+		if (wheelEvent.slice != null)
+		{
+			sliceMapping = HudManager.GetWheelSliceMapping(wheelEvent.slice.sliceName);
+		}
+
 		switch(wheelEvent.type)
 		{
 			case SgWeaponWheelEventType.Select:
-				SetCursor(HudManager.GetWheelSliceMapping(wheelEvent.slice.sliceName).interactType);
+				SetCursor(sliceMapping.interactType);
 				break;
 			case SgWeaponWheelEventType.Highlight:
-				m_HighlightedActionTranslation = TranslationManager.Get(HudManager.GetWheelSliceMapping(wheelEvent.slice.sliceName).translationId);
+				m_HighlightedActionTranslation = TranslationManager.Get(sliceMapping.translationId);
 				break;
 			case SgWeaponWheelEventType.Dehighlight:
 				m_HighlightedActionTranslation = null;
