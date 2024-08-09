@@ -2830,6 +2830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 1092902455}
   itembar: {fileID: 7772682546703667347}
+  weaponWheel: {fileID: 691094778505766210}
 --- !u!4 &1235134320
 Transform:
   m_ObjectHideFlags: 0

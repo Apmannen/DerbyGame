@@ -233,7 +233,7 @@ public class SgPlayer : SgBehavior
 	}
 	private bool IsActionsAllowed()
 	{
-		return !IsStateAnyInteract();
+		return !IsStateAnyInteract() && !HudManager.IsWheelVisible;
 	}
 	private bool IsCursorAnyInteract()
 	{
@@ -256,42 +256,39 @@ public class SgPlayer : SgBehavior
 		Vector3 cursorWorldPos = mainCam.cam.ScreenToWorldPoint(cursorScreenPos);
 		UiCursor.transform.position = cursorScreenPos;
 		SgInteractGroup hoveredInteractGroup = null;
-		SgItembarItem hoveredItembarItem = null;
 
-		//Detect item bar hover
-		foreach (SgItembarItem itembarItem in HudManager.itembar.items)
-		{
-			if (itembarItem.IsHovered)
-			{
-				hoveredItembarItem = itembarItem;
-				break;
-			}
-		}
-		if (hoveredItembarItem != null)
-		{
-			UiCursor.text.text = hoveredItembarItem.Definition.TranslatedName;
-		}
+		//SgItembarItem hoveredItembarItem = null;
+		////Detect item bar hover
+		//foreach (SgItembarItem itembarItem in HudManager.itembar.items)
+		//{
+		//	if (itembarItem.IsHovered)
+		//	{
+		//		hoveredItembarItem = itembarItem;
+		//		break;
+		//	}
+		//}
+		//if (hoveredItembarItem != null)
+		//{
+		//	UiCursor.text.text = hoveredItembarItem.Definition.TranslatedName;
+		//}
 
 		//Detect interactable hover
 		SgInteractable selectedInteractable = null;
-		if (hoveredItembarItem == null)
-		{
-			RaycastHit2D[] hits = Physics2D.RaycastAll(cursorWorldPos, Vector2.zero);
-			int bestPrio = -1;
+		RaycastHit2D[] hits = Physics2D.RaycastAll(cursorWorldPos, Vector2.zero);
+		int bestPrio = -1;
 
-			foreach (RaycastHit2D hit in hits)
+		foreach (RaycastHit2D hit in hits)
+		{
+			if (hit.collider == null || hit.collider.gameObject.layer != SgLayerManager.layerInteractable)
 			{
-				if (hit.collider == null || hit.collider.gameObject.layer != SgLayerManager.layerInteractable)
-				{
-					continue;
-				}
-				SgInteractable interactable = hit.collider.gameObject.GetComponent<SgInteractable>();
-				if (interactable.priority < bestPrio)
-				{
-					continue;
-				}
-				selectedInteractable = interactable;
+				continue;
 			}
+			SgInteractable interactable = hit.collider.gameObject.GetComponent<SgInteractable>();
+			if (interactable.priority < bestPrio)
+			{
+				continue;
+			}
+			selectedInteractable = interactable;
 		}
 
 		//UI
@@ -300,7 +297,7 @@ public class SgPlayer : SgBehavior
 			hoveredInteractGroup = selectedInteractable.InteractGroup;
 			UiCursor.text.text = hoveredInteractGroup.TranslatedName;
 		}
-		else if(hoveredItembarItem == null)
+		else
 		{
 			UiCursor.text.text = "";
 			if (IsActionsAllowed())
@@ -308,9 +305,17 @@ public class SgPlayer : SgBehavior
 				ClearInteraction();
 			}
 		}
+		//else if(hoveredItembarItem == null)
+		//{
+		//	UiCursor.text.text = "";
+		//	if (IsActionsAllowed())
+		//	{
+		//		ClearInteraction();
+		//	}
+		//}
 
 		//State handling 1
-		if(m_State == SgPlayerState.InteractWalking && HasReachedDestination())
+		if (m_State == SgPlayerState.InteractWalking && HasReachedDestination())
 		{
 			walkAnimation.Stop();
 			SetState(SgPlayerState.Interacting);
@@ -336,7 +341,7 @@ public class SgPlayer : SgBehavior
 
 				if(IsCursorAnyInteract())
 				{
-					HandleInteractClick(hoveredInteractGroup, hoveredItembarItem);
+					HandleInteractClick(hoveredInteractGroup, null); // hoveredItembarItem);
 				}
 				
 			}
@@ -406,13 +411,13 @@ public class SgPlayer : SgBehavior
 			}
 
 		}
-		else if (hoveredItembarItem != null)
-		{
-			SetInteraction(null, hoveredItembarItem, CurrentCursor.interactType);
-			SetDestination(this.transform.position);
-			walkAnimation.Stop();
-			SetState(SgPlayerState.Interacting);
-		}
+		//else if (hoveredItembarItem != null)
+		//{
+		//	SetInteraction(null, hoveredItembarItem, CurrentCursor.interactType);
+		//	SetDestination(this.transform.position);
+		//	walkAnimation.Stop();
+		//	SetState(SgPlayerState.Interacting);
+		//}
 	}
 
 	private bool HasReachedDestination()
