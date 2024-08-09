@@ -98,8 +98,12 @@ public class SgPlayer : SgBehavior
 			case SgWeaponWheelEventType.Dehighlight:
 				m_HighlightedActionTranslation = null;
 				break;
+			case SgWeaponWheelEventType.WheelVisible:
+				SetCursor(SgInteractType.Generic);
+				break;
 			case SgWeaponWheelEventType.WheelInvisible:
 				m_HighlightedActionTranslation = null;
+				SetCursor(m_PrevCursor.interactType);
 				break;
 		}
 	}

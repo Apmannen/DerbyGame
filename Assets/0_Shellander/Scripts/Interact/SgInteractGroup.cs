@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public enum SgInteractType { Illegal, Walk, Look, Use, Pickup, Talk, Wait, Collision, Item }
+public enum SgInteractType { Illegal, Walk, Look, Use, Pickup, Talk, Wait, Collision, Item, Generic }
 
 public class SgInteractGroup : SgBehavior
 {
