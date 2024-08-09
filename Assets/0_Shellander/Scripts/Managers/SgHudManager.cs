@@ -1,5 +1,6 @@
 using ShellanderGames.WeaponWheel;
 using UnityEngine;
+using System.Linq;
 
 public class SgHudManager : MonoBehaviour
 {
@@ -8,12 +9,22 @@ public class SgHudManager : MonoBehaviour
 	public SgWeaponWheel weaponWheel;
 	public CanvasGroup wheelBgGroup;
 	public float wheelBgAlphaSmoothTime = 0.1f;
+	public SgWheelSliceMapping[] sliceMappings;
 
 	private float m_BgAlphaVel = 0;
 
-	private void Awake()
+	public void AddWheelListener(System.Action<SgWeaponWheelEvent> action)
 	{
-		weaponWheel.AddEventCallback(OnWheelEvent);
+		weaponWheel.AddEventCallback(action);
+	}
+	public void RemoveWheelListener(System.Action<SgWeaponWheelEvent> action)
+	{
+		weaponWheel.RemoveEventCallback(action);
+	}
+
+	public SgWheelSliceMapping GetWheelSliceMapping(string sliceName)
+	{
+		return sliceMappings.Single(m => m.sliceName == sliceName);
 	}
 
 	private void Update()
@@ -21,10 +32,13 @@ public class SgHudManager : MonoBehaviour
 		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
 	}
 
-	private void OnWheelEvent(SgWeaponWheelEvent wheelEvent)
-	{
-		
-	}
-
 	public bool IsWheelVisible => weaponWheel.IsVisible;
+}
+
+[System.Serializable]
+public class SgWheelSliceMapping
+{
+	public string sliceName;
+	public SgInteractType interactType;
+	public int translationId;
 }

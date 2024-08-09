@@ -2920,7 +2920,23 @@ MonoBehaviour:
   itembar: {fileID: 7772682546703667347}
   weaponWheel: {fileID: 691094778505766210}
   wheelBgGroup: {fileID: 457902562}
-  wheelBgAlphaSpeed: 0.2
+  wheelBgAlphaSmoothTime: 0.1
+  sliceMappings:
+  - sliceName: ActionWalk
+    interactType: 1
+    translationId: 66
+  - sliceName: ActionLookAt
+    interactType: 2
+    translationId: 67
+  - sliceName: ActionUse
+    interactType: 3
+    translationId: 68
+  - sliceName: ActionPickUp
+    interactType: 4
+    translationId: 69
+  - sliceName: ActionTalk
+    interactType: 5
+    translationId: 70
 --- !u!4 &1235134320
 Transform:
   m_ObjectHideFlags: 0

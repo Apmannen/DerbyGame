@@ -1,3 +1,5 @@
+using ShellanderGames.WeaponWheel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,8 +74,28 @@ public class SgPlayer : SgBehavior
 
 		SetCursor(0);
 		mainCam.AttachPlayer(this);
+
+		HudManager.AddWheelListener(OnItemWheelChange);
 	}
-	
+
+	private void OnDestroy()
+	{
+		HudManager.RemoveWheelListener(OnItemWheelChange);
+	}
+
+	//Has Weapon Wheel Generator dependency, could be handled by HudManager
+	private void OnItemWheelChange(SgWeaponWheelEvent wheelEvent)
+	{
+		switch(wheelEvent.type)
+		{
+			case SgWeaponWheelEventType.Select:
+				SetCursor(HudManager.GetWheelSliceMapping(wheelEvent.slice.sliceName).interactType);
+				break;
+			case SgWeaponWheelEventType.Highlight:
+				break;
+		}
+	}
+
 	public static SgPlayer Get()
 	{
 		return s_Player;
