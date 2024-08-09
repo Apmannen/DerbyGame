@@ -395,7 +395,6 @@ public class SgPlayer : SgBehavior
 		else if(HudManager.IsWheelVisible && m_ShiftCursorRight.WasPressedThisFrame() && 
 			m_LastHighlightedSlice.ItemType != SgItemType.Illegal)
 		{
-			Debug.Log("*** trigger int:"+m_LastHighlightedSlice.ItemType);
 			SetInteraction(null, m_LastHighlightedSlice.ItemType, SgInteractType.Look);
 			SetDestination(this.transform.position);
 			walkAnimation.Stop();
@@ -452,13 +451,6 @@ public class SgPlayer : SgBehavior
 			}
 
 		}
-		//else if (hoveredItembarItem != null)
-		//{
-		//	SetInteraction(null, hoveredItembarItem, CurrentCursor.interactType);
-		//	SetDestination(this.transform.position);
-		//	walkAnimation.Stop();
-		//	SetState(SgPlayerState.Interacting);
-		//}
 	}
 
 	private bool HasReachedDestination()
@@ -496,9 +488,6 @@ public class SgPlayer : SgBehavior
 				case SgInteractType.Look:
 					interactTranslationIds = ItemManager.Get(interaction.itemWheelItem).GetInteractTranslationIds(interaction.type);
 					break;
-				//case SgInteractType.Use:
-				//	SetItemCursor(interaction.itembarItem.Definition.itemType);
-				//	break;
 				default: 
 					break;
 			}			
