@@ -96,7 +96,14 @@ public class SgPlayer : SgBehavior
 		switch(wheelEvent.type)
 		{
 			case SgWeaponWheelEventType.Select:
-				SetCursor(sliceMapping.interactType);
+				if(sliceMapping.interactType == SgInteractType.Item)
+				{
+					SetItemCursor(sliceMapping.ItemType);
+				}
+				else
+				{
+					SetCursor(sliceMapping.interactType);
+				}
 				break;
 			case SgWeaponWheelEventType.Highlight:
 				m_HighlightedActionTranslation = TranslationManager.Get(sliceMapping.translationId);

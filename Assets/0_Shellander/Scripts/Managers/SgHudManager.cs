@@ -58,8 +58,9 @@ public class SgHudManager : SgBehavior
 	{
 		if(sliceName.StartsWith("Item"))
 		{
-			SgItemType itemType = (SgItemType) System.Enum.Parse(typeof(SgItemType), sliceName.Replace("Item", ""));
-			return new SgWheelSliceMapping { sliceName = sliceName, interactType = SgInteractType.Item, translationId = ItemManager.Get(itemType).translationId };
+			SgItemType itemType = SgWheelSliceMapping.GetItemType(sliceName);
+			return new SgWheelSliceMapping { sliceName = sliceName, interactType = SgInteractType.Item, 
+				translationId = ItemManager.Get(itemType).translationId };
 		}
 		return sliceMappings.Single(m => m.sliceName == sliceName);
 	}
@@ -78,4 +79,10 @@ public class SgWheelSliceMapping
 	public string sliceName;
 	public SgInteractType interactType;
 	public int translationId;
+
+	public static SgItemType GetItemType(string aSliceName)
+	{
+		return (SgItemType)System.Enum.Parse(typeof(SgItemType), aSliceName.Replace("Item", ""));
+	}
+	public SgItemType ItemType => GetItemType(sliceName);
 }
