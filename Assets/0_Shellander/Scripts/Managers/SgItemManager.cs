@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 public class SgItemManager : SgBehavior
 {
 	public SgItemDefinition[] itemDefinitions;
@@ -26,6 +29,21 @@ public class SgItemManager : SgBehavior
 		definition.Savable.isCollected.Set(true);
 		definition.Savable.collectTime.Set(SgUtil.CurrentTimeMs());
 
-		HudManager.itembar.Refresh();
+		//HudManager.itembar.Refresh();
+		HudManager.RefreshWheel();
+	}
+
+	public List<SgItemDefinition> GetAvailableItems()
+	{
+		List<SgItemDefinition> availableItems = new();
+		foreach (SgItemDefinition definition in ItemManager.itemDefinitions)
+		{
+			if (definition.IsColleted)
+			{
+				availableItems.Add(definition);
+			}
+		}
+		availableItems.OrderBy(definition => definition.Savable.collectTime.Value);
+		return availableItems;
 	}
 }
