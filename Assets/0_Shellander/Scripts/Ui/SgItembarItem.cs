@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Obsolete("Item wheel is used instead (2)")]
 public class SgItembarItem : MonoBehaviour
 {
 	private Image m_Image;
