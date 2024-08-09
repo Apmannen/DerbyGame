@@ -82,6 +82,10 @@ public class SgWheelSliceMapping
 
 	public static SgItemType GetItemType(string aSliceName)
 	{
+		if(!aSliceName.StartsWith("Item"))
+		{
+			return SgItemType.Illegal;
+		}
 		return (SgItemType)System.Enum.Parse(typeof(SgItemType), aSliceName.Replace("Item", ""));
 	}
 	public SgItemType ItemType => GetItemType(sliceName);
