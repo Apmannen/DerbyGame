@@ -19,26 +19,31 @@ public class SgPlayer : SgBehavior
 	public SgSpawnPosition[] spawnPositions;
 
 	private enum SgPlayerState { None, Walking, InteractWalking, Interacting }
-	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
-	private SgCursorTypeDefinition m_PrevCursor;
+	
 	private SgPlayerState m_State = SgPlayerState.None;
 	private Vector3 m_WalkTarget;
 	private NavMeshAgent m_Agent;
 	private Vector3 m_PrevPos;
 	private int m_CurrentCursorIndex = 0;
-	private SgUiCursor UiCursor => HudManager.cursor;
 	private readonly SgInteraction m_CurrentInteraction = new();
 	private float m_StateActivatedTime;
 	private bool m_SpeechAborted;
 	private static SgPlayer s_Player;
 	private string? m_HighlightedActionTranslation;
 
+
+	//Cursor
+	private SgItemType m_CursorItem = SgItemType.Illegal;
+	private SgUiCursor UiCursor => HudManager.cursor;
+	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
+	private SgCursorTypeDefinition m_PrevCursor;
+
 	//Input
 	private InputActionMap m_CurrentActionMap;
 	private PlayerInput m_PlayerInput;
 	private InputAction m_ClickAction;
 	private InputAction m_PointerAction;
-	private InputAction m_ShiftCursorRight;
+	private InputAction m_ShiftCursorRight; //TODO: rename since ince multi-purpose
 
 	private void Awake()
 	{
@@ -215,6 +220,7 @@ public class SgPlayer : SgBehavior
 		SgCursorTypeDefinition cursor = GetCursor(SgInteractType.Item);
 		cursor.sprite = ItemManager.Get(itemType).sprite;
 		SetCursor(SgInteractType.Item);
+		m_CursorItem = itemType;
 	}
 	private void SetCursor(SgInteractType type)
 	{
@@ -223,6 +229,7 @@ public class SgPlayer : SgBehavior
 			if(cursors[i].interactType == type)
 			{
 				SetCursor(i);
+				m_CursorItem = SgItemType.Illegal;
 				return;
 			}
 		}
@@ -405,6 +412,10 @@ public class SgPlayer : SgBehavior
 			(m_ClickAction.WasPressedThisFrame() || m_ShiftCursorRight.WasPressedThisFrame()))
 		{
 			SkipSpeech();
+		}
+		else if(HudManager.IsWheelVisible && m_ShiftCursorRight.WasPressedThisFrame())
+		{
+			Debug.Log("**** m_CursorItem="+ m_CursorItem);
 		}
 		
 
