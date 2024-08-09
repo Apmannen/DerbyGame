@@ -43,7 +43,7 @@ public class SgItemManager : SgBehavior
 				availableItems.Add(definition);
 			}
 		}
-		availableItems.OrderBy(definition => definition.Savable.collectTime.Value);
+		availableItems = availableItems.OrderBy(definition => definition.Savable.collectTime.Value).ToList();
 		return availableItems;
 	}
 }
