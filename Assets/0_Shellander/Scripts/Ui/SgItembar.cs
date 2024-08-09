@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
 
-[System.Obsolete("Replaced by item wheel")]
+[System.Obsolete("Replaced by item wheel")]//
 public class SgItembar : SgBehavior
 {
 	public SgItembarItem[] items;
