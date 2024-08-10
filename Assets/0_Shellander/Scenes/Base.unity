@@ -5490,6 +5490,13 @@ MonoBehaviour:
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+  - interactType: 8
+    translationIds: 4b000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
 --- !u!1 &1923271499
 GameObject:
   m_ObjectHideFlags: 0
