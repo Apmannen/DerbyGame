@@ -28,7 +28,6 @@ public class SgSavedActivation : SgBehavior
 
 		bool oldActive = this.gameObject.activeSelf;
 		bool newActive = (activateWhenNamedTrue && value) || (!activateWhenNamedTrue && !value);
-		Debug.Log("** SAVEDACTIVATION val="+value+", this:"+this+", newactive:"+newActive, this.gameObject);
 		if(oldActive != newActive || forceChange)
 		{
 			this.gameObject.SetActive(newActive);

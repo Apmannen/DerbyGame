@@ -1611,6 +1611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoleObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2092867715909139703, guid: 8930dffe758e8d84ab5d59891d352696, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5683821618311090348, guid: 8930dffe758e8d84ab5d59891d352696, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4113133
