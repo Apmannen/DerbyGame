@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -66,6 +65,7 @@ public class SgSaveDataManager : SgBehavior
 				m_NamedBools[name] = new SgSavableBool(SaveFileId, "NamedBool_"+name, false, SgPropertySaveAction.Delayed);
 			}
 			m_NamedBools[name].Set(value);
+			SgManagers._.eventManager.Execute(SgEventName.NamedSaveBoolUpdated);
 		}
 	}
 

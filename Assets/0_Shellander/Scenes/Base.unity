@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756b9e287a2462d4c9de08040f81fb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 2102424263}
   hudManager: {fileID: 1235134319}
   itemManager: {fileID: 1016912861}
   layerManager: {fileID: 441934433}
@@ -388,6 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2102424264}
   - {fileID: 1235134320}
   - {fileID: 1016912860}
   - {fileID: 441934432}
@@ -445,12 +447,14 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: fc0e26e50cbd669419e0348ed7b6e458, type: 3}
   interactTranslations:
   - interactType: 2
+    itemType: 0
     translationIds: 3400000035000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 1
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
 --- !u!1 &187295477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,12 +2758,14 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c3b41aa3518b6bf4f94e1be974bf3c01, type: 3}
   interactTranslations:
   - interactType: 2
+    itemType: 0
     translationIds: 1a000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
 --- !u!1 &1219385838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,12 +3597,14 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a731e33148d23f146be513c5ad04f579, type: 3}
   interactTranslations:
   - interactType: 2
+    itemType: 0
     translationIds: 3f000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
 --- !u!1 &1319446629
 GameObject:
   m_ObjectHideFlags: 0
@@ -4581,12 +4589,14 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 9d1cab20cce3f994097b7f97f4526376, type: 3}
   interactTranslations:
   - interactType: 2
+    itemType: 0
     translationIds: 0d0000000e000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
 --- !u!1 &1516207971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5470,33 +5480,41 @@ MonoBehaviour:
   interactsSe: {fileID: 4900000, guid: 50e27c96443b57b419a1c760662c04ac, type: 3}
   defaultTranslations:
   - interactType: 5
+    itemType: 0
     translationIds: 01000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
   - interactType: 3
+    itemType: 0
     translationIds: 13000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
   - interactType: 4
+    itemType: 0
     translationIds: 14000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
   - interactType: 8
+    itemType: 0
     translationIds: 4b000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
     onlyWhenNotCollected: 0
     transitionToRoom: 0
+    setNamedBool: 
 --- !u!1 &1923271499
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,6 +6445,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822a2b7d0cb7c004da1f51e100dffa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2102424262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102424264}
+  - component: {fileID: 2102424263}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2102424263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102424262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ca4c2eb7f168547925aa7505894478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2102424264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102424262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 130489665}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112639527
 GameObject:
   m_ObjectHideFlags: 0

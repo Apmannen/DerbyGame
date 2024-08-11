@@ -585,7 +585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 585730814}
   - component: {fileID: 585730816}
-  - component: {fileID: 585730815}
+  - component: {fileID: 585730817}
   m_Layer: 0
   m_Name: OpenHole
   m_TagString: Untagged
@@ -608,21 +608,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 633702610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &585730815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585730813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f13118148d9074ba5e5b189691b264, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deactivate: 1
-  onAwake: 1
-  onStart: 0
 --- !u!212 &585730816
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -675,6 +660,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &585730817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585730813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accc3bc5b9905c54a9c74bffd3c68d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namedBool: CoverOpen
+  activateWhenNamedBoolIsTrue: 1
 --- !u!1 &633702608
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849763979}
   - component: {fileID: 849763981}
-  - component: {fileID: 849763980}
+  - component: {fileID: 849763982}
   m_Layer: 0
   m_Name: HoleCover
   m_TagString: Untagged
@@ -759,21 +758,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 633702610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &849763980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849763978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f13118148d9074ba5e5b189691b264, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deactivate: 1
-  onAwake: 1
-  onStart: 0
 --- !u!212 &849763981
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -826,6 +810,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &849763982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849763978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accc3bc5b9905c54a9c74bffd3c68d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namedBool: CoverOpen
+  activateWhenNamedBoolIsTrue: 1
 --- !u!1 &1020350718
 GameObject:
   m_ObjectHideFlags: 0

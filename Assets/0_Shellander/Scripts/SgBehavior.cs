@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SgBehavior : MonoBehaviour
 {
+	protected SgEventManager EventManager => SgManagers._.eventManager;
 	protected SgHudManager HudManager => SgManagers._.hudManager;
 	protected SgItemManager ItemManager => SgManagers._.itemManager;
 	protected SgLayerManager LayerManager => SgManagers._.layerManager;
