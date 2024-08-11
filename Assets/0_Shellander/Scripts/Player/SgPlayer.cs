@@ -61,6 +61,7 @@ public class SgPlayer : SgBehavior
 			if(SceneManager.PrevRoom == spawnPos.connectedRoom)
 			{
 				this.transform.position = spawnPos.transform.position;
+				Debug.Log("**** #21; POS SET");
 				break;
 			}
 		}

@@ -3,38 +3,39 @@ using UnityEngine;
 
 public class SgSavedActivation : SgBehavior
 {
+	public bool auto = true;
     public string namedBool;
 	public bool activateWhenNamedTrue;
-	public NavMeshSurface navMeshToRebuild;
 
 	private void Start()
 	{
-		EventManager.Register(SgEventName.NamedSaveBoolUpdated, RefreshActivation);
-		RefreshActivation(true);
+		if(auto)
+		{
+			EventManager.Register(SgEventName.NamedSaveBoolUpdated, RefreshActivationVoid);
+			RefreshActivation();
+		}
 	}
 	private void OnDestroy()
 	{
-		EventManager.Unregister(SgEventName.NamedSaveBoolUpdated, RefreshActivation);
+		if (auto)
+		{
+			EventManager.Unregister(SgEventName.NamedSaveBoolUpdated, RefreshActivationVoid);
+		}
 	}
 
-	private void RefreshActivation()
+	private void RefreshActivationVoid()
 	{
-		RefreshActivation(false);
+		RefreshActivation();
 	}
 
-	private void RefreshActivation(bool forceChange)
+	public bool RefreshActivation()
 	{
 		bool value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(namedBool);
 
 		bool oldActive = this.gameObject.activeSelf;
 		bool newActive = (activateWhenNamedTrue && value) || (!activateWhenNamedTrue && !value);
-		if(oldActive != newActive || forceChange)
-		{
-			this.gameObject.SetActive(newActive);
-			if(navMeshToRebuild != null)
-			{
-				navMeshToRebuild.BuildNavMesh();
-			}
-		}
+		this.gameObject.SetActive(newActive);
+
+		return newActive != oldActive;
 	}
 }
