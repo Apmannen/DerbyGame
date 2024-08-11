@@ -1,4 +1,5 @@
 using NavMeshPlus.Components;
+using UnityEngine;
 
 public class SgNavMesh : SgBehavior
 {
@@ -33,7 +34,8 @@ public class SgNavMesh : SgBehavior
 		if(anyChange)
 		{
 			navMesh.BuildNavMesh();
-			EventManager.Execute(SgEventName.NavMeshRebuild, initial);
+			Debug.Log("*** ONREBUILD execute");
+			EventManager.Execute<bool>(SgEventName.NavMeshRebuild, initial);
 		}
 	}
 }

@@ -51,7 +51,14 @@ public class SgPlayer : SgBehavior
 		s_Player = this;
 
 		MoveToSpawnPos();
+		Debug.Log("*** ONREBUILD register");
+		EventManager.Register(SgEventName.NavMeshRebuild, Tmp);
 		EventManager.Register<bool>(SgEventName.NavMeshRebuild, OnRebuild);
+	}
+
+	private void Tmp()
+	{
+		Debug.Log("*** ONREBUILD tmp");
 	}
 
 	private void Start()

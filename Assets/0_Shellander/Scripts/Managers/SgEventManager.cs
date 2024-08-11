@@ -6,10 +6,11 @@ public enum SgEventName { NamedSaveBoolUpdated, NavMeshRebuild }
 
 public class SgEventManager : MonoBehaviour
 {
-	private Dictionary<SgEventName, List<SgEvent>> m_Listeners = new();
+	private readonly Dictionary<SgEventName, List<SgEvent>> m_Listeners = new();
 
 	private void Awake()
 	{
+		Debug.Log("**** ONREBUILD construct");
 		var eventNames = Enum.GetValues(typeof(SgEventName));
 		foreach (SgEventName eventName in eventNames)
 		{
@@ -23,7 +24,10 @@ public class SgEventManager : MonoBehaviour
 	}
 	public void Register<T>(SgEventName eventName, Action<T> action)
 	{
-		m_Listeners[eventName].Add(new SgEvent { action1 = action as Action<object> });
+		SgEvent e = new SgEvent { action1 = action };
+		//e.action1 = action as Action<object>;
+		m_Listeners[eventName].Add(e);
+		Debug.Log("**** ONREBUILD added e:"+e.action0+" --- "+e.action1);
 	}
 	public void Unregister(SgEventName eventName, Action action)
 	{
@@ -45,14 +49,15 @@ public class SgEventManager : MonoBehaviour
 	{
 		foreach (SgEvent anEvent in m_Listeners[eventName])
 		{
-			anEvent.action1?.Invoke(param);
+			Debug.Log("**** ONREBUILD a0:"+anEvent.action0+", a1:"+anEvent.action1);
+			((Action<T>)anEvent.action1)?.Invoke(param);
 		}
 	}
 
-	private struct SgEvent
+	private class SgEvent
 	{
 		public Action action0;
-		public Action<object> action1;
+		public object action1;
 	}
 }
 
