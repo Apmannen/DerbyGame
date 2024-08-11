@@ -66,6 +66,7 @@ public class SgTranslationManager : SgBehavior
 				{
 					return interactConfig;
 				}
+				continue;
 			}
 
 			if (interactConfig.interactType == interactType)

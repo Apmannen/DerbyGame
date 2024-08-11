@@ -268,16 +268,17 @@ public class SgPlayer : SgBehavior
 		SetCursor(newIndex);
 	}
 
-	private void SetInteraction(SgInteractGroup interactGroup, SgItemType itemWheelItem, SgInteractType type)
+	private void SetInteraction(SgInteractGroup interactGroup, SgItemType itemWheelItem, SgItemType useItemType, SgInteractType type)
 	{
 		m_CurrentInteraction.interactGroup = interactGroup;
 		m_CurrentInteraction.itemWheelItem = itemWheelItem;
+		m_CurrentInteraction.useItem = useItemType;
 		m_CurrentInteraction.type = type;
 	}
 
 	private void ClearInteraction()
 	{
-		SetInteraction(null, SgItemType.Illegal, SgInteractType.Illegal);
+		SetInteraction(null, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Illegal);
 	}
 
 	private bool IsStateAnyWalking()
@@ -300,6 +301,7 @@ public class SgPlayer : SgBehavior
 			case SgInteractType.Pickup:
 			case SgInteractType.Talk:
 			case SgInteractType.Use:
+			case SgInteractType.Item:
 				return true;
 			default:
 				return false;
@@ -396,7 +398,7 @@ public class SgPlayer : SgBehavior
 		else if(HudManager.IsWheelVisible && m_ShiftCursorRight.WasPressedThisFrame() && 
 			m_LastHighlightedSlice.ItemType != SgItemType.Illegal)
 		{
-			SetInteraction(null, m_LastHighlightedSlice.ItemType, SgInteractType.Look);
+			SetInteraction(null, m_LastHighlightedSlice.ItemType, SgItemType.Illegal, SgInteractType.Look);
 			SetDestination(this.transform.position);
 			walkAnimation.Stop();
 			SetState(SgPlayerState.Interacting);
@@ -432,7 +434,7 @@ public class SgPlayer : SgBehavior
 
 		if (interactConfig != null)
 		{
-			SetInteraction(hoveredInteractGroup, SgItemType.Illegal, CurrentCursor.interactType);
+			SetInteraction(hoveredInteractGroup, SgItemType.Illegal, CursorItem, CurrentCursor.interactType);
 			
 			if (interactConfig != null && interactConfig.walkToItFirst)
 			{
@@ -479,8 +481,8 @@ public class SgPlayer : SgBehavior
 		int[] interactTranslationIds = new int[] { };
 		if (interaction.IsRoomInteraction)
 		{
-			interactTranslationIds = interaction.interactGroup.GetInteractTranslationIds(interaction.type, interaction.useItemWheelItem);
-			interaction.interactGroup.OnBeforeInteract(interaction.type, interaction.useItemWheelItem);
+			interactTranslationIds = interaction.interactGroup.GetInteractTranslationIds(interaction.type, interaction.useItem);
+			interaction.interactGroup.OnBeforeInteract(interaction.type, interaction.useItem);
 		}
 		else if(interaction.IsItemInteraction)
 		{
@@ -540,7 +542,7 @@ public class SgPlayer : SgBehavior
 	{
 		public SgInteractGroup interactGroup;
 		public SgItemType itemWheelItem; //interaction on the item
-		public SgItemType useItemWheelItem; //an item is used as cursor
+		public SgItemType useItem; //an item is used as cursor
 		public SgInteractType type;
 		public bool IsRoomInteraction => interactGroup != null;
 		public bool IsItemInteraction => !IsRoomInteraction && type != SgInteractType.Illegal;

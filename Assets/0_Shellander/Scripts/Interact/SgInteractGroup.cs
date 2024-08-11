@@ -89,6 +89,9 @@ public class SgInteractGroup : SgBehavior
 		{
 			interactConfig = TranslationManager.GetDefaultTranslation(interactType);
 		}
+
+		Debug.Log("**** GETICONF:"+interactType+";"+itemType+"; "+(interactConfig!=null)+" ;"+(interactConfig != null ? interactConfig.translationIds[0] : null));
+
 		return interactConfig;
 	}
 
