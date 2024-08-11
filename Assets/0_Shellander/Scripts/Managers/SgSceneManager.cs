@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SgRoomName { Illegal, Home, Stockholm, Solna, ApartmentBuilding }
+public enum SgRoomName { Illegal, Home, Stockholm, Solna, ApartmentBuilding, Sewers }
 
 public class SgSceneManager : MonoBehaviour
 {

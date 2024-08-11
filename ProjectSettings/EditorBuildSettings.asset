@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Shellander/Scenes/ApartmentBuilding.unity
     guid: b85d54c8ea897d3419734167d0256fdd
+  - enabled: 1
+    path: Assets/0_Shellander/Scenes/Sewers.unity
+    guid: c8bcf14133ad2c14485e59bcee8421bd
   m_configObjects: {}
