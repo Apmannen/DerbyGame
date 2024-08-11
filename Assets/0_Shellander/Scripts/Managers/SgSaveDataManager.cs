@@ -54,17 +54,21 @@ public class SgSaveDataManager : SgBehavior
 			}
 		}
 
+		private SgSavableBool GetNamedBool(string name)
+		{
+			if (!m_NamedBools.ContainsKey(name))
+			{
+				m_NamedBools[name] = new SgSavableBool(SaveFileId, "NamedBool_" + name, false, SgPropertySaveAction.Delayed);
+			}
+			return m_NamedBools[name];
+		}
 		public bool GetNamedBoolValue(string name)
 		{
-			return m_NamedBools.ContainsKey(name) && m_NamedBools[name].Value == true;
+			return GetNamedBool(name).Value == true;
 		}
 		public void SetNamedBoolValue(string name, bool value)
 		{
-			if(!m_NamedBools.ContainsKey(name))
-			{
-				m_NamedBools[name] = new SgSavableBool(SaveFileId, "NamedBool_"+name, false, SgPropertySaveAction.Delayed);
-			}
-			m_NamedBools[name].Set(value);
+			GetNamedBool(name).Set(value);
 			SgManagers._.eventManager.Execute(SgEventName.NamedSaveBoolUpdated);
 		}
 	}
