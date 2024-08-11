@@ -6,8 +6,6 @@ public class SgSavedActivation : SgBehavior
 	public bool activateWhenNamedBoolIsTrue;
 	public NavMeshSurface navMeshToRebuild;
 
-	//private AsyncOperation m_BuildOperation;
-
 	private void Start()
 	{
 		EventManager.Register(SgEventName.NamedSaveBoolUpdated, RefreshActivation);
@@ -36,10 +34,6 @@ public class SgSavedActivation : SgBehavior
 			{
 				navMeshToRebuild.BuildNavMesh();
 			}
-			//if(m_BuildOperation == null || m_BuildOperation.isDone)
-			//{
-			//	m_BuildOperation = navMeshRebake.BuildNavMeshAsync();
-			//}
 		}
 	}
 }
