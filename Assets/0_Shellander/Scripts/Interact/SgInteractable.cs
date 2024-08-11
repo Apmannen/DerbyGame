@@ -20,7 +20,7 @@ public class SgInteractable : SgBehavior
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		InteractGroup.OnBeforeInteract(SgInteractType.Collision);
+		InteractGroup.OnBeforeInteract(SgInteractType.Collision, SgItemType.Illegal);
 	}
 }
 

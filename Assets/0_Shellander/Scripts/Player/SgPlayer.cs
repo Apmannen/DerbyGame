@@ -34,6 +34,7 @@ public class SgPlayer : SgBehavior
 
 	//Cursor
 	private SgItemType m_CursorItem = SgItemType.Illegal;
+	private SgItemType CursorItem => CurrentCursor.interactType == SgInteractType.Item ? m_CursorItem : SgItemType.Illegal;
 	private SgUiCursor UiCursor => HudManager.cursor;
 	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
 	private SgCursorTypeDefinition m_PrevCursor;
@@ -427,7 +428,7 @@ public class SgPlayer : SgBehavior
 
 	private void HandleInteractClick(SgInteractGroup hoveredInteractGroup)
 	{
-		SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CurrentCursor.interactType);
+		SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CurrentCursor.interactType, CursorItem);
 
 		if (interactConfig != null)
 		{
@@ -478,8 +479,8 @@ public class SgPlayer : SgBehavior
 		int[] interactTranslationIds = new int[] { };
 		if (interaction.IsRoomInteraction)
 		{
-			interactTranslationIds = interaction.interactGroup.GetInteractTranslationIds(interaction.type);
-			interaction.interactGroup.OnBeforeInteract(interaction.type);
+			interactTranslationIds = interaction.interactGroup.GetInteractTranslationIds(interaction.type, interaction.useItemWheelItem);
+			interaction.interactGroup.OnBeforeInteract(interaction.type, interaction.useItemWheelItem);
 		}
 		else if(interaction.IsItemInteraction)
 		{
@@ -538,7 +539,8 @@ public class SgPlayer : SgBehavior
 	private class SgInteraction
 	{
 		public SgInteractGroup interactGroup;
-		public SgItemType itemWheelItem;
+		public SgItemType itemWheelItem; //interaction on the item
+		public SgItemType useItemWheelItem; //an item is used as cursor
 		public SgInteractType type;
 		public bool IsRoomInteraction => interactGroup != null;
 		public bool IsItemInteraction => !IsRoomInteraction && type != SgInteractType.Illegal;

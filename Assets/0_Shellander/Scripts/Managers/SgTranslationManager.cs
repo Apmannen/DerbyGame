@@ -39,29 +39,38 @@ public class SgTranslationManager : SgBehavior
 	
 	public SgInteractTranslation GetDefaultTranslation(SgInteractType interactType)
 	{
-		return GetInteractTranslation(defaultTranslations, interactType, false);
+		return GetInteractTranslation(defaultTranslations, interactType, false, SgItemType.Illegal);
 	}
 
 	public static int[] GetInteractTranslationIds(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
 	{
-		return GetInteractTranslation(interactTranslations, interactType, isCollected).translationIds;
+		return GetInteractTranslation(interactTranslations, interactType, isCollected, SgItemType.Illegal).translationIds;
 	}
-	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
+	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
+		SgItemType itemType)
 	{
-		foreach (SgInteractTranslation interactTranslation in interactTranslations)
+		foreach (SgInteractTranslation interactConfig in interactConfigs)
 		{
-			if(interactTranslation.onlyWhenCollected && !isCollected)
+			if(interactConfig.onlyWhenCollected && !isCollected)
 			{
 				continue;
 			}
-			if(interactTranslation.onlyWhenNotCollected && isCollected)
+			if(interactConfig.onlyWhenNotCollected && isCollected)
 			{
 				continue;
 			}
 
-			if (interactTranslation.interactType == interactType)
+			if (interactType == SgInteractType.Item)
 			{
-				return interactTranslation;
+				if(interactConfig.interactType == interactType && interactConfig.itemType == itemType)
+				{
+					return interactConfig;
+				}
+			}
+
+			if (interactConfig.interactType == interactType)
+			{
+				return interactConfig;
 			}
 		}
 		return null;
@@ -72,6 +81,7 @@ public class SgTranslationManager : SgBehavior
 public class SgInteractTranslation
 {
 	public SgInteractType interactType;
+	public SgItemType itemType;
 	public int[] translationIds;
 	public bool walkToItFirst;
 	public bool toggleSprite = false;

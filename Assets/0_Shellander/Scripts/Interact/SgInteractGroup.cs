@@ -74,33 +74,34 @@ public class SgInteractGroup : SgBehavior
 
 	private bool IsItemCollected => ItemManager.IsCollected(this.itemType);
 
-	public SgInteractTranslation GetInteractConfig(SgInteractType interactType)
+	public SgInteractTranslation GetInteractConfig(SgInteractType interactType, SgItemType itemType)
 	{
-		SgInteractTranslation translation = null;
+		SgInteractTranslation interactConfig = null;
 		if (IsConnectedToItem && redirectToItem)
 		{
-			translation = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected);
+			interactConfig = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected, itemType);
 		}
-		if (translation == null)
+		if (interactConfig == null)
 		{
-			translation = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected);
+			interactConfig = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected, itemType);
 		}
-		if (translation == null)
+		if (interactConfig == null)
 		{
-			translation = TranslationManager.GetDefaultTranslation(interactType);
+			interactConfig = TranslationManager.GetDefaultTranslation(interactType);
 		}
-		return translation;
+		return interactConfig;
 	}
 
-	public int[] GetInteractTranslationIds(SgInteractType interactType)
+	public int[] GetInteractTranslationIds(SgInteractType interactType, SgItemType itemType)
 	{
-		return GetInteractConfig(interactType).translationIds;
+		return GetInteractConfig(interactType, itemType).translationIds;
 	}
 
 	//Should use more customizable predefined actions like toggle and pick up. In other words, pick up should be configurable in the same way as toggle. 
-	public virtual void OnBeforeInteract(SgInteractType interactType)
+	public virtual void OnBeforeInteract(SgInteractType interactType, SgItemType itemType)
 	{
-		SgInteractTranslation interactConfig = GetInteractConfig(interactType);
+		SgInteractTranslation interactConfig = GetInteractConfig(interactType, itemType);
+
 		if (IsConnectedToItem && interactType == SgInteractType.Pickup)
 		{
 			ItemDefinition.Collect();
