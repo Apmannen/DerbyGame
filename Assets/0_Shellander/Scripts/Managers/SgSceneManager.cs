@@ -18,7 +18,7 @@ public class SgSceneManager : MonoBehaviour
 		{
 			if(m_RoomNames == null)
 			{
-				m_RoomNames = (SgRoomName[]) Enum.GetValues(typeof(SgRoomName));
+				m_RoomNames = SgUtil.EnumValues<SgRoomName>();
 			}
 			return m_RoomNames;
 		}

@@ -31,7 +31,16 @@ public class SgSceneLoaderEditor : Editor
 		{
 			EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
 		}
-		if (GUILayout.Button("Unload"))
+		else if (GUILayout.Button("LoadReplace"))
+		{
+			SgRoomName[] roomNames = SgUtil.EnumValues<SgRoomName>();
+			foreach(SgRoomName room in roomNames)
+			{
+				EditorSceneManager.CloseScene(EditorSceneManager.GetSceneByName(room.ToString()), true);
+			}
+			EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
+		}
+		else if (GUILayout.Button("Unload"))
 		{
 			EditorSceneManager.CloseScene(EditorSceneManager.GetSceneByName(sceneName), true);
 		}

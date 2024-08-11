@@ -33,4 +33,9 @@ public static class SgUtil
 		long value = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 		return value;
 	}
+
+	public static T[] EnumValues<T>()
+	{
+		return (T[])Enum.GetValues(typeof(T));
+	}
 }
