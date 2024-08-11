@@ -30,6 +30,7 @@ public class SgPlayer : SgBehavior
 	private bool m_SpeechAborted;
 	private static SgPlayer s_Player;
 	private string? m_HighlightedActionTranslation;
+	private bool m_ScheduledMoveToSpawnPos;
 
 	//Cursor
 	private SgItemType m_CursorItem = SgItemType.Illegal;
@@ -49,21 +50,13 @@ public class SgPlayer : SgBehavior
 	private void Awake()
 	{
 		s_Player = this;
-
-		MoveToSpawnPos();
-		Debug.Log("*** ONREBUILD register");
-		EventManager.Register(SgEventName.NavMeshRebuild, Tmp);
-		EventManager.Register<bool>(SgEventName.NavMeshRebuild, OnRebuild);
-	}
-
-	private void Tmp()
-	{
-		Debug.Log("*** ONREBUILD tmp");
 	}
 
 	private void Start()
 	{
 		ResetInput();
+
+		MoveToSpawnPos();
 
 		m_PrevCursor = GetCursor(SgInteractType.Walk);
 		ClearInteraction();
@@ -84,21 +77,15 @@ public class SgPlayer : SgBehavior
 		mainCam.AttachPlayer(this);
 
 		HudManager.AddWheelListener(OnItemWheelChange);
+
+		//if the navmesh is rebuilt, the positioning must
+		//be performed in the update loop for whatever reason
+		m_ScheduledMoveToSpawnPos = true; 
 	}
 
 	private void OnDestroy()
 	{
 		HudManager.RemoveWheelListener(OnItemWheelChange);
-		EventManager.Unregister<bool>(SgEventName.NavMeshRebuild, OnRebuild);
-	}
-
-	private void OnRebuild(bool initial)
-	{
-		Debug.Log("*** ONREBUILD CALLBACK:"+initial);
-		if(initial)
-		{
-			MoveToSpawnPos();
-		}
 	}
 
 	private void MoveToSpawnPos()
@@ -333,6 +320,12 @@ public class SgPlayer : SgBehavior
 
 	private void Update()
 	{
+		if(m_ScheduledMoveToSpawnPos)
+		{
+			MoveToSpawnPos();
+			m_ScheduledMoveToSpawnPos = false;
+		}
+
 		//Variables
 		Vector3 cursorScreenPos = m_PointerAction.ReadValue<Vector2>();
 		Vector3 cursorWorldPos = mainCam.cam.ScreenToWorldPoint(cursorScreenPos);

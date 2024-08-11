@@ -34,7 +34,6 @@ public class SgNavMesh : SgBehavior
 		if(anyChange)
 		{
 			navMesh.BuildNavMesh();
-			Debug.Log("*** ONREBUILD execute");
 			EventManager.Execute<bool>(SgEventName.NavMeshRebuild, initial);
 		}
 	}
