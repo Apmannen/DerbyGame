@@ -39,7 +39,8 @@ public class SgSaveDataManager : SgBehavior
 
 	public class SgSaveFile
 	{
-		public readonly Dictionary<SgItemType, SgItemSavable> items = new Dictionary<SgItemType, SgItemSavable>();
+		public readonly Dictionary<SgItemType, SgItemSavable> items = new();
+		private readonly Dictionary<string, SgSavableBool> m_NamedBools = new();
 
 		private readonly int m_SaveFileId;
 		public int SaveFileId => m_SaveFileId;
@@ -52,6 +53,19 @@ public class SgSaveDataManager : SgBehavior
 			{
 				items[itemType] = new SgItemSavable(saveFileId, itemType);
 			}
+		}
+
+		public bool GetNamedBoolValue(string name)
+		{
+			return m_NamedBools.ContainsKey(name) && m_NamedBools[name].Value == true;
+		}
+		public void SetNamedBoolValue(string name, bool value)
+		{
+			if(!m_NamedBools.ContainsKey(name))
+			{
+				m_NamedBools[name] = new SgSavableBool(SaveFileId, "NamedBool_"+name, false, SgPropertySaveAction.Delayed);
+			}
+			m_NamedBools[name].Set(value);
 		}
 	}
 

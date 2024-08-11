@@ -105,22 +105,26 @@ public class SgInteractGroup : SgBehavior
 	{
 		SgInteractTranslation interactConfig = GetInteractConfig(interactType, itemType);
 
+		if (interactConfig == null)
+		{
+			return;
+		}
+
+		if(!string.IsNullOrEmpty(interactConfig.setNamedBool))
+		{
+			SaveDataManager.CurrentSaveFile.SetNamedBoolValue(interactConfig.setNamedBool, true);
+		}
+
 		if (IsConnectedToItem && interactType == SgInteractType.Pickup)
 		{
 			ItemDefinition.Collect();
 			RefreshPickedUpVisibility();
 			return;
-		}
-
-		if(interactConfig == null)
-		{
-			return;
-		}
+		}		
 
 		if(interactConfig.toggleSprite)
 		{
 			SetVisibleSprite(m_RenderIndex == 0 ? 1 : 0);
-			return;
 		}
 		
 		if(interactConfig.transitionToRoom != SgRoomName.Illegal)

@@ -89,4 +89,5 @@ public class SgInteractTranslation
 	public bool onlyWhenCollected;
 	public bool onlyWhenNotCollected;
 	public SgRoomName transitionToRoom = SgRoomName.Illegal;
+	public string setNamedBool;
 }

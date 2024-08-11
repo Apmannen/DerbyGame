@@ -1093,6 +1093,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[3].setNamedBool
+      value: CoverOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].walkToItFirst
       value: 0
       objectReference: {fileID: 0}
