@@ -33,6 +33,7 @@ public class SgNavMesh : SgBehavior
 		if(anyChange)
 		{
 			navMesh.BuildNavMesh();
+			EventManager.Execute(SgEventName.NavMeshRebuild, initial);
 		}
 	}
 }

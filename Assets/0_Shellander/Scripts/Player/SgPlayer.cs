@@ -31,7 +31,6 @@ public class SgPlayer : SgBehavior
 	private static SgPlayer s_Player;
 	private string? m_HighlightedActionTranslation;
 
-
 	//Cursor
 	private SgItemType m_CursorItem = SgItemType.Illegal;
 	private SgItemType CursorItem => CurrentCursor.interactType == SgInteractType.Item ? m_CursorItem : SgItemType.Illegal;
@@ -50,21 +49,14 @@ public class SgPlayer : SgBehavior
 	private void Awake()
 	{
 		s_Player = this;
+
+		MoveToSpawnPos();
+		EventManager.Register<bool>(SgEventName.NavMeshRebuild, OnRebuild);
 	}
 
 	private void Start()
 	{
 		ResetInput();
-
-		foreach(SgSpawnPosition spawnPos in spawnPositions)
-		{
-			if(SceneManager.PrevRoom == spawnPos.connectedRoom)
-			{
-				this.transform.position = spawnPos.transform.position;
-				Debug.Log("**** #21; POS SET");
-				break;
-			}
-		}
 
 		m_PrevCursor = GetCursor(SgInteractType.Walk);
 		ClearInteraction();
@@ -90,6 +82,29 @@ public class SgPlayer : SgBehavior
 	private void OnDestroy()
 	{
 		HudManager.RemoveWheelListener(OnItemWheelChange);
+		EventManager.Unregister<bool>(SgEventName.NavMeshRebuild, OnRebuild);
+	}
+
+	private void OnRebuild(bool initial)
+	{
+		Debug.Log("*** ONREBUILD CALLBACK:"+initial);
+		if(initial)
+		{
+			MoveToSpawnPos();
+		}
+	}
+
+	private void MoveToSpawnPos()
+	{
+		foreach (SgSpawnPosition spawnPos in spawnPositions)
+		{
+			if (SceneManager.PrevRoom == spawnPos.connectedRoom)
+			{
+				this.transform.position = spawnPos.transform.position;
+				Debug.Log("**** #21; POS SET");
+				break;
+			}
+		}
 	}
 
 	//Has Weapon Wheel Generator dependency, could be handled by HudManager
