@@ -1,9 +1,10 @@
 using NavMeshPlus.Components;
+using UnityEngine;
 
 public class SgSavedActivation : SgBehavior
 {
     public string namedBool;
-	public bool activateWhenNamedBoolIsTrue;
+	public bool activateWhenNamedTrue;
 	public NavMeshSurface navMeshToRebuild;
 
 	private void Start()
@@ -26,7 +27,8 @@ public class SgSavedActivation : SgBehavior
 		bool value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(namedBool);
 
 		bool oldActive = this.gameObject.activeSelf;
-		bool newActive = activateWhenNamedBoolIsTrue && value;
+		bool newActive = (activateWhenNamedTrue && value) || (!activateWhenNamedTrue && !value);
+		Debug.Log("** SAVEDACTIVATION val="+value+", this:"+this+", newactive:"+newActive, this.gameObject);
 		if(oldActive != newActive || forceChange)
 		{
 			this.gameObject.SetActive(newActive);

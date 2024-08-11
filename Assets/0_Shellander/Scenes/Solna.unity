@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namedBool: CoverOpen
-  activateWhenNamedBoolIsTrue: 1
+  activateWhenNamedTrue: 1
   navMeshToRebuild: {fileID: 0}
 --- !u!1 &633702608
 GameObject:
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namedBool: CoverOpen
-  activateWhenNamedBoolIsTrue: 1
+  activateWhenNamedTrue: 1
   navMeshToRebuild: {fileID: 0}
 --- !u!1 &1020350718
 GameObject:
@@ -1025,7 +1025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_Name
-      value: ClosedHold
+      value: ClosedHole
       objectReference: {fileID: 0}
     - target: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_IsActive
@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namedBool: CoverOpen
-  activateWhenNamedBoolIsTrue: 0
+  activateWhenNamedTrue: 0
   navMeshToRebuild: {fileID: 0}
 --- !u!1 &1177380579
 GameObject:
@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namedBool: CoverOpen
-  activateWhenNamedBoolIsTrue: 1
+  activateWhenNamedTrue: 1
   navMeshToRebuild: {fileID: 1719599405}
 --- !u!1 &2075136501
 GameObject:
