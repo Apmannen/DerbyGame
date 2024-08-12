@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class SgCursorController : SgBehavior
 {
@@ -8,76 +9,109 @@ public class SgCursorController : SgBehavior
 	private SgUiCursor UiCursor => HudManager.cursor;
 	//private SgPlayer Player => SgUtil.LazyComponent(this, ref m_Player);
 
-	private int m_CurrentCursorIndex = 0;
+	//private int m_CurrentCursorIndex = 0;
+	private SgCursorTypeDefinition m_CurrentCursor;
 	private SgItemType m_SelectedItem = SgItemType.Illegal;
-	private SgCursorTypeDefinition m_PrevCursor;
+	private SgInteractType m_SelectedInteract = SgInteractType.Walk;
 	//private SgPlayer m_Player;
+
+	//Don't think we will need the cached prev cursor anymore? Go by selected interact instead.
+	//private SgCursorTypeDefinition m_PrevCursor;
+
+	private void Awake()
+	{
+		for(int i = 0; i < cursors.Length; i++)
+		{
+			cursors[i].index = i;
+		}
+		SetCursor(GetCursorByInteractType(SgInteractType.Walk));
+	}
 
 	private void Start()
 	{
-		m_PrevCursor = GetCursorByInteractType(SgInteractType.Walk);
+		//m_PrevCursor = GetCursorByInteractType(SgInteractType.Walk);
 	}
 
 	private void Update()
 	{
-		if(HudManager.IsWheelVisible)
+		UpdateCursor();
+	}
+
+	private void UpdateCursor()
+	{
+		if (HudManager.IsWheelVisible)
 		{
-			SetCursorByInteractType(SgInteractType.Generic);
+			SetCursor(GetCursorByInteractType(SgInteractType.Generic));
 			return;
 		}
 
-		if(m_SelectedItem != SgItemType.Illegal)
-		{
-			SetCursorByItemType(m_SelectedItem);
-			return;
-		}
+		SetCursor(GetCursorByInteractType(m_SelectedInteract));
 	}
 
 	public void SetSelectedItem(SgItemType itemType)
 	{
+		SgCursorTypeDefinition itemCursor = GetCursorByInteractType(SgInteractType.Item);
+		itemCursor.sprite = itemType != SgItemType.Illegal ? ItemManager.Get(itemType).sprite : null;
 		m_SelectedItem = itemType;
+		m_SelectedInteract = SgInteractType.Item;
+		UpdateCursor();
+	}
+	public void SetSelectedInteract(SgInteractType interactType)
+	{
+		m_SelectedInteract = interactType;
+		UpdateCursor();
 	}
 
-	private void SetCursorByItemType(SgItemType itemType)
+	//private void SetCursorByItemType(SgItemType itemType)
+	//{
+	//	SgCursorTypeDefinition cursor = GetCursorByInteractType(SgInteractType.Item);
+	//	cursor.sprite = ItemManager.Get(itemType).sprite;
+	//	SetCursorByInteractType(SgInteractType.Item);
+	//}
+	//private void SetCursorByInteractType(SgInteractType type)
+	//{
+	//	for (int i = 0; i < cursors.Length; i++)
+	//	{
+	//		if (cursors[i].interactType == type)
+	//		{
+	//			SetCursorByIndex(i);
+	//			SetSelectedItem(SgItemType.Illegal);
+	//			return;
+	//		}
+	//	}
+	//}
+
+	//private void SetCursorByIndex(int index)
+	//{
+	//	int prevIndex = m_CurrentCursorIndex;
+	//	m_CurrentCursorIndex = index;
+	//	Cursor.visible = false;
+	//	UiCursor.image.sprite = CurrentCursor.sprite;
+
+	//	if (prevIndex != m_CurrentCursorIndex)
+	//	{
+	//		//m_PrevCursor = cursors[prevIndex];
+	//	}
+	//}
+
+	private void SetCursor(SgCursorTypeDefinition cursor)
 	{
-		SgCursorTypeDefinition cursor = GetCursorByInteractType(SgInteractType.Item);
-		cursor.sprite = ItemManager.Get(itemType).sprite;
-		SetCursorByInteractType(SgInteractType.Item);
-	}
-	private void SetCursorByInteractType(SgInteractType type)
-	{
-		for (int i = 0; i < cursors.Length; i++)
-		{
-			if (cursors[i].interactType == type)
-			{
-				SetCursorByIndex(i);
-				SetSelectedItem(SgItemType.Illegal);
-				return;
-			}
-		}
-	}
-	private void SetCursorByIndex(int index)
-	{
-		int prevIndex = m_CurrentCursorIndex;
-		m_CurrentCursorIndex = index;
 		Cursor.visible = false;
 		UiCursor.image.sprite = CurrentCursor.sprite;
-
-		if (prevIndex != m_CurrentCursorIndex)
-		{
-			m_PrevCursor = cursors[prevIndex];
-		}
+		m_CurrentCursor = cursor;
 	}
+
 	private SgCursorTypeDefinition GetCursorByInteractType(SgInteractType type)
 	{
-		for (int i = 0; i < cursors.Length; i++)
-		{
-			if (cursors[i].interactType == type)
-			{
-				return cursors[i];
-			}
-		}
-		return null;
+		return cursors.SingleOrDefault(c => c.interactType == type);
+		//for (int i = 0; i < cursors.Length; i++)
+		//{
+		//	if (cursors[i].interactType == type)
+		//	{
+		//		return cursors[i];
+		//	}
+		//}
+		//return null;
 	}
 
 
@@ -129,4 +163,12 @@ public class SgCursorController : SgBehavior
 	*/
 
 
+}
+
+[System.Serializable]
+public class SgCursorTypeDefinition
+{
+	public SgInteractType interactType;
+	public Sprite sprite;
+	public int index = -1;
 }

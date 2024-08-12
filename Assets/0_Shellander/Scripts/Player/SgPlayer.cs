@@ -33,16 +33,21 @@ public class SgPlayer : SgBehavior
 	private static SgPlayer s_Player;
 	private string? m_HighlightedActionTranslation;
 	private bool m_ScheduledMoveToSpawnPos;
+	private SgWheelSliceMapping m_LastHighlightedSlice;
+	private SgCursorController m_CursorController;
+	private SgCursorController CursorController => SgUtil.LazyComponent(this, ref m_CursorController);
 
 	//Cursor
+	[System.Obsolete]
 	private SgItemType m_CursorItem = SgItemType.Illegal;
+	[System.Obsolete]
 	private SgItemType CursorItem => CurrentCursor.interactType == SgInteractType.Item ? m_CursorItem : SgItemType.Illegal;
 	[System.Obsolete]
 	private SgUiCursor UiCursor => HudManager.cursor;
 	[System.Obsolete]
 	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
-	private SgCursorTypeDefinition m_PrevCursor;
-	private SgWheelSliceMapping m_LastHighlightedSlice;
+	[System.Obsolete]
+	private SgCursorTypeDefinition m_PrevCursor;	
 
 	//Input
 	private InputActionMap m_CurrentActionMap;
@@ -119,7 +124,7 @@ public class SgPlayer : SgBehavior
 			case SgWeaponWheelEventType.Select:
 				if(sliceMapping.interactType == SgInteractType.Item)
 				{
-					SetItemCursor(sliceMapping.ItemType);
+					CursorController.SetSelectedItem(sliceMapping.ItemType);
 				}
 				else
 				{
@@ -528,12 +533,4 @@ public class SgPlayer : SgBehavior
 		public bool IsRoomInteraction => interactGroup != null;
 		public bool IsItemInteraction => !IsRoomInteraction && type != SgInteractType.Illegal;
 	}
-}
-
-
-[System.Serializable]
-public class SgCursorTypeDefinition
-{
-	public SgInteractType interactType;
-	public Sprite sprite;
 }
