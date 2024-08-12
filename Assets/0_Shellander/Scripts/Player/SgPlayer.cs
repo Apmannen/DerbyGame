@@ -128,7 +128,7 @@ public class SgPlayer : SgBehavior
 				}
 				else
 				{
-					SetCursor(sliceMapping.interactType);
+					CursorController.SetSelectedInteract(sliceMapping.interactType);
 				}
 				break;
 			case SgWeaponWheelEventType.Highlight:
@@ -139,11 +139,9 @@ public class SgPlayer : SgBehavior
 				m_HighlightedActionTranslation = null;
 				break;
 			case SgWeaponWheelEventType.WheelVisible:
-				SetCursor(SgInteractType.Generic);
 				break;
 			case SgWeaponWheelEventType.WheelInvisible:
 				m_HighlightedActionTranslation = null;
-				SetCursor(m_PrevCursor.interactType);
 				break;
 		}
 	}
@@ -214,33 +212,20 @@ public class SgPlayer : SgBehavior
 
 		if (IsStateAnyInteract())
 		{
-			SetCursor(SgInteractType.Wait);
+			CursorController.SetWaitMode(true);
 
 			if(newState == SgPlayerState.Interacting)
 			{
 				Interact(m_CurrentInteraction);
 			}
 		}
+		else
+		{
+			CursorController.SetWaitMode(false);
+		}
 	}
 
-	private void CycleCursor(int direction)
-	{
-		int newIndex = m_CurrentCursorIndex + direction;
-		if(newIndex >= cursors.Length)
-		{
-			newIndex = 0;
-		}
-		else if(newIndex < 0)
-		{
-			newIndex = cursors.Length - 1;
-		}
-		if(cursors[newIndex].interactType == SgInteractType.Wait || cursors[newIndex].sprite == null)
-		{
-			newIndex = 0;
-		}
-
-		SetCursor(newIndex);
-	}
+	
 
 	private void SetInteraction(SgInteractGroup interactGroup, SgItemType itemWheelItem, SgItemType useItemType, SgInteractType type)
 	{
@@ -367,7 +352,7 @@ public class SgPlayer : SgBehavior
 			}
 			else if (m_ShiftCursorRight.WasPressedThisFrame())
 			{
-				CycleCursor(1);
+				CursorController.CycleCursor(1);
 			}
 		}
 		else if(m_State == SgPlayerState.Interacting && Time.time > (m_StateActivatedTime+0.25f) && 
@@ -485,10 +470,10 @@ public class SgPlayer : SgBehavior
 
 		ClearInteraction();
 		speechText.text = "";
-		if(CurrentCursor.interactType == SgInteractType.Wait)
-		{
-			SetCursor(m_PrevCursor.interactType);
-		}
+		//if(CurrentCursor.interactType == SgInteractType.Wait)
+		//{
+		//	SetCursor(m_PrevCursor.interactType);
+		//}
 		SetState(SgPlayerState.None);
 	}
 

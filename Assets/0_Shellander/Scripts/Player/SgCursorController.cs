@@ -5,7 +5,7 @@ public class SgCursorController : SgBehavior
 {
 	public SgCursorTypeDefinition[] cursors;
 
-	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
+	//private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
 	private SgUiCursor UiCursor => HudManager.cursor;
 	//private SgPlayer Player => SgUtil.LazyComponent(this, ref m_Player);
 
@@ -13,6 +13,7 @@ public class SgCursorController : SgBehavior
 	private SgCursorTypeDefinition m_CurrentCursor;
 	private SgItemType m_SelectedItem = SgItemType.Illegal;
 	private SgInteractType m_SelectedInteract = SgInteractType.Walk;
+	private bool m_WaitMode;
 	//private SgPlayer m_Player;
 
 	//Don't think we will need the cached prev cursor anymore? Go by selected interact instead.
@@ -39,6 +40,12 @@ public class SgCursorController : SgBehavior
 
 	private void UpdateCursor()
 	{
+		if(m_WaitMode)
+		{
+			SetCursor(GetCursorByInteractType(SgInteractType.Wait));
+			return;
+		}
+
 		if (HudManager.IsWheelVisible)
 		{
 			SetCursor(GetCursorByInteractType(SgInteractType.Generic));
@@ -48,6 +55,30 @@ public class SgCursorController : SgBehavior
 		SetCursor(GetCursorByInteractType(m_SelectedInteract));
 	}
 
+	//Publics
+	public void CycleCursor(int direction)
+	{
+		int newIndex = m_CurrentCursor.index + direction;
+		if (newIndex >= cursors.Length)
+		{
+			newIndex = 0;
+		}
+		else if (newIndex < 0)
+		{
+			newIndex = cursors.Length - 1;
+		}
+		if (cursors[newIndex].interactType == SgInteractType.Wait || cursors[newIndex].sprite == null)
+		{
+			newIndex = 0;
+		}
+
+		m_SelectedInteract = cursors[newIndex].interactType;
+		UpdateCursor();
+	}
+	public void SetWaitMode(bool waitMode)
+	{
+		m_WaitMode = waitMode;
+	}
 	public void SetSelectedItem(SgItemType itemType)
 	{
 		SgCursorTypeDefinition itemCursor = GetCursorByInteractType(SgInteractType.Item);
@@ -62,57 +93,38 @@ public class SgCursorController : SgBehavior
 		UpdateCursor();
 	}
 
-	//private void SetCursorByItemType(SgItemType itemType)
-	//{
-	//	SgCursorTypeDefinition cursor = GetCursorByInteractType(SgInteractType.Item);
-	//	cursor.sprite = ItemManager.Get(itemType).sprite;
-	//	SetCursorByInteractType(SgInteractType.Item);
-	//}
-	//private void SetCursorByInteractType(SgInteractType type)
-	//{
-	//	for (int i = 0; i < cursors.Length; i++)
-	//	{
-	//		if (cursors[i].interactType == type)
-	//		{
-	//			SetCursorByIndex(i);
-	//			SetSelectedItem(SgItemType.Illegal);
-	//			return;
-	//		}
-	//	}
-	//}
 
-	//private void SetCursorByIndex(int index)
-	//{
-	//	int prevIndex = m_CurrentCursorIndex;
-	//	m_CurrentCursorIndex = index;
-	//	Cursor.visible = false;
-	//	UiCursor.image.sprite = CurrentCursor.sprite;
-
-	//	if (prevIndex != m_CurrentCursorIndex)
-	//	{
-	//		//m_PrevCursor = cursors[prevIndex];
-	//	}
-	//}
-
+	//Privates
 	private void SetCursor(SgCursorTypeDefinition cursor)
 	{
 		Cursor.visible = false;
-		UiCursor.image.sprite = CurrentCursor.sprite;
+		UiCursor.image.sprite = cursor.sprite;
 		m_CurrentCursor = cursor;
 	}
 
 	private SgCursorTypeDefinition GetCursorByInteractType(SgInteractType type)
 	{
 		return cursors.SingleOrDefault(c => c.interactType == type);
-		//for (int i = 0; i < cursors.Length; i++)
-		//{
-		//	if (cursors[i].interactType == type)
-		//	{
-		//		return cursors[i];
-		//	}
-		//}
-		//return null;
 	}
+
+	//private void CycleCursor(int direction)
+	//{
+	//	int newIndex = m_CurrentCursorIndex + direction;
+	//	if (newIndex >= cursors.Length)
+	//	{
+	//		newIndex = 0;
+	//	}
+	//	else if (newIndex < 0)
+	//	{
+	//		newIndex = cursors.Length - 1;
+	//	}
+	//	if (cursors[newIndex].interactType == SgInteractType.Wait || cursors[newIndex].sprite == null)
+	//	{
+	//		newIndex = 0;
+	//	}
+
+	//	SetCursor(newIndex);
+	//}
 
 
 	/*
@@ -162,7 +174,37 @@ public class SgCursorController : SgBehavior
 	}
 	*/
 
+	//private void SetCursorByItemType(SgItemType itemType)
+	//{
+	//	SgCursorTypeDefinition cursor = GetCursorByInteractType(SgInteractType.Item);
+	//	cursor.sprite = ItemManager.Get(itemType).sprite;
+	//	SetCursorByInteractType(SgInteractType.Item);
+	//}
+	//private void SetCursorByInteractType(SgInteractType type)
+	//{
+	//	for (int i = 0; i < cursors.Length; i++)
+	//	{
+	//		if (cursors[i].interactType == type)
+	//		{
+	//			SetCursorByIndex(i);
+	//			SetSelectedItem(SgItemType.Illegal);
+	//			return;
+	//		}
+	//	}
+	//}
 
+	//private void SetCursorByIndex(int index)
+	//{
+	//	int prevIndex = m_CurrentCursorIndex;
+	//	m_CurrentCursorIndex = index;
+	//	Cursor.visible = false;
+	//	UiCursor.image.sprite = CurrentCursor.sprite;
+
+	//	if (prevIndex != m_CurrentCursorIndex)
+	//	{
+	//		//m_PrevCursor = cursors[prevIndex];
+	//	}
+	//}
 }
 
 [System.Serializable]
