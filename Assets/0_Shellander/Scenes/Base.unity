@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventManager: {fileID: 2102424263}
+  gameManager: {fileID: 1858158408}
   hudManager: {fileID: 1235134319}
   itemManager: {fileID: 1016912861}
   layerManager: {fileID: 441934433}
@@ -390,6 +391,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2102424264}
+  - {fileID: 1858158409}
   - {fileID: 1235134320}
   - {fileID: 1016912860}
   - {fileID: 441934432}
@@ -455,6 +457,7 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
 --- !u!1 &187295477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,6 +1940,7 @@ Transform:
   - {fileID: 1174184020}
   - {fileID: 164395101}
   - {fileID: 1319437545}
+  - {fileID: 1511871021}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -1956,6 +1960,7 @@ MonoBehaviour:
   - {fileID: 1174184021}
   - {fileID: 164395102}
   - {fileID: 1319437546}
+  - {fileID: 1511871022}
 --- !u!1 &1025582727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,6 +2815,7 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
 --- !u!1 &1219385838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,6 +3655,7 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
 --- !u!1 &1319446629
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,6 +4648,65 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
+--- !u!1 &1511871020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511871021}
+  - component: {fileID: 1511871022}
+  m_Layer: 0
+  m_Name: Money100
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1511871021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511871020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1511871022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511871020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 5
+  translationId: 91
+  sprite: {fileID: 21300000, guid: 8ab143a1f8a04dc4b956c70572363a8a, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    translationIds: 5c000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
 --- !u!1 &1516207971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5525,6 +5591,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 18.5, y: 800.05}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!1 &1858158407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1858158409}
+  - component: {fileID: 1858158408}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1858158408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858158407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307b68a50ac5c0c4d80343fb14ceaca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1858158409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858158407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 130489665}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1879435077
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,6 +5690,7 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
   - interactType: 3
     itemType: 0
     translationIds: 13000000
@@ -5589,6 +5700,7 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
   - interactType: 4
     itemType: 0
     translationIds: 14000000
@@ -5598,6 +5710,7 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
   - interactType: 8
     itemType: 0
     translationIds: 4b000000
@@ -5607,6 +5720,7 @@ MonoBehaviour:
     onlyWhenNotCollected: 0
     transitionToRoom: 0
     setNamedBool: 
+    startDialogue: {fileID: 0}
 --- !u!1 &1923271499
 GameObject:
   m_ObjectHideFlags: 0

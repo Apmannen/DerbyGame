@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class SgManagers : MonoBehaviour
 {
 	public SgEventManager eventManager;
+	public SgGameManager gameManager;
 	public SgHudManager hudManager;
 	public SgItemManager itemManager;
 	public SgLayerManager layerManager;

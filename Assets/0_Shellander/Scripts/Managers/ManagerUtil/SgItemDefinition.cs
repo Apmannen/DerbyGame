@@ -8,6 +8,7 @@ public enum SgItemType
 	Scissors, 
 	Ticket,
 	Crowbar,
+	Money100,
 }
 
 public class SgItemDefinition : SgBehavior
