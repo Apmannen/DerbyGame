@@ -13,9 +13,6 @@ public class SgPlayer : SgBehavior
 	public SgAnimation walkAnimation;
 	public SpriteRenderer mainRenderer;
 	public SpriteRenderer sitSprite;
-	[System.Obsolete]
-	public SgCursorTypeDefinition[] cursors;
-	//public SgCursorTypeDefinition waitCursor;
 	public TMPro.TextMeshPro speechText;
 	public SgSpawnPosition[] spawnPositions;
 
@@ -25,8 +22,6 @@ public class SgPlayer : SgBehavior
 	private Vector3 m_WalkTarget;
 	private NavMeshAgent m_Agent;
 	private Vector3 m_PrevPos;
-	[System.Obsolete]
-	private int m_CurrentCursorIndex = 0;
 	private readonly SgInteraction m_CurrentInteraction = new();
 	private float m_StateActivatedTime;
 	private bool m_SpeechAborted;
@@ -37,24 +32,12 @@ public class SgPlayer : SgBehavior
 	private SgCursorController m_CursorController;
 	private SgCursorController CursorController => SgUtil.LazyComponent(this, ref m_CursorController);
 
-	//Cursor
-	[System.Obsolete]
-	private SgItemType m_CursorItem = SgItemType.Illegal;
-	[System.Obsolete]
-	private SgItemType CursorItem => CurrentCursor.interactType == SgInteractType.Item ? m_CursorItem : SgItemType.Illegal;
-	//[System.Obsolete]
-	//private SgUiCursor UiCursor => HudManager.cursor;
-	[System.Obsolete]
-	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
-	[System.Obsolete]
-	private SgCursorTypeDefinition m_PrevCursor;	
-
 	//Input
 	private InputActionMap m_CurrentActionMap;
 	private PlayerInput m_PlayerInput;
 	private InputAction m_ClickAction;
 	private InputAction m_PointerAction;
-	private InputAction m_ShiftCursorRight; //TODO: rename since ince multi-purpose
+	private InputAction m_ShiftCursorRight; //TODO: rename since it's multi-purpose
 
 	private void Awake()
 	{
@@ -69,9 +52,8 @@ public class SgPlayer : SgBehavior
 
 		CursorController.Init();
 
-		//m_PrevCursor = GetCursor(SgInteractType.Walk);
 		ClearInteraction();
-		UiCursor.text.text = "";
+		CursorController.ClearText();
 		speechText.text = "";
 
 		m_PrevPos = this.transform.position;
@@ -84,7 +66,6 @@ public class SgPlayer : SgBehavior
 		m_Agent.enabled = true;
 		m_Agent.isStopped = false;
 
-		//SetCursor(0);
 		mainCam.AttachPlayer(this);
 
 		HudManager.AddWheelListener(OnItemWheelChange);
@@ -254,7 +235,11 @@ public class SgPlayer : SgBehavior
 	{
 		return !IsStateAnyInteract() && !HudManager.IsWheelVisible;
 	}
-	
+	private bool IsCursorAnyInteract()
+	{
+		return CursorController.IsAnyInteract();
+	}
+
 
 	private void Update()
 	{
@@ -267,10 +252,7 @@ public class SgPlayer : SgBehavior
 		}
 
 		//Variables
-		//Vector3 cursorScreenPos = m_PointerAction.ReadValue<Vector2>();
-		//Vector3 cursorWorldPos = mainCam.cam.ScreenToWorldPoint(cursorScreenPos);
-		//UiCursor.transform.position = cursorScreenPos;
-		Vector3 cursorWorldPos = CursorController.UpdateCursorPos();
+		Vector3 cursorWorldPos = CursorController.UpdateCursorPos(m_PointerAction, mainCam.cam);
 		SgInteractGroup hoveredInteractGroup = null;
 
 		//Detect interactable hover
@@ -296,15 +278,15 @@ public class SgPlayer : SgBehavior
 		if (IsActionsAllowed() && selectedInteractable != null)
 		{
 			hoveredInteractGroup = selectedInteractable.InteractGroup;
-			UiCursor.text.text = hoveredInteractGroup.TranslatedName;
+			CursorController.SetText(hoveredInteractGroup.TranslatedName);
 		}
 		else if(m_HighlightedActionTranslation != null)
 		{
-			UiCursor.text.text = m_HighlightedActionTranslation;
+			CursorController.SetText(m_HighlightedActionTranslation);
 		}
 		else
 		{
-			UiCursor.text.text = "";
+			CursorController.ClearText();
 			if (IsActionsAllowed())
 			{
 				ClearInteraction();
@@ -387,11 +369,11 @@ public class SgPlayer : SgBehavior
 
 	private void HandleInteractClick(SgInteractGroup hoveredInteractGroup)
 	{
-		SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CurrentCursor.interactType, CursorItem);
+		SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CursorController.SelectedInteractType, CursorController.SelectedItem);
 
 		if (interactConfig != null)
 		{
-			SetInteraction(hoveredInteractGroup, SgItemType.Illegal, CursorItem, CurrentCursor.interactType);
+			SetInteraction(hoveredInteractGroup, SgItemType.Illegal, CursorController.SelectedItem, CursorController.SelectedInteractType);
 			
 			if (interactConfig != null && interactConfig.walkToItFirst)
 			{
@@ -462,10 +444,6 @@ public class SgPlayer : SgBehavior
 
 		ClearInteraction();
 		speechText.text = "";
-		//if(CurrentCursor.interactType == SgInteractType.Wait)
-		//{
-		//	SetCursor(m_PrevCursor.interactType);
-		//}
 		SetState(SgPlayerState.None);
 	}
 
