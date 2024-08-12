@@ -542,6 +542,7 @@ public class SgPlayer : SgBehavior
 			m_SpeechAborted = false;
 			yield return Wait(3f);
 		}
+		aSpeechText.text = "";
 	}
 
 	private IEnumerator Wait(float maxDuration)
