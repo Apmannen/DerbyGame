@@ -100,7 +100,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 0, b: 0.031354904, a: 1}
+    - _FaceColor: {r: 0, g: 0.6467016, b: 1, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -119,11 +119,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Poppins-ExtraBold SDF 1
+  m_Name: F_Player
   m_EditorClassIdentifier: 
-  hashCode: 1382945401
+  hashCode: -744137624
   material: {fileID: -1167085086243419216}
-  materialHashCode: -1577048007
+  materialHashCode: -1585044024
   m_Version: 1.1.0
   m_SourceFontFileGUID: 2aab095988e7759419421dcba4e09efc
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 2aab095988e7759419421dcba4e09efc, type: 3}
