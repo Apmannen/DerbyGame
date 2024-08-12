@@ -15,6 +15,7 @@ public class SgInteractGroup : SgBehavior
 	public Transform walkTarget;
 	public bool interactableAfterPickup;
 	public bool redirectToItem = true;
+	public TMPro.TextMeshPro speechText;
 
 	private int m_RenderIndex = 0;
 	private SgInteractable[] m_Interactables;
@@ -36,6 +37,10 @@ public class SgInteractGroup : SgBehavior
 	protected virtual void Start()
 	{
 		RefreshPickedUpVisibility();
+		if(speechText != null)
+		{
+			speechText.text = "";
+		}
 	}
 
 	public string TranslatedName
