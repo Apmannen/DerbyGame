@@ -528,12 +528,17 @@ public class SgPlayer : SgBehavior
 		SetState(SgPlayerState.None);
 	}
 
+	//Should be moved to a generic talk component
 	public IEnumerator Talk(IList<int> translationIds)
+	{
+		return Talk(translationIds, this.speechText);
+	}
+	public IEnumerator Talk(IList<int> translationIds, TMPro.TextMeshPro aSpeechText)
 	{
 		foreach (int id in translationIds)
 		{
 			string translation = TranslationManager.Get(id);
-			this.speechText.text = translation;
+			aSpeechText.text = translation;
 			m_SpeechAborted = false;
 			yield return Wait(3f);
 		}

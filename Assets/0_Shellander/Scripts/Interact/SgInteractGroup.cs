@@ -95,8 +95,6 @@ public class SgInteractGroup : SgBehavior
 			interactConfig = TranslationManager.GetDefaultTranslation(interactType);
 		}
 
-		//Debug.Log("**** GETICONF:"+interactType+";"+itemType+"; "+(interactConfig!=null)+" ;"+(interactConfig != null ? interactConfig.translationIds[0] : null));
-
 		return interactConfig;
 	}
 
@@ -135,11 +133,19 @@ public class SgInteractGroup : SgBehavior
 		if(interactConfig.transitionToRoom != SgRoomName.Illegal)
 		{
 			SceneManager.SetRoom(interactConfig.transitionToRoom);
-			return;
 		}
 	}
 	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
-		yield break;
+		SgInteractTranslation interactConfig = GetInteractConfig(interactType, itemType);
+		if (interactConfig == null)
+		{
+			yield break;
+		}
+		
+		if(interactConfig.startDialogue)
+		{
+			yield return player.Talk(interactConfig.startDialogue.mainTranslationIds, speechText);
+		}
 	}
 }
