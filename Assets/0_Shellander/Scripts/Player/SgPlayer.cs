@@ -15,7 +15,7 @@ public class SgPlayer : SgBehavior
 	public SpriteRenderer sitSprite;
 	[System.Obsolete]
 	public SgCursorTypeDefinition[] cursors;
-	public SgCursorTypeDefinition waitCursor;
+	//public SgCursorTypeDefinition waitCursor;
 	public TMPro.TextMeshPro speechText;
 	public SgSpawnPosition[] spawnPositions;
 
@@ -42,8 +42,8 @@ public class SgPlayer : SgBehavior
 	private SgItemType m_CursorItem = SgItemType.Illegal;
 	[System.Obsolete]
 	private SgItemType CursorItem => CurrentCursor.interactType == SgInteractType.Item ? m_CursorItem : SgItemType.Illegal;
-	[System.Obsolete]
-	private SgUiCursor UiCursor => HudManager.cursor;
+	//[System.Obsolete]
+	//private SgUiCursor UiCursor => HudManager.cursor;
 	[System.Obsolete]
 	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
 	[System.Obsolete]
@@ -66,6 +66,8 @@ public class SgPlayer : SgBehavior
 		ResetInput();
 
 		MoveToSpawnPos();
+
+		CursorController.Init();
 
 		//m_PrevCursor = GetCursor(SgInteractType.Walk);
 		ClearInteraction();
@@ -252,23 +254,12 @@ public class SgPlayer : SgBehavior
 	{
 		return !IsStateAnyInteract() && !HudManager.IsWheelVisible;
 	}
-	private bool IsCursorAnyInteract()
-	{
-		switch(CurrentCursor.interactType)
-		{
-			case SgInteractType.Look:
-			case SgInteractType.Pickup:
-			case SgInteractType.Talk:
-			case SgInteractType.Use:
-			case SgInteractType.Item:
-				return true;
-			default:
-				return false;
-		}
-	}
+	
 
 	private void Update()
 	{
+		CursorController.UpdateCurrentCursor();
+
 		if(m_ScheduledMoveToSpawnPos)
 		{
 			MoveToSpawnPos();
@@ -276,9 +267,10 @@ public class SgPlayer : SgBehavior
 		}
 
 		//Variables
-		Vector3 cursorScreenPos = m_PointerAction.ReadValue<Vector2>();
-		Vector3 cursorWorldPos = mainCam.cam.ScreenToWorldPoint(cursorScreenPos);
-		UiCursor.transform.position = cursorScreenPos;
+		//Vector3 cursorScreenPos = m_PointerAction.ReadValue<Vector2>();
+		//Vector3 cursorWorldPos = mainCam.cam.ScreenToWorldPoint(cursorScreenPos);
+		//UiCursor.transform.position = cursorScreenPos;
+		Vector3 cursorWorldPos = CursorController.UpdateCursorPos();
 		SgInteractGroup hoveredInteractGroup = null;
 
 		//Detect interactable hover

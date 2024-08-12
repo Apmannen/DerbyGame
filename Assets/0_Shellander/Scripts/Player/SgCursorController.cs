@@ -1,46 +1,53 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.InputSystem;
 
 public class SgCursorController : SgBehavior
 {
 	public SgCursorTypeDefinition[] cursors;
 
-	//private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
 	private SgUiCursor UiCursor => HudManager.cursor;
-	//private SgPlayer Player => SgUtil.LazyComponent(this, ref m_Player);
-
-	//private int m_CurrentCursorIndex = 0;
 	private SgCursorTypeDefinition m_CurrentCursor;
-	private SgItemType m_SelectedItem = SgItemType.Illegal;
+	//private SgItemType m_SelectedItem = SgItemType.Illegal;
 	private SgInteractType m_SelectedInteract = SgInteractType.Walk;
 	private bool m_WaitMode;
-	//private SgPlayer m_Player;
+	private bool m_IsInitialized = false;
+	private SgCamera m_MainCam;
+	private InputAction m_PointerAction;
 
-	//Don't think we will need the cached prev cursor anymore? Go by selected interact instead.
-	//private SgCursorTypeDefinition m_PrevCursor;
-
-	private void Awake()
+	public void Init(InputAction pointerAction)
 	{
-		for(int i = 0; i < cursors.Length; i++)
+		for (int i = 0; i < cursors.Length; i++)
 		{
 			cursors[i].index = i;
 		}
 		SetCursor(GetCursorByInteractType(SgInteractType.Walk));
+		m_PointerAction = pointerAction;
+		m_IsInitialized = true;
 	}
 
-	private void Start()
+	//private void Update()
+	//{
+	//	UpdateCursor();
+	//}
+
+	//Publics
+	public Vector3 UpdateCursorPos()
 	{
-		//m_PrevCursor = GetCursorByInteractType(SgInteractType.Walk);
+		Vector3 cursorScreenPos = m_PointerAction.ReadValue<Vector2>();
+		Vector3 cursorWorldPos = m_MainCam.cam.ScreenToWorldPoint(cursorScreenPos);
+		UiCursor.transform.position = cursorScreenPos;
+		return cursorWorldPos;
 	}
 
-	private void Update()
+	public void UpdateCurrentCursor()
 	{
-		UpdateCursor();
-	}
+		if (!m_IsInitialized)
+		{
+			return;
+		}
 
-	private void UpdateCursor()
-	{
-		if(m_WaitMode)
+		if (m_WaitMode)
 		{
 			SetCursor(GetCursorByInteractType(SgInteractType.Wait));
 			return;
@@ -55,7 +62,20 @@ public class SgCursorController : SgBehavior
 		SetCursor(GetCursorByInteractType(m_SelectedInteract));
 	}
 
-	//Publics
+	public bool IsAnyInteract()
+	{
+		switch (m_CurrentCursor.interactType)
+		{
+			case SgInteractType.Look:
+			case SgInteractType.Pickup:
+			case SgInteractType.Talk:
+			case SgInteractType.Use:
+			case SgInteractType.Item:
+				return true;
+			default:
+				return false;
+		}
+	}
 	public void CycleCursor(int direction)
 	{
 		int newIndex = m_CurrentCursor.index + direction;
@@ -73,7 +93,7 @@ public class SgCursorController : SgBehavior
 		}
 
 		m_SelectedInteract = cursors[newIndex].interactType;
-		UpdateCursor();
+		UpdateCurrentCursor();
 	}
 	public void SetWaitMode(bool waitMode)
 	{
@@ -83,14 +103,14 @@ public class SgCursorController : SgBehavior
 	{
 		SgCursorTypeDefinition itemCursor = GetCursorByInteractType(SgInteractType.Item);
 		itemCursor.sprite = itemType != SgItemType.Illegal ? ItemManager.Get(itemType).sprite : null;
-		m_SelectedItem = itemType;
+		//m_SelectedItem = itemType;
 		m_SelectedInteract = SgInteractType.Item;
-		UpdateCursor();
+		UpdateCurrentCursor();
 	}
 	public void SetSelectedInteract(SgInteractType interactType)
 	{
 		m_SelectedInteract = interactType;
-		UpdateCursor();
+		UpdateCurrentCursor();
 	}
 
 
