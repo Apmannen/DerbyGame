@@ -13,6 +13,7 @@ public class SgPlayer : SgBehavior
 	public SgAnimation walkAnimation;
 	public SpriteRenderer mainRenderer;
 	public SpriteRenderer sitSprite;
+	[System.Obsolete]
 	public SgCursorTypeDefinition[] cursors;
 	public SgCursorTypeDefinition waitCursor;
 	public TMPro.TextMeshPro speechText;
@@ -24,6 +25,7 @@ public class SgPlayer : SgBehavior
 	private Vector3 m_WalkTarget;
 	private NavMeshAgent m_Agent;
 	private Vector3 m_PrevPos;
+	[System.Obsolete]
 	private int m_CurrentCursorIndex = 0;
 	private readonly SgInteraction m_CurrentInteraction = new();
 	private float m_StateActivatedTime;
@@ -35,7 +37,9 @@ public class SgPlayer : SgBehavior
 	//Cursor
 	private SgItemType m_CursorItem = SgItemType.Illegal;
 	private SgItemType CursorItem => CurrentCursor.interactType == SgInteractType.Item ? m_CursorItem : SgItemType.Illegal;
+	[System.Obsolete]
 	private SgUiCursor UiCursor => HudManager.cursor;
+	[System.Obsolete]
 	private SgCursorTypeDefinition CurrentCursor => cursors[m_CurrentCursorIndex];
 	private SgCursorTypeDefinition m_PrevCursor;
 	private SgWheelSliceMapping m_LastHighlightedSlice;
@@ -58,7 +62,7 @@ public class SgPlayer : SgBehavior
 
 		MoveToSpawnPos();
 
-		m_PrevCursor = GetCursor(SgInteractType.Walk);
+		//m_PrevCursor = GetCursor(SgInteractType.Walk);
 		ClearInteraction();
 		UiCursor.text.text = "";
 		speechText.text = "";
@@ -73,7 +77,7 @@ public class SgPlayer : SgBehavior
 		m_Agent.enabled = true;
 		m_Agent.isStopped = false;
 
-		SetCursor(0);
+		//SetCursor(0);
 		mainCam.AttachPlayer(this);
 
 		HudManager.AddWheelListener(OnItemWheelChange);
@@ -212,51 +216,6 @@ public class SgPlayer : SgBehavior
 				Interact(m_CurrentInteraction);
 			}
 		}
-	}
-
-	private void SetCursor(int index)
-	{
-		int prevIndex = m_CurrentCursorIndex;
-		m_CurrentCursorIndex = index;
-		Cursor.visible = false;
-		UiCursor.image.sprite = CurrentCursor.sprite;
-
-		if(prevIndex != m_CurrentCursorIndex)
-		{
-			m_PrevCursor = cursors[prevIndex];
-		}
-		
-	}
-
-	private void SetItemCursor(SgItemType itemType)
-	{
-		SgCursorTypeDefinition cursor = GetCursor(SgInteractType.Item);
-		cursor.sprite = ItemManager.Get(itemType).sprite;
-		SetCursor(SgInteractType.Item);
-		m_CursorItem = itemType;
-	}
-	private void SetCursor(SgInteractType type)
-	{
-		for(int i = 0; i < cursors.Length; i++)
-		{
-			if(cursors[i].interactType == type)
-			{
-				SetCursor(i);
-				m_CursorItem = SgItemType.Illegal;
-				return;
-			}
-		}
-	}
-	private SgCursorTypeDefinition GetCursor(SgInteractType type)
-	{
-		for (int i = 0; i < cursors.Length; i++)
-		{
-			if (cursors[i].interactType == type)
-			{
-				return cursors[i];
-			}
-		}
-		return null;
 	}
 
 	private void CycleCursor(int direction)
