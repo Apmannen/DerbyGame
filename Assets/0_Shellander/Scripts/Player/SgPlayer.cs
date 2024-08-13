@@ -188,6 +188,11 @@ public class SgPlayer : SgBehavior
 
 	private void SetState(SgPlayerState newState)
 	{
+		if(newState == m_State)
+		{
+			return;
+		}
+
 		m_State = newState;
 		m_StateActivatedTime = Time.time;
 
@@ -306,7 +311,12 @@ public class SgPlayer : SgBehavior
 		}
 
 		//Input handling
-		if(IsActionsAllowed())
+		if(m_State == SgPlayerState.AwaitingDialogueReply && HudManager.SelectedDialogueReply != null)
+		{
+			StartCoroutine(DialogueReply(HudManager.SelectedDialogueReply));			
+			return;
+		}
+		else if(IsActionsAllowed())
 		{
 			if (m_ClickAction.WasPressedThisFrame())
 			{
@@ -445,23 +455,46 @@ public class SgPlayer : SgBehavior
 
 			if (interactConfig != null && interactConfig.startDialogue)
 			{
-				yield return Talk(interactConfig.startDialogue.mainTranslationIds, interaction.interactGroup.speechText);
-
-				HudManager.ShowReplyBar(interactConfig.startDialogue.replies);
-				SetState(SgPlayerState.AwaitingDialogueReply);
+				yield return StartDialogue(interactConfig.startDialogue, interaction.interactGroup.speechText);
 			}
 		}
 
 		ClearInteraction();
 		speechText.text = "";
-
 		if(m_State != SgPlayerState.AwaitingDialogueReply)
 		{
 			SetState(SgPlayerState.None);
 		}
 	}
 
-	//Should be moved to a generic talk component
+	private IEnumerator DialogueReply(SgDialogueReply reply)
+	{
+		yield return Talk(reply.translationId);
+
+		if(reply.nextDialogue != null)
+		{
+			yield return StartDialogue(reply.nextDialogue, m_CurrentInteraction.interactGroup.speechText);
+		}
+		else
+		{
+			SetState(SgPlayerState.None);
+		}
+	}
+	private IEnumerator StartDialogue(SgDialogue dialogue, TMPro.TextMeshPro speechText)
+	{
+		HudManager.ClearReplyBar();
+		SetState(SgPlayerState.Interacting);
+		yield return Talk(dialogue.mainTranslationIds, speechText);
+
+		HudManager.ShowReplyBar(dialogue.replies);
+		SetState(SgPlayerState.AwaitingDialogueReply);
+	}
+
+	//Should be moved to a generic talk/char component
+	private IEnumerator Talk(int translationId)
+	{
+		return Talk(new int[] { translationId });
+	}
 	public IEnumerator Talk(IList<int> translationIds)
 	{
 		return Talk(translationIds, this.speechText);

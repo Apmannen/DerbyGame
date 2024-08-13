@@ -15,10 +15,11 @@ public class SgHudManager : SgBehavior
 	public SgWheelSliceMapping[] sliceMappings;
 	public SgSliceController itemSliceTemplate;
 	public RectTransform replyBarContainer;
-	public TMPro.TextMeshProUGUI replyItemTemplate;
+	public SgReplyItem replyItemTemplate;
 
 	private float m_BgAlphaVel = 0;
-	private List<TMPro.TextMeshProUGUI> m_ReplyItems = new();
+	private List<SgReplyItem> m_ReplyItems = new();
+	private SgReplyItem m_SelectedReplyItem;
 
 	private void Start()
 	{
@@ -33,13 +34,20 @@ public class SgHudManager : SgBehavior
 
 	public bool IsReplyBarVisible => replyBarContainer.gameObject.activeSelf;
 
+	public void NotifyReplyItemClicked(SgReplyItem replyItem)
+	{
+		m_SelectedReplyItem = replyItem;
+	}
+	public SgDialogueReply SelectedDialogueReply => m_SelectedReplyItem != null ? m_SelectedReplyItem.dialogueReply : null;
+
 	public void ClearReplyBar()
 	{
-		foreach (TMPro.TextMeshProUGUI oldReplyItem in m_ReplyItems)
+		foreach (SgReplyItem oldReplyItem in m_ReplyItems)
 		{
 			Destroy(oldReplyItem.gameObject);
 		}
 		m_ReplyItems.Clear();
+		m_SelectedReplyItem = null;
 		replyBarContainer.gameObject.SetActive(false);
 	}
 
@@ -47,13 +55,17 @@ public class SgHudManager : SgBehavior
 	{
 		ClearReplyBar();
 
+		int i = 0;
 		foreach (SgDialogueReply reply in replies)
 		{
-			TMPro.TextMeshProUGUI replyItem = Instantiate(replyItemTemplate, replyItemTemplate.transform.parent);
-			replyItem.text = TranslationManager.Get(reply.translationId);
+			SgReplyItem replyItem = Instantiate(replyItemTemplate, replyItemTemplate.transform.parent);
+			replyItem.text.text = TranslationManager.Get(reply.translationId);
+			replyItem.index = i;
+			replyItem.dialogueReply = reply;
 			replyItem.gameObject.SetActive(true);
 
 			m_ReplyItems.Add(replyItem);
+			i++;
 		}
 
 		Vector2 size = replyBarContainer.sizeDelta;
