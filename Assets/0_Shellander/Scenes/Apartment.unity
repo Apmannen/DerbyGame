@@ -288,6 +288,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 73675046c665c9d4db583ad3e03012d6, type: 3}
   changeInterval: 0.1
   autoPlay: 1
+  randomizeOrder: 1
 --- !u!1 &633702608
 GameObject:
   m_ObjectHideFlags: 0

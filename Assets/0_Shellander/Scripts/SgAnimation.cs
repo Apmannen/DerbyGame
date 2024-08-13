@@ -8,10 +8,12 @@ public class SgAnimation : SgBehavior
 	public Sprite[] sprites;
 	public float changeInterval = 0.4f;
 	public bool autoPlay = false;
+	public bool randomizeOrder = false;
 
 	private int m_CurrentIndex = 0;
 	private bool m_IsPlaying = false;
 	private float m_TimeCounter;
+	private readonly List<int> m_IndexList = new();
 
 	private void Start()
 	{
@@ -45,10 +47,26 @@ public class SgAnimation : SgBehavior
 		if(m_TimeCounter >= changeInterval)
 		{
 			m_TimeCounter -= changeInterval;
-			m_CurrentIndex++;
-			if(m_CurrentIndex >= sprites.Length)
+			if(randomizeOrder)
 			{
-				m_CurrentIndex = 0;
+				m_IndexList.Clear();
+				for(int i = 0; i < sprites.Length-1; i++)
+				{
+					if(i == m_CurrentIndex)
+					{
+						continue;
+					}
+					m_IndexList.Add(i);
+				}
+				m_CurrentIndex = SgUtil.RandomElement(m_IndexList);
+			}
+			else
+			{
+				m_CurrentIndex++;
+				if (m_CurrentIndex >= sprites.Length)
+				{
+					m_CurrentIndex = 0;
+				}
 			}
 			spriteRenderer.sprite = sprites[m_CurrentIndex];
 		}
