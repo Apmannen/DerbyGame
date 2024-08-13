@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 1238277778853361727}
   - component: {fileID: 6238358854827042545}
   - component: {fileID: 7737111689455739586}
-  - component: {fileID: 7135941115103199581}
   m_Layer: 0
   m_Name: P_Bus
   m_TagString: Untagged
@@ -139,21 +138,6 @@ MonoBehaviour:
     transform: {fileID: 4711200099307250911}
   - time: 4
     transform: {fileID: 3752440299821472339}
---- !u!114 &7135941115103199581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2992460450486276256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f13118148d9074ba5e5b189691b264, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deactivate: 1
-  onAwake: 0
-  onStart: 1
 --- !u!1 &8209354858191380082
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,12 @@ public class SgBusBenchInteract : SgInteractGroup
 	public int busCardMissingTranslationId;
 	public SgRoomName goToRoom = SgRoomName.Illegal;
 
+	protected override void Start()
+	{
+		base.Start();
+		bus.gameObject.SetActive(false);
+	}
+
 	public override IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
 		if (interactType == SgInteractType.Use)
