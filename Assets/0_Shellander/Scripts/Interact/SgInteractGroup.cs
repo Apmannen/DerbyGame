@@ -146,6 +146,8 @@ public class SgInteractGroup : SgBehavior
 		if(interactConfig.startDialogue)
 		{
 			yield return player.Talk(interactConfig.startDialogue.mainTranslationIds, speechText);
+
+			HudManager.ShowReplyBar(interactConfig.startDialogue.replies);
 		}
 	}
 }

@@ -14,12 +14,52 @@ public class SgHudManager : SgBehavior
 	public float wheelBgAlphaSmoothTime = 0.1f;
 	public SgWheelSliceMapping[] sliceMappings;
 	public SgSliceController itemSliceTemplate;
+	public RectTransform replyBarContainer;
+	public TMPro.TextMeshProUGUI replyItemTemplate;
 
 	private float m_BgAlphaVel = 0;
+	private List<TMPro.TextMeshProUGUI> m_ReplyItems = new();
 
 	private void Start()
 	{
 		RefreshWheel();
+		replyBarContainer.gameObject.SetActive(false);
+		replyItemTemplate.gameObject.SetActive(false);
+	}
+	private void Update()
+	{
+		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
+	}
+
+	public bool IsReplyBarVisible => replyBarContainer.gameObject.activeSelf;
+
+	public void ClearReplyBar()
+	{
+		foreach (TMPro.TextMeshProUGUI oldReplyItem in m_ReplyItems)
+		{
+			Destroy(oldReplyItem.gameObject);
+		}
+		m_ReplyItems.Clear();
+		replyBarContainer.gameObject.SetActive(false);
+	}
+
+	public void ShowReplyBar(SgDialogueReply[] replies)
+	{
+		ClearReplyBar();
+
+		foreach (SgDialogueReply reply in replies)
+		{
+			TMPro.TextMeshProUGUI replyItem = Instantiate(replyItemTemplate, replyItemTemplate.transform.parent);
+			replyItem.text = TranslationManager.Get(reply.translationId);
+			replyItem.gameObject.SetActive(true);
+
+			m_ReplyItems.Add(replyItem);
+		}
+
+		Vector2 size = replyBarContainer.sizeDelta;
+		size.y = 100 + (100 * replies.Length);
+		replyBarContainer.sizeDelta = size;
+		replyBarContainer.gameObject.SetActive(true);
 	}
 
 	public void AddWheelListener(System.Action<SgWeaponWheelEvent> action)
@@ -65,10 +105,7 @@ public class SgHudManager : SgBehavior
 		return sliceMappings.Single(m => m.sliceName == sliceName);
 	}
 
-	private void Update()
-	{
-		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
-	}
+	
 
 	public bool IsWheelVisible => weaponWheel.IsVisible;
 }

@@ -54,7 +54,7 @@ public class SgCursorController : SgBehavior
 			return;
 		}
 
-		if (HudManager.IsWheelVisible)
+		if (HudManager.IsWheelVisible || HudManager.IsReplyBarVisible)
 		{
 			SetCursor(GetCursorByInteractType(SgInteractType.Generic));
 			return;
