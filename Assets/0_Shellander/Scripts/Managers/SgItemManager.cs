@@ -53,25 +53,30 @@ public class SgItemManager : SgBehavior
 
 	private void SetMoney(int newMoney)
 	{
-		foreach (SgItemDefinition definition in itemDefinitions)
+		if(newMoney > 0)
 		{
-			if (definition.moneyValue == newMoney)
+			foreach (SgItemDefinition definition in itemDefinitions)
 			{
-				SetMoneyItem(definition.itemType);
-				break;
+				if (definition.moneyValue == newMoney)
+				{
+					Collect(definition.itemType);
+				}
+				else if(definition.moneyValue > 0)
+				{
+					RemoveItem(definition.itemType);
+				}
 			}
 		}
-	}
-	private void SetMoneyItem(SgItemType itemType)
-	{
-		foreach(SgItemDefinition definition in itemDefinitions)
+		else
 		{
-			if(definition.IsColleted && definition.IsMoney)
+			foreach (SgItemDefinition definition in itemDefinitions)
 			{
-				RemoveItem(definition.itemType);
+				if (definition.IsColleted && definition.IsMoney)
+				{
+					RemoveItem(definition.itemType);
+				}
 			}
-		}
-		Collect(itemType);
+		}		
 	}
 
 	public void ChangeMoney(int change)

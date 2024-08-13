@@ -500,7 +500,7 @@ public class SgPlayer : SgBehavior
 		}
 		if(reply.reduceMoney > 0)
 		{
-			
+			ItemManager.ChangeMoney(-reply.reduceMoney);
 		}
 
 		if(!reply.isSilent)
