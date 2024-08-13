@@ -343,7 +343,7 @@ public class SgPlayer : SgBehavior
 
 				SetDestination(walkTarget);
 
-				if(IsCursorAnyInteract())
+				if(IsCursorAnyInteract() && hoveredInteractGroup != null)
 				{
 					HandleInteractClick(hoveredInteractGroup);
 				}
