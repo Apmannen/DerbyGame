@@ -24,7 +24,7 @@ public class SgCursorController : SgBehavior
 	}
 	public SgInteractType SelectedInteractType => m_SelectedInteract;
 	private SgCursorTypeDefinition ItemCursor => GetCursorByInteractType(SgInteractType.Item);
-	public SgItemType SelectedItem => SelectedInteractType == SgInteractType.Item && ItemCursor.sprite != null 
+	public SgItemType SelectedItem => SelectedInteractType == SgInteractType.Item && ItemCursor.sprite != null && ItemManager.IsCollected(m_SelectedItem) 
 		? m_SelectedItem : SgItemType.Illegal;
 	public void ClearText()
 	{
@@ -105,6 +105,7 @@ public class SgCursorController : SgBehavior
 		SgCursorTypeDefinition itemCursor = GetCursorByInteractType(SgInteractType.Item);
 		itemCursor.sprite = itemType != SgItemType.Illegal ? ItemManager.Get(itemType).sprite : null;
 		m_SelectedInteract = SgInteractType.Item;
+		m_SelectedItem = itemType;
 		UpdateCurrentCursor();
 	}
 	public void SetSelectedInteract(SgInteractType interactType)

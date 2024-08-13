@@ -46,6 +46,7 @@ public class SgTranslationManager : SgBehavior
 	{
 		return GetInteractTranslation(interactTranslations, interactType, isCollected, SgItemType.Illegal).translationIds;
 	}
+	//TODO: move away from here, is not (only) translations anymore
 	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
 		SgItemType itemType)
 	{
