@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Shellander/Scenes/Shop.unity
     guid: cf3c322b55e3b9142a3b6037f869f85a
+  - enabled: 1
+    path: Assets/0_Shellander/Scenes/Apartment.unity
+    guid: 2e4fec40ac1d6b045b7490122fb779d4
   m_configObjects: {}
