@@ -116,7 +116,7 @@ public class SgCursorController : SgBehavior
 
 	private void SetCursor(SgCursorTypeDefinition cursor)
 	{
-		//Cursor.visible = false;
+		Cursor.visible = false;
 		UiCursor.image.sprite = cursor.sprite;
 		m_CurrentCursor = cursor;
 	}

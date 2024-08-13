@@ -212,11 +212,6 @@ public class SgPlayer : SgBehavior
 		{
 			CursorController.SetWaitMode(false);
 		}
-
-		if(m_State is SgPlayerState.AwaitingDialogueReply)
-		{
-			//m_PlayerInput.SwitchCurrentActionMap("UI");
-		}
 	}
 
 	
@@ -465,11 +460,11 @@ public class SgPlayer : SgBehavior
 			}
 		}
 
-		ClearInteraction();
 		speechText.text = "";
 		if(m_State != SgPlayerState.AwaitingDialogueReply)
 		{
 			SetState(SgPlayerState.None);
+			ClearInteraction();
 		}
 	}
 
