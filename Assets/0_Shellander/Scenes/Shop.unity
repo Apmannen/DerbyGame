@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 58000000
   replies: []
-  nextDialogue: {fileID: 0}
+  redirectAfterDialogue: {fileID: 0}
 --- !u!114 &221933385 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4499134915600010376, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 61000000
   replies: []
-  nextDialogue: {fileID: 255484240}
+  redirectAfterDialogue: {fileID: 255484240}
 --- !u!1 &255484238
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +514,7 @@ MonoBehaviour:
     nextDialogue: {fileID: 686176197}
   - translationId: 87
     nextDialogue: {fileID: 175087642}
-  nextDialogue: {fileID: 0}
+  redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &378640423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 66000000
   replies: []
-  nextDialogue: {fileID: 0}
+  redirectAfterDialogue: {fileID: 0}
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5067277735060948927, guid: 6b620244b59a1ef4eaab8e22edc64562, type: 3}
@@ -928,7 +928,7 @@ MonoBehaviour:
     nextDialogue: {fileID: 0}
   - translationId: 95
     nextDialogue: {fileID: 233747238}
-  nextDialogue: {fileID: 0}
+  redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &805856891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1545,7 +1545,7 @@ MonoBehaviour:
     nextDialogue: {fileID: 488228924}
   - translationId: 101
     nextDialogue: {fileID: 255484240}
-  nextDialogue: {fileID: 0}
+  redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &537423196534831294
 PrefabInstance:
   m_ObjectHideFlags: 0

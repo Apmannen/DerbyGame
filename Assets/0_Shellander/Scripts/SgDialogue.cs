@@ -6,7 +6,7 @@ public class SgDialogue : MonoBehaviour
 {
 	public int[] mainTranslationIds;
 	public SgDialogueReply[] replies;
-	public SgDialogue nextDialogue;
+	public SgDialogue redirectAfterDialogue;
 }
 
 [System.Serializable]
