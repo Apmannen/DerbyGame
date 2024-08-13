@@ -486,7 +486,6 @@ public class SgPlayer : SgBehavior
 	{
 		//Do BEFORE routine
 		SgCharacter otherCharacter = m_CurrentInteraction.interactGroup.character;
-		Debug.Log("**** SPEECH reply start, other="+otherCharacter);
 		SetState(SgPlayerState.Interacting);
 		character.ClearSpeech();
 		otherCharacter.ClearSpeech();
@@ -512,8 +511,15 @@ public class SgPlayer : SgBehavior
 		SetState(SgPlayerState.Interacting);
 		yield return otherCharacter.Talk(dialogue.mainTranslationIds);
 
-		HudManager.ShowReplyBar(dialogue.replies);
-		SetState(SgPlayerState.AwaitingDialogueReply);
+		if(dialogue.replies.Length > 0)
+		{
+			HudManager.ShowReplyBar(dialogue.replies);
+			SetState(SgPlayerState.AwaitingDialogueReply);
+		}
+		else
+		{
+			SetState(SgPlayerState.None);
+		}
 	}
 
 	private void SkipAnySpeech()
