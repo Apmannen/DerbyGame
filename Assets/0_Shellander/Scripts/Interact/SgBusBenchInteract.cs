@@ -18,22 +18,27 @@ public class SgBusBenchInteract : SgInteractGroup
 
 			player.SetStance(SgPlayerStance.Sitting);
 			bus.gameObject.SetActive(true);
-			bus.StartAnimation();
-			yield return Wait(5);
-			CheckHandleAborted();
-			float busLeaveTime = 3;
+			yield return bus.AnimateStep(0);
+			//bus.StartAnimation();
+			//yield return Wait(5);
+			//CheckHandleAborted();
+			//float busLeaveTime = 3;
 
 			if (ItemManager.IsCollected(SgItemType.BussCard))
 			{
 				player.SetStance(SgPlayerStance.Hidden);
-				yield return Wait(busLeaveTime);
+				yield return bus.AnimateStep(1);
+				yield return bus.AnimateStep(2);
+				//yield return Wait(busLeaveTime);
 				SceneManager.SetRoom(goToRoom);
 			}
 			else
 			{
 				player.SetStance(SgPlayerStance.Normal);
-				yield return Wait(busLeaveTime);
-				CheckHandleAborted();
+				yield return bus.AnimateStep(1);
+				yield return bus.AnimateStep(2);
+				//yield return Wait(busLeaveTime);
+				//CheckHandleAborted();
 				yield return player.character.Talk(busCardMissingTranslationId);
 			}			
 		}
@@ -43,35 +48,24 @@ public class SgBusBenchInteract : SgInteractGroup
 		}
 	}
 
-	private void Update()
-	{
-		SgPlayer player = SgPlayer.Get();
-		if(player == null)
-		{
-			return;
-		}
-		if(player.ClickAction.WasPressedThisFrame())
-		{
-			m_AbortClicks++;
-		}
-	}
+	
 
-	private void CheckHandleAborted()
-	{
-		if(!CutsceneAborted)
-		{
-			return;
-		}
-		bus.gameObject.SetActive(false);
-	}
+	//private void CheckHandleAborted()
+	//{
+	//	if(!CutsceneAborted)
+	//	{
+	//		return;
+	//	}
+	//	bus.gameObject.SetActive(false);
+	//}
 
-	private IEnumerator Wait(float maxDuration)
-	{
-		float time = 0;
-		while (time < maxDuration && !CutsceneAborted)
-		{
-			time += Time.deltaTime;
-			yield return null;
-		}
-	}
+	//private IEnumerator Wait(float maxDuration)
+	//{
+	//	float time = 0;
+	//	while (time < maxDuration && !CutsceneAborted)
+	//	{
+	//		time += Time.deltaTime;
+	//		yield return null;
+	//	}
+	//}
 }
