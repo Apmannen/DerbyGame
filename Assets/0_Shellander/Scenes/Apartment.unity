@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550850353}
   - component: {fileID: 550850354}
+  - component: {fileID: 550850355}
   m_Layer: 0
   m_Name: pizza4k1
   m_TagString: Untagged
@@ -266,6 +267,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &550850355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550850352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0192fc4b701d4d950e79f170fdcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 550850354}
+  sprites:
+  - {fileID: 21300000, guid: 061191e2b7b5a774fa92d116f21db0ea, type: 3}
+  - {fileID: 21300000, guid: 262955c09695a564697fe1883dec84ef, type: 3}
+  - {fileID: 21300000, guid: ad78bf37eff56164baea1a7b73567816, type: 3}
+  - {fileID: 21300000, guid: 17da0d9c83e83754cb72c41c1731db87, type: 3}
+  - {fileID: 21300000, guid: 73675046c665c9d4db583ad3e03012d6, type: 3}
+  changeInterval: 0.1
+  autoPlay: 1
 --- !u!1 &633702608
 GameObject:
   m_ObjectHideFlags: 0
