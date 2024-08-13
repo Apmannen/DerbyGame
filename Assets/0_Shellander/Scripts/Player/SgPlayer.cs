@@ -291,6 +291,7 @@ public class SgPlayer : SgBehavior
 			{
 				continue;
 			}
+			bestPrio = interactable.priority;
 			selectedInteractable = interactable;
 		}
 
