@@ -34,7 +34,7 @@ public class SgBusBenchInteract : SgInteractGroup
 				player.SetStance(SgPlayerStance.Normal);
 				yield return Wait(busLeaveTime);
 				CheckHandleAborted();
-				yield return player.Talk(new int[] { busCardMissingTranslationId });
+				yield return player.character.Talk(busCardMissingTranslationId);
 			}			
 		}
 		else

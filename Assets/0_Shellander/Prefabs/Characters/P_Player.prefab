@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6930473758509452132}
   - component: {fileID: 6463684903790528356}
   - component: {fileID: 7412819525115125079}
+  - component: {fileID: 4358481149397824370}
   m_Layer: 0
   m_Name: P_Player
   m_TagString: Player
@@ -110,37 +111,8 @@ MonoBehaviour:
   walkAnimation: {fileID: 6058173534052741082}
   mainRenderer: {fileID: 1050728045699134630}
   sitSprite: {fileID: 2778077560273534758}
-  cursors:
-  - interactType: 1
-    sprite: {fileID: 21300000, guid: 9de62038dfa4d5a4c98ba85c53c0db20, type: 3}
-    index: -1
-  - interactType: 2
-    sprite: {fileID: 21300000, guid: bd9e490a377969246be8e5ce3bdf7f00, type: 3}
-    index: -1
-  - interactType: 3
-    sprite: {fileID: 21300000, guid: fd9d74f08ca634a488d8d2f4ea5a97e5, type: 3}
-    index: -1
-  - interactType: 4
-    sprite: {fileID: 21300000, guid: 2a49dee26b7a8d14f9641bc1d28e229a, type: 3}
-    index: -1
-  - interactType: 5
-    sprite: {fileID: 21300000, guid: 52792fcf29f4032409f7d358ff110307, type: 3}
-    index: -1
-  - interactType: 8
-    sprite: {fileID: 0}
-    index: -1
-  - interactType: 6
-    sprite: {fileID: 21300000, guid: 676498c45f03d9b48a40a53d22e835a2, type: 3}
-    index: -1
-  - interactType: 9
-    sprite: {fileID: 21300000, guid: 1bca0ade681507943be2024303196cd1, type: 3}
-    index: -1
-  waitCursor:
-    interactType: 0
-    sprite: {fileID: 0}
-    index: -1
-  speechText: {fileID: 5632593816990681997}
   spawnPositions: []
+  character: {fileID: 4358481149397824370}
 --- !u!195 &6665080452964013111
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -302,6 +274,19 @@ MonoBehaviour:
   - interactType: 9
     sprite: {fileID: 21300000, guid: 1bca0ade681507943be2024303196cd1, type: 3}
     index: 0
+--- !u!114 &4358481149397824370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4350015964145985588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a3eecb0c17cb745961c8da607d973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speechText: {fileID: 5632593816990681997}
 --- !u!1 &6065360234628964927
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,8 @@ public class SgPlayer : SgBehavior
 	public SgAnimation walkAnimation;
 	public SpriteRenderer mainRenderer;
 	public SpriteRenderer sitSprite;
-	public TMPro.TextMeshPro speechText;
 	public SgSpawnPosition[] spawnPositions;
+	public SgCharacter character;
 
 	private enum SgPlayerState { None, Walking, InteractWalking, Interacting, AwaitingDialogueReply }
 	
@@ -24,7 +24,6 @@ public class SgPlayer : SgBehavior
 	private Vector3 m_PrevPos;
 	private readonly SgInteraction m_CurrentInteraction = new();
 	private float m_StateActivatedTime;
-	private bool m_SpeechAborted;
 	private static SgPlayer s_Player;
 	private string? m_HighlightedActionTranslation;
 	private bool m_ScheduledMoveToSpawnPos;
@@ -53,8 +52,7 @@ public class SgPlayer : SgBehavior
 		CursorController.Init();
 
 		ClearInteraction();
-		CursorController.ClearText();
-		speechText.text = "";
+		CursorController.ClearText();		
 
 		m_PrevPos = this.transform.position;
 
@@ -343,7 +341,7 @@ public class SgPlayer : SgBehavior
 		else if(m_State == SgPlayerState.Interacting && Time.time > (m_StateActivatedTime+0.25f) && 
 			(m_ClickAction.WasPressedThisFrame() || m_ShiftCursorRight.WasPressedThisFrame()))
 		{
-			SkipSpeech();
+			SkipAnySpeech();
 		}
 		else if(HudManager.IsWheelVisible && m_ShiftCursorRight.WasPressedThisFrame() && 
 			m_LastHighlightedSlice.ItemType != SgItemType.Illegal)
@@ -448,7 +446,7 @@ public class SgPlayer : SgBehavior
 			}			
 		}
 
-		yield return Talk(interactTranslationIds);
+		yield return character.Talk(interactTranslationIds);
 
 		if(interaction.IsRoomInteraction)
 		{
@@ -456,11 +454,11 @@ public class SgPlayer : SgBehavior
 
 			if (interactConfig != null && interactConfig.startDialogue)
 			{
-				yield return StartDialogue(interactConfig.startDialogue, interaction.interactGroup.speechText);
+				yield return StartDialogue(interactConfig.startDialogue, interaction.interactGroup.character);
 			}
 		}
 
-		speechText.text = "";
+		character.ClearSpeech();
 		if(m_State != SgPlayerState.AwaitingDialogueReply)
 		{
 			SetState(SgPlayerState.None);
@@ -470,61 +468,36 @@ public class SgPlayer : SgBehavior
 
 	private IEnumerator DialogueReply(SgDialogueReply reply)
 	{
-		yield return Talk(reply.translationId);
+		SetState(SgPlayerState.Interacting);
+		yield return character.Talk(reply.translationId);
 
 		if(reply.nextDialogue != null)
 		{
-			yield return StartDialogue(reply.nextDialogue, m_CurrentInteraction.interactGroup.speechText);
+			yield return StartDialogue(reply.nextDialogue, m_CurrentInteraction.interactGroup.character);
 		}
 		else
 		{
 			SetState(SgPlayerState.None);
 		}
 	}
-	private IEnumerator StartDialogue(SgDialogue dialogue, TMPro.TextMeshPro speechText)
+	private IEnumerator StartDialogue(SgDialogue dialogue, SgCharacter otherCharacter)
 	{
 		HudManager.ClearReplyBar();
 		SetState(SgPlayerState.Interacting);
-		yield return Talk(dialogue.mainTranslationIds, speechText);
+		yield return otherCharacter.Talk(dialogue.mainTranslationIds);
 
 		HudManager.ShowReplyBar(dialogue.replies);
 		SetState(SgPlayerState.AwaitingDialogueReply);
 	}
 
-	//Should be moved to a generic talk/char component
-	private IEnumerator Talk(int translationId)
+	private void SkipAnySpeech()
 	{
-		return Talk(new int[] { translationId });
-	}
-	public IEnumerator Talk(IList<int> translationIds)
-	{
-		return Talk(translationIds, this.speechText);
-	}
-	public IEnumerator Talk(IList<int> translationIds, TMPro.TextMeshPro aSpeechText)
-	{
-		foreach (int id in translationIds)
+		character.SkipSpeech();
+		if(m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null 
+			&& m_CurrentInteraction.interactGroup.character != null)
 		{
-			string translation = TranslationManager.Get(id);
-			aSpeechText.text = translation;
-			m_SpeechAborted = false;
-			yield return Wait(3f);
+			m_CurrentInteraction.interactGroup.character.SkipSpeech();
 		}
-		aSpeechText.text = "";
-	}
-
-	private IEnumerator Wait(float maxDuration)
-	{
-		float time = 0;
-		while(time < maxDuration && !m_SpeechAborted)
-		{
-			time += Time.deltaTime;
-			yield return null;
-		}
-	}
-
-	private void SkipSpeech()
-	{
-		m_SpeechAborted = true;
 	}
 
 	private class SgInteraction
