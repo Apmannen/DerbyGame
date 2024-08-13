@@ -84,6 +84,7 @@ public class SgInteractTranslation
 {
 	public SgInteractType interactType;
 	public SgItemType itemType;
+	public SgItemType triggerCollect;
 	public int[] translationIds;
 	public bool walkToItFirst;
 	public bool toggleSprite = false;

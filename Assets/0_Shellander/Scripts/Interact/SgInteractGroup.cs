@@ -115,7 +115,11 @@ public class SgInteractGroup : SgBehavior
 			SaveDataManager.CurrentSaveFile.SetNamedBoolValue(interactConfig.setNamedBool, true);
 		}
 
-		if (IsConnectedToItem && interactType == SgInteractType.Pickup)
+		if(interactConfig.triggerCollect != SgItemType.Illegal)
+		{
+			ItemManager.Collect(interactConfig.triggerCollect);
+		}
+		else if (IsConnectedToItem && interactType == SgInteractType.Pickup)
 		{
 			ItemDefinition.Collect();
 			RefreshPickedUpVisibility();

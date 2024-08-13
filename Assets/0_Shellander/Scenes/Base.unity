@@ -450,6 +450,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    triggerCollect: 0
     translationIds: 3400000035000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -957,6 +958,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    triggerCollect: 0
     translationIds: 68000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -2062,6 +2064,7 @@ Transform:
   - {fileID: 1319437545}
   - {fileID: 1511871021}
   - {fileID: 423490284}
+  - {fileID: 2126825508}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -2083,6 +2086,7 @@ MonoBehaviour:
   - {fileID: 1319437546}
   - {fileID: 1511871022}
   - {fileID: 423490285}
+  - {fileID: 2126825509}
 --- !u!1 &1025582727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,6 +2934,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    triggerCollect: 0
     translationIds: 1a000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -3850,6 +3855,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    triggerCollect: 0
     translationIds: 3f000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -4844,6 +4850,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    triggerCollect: 0
     translationIds: 0d0000000e000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -4903,6 +4910,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    triggerCollect: 0
     translationIds: 5c000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -6151,6 +6159,7 @@ MonoBehaviour:
   defaultTranslations:
   - interactType: 5
     itemType: 0
+    triggerCollect: 0
     translationIds: 01000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -6161,6 +6170,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 3
     itemType: 0
+    triggerCollect: 0
     translationIds: 13000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -6171,6 +6181,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 4
     itemType: 0
+    triggerCollect: 0
     translationIds: 14000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -6181,6 +6192,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 8
     itemType: 0
+    triggerCollect: 0
     translationIds: 4b000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -7353,6 +7365,66 @@ MonoBehaviour:
       holeTexture: {fileID: 2800000, guid: aca7b9ca2437fbd4dabb29b46bab404f, type: 3}
     isFoldedOut: 1
   sliceIndex: 1
+--- !u!1 &2126825507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126825508}
+  - component: {fileID: 2126825509}
+  m_Layer: 0
+  m_Name: MembershipCard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2126825508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126825507}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2126825509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126825507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 7
+  translationId: 114
+  sprite: {fileID: 21300000, guid: 86facbd9757386a45b1221ec54fc8ca2, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    triggerCollect: 0
+    translationIds: 68000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  moneyValue: 0
 --- !u!114 &691094778505766209
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using static SgSaveDataManager;
 
+//Don't change order (or add index values), inspectors depend on it
 public enum SgItemType
 {
 	Illegal, 
@@ -10,6 +11,7 @@ public enum SgItemType
 	Crowbar,
 	Money100,
 	TshirtBlack,
+	MembershipCard,
 }
 
 public class SgItemDefinition : SgBehavior
