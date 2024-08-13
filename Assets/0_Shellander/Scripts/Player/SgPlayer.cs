@@ -312,7 +312,7 @@ public class SgPlayer : SgBehavior
 		//Input handling
 		if(m_State == SgPlayerState.AwaitingDialogueReply && HudManager.SelectedDialogueReply != null)
 		{
-			StartCoroutine(DialogueReply(HudManager.SelectedDialogueReply));			
+			StartDialogueReply(HudManager.SelectedDialogueReply);			
 			return;
 		}
 		else if(IsActionsAllowed())
@@ -466,14 +466,24 @@ public class SgPlayer : SgBehavior
 		}
 	}
 
-	private IEnumerator DialogueReply(SgDialogueReply reply)
+	private void StartDialogueReply(SgDialogueReply reply)
 	{
+		//Do BEFORE routine
+		SgCharacter otherCharacter = m_CurrentInteraction.interactGroup.character;
+		Debug.Log("**** SPEECH reply start, other="+otherCharacter);
 		SetState(SgPlayerState.Interacting);
+		character.ClearSpeech();
+		otherCharacter.ClearSpeech();
+
+		StartCoroutine(DialogueReplyRoutine(reply, otherCharacter));
+	}
+	private IEnumerator DialogueReplyRoutine(SgDialogueReply reply, SgCharacter otherCharacter)
+	{
 		yield return character.Talk(reply.translationId);
 
-		if(reply.nextDialogue != null)
+		if (reply.nextDialogue != null)
 		{
-			yield return StartDialogue(reply.nextDialogue, m_CurrentInteraction.interactGroup.character);
+			yield return StartDialogue(reply.nextDialogue, otherCharacter);
 		}
 		else
 		{

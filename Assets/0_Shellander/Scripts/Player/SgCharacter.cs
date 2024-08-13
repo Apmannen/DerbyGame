@@ -16,6 +16,7 @@ public class SgCharacter : SgBehavior
 	public void ClearSpeech()
 	{
 		speechText.text = "";
+		StopAllCoroutines();
 	}
 	public void SkipSpeech()
 	{
@@ -31,11 +32,13 @@ public class SgCharacter : SgBehavior
 		foreach (int id in translationIds)
 		{
 			string translation = TranslationManager.Get(id);
+			Debug.Log("*** SPEECH setting:"+translation+", this:"+this, this.gameObject);
 			speechText.text = translation;
 			m_SpeechAborted = false;
 			yield return Wait(3f);
 		}
-		speechText.text = "";
+		Debug.Log("*** SPEECH clearing, this:" + this, this.gameObject);
+		ClearSpeech();
 	}
 
 	private IEnumerator Wait(float maxDuration)
