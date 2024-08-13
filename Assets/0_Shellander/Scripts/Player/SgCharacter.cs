@@ -15,6 +15,7 @@ public class SgCharacter : SgBehavior
 
 	public void ClearSpeech()
 	{
+		Debug.Log("*** SPEECH clearing, this:" + this, this.gameObject);
 		speechText.text = "";
 		StopAllCoroutines();
 	}
@@ -37,7 +38,6 @@ public class SgCharacter : SgBehavior
 			m_SpeechAborted = false;
 			yield return Wait(3f);
 		}
-		Debug.Log("*** SPEECH clearing, this:" + this, this.gameObject);
 		ClearSpeech();
 	}
 

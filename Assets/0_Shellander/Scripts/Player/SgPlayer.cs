@@ -16,7 +16,14 @@ public class SgPlayer : SgBehavior
 	public SgSpawnPosition[] spawnPositions;
 	public SgCharacter character;
 
-	private enum SgPlayerState { None, Walking, InteractWalking, Interacting, AwaitingDialogueReply }
+	private enum SgPlayerState 
+	{ 
+		None, 
+		Walking, 
+		InteractWalking, 
+		Interacting, 
+		AwaitingDialogueReply,
+	}
 	
 	private SgPlayerState m_State = SgPlayerState.None;
 	private Vector3 m_WalkTarget;
@@ -184,6 +191,12 @@ public class SgPlayer : SgBehavior
 		return action;
 	}
 
+	private void StartInteraction()
+	{
+		SetState(SgPlayerState.Interacting);
+		Interact(m_CurrentInteraction);
+	}
+
 	private void SetState(SgPlayerState newState)
 	{
 		if(newState == m_State)
@@ -201,10 +214,13 @@ public class SgPlayer : SgBehavior
 		{
 			CursorController.SetWaitMode(true);
 
-			if(newState == SgPlayerState.Interacting)
-			{
-				Interact(m_CurrentInteraction);
-			}
+			//Gives unwanted side effect if want to continue interaction.
+			//Probably should mostly have mostly "passive" effects here.
+
+			//if(newState == SgPlayerState.Interacting)
+			//{
+			//	Interact(m_CurrentInteraction);
+			//}
 		}
 		else
 		{
@@ -301,7 +317,7 @@ public class SgPlayer : SgBehavior
 		if (m_State == SgPlayerState.InteractWalking && HasReachedDestination())
 		{
 			walkAnimation.Stop();
-			SetState(SgPlayerState.Interacting);
+			StartInteraction();
 		}
 		else if (m_State == SgPlayerState.Walking && HasReachedDestination())
 		{
@@ -349,7 +365,7 @@ public class SgPlayer : SgBehavior
 			SetInteraction(null, m_LastHighlightedSlice.ItemType, SgItemType.Illegal, SgInteractType.Look);
 			SetDestination(this.transform.position);
 			walkAnimation.Stop();
-			SetState(SgPlayerState.Interacting);
+			StartInteraction();
 		}
 
 		//State handling 2
@@ -398,7 +414,7 @@ public class SgPlayer : SgBehavior
 			{
 				SetDestination(this.transform.position);
 				walkAnimation.Stop();
-				SetState(SgPlayerState.Interacting);
+				StartInteraction();
 			}
 
 		}
