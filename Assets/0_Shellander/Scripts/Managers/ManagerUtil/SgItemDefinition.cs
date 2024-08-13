@@ -9,6 +9,7 @@ public enum SgItemType
 	Ticket,
 	Crowbar,
 	Money100,
+	TshirtBlack,
 }
 
 public class SgItemDefinition : SgBehavior
@@ -17,6 +18,9 @@ public class SgItemDefinition : SgBehavior
 	public int translationId = -1;
 	public Sprite sprite;
 	public SgInteractTranslation[] interactTranslations;
+	public int moneyValue;
+
+	public bool IsMoney => moneyValue > 0;
 
 	private SgItemSavable m_Savable;
 	public SgItemSavable Savable

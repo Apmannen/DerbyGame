@@ -15,4 +15,6 @@ public class SgDialogueReply
 	public int translationId;
 	public bool isSilent = false;
 	public SgDialogue nextDialogue;
+	public SgItemType addItem;
+	public int reduceMoney;
 }

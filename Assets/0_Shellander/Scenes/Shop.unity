@@ -513,9 +513,13 @@ MonoBehaviour:
   - translationId: 96
     isSilent: 0
     nextDialogue: {fileID: 686176197}
+    addItem: 0
+    reduceMoney: 0
   - translationId: 87
     isSilent: 0
     nextDialogue: {fileID: 175087642}
+    addItem: 0
+    reduceMoney: 0
   redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &378640423
 PrefabInstance:
@@ -929,9 +933,13 @@ MonoBehaviour:
   - translationId: 94
     isSilent: 1
     nextDialogue: {fileID: 1950015196}
+    addItem: 6
+    reduceMoney: 100
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
+    addItem: 0
+    reduceMoney: 0
   redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &805856891
 PrefabInstance:
@@ -1548,9 +1556,13 @@ MonoBehaviour:
   - translationId: 100
     isSilent: 0
     nextDialogue: {fileID: 488228924}
+    addItem: 0
+    reduceMoney: 0
   - translationId: 101
     isSilent: 0
     nextDialogue: {fileID: 255484240}
+    addItem: 0
+    reduceMoney: 0
   redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &537423196534831294
 PrefabInstance:

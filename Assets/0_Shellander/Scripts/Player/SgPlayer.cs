@@ -494,6 +494,15 @@ public class SgPlayer : SgBehavior
 	}
 	private IEnumerator DialogueReplyRoutine(SgDialogueReply reply, SgCharacter otherCharacter)
 	{
+		if(reply.addItem != SgItemType.Illegal)
+		{
+			ItemManager.Collect(reply.addItem);
+		}
+		if(reply.reduceMoney > 0)
+		{
+			
+		}
+
 		if(!reply.isSilent)
 		{
 			yield return character.Talk(reply.translationId);

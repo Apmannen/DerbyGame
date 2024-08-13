@@ -458,6 +458,7 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+  moneyValue: 0
 --- !u!1 &187295477
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +907,65 @@ MonoBehaviour:
   - {fileID: 1673433111}
   - {fileID: 187295478}
   centerPoint: {fileID: 1102939700}
+--- !u!1 &423490283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 423490284}
+  - component: {fileID: 423490285}
+  m_Layer: 0
+  m_Name: TshirtBlack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423490284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423490283}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &423490285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423490283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 6
+  translationId: 103
+  sprite: {fileID: 21300000, guid: 59a5ff791882d5f4490f683b59392923, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    translationIds: 68000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  moneyValue: 0
 --- !u!1 &441934431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,6 +2017,7 @@ Transform:
   - {fileID: 164395101}
   - {fileID: 1319437545}
   - {fileID: 1511871021}
+  - {fileID: 423490284}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -1977,6 +2038,7 @@ MonoBehaviour:
   - {fileID: 164395102}
   - {fileID: 1319437546}
   - {fileID: 1511871022}
+  - {fileID: 423490285}
 --- !u!1 &1025582727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,6 +2894,7 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+  moneyValue: 0
 --- !u!1 &1194111897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,6 +3814,7 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+  moneyValue: 0
 --- !u!1 &1319446629
 GameObject:
   m_ObjectHideFlags: 0
@@ -4744,6 +4808,7 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+  moneyValue: 0
 --- !u!1 &1511871020
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,6 +4867,7 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+  moneyValue: 100
 --- !u!1 &1516207971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5500,7 +5566,10 @@ MonoBehaviour:
   index: 0
   dialogueReply:
     translationId: 0
+    isSilent: 0
     nextDialogue: {fileID: 0}
+    addItem: 0
+    reduceMoney: 0
 --- !u!1 &1727380884
 GameObject:
   m_ObjectHideFlags: 0
