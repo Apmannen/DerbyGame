@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 //Should be called SgUiReplyItem or something similar to differentiate from SgDialogueReply
 public class SgReplyItem : SgBehavior
@@ -9,6 +10,12 @@ public class SgReplyItem : SgBehavior
 
 	public void OnClick()
 	{
+		Debug.Log("***** ONCLICK!!!!!!!!!");
 		HudManager.NotifyReplyItemClicked(this);
+	}
+
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		print("I was clicked");
 	}
 }

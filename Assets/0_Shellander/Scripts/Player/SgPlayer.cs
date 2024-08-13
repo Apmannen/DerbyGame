@@ -197,6 +197,7 @@ public class SgPlayer : SgBehavior
 		m_StateActivatedTime = Time.time;
 
 		Debug.Log("*** NEW STATE:"+m_State);
+		
 
 		if (IsStateAnyInteract())
 		{
@@ -210,6 +211,11 @@ public class SgPlayer : SgBehavior
 		else
 		{
 			CursorController.SetWaitMode(false);
+		}
+
+		if(m_State is SgPlayerState.AwaitingDialogueReply)
+		{
+			//m_PlayerInput.SwitchCurrentActionMap("UI");
 		}
 	}
 

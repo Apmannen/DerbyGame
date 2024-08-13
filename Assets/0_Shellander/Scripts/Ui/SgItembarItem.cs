@@ -37,6 +37,6 @@ public class SgItembarItem : MonoBehaviour
 	}
 	public void OnClick()
 	{
-		
+		Debug.Log("**** ITEMBAR ITEM CLICK");
 	}
 }
