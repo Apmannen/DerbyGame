@@ -137,17 +137,6 @@ public class SgInteractGroup : SgBehavior
 	}
 	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
-		SgInteractTranslation interactConfig = GetInteractConfig(interactType, itemType);
-		if (interactConfig == null)
-		{
-			yield break;
-		}
-		
-		if(interactConfig.startDialogue)
-		{
-			yield return player.Talk(interactConfig.startDialogue.mainTranslationIds, speechText);
-
-			HudManager.ShowReplyBar(interactConfig.startDialogue.replies);
-		}
+		yield break;
 	}
 }

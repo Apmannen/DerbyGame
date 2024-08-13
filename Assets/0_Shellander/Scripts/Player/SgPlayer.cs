@@ -16,7 +16,7 @@ public class SgPlayer : SgBehavior
 	public TMPro.TextMeshPro speechText;
 	public SgSpawnPosition[] spawnPositions;
 
-	private enum SgPlayerState { None, Walking, InteractWalking, Interacting }
+	private enum SgPlayerState { None, Walking, InteractWalking, Interacting, AwaitingDialogueReply }
 	
 	private SgPlayerState m_State = SgPlayerState.None;
 	private Vector3 m_WalkTarget;
@@ -229,11 +229,11 @@ public class SgPlayer : SgBehavior
 	}
 	public bool IsStateAnyInteract()
 	{
-		return m_State == SgPlayerState.Interacting || m_State == SgPlayerState.InteractWalking;
+		return m_State is SgPlayerState.Interacting or SgPlayerState.InteractWalking;
 	}
 	private bool IsActionsAllowed()
 	{
-		return !IsStateAnyInteract() && !HudManager.IsWheelVisible;
+		return !IsStateAnyInteract() && !HudManager.IsWheelVisible && m_State != SgPlayerState.AwaitingDialogueReply;
 	}
 	private bool IsCursorAnyInteract()
 	{
@@ -417,6 +417,8 @@ public class SgPlayer : SgBehavior
 
 	private IEnumerator InteractRoutine(SgInteraction interaction)
 	{
+		SgInteractTranslation interactConfig = interaction.interactGroup.GetInteractConfig(interaction.type, interaction.useItem);
+
 		int[] interactTranslationIds = new int[] { };
 		if (interaction.IsRoomInteraction)
 		{
@@ -440,11 +442,23 @@ public class SgPlayer : SgBehavior
 		if(interaction.IsRoomInteraction)
 		{
 			yield return interaction.interactGroup.InteractRoutine(this, interaction.type);
+
+			if (interactConfig != null && interactConfig.startDialogue)
+			{
+				yield return Talk(interactConfig.startDialogue.mainTranslationIds, interaction.interactGroup.speechText);
+
+				HudManager.ShowReplyBar(interactConfig.startDialogue.replies);
+				SetState(SgPlayerState.AwaitingDialogueReply);
+			}
 		}
 
 		ClearInteraction();
 		speechText.text = "";
-		SetState(SgPlayerState.None);
+
+		if(m_State != SgPlayerState.AwaitingDialogueReply)
+		{
+			SetState(SgPlayerState.None);
+		}
 	}
 
 	//Should be moved to a generic talk component
