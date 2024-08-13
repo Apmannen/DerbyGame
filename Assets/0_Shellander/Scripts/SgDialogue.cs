@@ -13,5 +13,6 @@ public class SgDialogue : MonoBehaviour
 public class SgDialogueReply
 {
 	public int translationId;
+	public bool isSilent = false;
 	public SgDialogue nextDialogue;
 }

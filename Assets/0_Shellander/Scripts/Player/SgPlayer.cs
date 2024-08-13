@@ -494,7 +494,10 @@ public class SgPlayer : SgBehavior
 	}
 	private IEnumerator DialogueReplyRoutine(SgDialogueReply reply, SgCharacter otherCharacter)
 	{
-		yield return character.Talk(reply.translationId);
+		if(!reply.isSilent)
+		{
+			yield return character.Talk(reply.translationId);
+		}
 
 		if (reply.nextDialogue != null)
 		{

@@ -511,8 +511,10 @@ MonoBehaviour:
   mainTranslationIds: 56000000
   replies:
   - translationId: 96
+    isSilent: 0
     nextDialogue: {fileID: 686176197}
   - translationId: 87
+    isSilent: 0
     nextDialogue: {fileID: 175087642}
   redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &378640423
@@ -925,8 +927,10 @@ MonoBehaviour:
   mainTranslationIds: 5d000000
   replies:
   - translationId: 94
-    nextDialogue: {fileID: 0}
+    isSilent: 1
+    nextDialogue: {fileID: 1950015196}
   - translationId: 95
+    isSilent: 0
     nextDialogue: {fileID: 233747238}
   redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &805856891
@@ -1542,8 +1546,10 @@ MonoBehaviour:
   mainTranslationIds: 6200000063000000
   replies:
   - translationId: 100
+    isSilent: 0
     nextDialogue: {fileID: 488228924}
   - translationId: 101
+    isSilent: 0
     nextDialogue: {fileID: 255484240}
   redirectAfterDialogue: {fileID: 0}
 --- !u!1001 &537423196534831294
