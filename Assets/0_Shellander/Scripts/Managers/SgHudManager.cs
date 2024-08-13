@@ -11,6 +11,7 @@ public class SgHudManager : SgBehavior
 	public SgItembar itembar;
 	public SgWeaponWheel weaponWheel;
 	public CanvasGroup wheelBgGroup;
+	public GraphicRaycaster wheelRaycaster;
 	public float wheelBgAlphaSmoothTime = 0.1f;
 	public SgWheelSliceMapping[] sliceMappings;
 	public SgSliceController itemSliceTemplate;
@@ -30,6 +31,7 @@ public class SgHudManager : SgBehavior
 	private void Update()
 	{
 		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
+		wheelRaycaster.enabled = IsWheelVisible;
 	}
 
 	public bool IsReplyBarVisible => replyBarContainer.gameObject.activeSelf;
