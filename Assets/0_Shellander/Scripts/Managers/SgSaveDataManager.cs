@@ -94,11 +94,13 @@ public class SgSaveDataManager : SgBehavior
 	public class SgItemSavable : SgSavable
 	{
 		public readonly SgSavableBool isCollected;
+		public readonly SgSavableBool hasEverBeenCollected;
 		public readonly SgSavableLong collectTime;
 
 		public SgItemSavable(long saveFileId, SgItemType itemType)
 		{
 			isCollected = new SgSavableBool(saveFileId, "Item" + itemType + "Collected", false, SgPropertySaveAction.Delayed);
+			hasEverBeenCollected = new SgSavableBool(saveFileId, "Item" + itemType + "EverCollected", false, SgPropertySaveAction.Delayed);
 			collectTime = new SgSavableLong(saveFileId, "Item" + itemType + "Time", 0, SgPropertySaveAction.Delayed);
 
 			base.AddProperty(isCollected);

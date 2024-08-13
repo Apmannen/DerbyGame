@@ -27,6 +27,7 @@ public class SgItemManager : SgBehavior
 	{
 		SgItemDefinition definition = Get(itemType);
 		definition.Savable.isCollected.Set(true);
+		definition.Savable.hasEverBeenCollected.Set(true);
 		definition.Savable.collectTime.Set(SgUtil.CurrentTimeMs());
 
 		HudManager.RefreshWheel();
