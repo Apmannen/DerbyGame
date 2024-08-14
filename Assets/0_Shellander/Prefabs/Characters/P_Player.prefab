@@ -108,7 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
-  walkAnimation: {fileID: 6058173534052741082}
+  skins:
+  - skinType: 0
+    walkAnimation: {fileID: 6058173534052741082}
   mainRenderer: {fileID: 1050728045699134630}
   sitSprite: {fileID: 2778077560273534758}
   spawnPositions: []
@@ -505,6 +507,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 66efd4a5e9e872c46a2eeaa818be28b2, type: 3}
   changeInterval: 0.15
   autoPlay: 0
+  randomizeOrder: 0
 --- !u!1001 &8096026708449150725
 PrefabInstance:
   m_ObjectHideFlags: 0
