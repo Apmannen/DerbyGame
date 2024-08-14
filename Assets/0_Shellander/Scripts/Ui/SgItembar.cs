@@ -19,10 +19,12 @@ public class SgItembar : SgBehavior
 			if (i < collectedItems.Count)
 			{
 				itembarItem.Set(collectedItems[i]);
+				itembarItem.gameObject.SetActive(true);
 			}
 			else
 			{
 				itembarItem.Set(null);
+				itembarItem.gameObject.SetActive(false);
 			}
 		}
 	}

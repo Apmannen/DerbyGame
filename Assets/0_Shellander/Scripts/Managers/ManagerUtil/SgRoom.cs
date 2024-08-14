@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 
 public class SgRoom : MonoBehaviour
 {
-
+	public int uiWidth = -1;
 }
 
 #if UNITY_EDITOR
@@ -15,15 +15,22 @@ public class SgRoom : MonoBehaviour
 public class SgSceneLoaderEditor : Editor
 {
 	private SgRoom m_MainObject;
+	private SerializedProperty[] m_Properties;
 
 	void OnEnable()
 	{
 		m_MainObject = (SgRoom)serializedObject.targetObject;
+		m_Properties = FindProperties(serializedObject, "uiWidth");
 	}
 
 	public override void OnInspectorGUI()
 	{
 		serializedObject.Update();
+
+		foreach (SerializedProperty property in m_Properties)
+		{
+			EditorGUILayout.PropertyField(property);
+		}
 
 		string sceneName = m_MainObject.name;
 		string path = "Assets/0_Shellander/Scenes/" + sceneName + ".unity";
@@ -46,6 +53,16 @@ public class SgSceneLoaderEditor : Editor
 		}
 
 		serializedObject.ApplyModifiedProperties();
+	}
+
+	private static SerializedProperty[] FindProperties(SerializedObject serializedObject, params string[] propertyNames)
+	{
+		SerializedProperty[] properties = new SerializedProperty[propertyNames.Length];
+		for (int i = 0; i < propertyNames.Length; i++)
+		{
+			properties[i] = serializedObject.FindProperty(propertyNames[i]);
+		}
+		return properties;
 	}
 }
 #endif
