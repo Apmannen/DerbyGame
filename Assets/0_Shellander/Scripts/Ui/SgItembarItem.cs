@@ -3,40 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Obsolete("Item wheel is used instead (2)")]
 public class SgItembarItem : MonoBehaviour
 {
-	private Image m_Image;
-	private Image Image => SgUtil.LazyParentComponent(this, ref m_Image);
-	private bool m_IsHovered;
-	public bool IsHovered => m_IsHovered && Definition != null;
-	private SgItemDefinition m_Definition;
-	public SgItemDefinition Definition => m_Definition;
+	public Image image;	
 
+	private SgItemDefinition m_Definition;
 	public void Set(SgItemDefinition itemDefinition)
 	{
 		m_Definition = itemDefinition;
 		if (itemDefinition == null)
 		{
-			Image.sprite = null;
+			image.sprite = null;
 		}
 		else
 		{
-			Image.sprite = itemDefinition.sprite;
+			image.sprite = itemDefinition.sprite;
 		}
 	}
 
-	public void OnPointerEnter()
-	{
-		//Debug.Log("*** PENTER:"+this);
-		m_IsHovered = true;
-	}
-	public void OnPointerExit()
-	{
-		m_IsHovered = false;
-	}
-	public void OnClick()
-	{
-		Debug.Log("**** ITEMBAR ITEM CLICK");
-	}
+
+	//private Image m_Image;
+	//private Image Image => SgUtil.LazyParentComponent(this, ref m_Image);
+	//private bool m_IsHovered;
+	//public bool IsHovered => m_IsHovered && Definition != null;
+	//private SgItemDefinition m_Definition;
+	//public SgItemDefinition Definition => m_Definition;
+
+	//public void Set(SgItemDefinition itemDefinition)
+	//{
+	//	m_Definition = itemDefinition;
+	//	if (itemDefinition == null)
+	//	{
+	//		Image.sprite = null;
+	//	}
+	//	else
+	//	{
+	//		Image.sprite = itemDefinition.sprite;
+	//	}
+	//}
+
+	//public void OnPointerEnter()
+	//{
+	//	//Debug.Log("*** PENTER:"+this);
+	//	m_IsHovered = true;
+	//}
+	//public void OnPointerExit()
+	//{
+	//	m_IsHovered = false;
+	//}
+	//public void OnClick()
+	//{
+	//	Debug.Log("**** ITEMBAR ITEM CLICK");
+	//}
 }
