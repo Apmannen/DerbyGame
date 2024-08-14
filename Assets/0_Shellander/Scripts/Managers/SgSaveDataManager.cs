@@ -40,6 +40,7 @@ public class SgSaveDataManager : SgBehavior
 	{
 		public readonly Dictionary<SgItemType, SgItemSavable> items = new();
 		private readonly Dictionary<string, SgSavableBool> m_NamedBools = new();
+		public SgSavableEnum<SgSkinType> currentSkin;
 
 		private readonly int m_SaveFileId;
 		public int SaveFileId => m_SaveFileId;
@@ -47,6 +48,8 @@ public class SgSaveDataManager : SgBehavior
 		public SgSaveFile(int saveFileId)
 		{
 			m_SaveFileId = saveFileId;
+
+			currentSkin = new SgSavableEnum<SgSkinType>(saveFileId, "CurrentSkin", SgSkinType.Normal, SgPropertySaveAction.Delayed);
 
 			foreach (SgItemType itemType in Enum.GetValues(typeof(SgItemType)))
 			{
@@ -121,6 +124,31 @@ public class SgSaveDataManager : SgBehavior
 		public override bool Get()
 		{
 			return PlayerPrefs.GetInt(FullKey, DefaultValue ? 1 : 0) == 1;
+		}
+	}
+
+	public class SgSavableEnum<E> : SgSavableProperty<E> where E : struct, Enum
+	{
+		public SgSavableEnum(long saveFileId, string key, E defaultValue, SgPropertySaveAction saveAction) :
+			base(saveFileId, key, defaultValue, saveAction)
+		{ }
+
+		public override void Set(E value)
+		{
+			PlayerPrefs.SetInt(FullKey, Convert.ToInt32(value));
+			HandleSave();
+		}
+		public override E Get()
+		{
+			if(!PlayerPrefs.HasKey(FullKey))
+			{
+				return this.DefaultValue;
+			}
+
+			int intValue = PlayerPrefs.GetInt(FullKey);
+			var enumValues = Enum.GetValues(typeof(E));
+
+			return (E) enumValues.GetValue(intValue);
 		}
 	}
 

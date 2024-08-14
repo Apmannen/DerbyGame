@@ -1,16 +1,16 @@
 using ShellanderGames.WeaponWheel;
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public enum SgPlayerStance { Normal, Sitting, Hidden }
+public enum SgSkinType { Normal, Black, BlackPatch }
 public class SgPlayer : SgBehavior
 {
 	public SgCamera mainCam;
-	public SgAnimation walkAnimation;
+	public SgSkinSettings[] skins;
 	public SpriteRenderer mainRenderer;
 	public SpriteRenderer sitSprite;
 	public SgSpawnPosition[] spawnPositions;
@@ -37,6 +37,8 @@ public class SgPlayer : SgBehavior
 	private SgWheelSliceMapping m_LastHighlightedSlice;
 	private SgCursorController m_CursorController;
 	private SgCursorController CursorController => SgUtil.LazyComponent(this, ref m_CursorController);
+	private SgSkinType m_CurrentSkinType;
+	private SgSkinSettings CurrentSkin => GetSkinByType(m_CurrentSkinType);
 
 	//Input
 	private InputActionMap m_CurrentActionMap;
@@ -75,6 +77,8 @@ public class SgPlayer : SgBehavior
 
 		HudManager.AddWheelListener(OnItemWheelChange);
 
+		m_CurrentSkinType = SaveDataManager.CurrentSaveFile.currentSkin.Get();
+
 		//if the navmesh is rebuilt, the positioning must
 		//be performed in the update loop for whatever reason
 		m_ScheduledMoveToSpawnPos = true; 
@@ -83,6 +87,17 @@ public class SgPlayer : SgBehavior
 	private void OnDestroy()
 	{
 		HudManager.RemoveWheelListener(OnItemWheelChange);
+	}
+
+	private SgSkinSettings GetSkinByType(SgSkinType type)
+	{
+		return skins.Single(s => s.skinType == type);
+	}
+
+	private void ChangeSkin(SgSkinType type)
+	{
+		m_CurrentSkinType = type;
+		SaveDataManager.CurrentSaveFile.currentSkin.Set(type);
 	}
 
 	private void MoveToSpawnPos()
@@ -317,12 +332,12 @@ public class SgPlayer : SgBehavior
 		//State handling 1
 		if (m_State == SgPlayerState.InteractWalking && HasReachedDestination())
 		{
-			walkAnimation.Stop();
+			CurrentSkin.walkAnimation.Stop();
 			StartInteraction();
 		}
 		else if (m_State == SgPlayerState.Walking && HasReachedDestination())
 		{
-			walkAnimation.Stop();
+			CurrentSkin.walkAnimation.Stop();
 			SetState(SgPlayerState.None);
 		}
 
@@ -340,7 +355,7 @@ public class SgPlayer : SgBehavior
 				walkTarget.z = this.transform.position.z;
 
 				SetState(SgPlayerState.Walking);
-				walkAnimation.Play();
+				CurrentSkin.walkAnimation.Play();
 
 				SetDestination(walkTarget);
 
@@ -365,7 +380,7 @@ public class SgPlayer : SgBehavior
 		{
 			SetInteraction(null, m_LastHighlightedSlice.ItemType, SgItemType.Illegal, SgInteractType.Look);
 			SetDestination(this.transform.position);
-			walkAnimation.Stop();
+			CurrentSkin.walkAnimation.Stop();
 			StartInteraction();
 		}
 
@@ -375,7 +390,7 @@ public class SgPlayer : SgBehavior
 			Vector3 curMove = transform.position - m_PrevPos;
 			float currentSpeed = curMove.magnitude / Time.deltaTime;
 			float animationInterval = Mathf.Lerp(0.2f, 0.1f, currentSpeed / 4f);
-			walkAnimation.changeInterval = animationInterval;
+			CurrentSkin.walkAnimation.changeInterval = animationInterval;
 
 			float diff = this.transform.position.x - m_WalkTarget.x;
 			bool isRight = diff < 0;
@@ -414,7 +429,7 @@ public class SgPlayer : SgBehavior
 			else
 			{
 				SetDestination(this.transform.position);
-				walkAnimation.Stop();
+				CurrentSkin.walkAnimation.Stop();
 				StartInteraction();
 			}
 
@@ -558,4 +573,11 @@ public class SgPlayer : SgBehavior
 		public bool IsRoomInteraction => interactGroup != null;
 		public bool IsItemInteraction => !IsRoomInteraction && type != SgInteractType.Illegal;
 	}
+}
+
+[System.Serializable]
+public class SgSkinSettings
+{
+	public SgSkinType skinType;
+	public SgAnimation walkAnimation;
 }
