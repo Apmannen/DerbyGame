@@ -14,7 +14,6 @@ public class SgHudManager : SgBehavior
 	public GraphicRaycaster wheelRaycaster;
 	public float wheelBgAlphaSmoothTime = 0.1f;
 	public SgWheelSliceMapping[] sliceMappings;
-	public SgSliceController itemSliceTemplate;
 	public RectTransform replyBarContainer;
 	public SgReplyItem replyItemTemplate;
 
@@ -24,7 +23,7 @@ public class SgHudManager : SgBehavior
 
 	private void Start()
 	{
-		RefreshWheel();
+		//RefreshWheel();
 		replyBarContainer.gameObject.SetActive(false);
 		replyItemTemplate.gameObject.SetActive(false);
 	}
@@ -85,41 +84,45 @@ public class SgHudManager : SgBehavior
 		weaponWheel.RemoveEventCallback(action);
 	}
 
-	public void RefreshWheel()
-	{
-		for(int i = weaponWheel.sliceContents.Count-1; i >= 0; i--)
-		{
-			SgSliceController slice = weaponWheel.sliceContents[i];
-			if(slice.sliceName.StartsWith("Item"))
-			{
-				weaponWheel.sliceContents.Remove(slice);
-				Destroy(slice.gameObject);
-			}
-		}
-		List<SgItemDefinition> availableItems = ItemManager.GetAvailableItems();
-		foreach(SgItemDefinition item in availableItems)
-		{
-			SgSliceController newSlice = Instantiate(itemSliceTemplate);
-			newSlice.sliceName = "Item" + item.itemType;
-			newSlice.graphicSelectables[0].GetComponent<Image>().sprite = item.sprite;
-			weaponWheel.sliceContents.Add(newSlice);
-		}
+	//public void RefreshWheel()
+	//{
+	//	for(int i = weaponWheel.sliceContents.Count-1; i >= 0; i--)
+	//	{
+	//		SgSliceController slice = weaponWheel.sliceContents[i];
+	//		if(slice.sliceName.StartsWith("Item"))
+	//		{
+	//			weaponWheel.sliceContents.Remove(slice);
+	//			Destroy(slice.gameObject);
+	//		}
+	//	}
+	//	List<SgItemDefinition> availableItems = ItemManager.GetAvailableItems();
+	//	foreach(SgItemDefinition item in availableItems)
+	//	{
+	//		SgSliceController newSlice = Instantiate(itemSliceTemplate);
+	//		newSlice.sliceName = "Item" + item.itemType;
+	//		newSlice.graphicSelectables[0].GetComponent<Image>().sprite = item.sprite;
+	//		weaponWheel.sliceContents.Add(newSlice);
+	//	}
 
-		weaponWheel.Generate(false, true);
-	}
+	//	weaponWheel.Generate(false, true);
+	//}
 
 	public SgWheelSliceMapping GetWheelSliceMapping(string sliceName)
 	{
-		if(sliceName.StartsWith("Item"))
-		{
-			SgItemType itemType = SgWheelSliceMapping.GetItemType(sliceName);
-			return new SgWheelSliceMapping { sliceName = sliceName, interactType = SgInteractType.Item, 
-				translationId = ItemManager.Get(itemType).translationId };
-		}
+		//if (sliceName.StartsWith("Item"))
+		//{
+		//	SgItemType itemType = SgWheelSliceMapping.GetItemType(sliceName);
+		//	return new SgWheelSliceMapping
+		//	{
+		//		sliceName = sliceName,
+		//		interactType = SgInteractType.Item,
+		//		translationId = ItemManager.Get(itemType).translationId
+		//	};
+		//}
 		return sliceMappings.Single(m => m.sliceName == sliceName);
 	}
 
-	
+
 
 	public bool IsWheelVisible => weaponWheel.IsVisible;
 }
@@ -131,13 +134,13 @@ public class SgWheelSliceMapping
 	public SgInteractType interactType;
 	public int translationId;
 
-	public static SgItemType GetItemType(string aSliceName)
-	{
-		if(!aSliceName.StartsWith("Item"))
-		{
-			return SgItemType.Illegal;
-		}
-		return (SgItemType)System.Enum.Parse(typeof(SgItemType), aSliceName.Replace("Item", ""));
-	}
-	public SgItemType ItemType => GetItemType(sliceName);
+	//public static SgItemType GetItemType(string aSliceName)
+	//{
+	//	if (!aSliceName.StartsWith("Item"))
+	//	{
+	//		return SgItemType.Illegal;
+	//	}
+	//	return (SgItemType)System.Enum.Parse(typeof(SgItemType), aSliceName.Replace("Item", ""));
+	//}
+	//public SgItemType ItemType => GetItemType(sliceName);
 }

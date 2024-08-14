@@ -125,14 +125,15 @@ public class SgPlayer : SgBehavior
 		switch(wheelEvent.type)
 		{
 			case SgWeaponWheelEventType.Select:
-				if(sliceMapping.interactType == SgInteractType.Item)
-				{
-					CursorController.SetSelectedItem(sliceMapping.ItemType);
-				}
-				else
-				{
-					CursorController.SetSelectedInteract(sliceMapping.interactType);
-				}
+				CursorController.SetSelectedInteract(sliceMapping.interactType);
+				//if(sliceMapping.interactType == SgInteractType.Item)
+				//{
+				//	CursorController.SetSelectedItem(sliceMapping.ItemType);
+				//}
+				//else
+				//{
+				//	CursorController.SetSelectedInteract(sliceMapping.interactType);
+				//}
 				break;
 			case SgWeaponWheelEventType.Highlight:
 				m_HighlightedActionTranslation = TranslationManager.Get(sliceMapping.translationId);
@@ -375,14 +376,14 @@ public class SgPlayer : SgBehavior
 		{
 			SkipAnySpeech();
 		}
-		else if(HudManager.IsWheelVisible && m_ShiftCursorRight.WasPressedThisFrame() && 
-			m_LastHighlightedSlice.ItemType != SgItemType.Illegal)
-		{
-			SetInteraction(null, m_LastHighlightedSlice.ItemType, SgItemType.Illegal, SgInteractType.Look);
-			SetDestination(this.transform.position);
-			CurrentSkin.walkAnimation.Stop();
-			StartInteraction();
-		}
+		//else if(HudManager.IsWheelVisible && m_ShiftCursorRight.WasPressedThisFrame() && 
+		//	m_LastHighlightedSlice.ItemType != SgItemType.Illegal)
+		//{
+		//	SetInteraction(null, m_LastHighlightedSlice.ItemType, SgItemType.Illegal, SgInteractType.Look);
+		//	SetDestination(this.transform.position);
+		//	CurrentSkin.walkAnimation.Stop();
+		//	StartInteraction();
+		//}
 
 		//State handling 2
 		if (IsStateAnyWalking())

@@ -30,14 +30,14 @@ public class SgItemManager : SgBehavior
 		definition.Savable.hasEverBeenCollected.Set(true);
 		definition.Savable.collectTime.Set(SgUtil.CurrentTimeMs());
 
-		HudManager.RefreshWheel();
+		//HudManager.RefreshWheel();
 	}
 	public void RemoveItem(SgItemType itemType)
 	{
 		SgItemDefinition definition = Get(itemType);
 		definition.Savable.isCollected.Set(false);
 
-		HudManager.RefreshWheel();
+		//HudManager.RefreshWheel();
 	}
 
 	public int GetCurrentMoney()
