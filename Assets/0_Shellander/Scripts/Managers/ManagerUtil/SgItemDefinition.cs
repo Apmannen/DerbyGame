@@ -13,6 +13,7 @@ public enum SgItemType
 	TshirtBlack,
 	MembershipCard,
 	TshirtBlue,
+	Money200,
 }
 
 public class SgItemDefinition : SgBehavior

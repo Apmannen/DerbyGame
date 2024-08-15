@@ -124,3 +124,4 @@ Toalettdörr
 Dörren leder till badrummet.
 Sedel
 Det är 200 kronor.
+200 kronor

@@ -8,6 +8,7 @@ public class SgItemManager : SgBehavior
 
 	private void Start()
 	{
+		RefreshMoney();
 		EventManager.Register(SgEventName.NamedSaveBoolUpdated, OnNamedBoolUpdated);
 	}
 	private void OnDestroy()
