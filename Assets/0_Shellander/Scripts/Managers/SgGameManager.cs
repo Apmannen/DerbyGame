@@ -9,7 +9,7 @@ public class SgGameManager : SgBehavior
 		string initialized = "IsGameInitialized";
 		if (!SaveDataManager.CurrentSaveFile.GetNamedBoolValue(initialized))
 		{
-			ItemManager.ChangeMoney(100);
+			//ItemManager.ChangeMoney(100);
 			SaveDataManager.CurrentSaveFile.SetNamedBoolValue(initialized, true);
 		}
 	}

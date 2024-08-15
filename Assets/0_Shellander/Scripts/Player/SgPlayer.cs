@@ -514,10 +514,6 @@ public class SgPlayer : SgBehavior
 		{
 			ItemManager.Collect(reply.addItem);
 		}
-		if(reply.reduceMoney > 0)
-		{
-			ItemManager.ChangeMoney(-reply.reduceMoney);
-		}
 
 		if(!reply.isSilent)
 		{

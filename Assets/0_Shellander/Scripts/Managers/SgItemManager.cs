@@ -1,9 +1,23 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class SgItemManager : SgBehavior
 {
 	public SgItemDefinition[] itemDefinitions;
+
+	private void Start()
+	{
+		EventManager.Register(SgEventName.NamedSaveBoolUpdated, OnNamedBoolUpdated);
+	}
+	private void OnDestroy()
+	{
+		EventManager.Unregister(SgEventName.NamedSaveBoolUpdated, OnNamedBoolUpdated);
+	}
+	private void OnNamedBoolUpdated()
+	{
+		RefreshMoney();
+	}
 
 	public SgItemDefinition Get(SgItemType itemType)
 	{
@@ -31,12 +45,20 @@ public class SgItemManager : SgBehavior
 	public void Collect(SgItemType itemType)
 	{
 		SgItemDefinition definition = Get(itemType);
+		if(!definition.Savable.isCollected.Value)
+		{
+			definition.Savable.collectTime.Set(SgUtil.CurrentTimeMs());
+		}
 		definition.Savable.isCollected.Set(true);
 		definition.Savable.hasEverBeenCollected.Set(true);
-		definition.Savable.collectTime.Set(SgUtil.CurrentTimeMs());
+		
 
 		HudManager.itembar.Refresh();
-		//HudManager.RefreshWheel();
+
+		if(definition.moneyValue <= 0)
+		{
+			RefreshMoney();
+		}
 	}
 	public void RemoveItem(SgItemType itemType)
 	{
@@ -44,7 +66,10 @@ public class SgItemManager : SgBehavior
 		definition.Savable.isCollected.Set(false);
 
 		HudManager.itembar.Refresh();
-		//HudManager.RefreshWheel();
+		if (definition.moneyValue <= 0)
+		{
+			RefreshMoney();
+		}
 	}
 
 	public int GetCurrentMoney()
@@ -59,17 +84,29 @@ public class SgItemManager : SgBehavior
 		return 0;
 	}
 
-	private void SetMoney(int newMoney)
+	public void RefreshMoney()
 	{
-		if(newMoney > 0)
+		int money = 100;
+
+		if(SaveDataManager.CurrentSaveFile.GetNamedBoolValue("BathroomBillColl"))
+		{
+			money += 100;
+		}
+
+		if(HasEverBeenCollected(SgItemType.TshirtBlack))
+		{
+			money -= 100;
+		}
+
+		if (money > 0)
 		{
 			foreach (SgItemDefinition definition in itemDefinitions)
 			{
-				if (definition.moneyValue == newMoney)
+				if (definition.moneyValue == money)
 				{
 					Collect(definition.itemType);
 				}
-				else if(definition.moneyValue > 0)
+				else if (definition.moneyValue > 0)
 				{
 					RemoveItem(definition.itemType);
 				}
@@ -84,14 +121,43 @@ public class SgItemManager : SgBehavior
 					RemoveItem(definition.itemType);
 				}
 			}
-		}		
+		}
 	}
 
-	public void ChangeMoney(int change)
-	{
-		int newMoney = GetCurrentMoney() + change;
-		SetMoney(newMoney);
-	}
+	//private void SetMoney(int newMoney)
+	//{
+	//	Debug.Log("*** SETM:"+newMoney);
+	//	if(newMoney > 0)
+	//	{
+	//		foreach (SgItemDefinition definition in itemDefinitions)
+	//		{
+	//			if (definition.moneyValue == newMoney)
+	//			{
+	//				Collect(definition.itemType);
+	//			}
+	//			else if(definition.moneyValue > 0)
+	//			{
+	//				RemoveItem(definition.itemType);
+	//			}
+	//		}
+	//	}
+	//	else
+	//	{
+	//		foreach (SgItemDefinition definition in itemDefinitions)
+	//		{
+	//			if (definition.IsColleted && definition.IsMoney)
+	//			{
+	//				RemoveItem(definition.itemType);
+	//			}
+	//		}
+	//	}		
+	//}
+
+	//public void ChangeMoney(int change)
+	//{
+	//	int newMoney = GetCurrentMoney() + change;
+	//	SetMoney(newMoney);
+	//}
 
 	public void RefreshTshirts(SgSkinType wornSkin)
 	{
