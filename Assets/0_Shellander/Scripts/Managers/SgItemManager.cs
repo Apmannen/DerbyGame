@@ -22,6 +22,11 @@ public class SgItemManager : SgBehavior
 		SgItemDefinition definition = Get(itemType);
 		return definition != null && definition.IsColleted;
 	}
+	public bool HasEverBeenCollected(SgItemType itemType)
+	{
+		SgItemDefinition definition = Get(itemType);
+		return definition != null && definition.HasEverBeenCollected;
+	}
 
 	public void Collect(SgItemType itemType)
 	{
@@ -30,6 +35,7 @@ public class SgItemManager : SgBehavior
 		definition.Savable.hasEverBeenCollected.Set(true);
 		definition.Savable.collectTime.Set(SgUtil.CurrentTimeMs());
 
+		HudManager.itembar.Refresh();
 		//HudManager.RefreshWheel();
 	}
 	public void RemoveItem(SgItemType itemType)
@@ -37,6 +43,7 @@ public class SgItemManager : SgBehavior
 		SgItemDefinition definition = Get(itemType);
 		definition.Savable.isCollected.Set(false);
 
+		HudManager.itembar.Refresh();
 		//HudManager.RefreshWheel();
 	}
 
@@ -84,6 +91,23 @@ public class SgItemManager : SgBehavior
 	{
 		int newMoney = GetCurrentMoney() + change;
 		SetMoney(newMoney);
+	}
+
+	public void RefreshTshirts(SgSkinType wornSkin)
+	{
+		if(wornSkin == SgSkinType.Black)
+		{
+			RemoveItem(SgItemType.TshirtBlack);
+			Collect(SgItemType.TshirtBlue);
+		}
+		else if(wornSkin == SgSkinType.Normal)
+		{
+			RemoveItem(SgItemType.TshirtBlue);
+			if(HasEverBeenCollected(SgItemType.TshirtBlack))
+			{
+				Collect(SgItemType.TshirtBlack);
+			}			
+		}
 	}
 
 	public List<SgItemDefinition> GetAvailableItems()

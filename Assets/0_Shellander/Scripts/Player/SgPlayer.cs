@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public enum SgPlayerStance { Normal, Sitting, Hidden }
-public enum SgSkinType { Normal, Black, BlackPatch }
+public enum SgSkinType { Illegal, Normal, Black, BlackPatch }
 public class SgPlayer : SgBehavior
 {
 	public SgCamera mainCam;
@@ -99,6 +99,7 @@ public class SgPlayer : SgBehavior
 		m_CurrentSkinType = type;
 		this.mainRenderer.sprite = CurrentSkin.walkAnimation.sprites[0];
 		SaveDataManager.CurrentSaveFile.currentSkin.Set(type);
+		ItemManager.RefreshTshirts(type);
 	}
 
 	private void MoveToSpawnPos()
@@ -462,9 +463,9 @@ public class SgPlayer : SgBehavior
 					interactTranslationIds = ItemManager.Get(interaction.itembarItem).GetInteractTranslationIds(interaction.type);
 					break;
 				case SgInteractType.Use:
-					if(interaction.itembarItem == SgItemType.TshirtBlack)
+					if(interaction.ItembarItemDefinition.skinType != SgSkinType.Illegal)
 					{
-						ChangeSkin(SgSkinType.Black);
+						ChangeSkin(interaction.ItembarItemDefinition.skinType);
 					}
 					else
 					{
@@ -570,6 +571,7 @@ public class SgPlayer : SgBehavior
 		public SgInteractType type;
 		public bool IsRoomInteraction => interactGroup != null;
 		public bool IsItemInteraction => itembarItem != SgItemType.Illegal;
+		public SgItemDefinition ItembarItemDefinition => SgManagers._.itemManager.Get(itembarItem);
 
 		public SgInteractTranslation InteractConfig
 		{
@@ -581,7 +583,7 @@ public class SgPlayer : SgBehavior
 				}
 				if (IsItemInteraction)
 				{
-					return SgManagers._.itemManager.Get(itembarItem).interactTranslations.SingleOrDefault(c => c.interactType == type);
+					return ItembarItemDefinition.interactTranslations.SingleOrDefault(c => c.interactType == type);
 				}
 				return null;
 			}

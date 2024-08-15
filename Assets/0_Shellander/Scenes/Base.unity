@@ -460,6 +460,7 @@ MonoBehaviour:
     setNamedBool: 
     startDialogue: {fileID: 0}
   moneyValue: 0
+  skinType: 0
 --- !u!1 &164954673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,6 +1168,7 @@ MonoBehaviour:
     setNamedBool: 
     startDialogue: {fileID: 0}
   moneyValue: 0
+  skinType: 2
 --- !u!1 &441934431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2777,67 @@ MonoBehaviour:
       holeTexture: {fileID: 2800000, guid: aca7b9ca2437fbd4dabb29b46bab404f, type: 3}
     isFoldedOut: 1
   sliceIndex: 0
+--- !u!1 &839854202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839854203}
+  - component: {fileID: 839854204}
+  m_Layer: 0
+  m_Name: TshirtBlue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &839854203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839854202}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839854204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839854202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 8
+  translationId: 121
+  sprite: {fileID: 21300000, guid: 7aeeb8b334de0df47ab19dd1fed3272c, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    triggerCollect: 0
+    translationIds: 7a000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  moneyValue: 0
+  skinType: 1
 --- !u!1 &915688428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,6 +3043,7 @@ Transform:
   - {fileID: 1511871021}
   - {fileID: 423490284}
   - {fileID: 2126825508}
+  - {fileID: 839854203}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -3001,6 +3065,7 @@ MonoBehaviour:
   - {fileID: 1319437546}
   - {fileID: 1511871022}
   - {fileID: 423490285}
+  - {fileID: 839854204}
   - {fileID: 2126825509}
 --- !u!1 &1031056739
 GameObject:
@@ -4014,6 +4079,7 @@ MonoBehaviour:
     setNamedBool: 
     startDialogue: {fileID: 0}
   moneyValue: 0
+  skinType: 0
 --- !u!1 &1194111897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4526,6 +4592,7 @@ MonoBehaviour:
     setNamedBool: 
     startDialogue: {fileID: 0}
   moneyValue: 0
+  skinType: 0
 --- !u!1 &1325046922
 GameObject:
   m_ObjectHideFlags: 0
@@ -5398,6 +5465,7 @@ MonoBehaviour:
     setNamedBool: 
     startDialogue: {fileID: 0}
   moneyValue: 0
+  skinType: 0
 --- !u!1 &1511871020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5458,6 +5526,7 @@ MonoBehaviour:
     setNamedBool: 
     startDialogue: {fileID: 0}
   moneyValue: 100
+  skinType: 0
 --- !u!1 &1516207971
 GameObject:
   m_ObjectHideFlags: 0
@@ -8567,6 +8636,7 @@ MonoBehaviour:
     setNamedBool: 
     startDialogue: {fileID: 0}
   moneyValue: 0
+  skinType: 0
 --- !u!1001 &297584127786414223
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public enum SgItemType
 	Money100,
 	TshirtBlack,
 	MembershipCard,
+	TshirtBlue,
 }
 
 public class SgItemDefinition : SgBehavior
@@ -21,6 +22,7 @@ public class SgItemDefinition : SgBehavior
 	public Sprite sprite;
 	public SgInteractTranslation[] interactTranslations;
 	public int moneyValue;
+	public SgSkinType skinType;
 
 	public bool IsMoney => moneyValue > 0;
 
@@ -56,4 +58,6 @@ public class SgItemDefinition : SgBehavior
 	}
 
 	public bool IsColleted => Savable.isCollected.Get();
+
+	public bool HasEverBeenCollected => Savable.hasEverBeenCollected.Get();
 }

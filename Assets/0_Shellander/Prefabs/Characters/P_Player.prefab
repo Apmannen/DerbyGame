@@ -110,9 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
   skins:
-  - skinType: 0
-    walkAnimation: {fileID: 6058173534052741082}
   - skinType: 1
+    walkAnimation: {fileID: 6058173534052741082}
+  - skinType: 2
     walkAnimation: {fileID: 2004514351081662269}
   mainRenderer: {fileID: 1050728045699134630}
   sitSprite: {fileID: 2778077560273534758}
