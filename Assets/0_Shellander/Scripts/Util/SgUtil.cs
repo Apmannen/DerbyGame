@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Convenient util methods. Could be seperated to different util classes if it gets too big.
+/// </summary>
 public static class SgUtil
 {
 	private static readonly System.Random s_Random = new System.Random();
@@ -62,5 +66,21 @@ public static class SgUtil
 	public static E RandomElement<E>(List<E> list)
 	{
 		return list[RandomInt(0, list.Count - 1)];
+	}
+
+
+	public static void SetSizeDeltaX(RectTransform rectTransform, float sizeValue)
+	{
+		SetSizeDelta(rectTransform, sizeValue, 0);
+	}
+	public static void SetSizeDeltaY(RectTransform rectTransform, float sizeValue)
+	{
+		SetSizeDelta(rectTransform, sizeValue, 1);
+	}
+	private static void SetSizeDelta(RectTransform rectTransform, float sizeValue, int index)
+	{
+		Vector2 sizeVector = rectTransform.sizeDelta;
+		sizeVector[index] = sizeValue;
+		rectTransform.sizeDelta = sizeVector;
 	}
 }

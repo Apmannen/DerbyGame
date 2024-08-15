@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum SgRoomName { Illegal, Home, Stockholm, Solna, ApartmentBuilding, Sewers, Shop, Apartment }
 
-public class SgSceneManager : MonoBehaviour
+public class SgSceneManager : SgBehavior
 {
 	public SgRoom[] rooms;
 
 	private bool m_IsTransitioning = false;
 	private SgRoomName m_PrevRoom = SgRoomName.Illegal;
+	private SgRoom m_CurrentRoom;
 	private SgRoomName[] m_RoomNames;
 	private SgRoomName[] RoomNames
 	{
@@ -30,7 +32,7 @@ public class SgSceneManager : MonoBehaviour
 		bool isAnyLoaded = false;
 		foreach (SgRoomName roomName in RoomNames)
 		{
-			Scene aScene = SceneManager.GetSceneByName(roomName.ToString());
+			Scene aScene = UnityEngine.SceneManagement.SceneManager.GetSceneByName(roomName.ToString());
 			if (aScene.isLoaded)
 			{
 				isAnyLoaded = true;
@@ -41,6 +43,11 @@ public class SgSceneManager : MonoBehaviour
 		{
 			SetRoom(SgRoomName.Home);
 		}
+	}
+
+	private SgRoom GetRoom(SgRoomName roomName)
+	{
+		return rooms.Single(r => r.name == roomName.ToString());
 	}
 
 	public void SetRoom(SgRoomName roomName)
@@ -61,22 +68,25 @@ public class SgSceneManager : MonoBehaviour
 			{
 				continue;
 			}
-			Scene aScene = SceneManager.GetSceneByName(otherRoomName.ToString());
+			Scene aScene = UnityEngine.SceneManagement.SceneManager.GetSceneByName(otherRoomName.ToString());
 			if(aScene.isLoaded)
 			{
-				yield return SceneManager.UnloadSceneAsync(aScene);
+				yield return UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(aScene);
 				m_PrevRoom = otherRoomName;
 			}
 		}
 
 		yield return AsyncLoadScene(roomName.ToString());
+		m_CurrentRoom = GetRoom(roomName);
+
+		HudManager.RefreshSizes(m_CurrentRoom.uiWidth);
 
 		m_IsTransitioning = false;
 	}
 
 	private IEnumerator AsyncLoadScene(string sceneName)
 	{
-		Scene scene = SceneManager.GetSceneByName(sceneName);
+		Scene scene = UnityEngine.SceneManagement.SceneManager.GetSceneByName(sceneName);
 		if (scene.isLoaded)
 		{
 			yield break;
@@ -85,7 +95,7 @@ public class SgSceneManager : MonoBehaviour
 		LoadSceneParameters parameters = new LoadSceneParameters();
 		parameters.loadSceneMode = LoadSceneMode.Additive;
 		long t0 = SgUtil.CurrentTimeMs();
-		AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, parameters);
+		AsyncOperation op = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName, parameters);
 
 		while (true)
 		{

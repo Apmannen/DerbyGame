@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class SgHudManager : SgBehavior
 {
 	public SgUiCursor cursor;
-	[System.Obsolete]
 	public SgItembar itembar;
 	public SgWeaponWheel weaponWheel;
 	public CanvasGroup wheelBgGroup;
@@ -31,6 +30,11 @@ public class SgHudManager : SgBehavior
 	{
 		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
 		wheelRaycaster.enabled = IsWheelVisible;
+	}
+
+	public void RefreshSizes(int maxWidth)
+	{
+		itembar.SetMaxWidth(maxWidth);
 	}
 
 	public bool IsReplyBarVisible => replyBarContainer.gameObject.activeSelf;
@@ -69,9 +73,12 @@ public class SgHudManager : SgBehavior
 			i++;
 		}
 
-		Vector2 size = replyBarContainer.sizeDelta;
-		size.y = 100 + (100 * replies.Length);
-		replyBarContainer.sizeDelta = size;
+		//Vector2 size = replyBarContainer.sizeDelta;
+		//size.y = 100 + (100 * replies.Length);
+		//replyBarContainer.sizeDelta = size;
+
+		SgUtil.SetSizeDeltaY(replyBarContainer, 100 + (100 * replies.Length));
+
 		replyBarContainer.gameObject.SetActive(true);
 	}
 
@@ -84,41 +91,8 @@ public class SgHudManager : SgBehavior
 		weaponWheel.RemoveEventCallback(action);
 	}
 
-	//public void RefreshWheel()
-	//{
-	//	for(int i = weaponWheel.sliceContents.Count-1; i >= 0; i--)
-	//	{
-	//		SgSliceController slice = weaponWheel.sliceContents[i];
-	//		if(slice.sliceName.StartsWith("Item"))
-	//		{
-	//			weaponWheel.sliceContents.Remove(slice);
-	//			Destroy(slice.gameObject);
-	//		}
-	//	}
-	//	List<SgItemDefinition> availableItems = ItemManager.GetAvailableItems();
-	//	foreach(SgItemDefinition item in availableItems)
-	//	{
-	//		SgSliceController newSlice = Instantiate(itemSliceTemplate);
-	//		newSlice.sliceName = "Item" + item.itemType;
-	//		newSlice.graphicSelectables[0].GetComponent<Image>().sprite = item.sprite;
-	//		weaponWheel.sliceContents.Add(newSlice);
-	//	}
-
-	//	weaponWheel.Generate(false, true);
-	//}
-
 	public SgWheelSliceMapping GetWheelSliceMapping(string sliceName)
 	{
-		//if (sliceName.StartsWith("Item"))
-		//{
-		//	SgItemType itemType = SgWheelSliceMapping.GetItemType(sliceName);
-		//	return new SgWheelSliceMapping
-		//	{
-		//		sliceName = sliceName,
-		//		interactType = SgInteractType.Item,
-		//		translationId = ItemManager.Get(itemType).translationId
-		//	};
-		//}
 		return sliceMappings.Single(m => m.sliceName == sliceName);
 	}
 
@@ -133,14 +107,4 @@ public class SgWheelSliceMapping
 	public string sliceName;
 	public SgInteractType interactType;
 	public int translationId;
-
-	//public static SgItemType GetItemType(string aSliceName)
-	//{
-	//	if (!aSliceName.StartsWith("Item"))
-	//	{
-	//		return SgItemType.Illegal;
-	//	}
-	//	return (SgItemType)System.Enum.Parse(typeof(SgItemType), aSliceName.Replace("Item", ""));
-	//}
-	//public SgItemType ItemType => GetItemType(sliceName);
 }

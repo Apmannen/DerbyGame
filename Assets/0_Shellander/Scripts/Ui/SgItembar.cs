@@ -1,14 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class SgItembar : SgBehavior
 {
 	public SgItembarItem[] itembarItems;
+	public RectTransform container;
 
 	private void Start()
 	{
 		Refresh();
 	}
+
+	public void SetMaxWidth(int maxWidth)
+	{
+		SgUtil.SetSizeDeltaX(container, maxWidth);
+	}
+
 	public void Refresh()
 	{
 		List<SgItemDefinition> collectedItems = ItemManager.GetAvailableItems();
