@@ -20,9 +20,17 @@ public class SgHudManager : SgBehavior
 	private List<SgReplyItem> m_ReplyItems = new();
 	private SgReplyItem m_SelectedReplyItem;
 
+	private void Awake()
+	{
+		EventManager.Register<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
+	}
+	private void OnDestroy()
+	{
+		EventManager.Unregister<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
+	}
+
 	private void Start()
 	{
-		//RefreshWheel();
 		replyBarContainer.gameObject.SetActive(false);
 		replyItemTemplate.gameObject.SetActive(false);
 	}
@@ -32,8 +40,14 @@ public class SgHudManager : SgBehavior
 		wheelRaycaster.enabled = IsWheelVisible;
 	}
 
-	public void RefreshSizes(int maxWidth)
+	private void OnRoomChanged(SgRoom newRoom)
 	{
+		ScreenRefrefresh();
+	}
+	private void ScreenRefrefresh()
+	{
+		SgRoom room = SceneManager.CurrentRoom;
+		int maxWidth = room != null && room.uiWidth >= 0 ? room.uiWidth : Screen.width;
 		itembar.SetMaxWidth(maxWidth);
 	}
 

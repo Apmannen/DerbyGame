@@ -26,7 +26,7 @@ public class SgBusBenchInteract : SgInteractGroup
 				player.SetStance(SgPlayerStance.Hidden);
 				yield return bus.AnimateStep(1);
 				yield return bus.AnimateStep(2);
-				SceneManager.SetRoom(goToRoom);
+				SceneManager.SetNewRoom(goToRoom);
 			}
 			else
 			{

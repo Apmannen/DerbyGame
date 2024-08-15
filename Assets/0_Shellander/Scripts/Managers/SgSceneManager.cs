@@ -12,7 +12,7 @@ public class SgSceneManager : SgBehavior
 
 	private bool m_IsTransitioning = false;
 	private SgRoomName m_PrevRoom = SgRoomName.Illegal;
-	private SgRoom m_CurrentRoom;
+	private SgRoom m_CurrentRoom = null;
 	private SgRoomName[] m_RoomNames;
 	private SgRoomName[] RoomNames
 	{
@@ -25,32 +25,38 @@ public class SgSceneManager : SgBehavior
 			return m_RoomNames;
 		}
 	}
-	public SgRoomName PrevRoom => m_PrevRoom;
+	public SgRoomName PrevRoomName => m_PrevRoom;
+	public SgRoom CurrentRoom => m_CurrentRoom;
 
 	private void Start()
 	{
-		bool isAnyLoaded = false;
+		SgRoomName preloadedRoomName = SgRoomName.Illegal;
 		foreach (SgRoomName roomName in RoomNames)
 		{
 			Scene aScene = UnityEngine.SceneManagement.SceneManager.GetSceneByName(roomName.ToString());
 			if (aScene.isLoaded)
 			{
-				isAnyLoaded = true;
+				preloadedRoomName = roomName;
 				break;
 			}
 		}
-		if(!isAnyLoaded)
+		bool isAnyRoomLoaded = preloadedRoomName != SgRoomName.Illegal;
+		if (isAnyRoomLoaded)
 		{
-			SetRoom(SgRoomName.Home);
+			SetCurrentRoom(preloadedRoomName);
+		}
+		else
+		{
+			SetNewRoom(SgRoomName.Home);
 		}
 	}
 
 	private SgRoom GetRoom(SgRoomName roomName)
 	{
-		return rooms.Single(r => r.name == roomName.ToString());
+		return rooms.SingleOrDefault(r => r.name == roomName.ToString());
 	}
 
-	public void SetRoom(SgRoomName roomName)
+	public void SetNewRoom(SgRoomName roomName)
 	{
 		if(m_IsTransitioning)
 		{
@@ -77,11 +83,16 @@ public class SgSceneManager : SgBehavior
 		}
 
 		yield return AsyncLoadScene(roomName.ToString());
-		m_CurrentRoom = GetRoom(roomName);
-
-		HudManager.RefreshSizes(m_CurrentRoom.uiWidth);
+		SetCurrentRoom(roomName);
 
 		m_IsTransitioning = false;
+	}
+
+	private void SetCurrentRoom(SgRoomName roomName)
+	{
+		SgRoom room = GetRoom(roomName);
+		m_CurrentRoom = room;
+		EventManager.Execute(SgEventName.RoomChanged, room);
 	}
 
 	private IEnumerator AsyncLoadScene(string sceneName)

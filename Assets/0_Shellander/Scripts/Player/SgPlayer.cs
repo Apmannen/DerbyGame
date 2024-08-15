@@ -104,7 +104,7 @@ public class SgPlayer : SgBehavior
 	{
 		foreach (SgSpawnPosition spawnPos in spawnPositions)
 		{
-			if (SceneManager.PrevRoom == spawnPos.connectedRoom)
+			if (SceneManager.PrevRoomName == spawnPos.connectedRoom)
 			{
 				this.transform.position = spawnPos.transform.position;
 				Debug.Log("**** #21; POS SET");

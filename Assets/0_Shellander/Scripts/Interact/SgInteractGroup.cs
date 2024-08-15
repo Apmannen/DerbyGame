@@ -133,7 +133,7 @@ public class SgInteractGroup : SgBehavior
 		
 		if(interactConfig.transitionToRoom != SgRoomName.Illegal)
 		{
-			SceneManager.SetRoom(interactConfig.transitionToRoom);
+			SceneManager.SetNewRoom(interactConfig.transitionToRoom);
 		}
 	}
 	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
