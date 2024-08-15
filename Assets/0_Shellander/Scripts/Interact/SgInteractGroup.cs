@@ -76,16 +76,16 @@ public class SgInteractGroup : SgBehavior
 
 	private bool IsItemCollected => ItemManager.IsCollected(this.itemType);
 
-	public SgInteractTranslation GetInteractConfig(SgInteractType interactType, SgItemType itemType)
+	public SgInteractTranslation GetInteractConfig(SgInteractType interactType, SgItemType useItemType)
 	{
 		SgInteractTranslation interactConfig = null;
-		if (IsConnectedToItem && redirectToItem)
+		if (interactConfig == null && IsConnectedToItem && redirectToItem)
 		{
-			interactConfig = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected, itemType);
+			interactConfig = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
-			interactConfig = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected, itemType);
+			interactConfig = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{

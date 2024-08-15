@@ -8558,7 +8558,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
-    translationIds: 68000000
+    translationIds: 73000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0

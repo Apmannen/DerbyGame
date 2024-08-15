@@ -246,12 +246,13 @@ public class SgPlayer : SgBehavior
 
 	
 
-	private void SetInteraction(SgInteractGroup interactGroup, SgItemType itemWheelItem, SgItemType useItemType, SgInteractType type)
+	private SgInteraction SetInteraction(SgInteractGroup interactGroup, SgItemType itembarItem, SgItemType useItemType, SgInteractType type)
 	{
 		m_CurrentInteraction.interactGroup = interactGroup;
-		m_CurrentInteraction.itemWheelItem = itemWheelItem;
+		m_CurrentInteraction.itembarItem = itembarItem;
 		m_CurrentInteraction.useItem = useItemType;
 		m_CurrentInteraction.type = type;
+		return m_CurrentInteraction;
 	}
 
 	private void ClearInteraction()
@@ -365,9 +366,9 @@ public class SgPlayer : SgBehavior
 
 				SetDestination(walkTarget);
 
-				if(IsCursorAnyInteract() && hoveredInteractGroup != null)
+				if(IsCursorAnyInteract() && (hoveredInteractGroup != null || hoveredItembarItem != null))
 				{
-					HandleInteractClick(hoveredInteractGroup);
+					HandleInteractClick(hoveredInteractGroup, hoveredItembarItem);
 				}
 				
 			}
@@ -381,14 +382,6 @@ public class SgPlayer : SgBehavior
 		{
 			SkipAnySpeech();
 		}
-		//else if(HudManager.IsWheelVisible && m_ShiftCursorRight.WasPressedThisFrame() && 
-		//	m_LastHighlightedSlice.ItemType != SgItemType.Illegal)
-		//{
-		//	SetInteraction(null, m_LastHighlightedSlice.ItemType, SgItemType.Illegal, SgInteractType.Look);
-		//	SetDestination(this.transform.position);
-		//	CurrentSkin.walkAnimation.Stop();
-		//	StartInteraction();
-		//}
 
 		//State handling 2
 		if (IsStateAnyWalking())
@@ -414,32 +407,42 @@ public class SgPlayer : SgBehavior
 		m_Agent.SetDestination(targetPosition);
 	}
 
-	private void HandleInteractClick(SgInteractGroup hoveredInteractGroup)
+	private void HandleInteractClick(SgInteractGroup hoveredInteractGroup, SgItembarItem itembarItem)
 	{
-		SgInteractTranslation interactConfig = hoveredInteractGroup.GetInteractConfig(CursorController.SelectedInteractType, CursorController.SelectedItem);
+		SgItemType itembarItemType = itembarItem != null ? itembarItem.Definition.itemType : SgItemType.Illegal;
+		//SgInteractTranslation interactConfig = null; 
+		//if(itembarItemType != SgItemType.Illegal)
+		//{
+		//	interactConfig = itembarItem.Definition.interactTranslations.SingleOrDefault(c => c.interactType == CursorController.SelectedInteractType);
+		//}
+		//else
+		//{
+		//	interactConfig = hoveredInteractGroup.GetInteractConfig(CursorController.SelectedInteractType, CursorController.SelectedItem);
+		//}
 
-		if (interactConfig != null)
-		{
-			SetInteraction(hoveredInteractGroup, SgItemType.Illegal, CursorController.SelectedItem, CursorController.SelectedInteractType);
+		//if (interactConfig != null)
+		//{
+		SgInteraction interaction = SetInteraction(hoveredInteractGroup, itembarItemType, CursorController.SelectedItem, CursorController.SelectedInteractType);
+		SgInteractTranslation interactConfig = interaction != null ? interaction.InteractConfig : null;
 			
-			if (interactConfig != null && interactConfig.walkToItFirst)
+		if (interactConfig != null && interactConfig.walkToItFirst)
+		{
+			bool overrideDestination = m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null &&
+				m_CurrentInteraction.interactGroup.walkTarget != null; //null propagation shouldn't be used on Unity objects
+			if (overrideDestination) 
 			{
-				bool overrideDestination = m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null &&
-					m_CurrentInteraction.interactGroup.walkTarget != null; //null propagation shouldn't be used on Unity objects
-				if (overrideDestination) 
-				{
-					SetDestination(m_CurrentInteraction.interactGroup.walkTarget.position);
-				}
-				SetState(SgPlayerState.InteractWalking);
+				SetDestination(m_CurrentInteraction.interactGroup.walkTarget.position);
 			}
-			else
-			{
-				SetDestination(this.transform.position);
-				CurrentSkin.walkAnimation.Stop();
-				StartInteraction();
-			}
-
+			SetState(SgPlayerState.InteractWalking);
 		}
+		else
+		{
+			SetDestination(this.transform.position);
+			CurrentSkin.walkAnimation.Stop();
+			StartInteraction();
+		}
+
+		//}
 	}
 
 	private bool HasReachedDestination()
@@ -464,7 +467,7 @@ public class SgPlayer : SgBehavior
 
 	private IEnumerator InteractRoutine(SgInteraction interaction)
 	{
-		SgInteractTranslation interactConfig = interaction.interactGroup.GetInteractConfig(interaction.type, interaction.useItem);
+		SgInteractTranslation interactConfig = interaction.InteractConfig;
 
 		int[] interactTranslationIds = new int[] { };
 		if (interaction.IsRoomInteraction)
@@ -477,7 +480,7 @@ public class SgPlayer : SgBehavior
 			switch(interaction.type)
 			{
 				case SgInteractType.Look:
-					interactTranslationIds = ItemManager.Get(interaction.itemWheelItem).GetInteractTranslationIds(interaction.type);
+					interactTranslationIds = ItemManager.Get(interaction.itembarItem).GetInteractTranslationIds(interaction.type);
 					break;
 				default: 
 					break;
@@ -573,11 +576,27 @@ public class SgPlayer : SgBehavior
 	private class SgInteraction
 	{
 		public SgInteractGroup interactGroup;
-		public SgItemType itemWheelItem; //interaction on the item
+		public SgItemType itembarItem; //interaction on the item
 		public SgItemType useItem; //an item is used as cursor
 		public SgInteractType type;
 		public bool IsRoomInteraction => interactGroup != null;
-		public bool IsItemInteraction => !IsRoomInteraction && type != SgInteractType.Illegal;
+		public bool IsItemInteraction => itembarItem != SgItemType.Illegal;
+
+		public SgInteractTranslation InteractConfig
+		{
+			get
+			{
+				if (IsRoomInteraction)
+				{
+					return interactGroup.GetInteractConfig(this.type, this.useItem);
+				}
+				if (IsItemInteraction)
+				{
+					return SgManagers._.itemManager.Get(itembarItem).interactTranslations.SingleOrDefault(c => c.interactType == type);
+				}
+				return null;
+			}
+		}
 	}
 }
 
