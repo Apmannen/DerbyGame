@@ -38,6 +38,7 @@ public class SgHudManager : SgBehavior
 	{
 		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
 		wheelRaycaster.enabled = IsWheelVisible;
+		itembar.gameObject.SetActive(!replyBarContainer.gameObject.activeSelf);
 	}
 
 	private void OnRoomChanged(SgRoom newRoom)
