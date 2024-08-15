@@ -17,6 +17,7 @@ public enum SgItemType
 	Glue,
 	Money190,
 	Money90,
+	Patch,
 }
 
 public class SgItemDefinition : SgBehavior
