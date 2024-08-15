@@ -82,8 +82,8 @@ public class SgSceneManager : SgBehavior
 			}
 		}
 
-		yield return AsyncLoadScene(roomName.ToString());
-		SetCurrentRoom(roomName);
+		SetCurrentRoom(roomName); //intentionally set before fully loaded, could have a different one afterwards if necessary
+		yield return AsyncLoadScene(roomName.ToString());		
 
 		m_IsTransitioning = false;
 	}

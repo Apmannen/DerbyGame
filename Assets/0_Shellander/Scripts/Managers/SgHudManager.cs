@@ -42,12 +42,11 @@ public class SgHudManager : SgBehavior
 
 	private void OnRoomChanged(SgRoom newRoom)
 	{
-		ScreenRefrefresh();
+		ScreenRefrefresh(newRoom);
 	}
-	private void ScreenRefrefresh()
+	public void ScreenRefrefresh(SgRoom room)
 	{
-		SgRoom room = SceneManager.CurrentRoom;
-		int maxWidth = room != null && room.uiWidth >= 0 ? room.uiWidth : Screen.width;
+		int maxWidth = room != null && room.uiWidth >= 0 ? room.uiWidth : Screen.currentResolution.width;
 		itembar.SetMaxWidth(maxWidth);
 	}
 
