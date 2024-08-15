@@ -100,6 +100,10 @@ public class SgItemManager : SgBehavior
 		{
 			money -= 100;
 		}
+		if(HasEverBeenCollected(SgItemType.Glue))
+		{
+			money -= 10;
+		}
 
 		if (money > 0)
 		{

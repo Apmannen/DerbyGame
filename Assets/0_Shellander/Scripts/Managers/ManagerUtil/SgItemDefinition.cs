@@ -15,6 +15,7 @@ public enum SgItemType
 	TshirtBlue,
 	Money200,
 	Glue,
+	Money190,
 }
 
 public class SgItemDefinition : SgBehavior
