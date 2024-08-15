@@ -112,8 +112,10 @@ MonoBehaviour:
   skins:
   - skinType: 1
     walkAnimation: {fileID: 6058173534052741082}
+    sitSprite: {fileID: 21300000, guid: 2e6612f11ac0f5344b9673d4a36dd3db, type: 3}
   - skinType: 2
     walkAnimation: {fileID: 2004514351081662269}
+    sitSprite: {fileID: 21300000, guid: 3e0d70b86518bd044a1da3bb75fdb89d, type: 3}
   mainRenderer: {fileID: 1050728045699134630}
   sitSprite: {fileID: 2778077560273534758}
   spawnPositions: []

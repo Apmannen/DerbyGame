@@ -98,6 +98,7 @@ public class SgPlayer : SgBehavior
 	{
 		m_CurrentSkinType = type;
 		this.mainRenderer.sprite = CurrentSkin.walkAnimation.sprites[0];
+		this.sitSprite.sprite = CurrentSkin.sitSprite;
 		SaveDataManager.CurrentSaveFile.currentSkin.Set(type);
 		ItemManager.RefreshTshirts(type);
 	}
@@ -596,4 +597,5 @@ public class SgSkinSettings
 {
 	public SgSkinType skinType;
 	public SgAnimation walkAnimation;
+	public Sprite sitSprite;
 }
