@@ -131,55 +131,25 @@ public class SgItemManager : SgBehavior
 		}
 	}
 
-	//private void SetMoney(int newMoney)
-	//{
-	//	Debug.Log("*** SETM:"+newMoney);
-	//	if(newMoney > 0)
-	//	{
-	//		foreach (SgItemDefinition definition in itemDefinitions)
-	//		{
-	//			if (definition.moneyValue == newMoney)
-	//			{
-	//				Collect(definition.itemType);
-	//			}
-	//			else if(definition.moneyValue > 0)
-	//			{
-	//				RemoveItem(definition.itemType);
-	//			}
-	//		}
-	//	}
-	//	else
-	//	{
-	//		foreach (SgItemDefinition definition in itemDefinitions)
-	//		{
-	//			if (definition.IsColleted && definition.IsMoney)
-	//			{
-	//				RemoveItem(definition.itemType);
-	//			}
-	//		}
-	//	}		
-	//}
-
-	//public void ChangeMoney(int change)
-	//{
-	//	int newMoney = GetCurrentMoney() + change;
-	//	SetMoney(newMoney);
-	//}
-
 	public void RefreshTshirts(SgSkinType wornSkin)
 	{
 		if(wornSkin == SgSkinType.Black)
 		{
 			RemoveItem(SgItemType.TshirtBlack);
+			RemoveItem(SgItemType.GluedTshirtBlack);
 			Collect(SgItemType.TshirtBlue);
 		}
 		else if(wornSkin == SgSkinType.Normal)
 		{
 			RemoveItem(SgItemType.TshirtBlue);
-			if(HasEverBeenCollected(SgItemType.TshirtBlack))
+			if (HasEverBeenCollected(SgItemType.GluedTshirtBlack))
+			{
+				Collect(SgItemType.GluedTshirtBlack);
+			}
+			else if (HasEverBeenCollected(SgItemType.TshirtBlack))
 			{
 				Collect(SgItemType.TshirtBlack);
-			}			
+			}
 		}
 	}
 

@@ -473,6 +473,16 @@ public class SgPlayer : SgBehavior
 						CursorController.SetSelectedItem(interaction.itembarItem);
 					}
 					break;
+				case SgInteractType.Item:
+					if(interactConfig != null)
+					{
+						interactTranslationIds = interactConfig.translationIds;
+					}
+					else
+					{
+						interactTranslationIds = TranslationManager.defaultTranslations.Single(c => c.interactType == SgInteractType.Item).translationIds;
+					}
+					break;
 				default: 
 					break;
 			}			
