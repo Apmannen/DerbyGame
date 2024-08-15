@@ -39,8 +39,9 @@ Transform:
   m_Children:
   - {fileID: 8869072392121059557}
   - {fileID: 6265144132997610391}
-  - {fileID: 3522261236781387152}
   - {fileID: 4524180085517376488}
+  - {fileID: 3522261236781387152}
+  - {fileID: 4795274861801434170}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &951947914929247375
@@ -111,6 +112,8 @@ MonoBehaviour:
   skins:
   - skinType: 0
     walkAnimation: {fileID: 6058173534052741082}
+  - skinType: 1
+    walkAnimation: {fileID: 2004514351081662269}
   mainRenderer: {fileID: 1050728045699134630}
   sitSprite: {fileID: 2778077560273534758}
   spawnPositions: []
@@ -457,6 +460,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7826334266274635526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4795274861801434170}
+  - component: {fileID: 2004514351081662269}
+  m_Layer: 0
+  m_Name: skin-black
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4795274861801434170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826334266274635526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3133473233228449289}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2004514351081662269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826334266274635526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0192fc4b701d4d950e79f170fdcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1050728045699134630}
+  sprites:
+  - {fileID: 21300000, guid: 8c0327807dcb35a49b94f711bedf322e, type: 3}
+  - {fileID: 21300000, guid: d107a4c760ce58746b9d03be2cfc7a28, type: 3}
+  changeInterval: 0.15
+  autoPlay: 0
+  randomizeOrder: 0
 --- !u!1 &9086391150664755482
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +522,7 @@ GameObject:
   - component: {fileID: 3522261236781387152}
   - component: {fileID: 6058173534052741082}
   m_Layer: 0
-  m_Name: walkanim
+  m_Name: skin-normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

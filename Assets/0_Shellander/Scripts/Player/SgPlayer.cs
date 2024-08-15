@@ -126,14 +126,6 @@ public class SgPlayer : SgBehavior
 		{
 			case SgWeaponWheelEventType.Select:
 				CursorController.SetSelectedInteract(sliceMapping.interactType);
-				//if(sliceMapping.interactType == SgInteractType.Item)
-				//{
-				//	CursorController.SetSelectedItem(sliceMapping.ItemType);
-				//}
-				//else
-				//{
-				//	CursorController.SetSelectedInteract(sliceMapping.interactType);
-				//}
 				break;
 			case SgWeaponWheelEventType.Highlight:
 				m_HighlightedActionTranslation = TranslationManager.Get(sliceMapping.translationId);
@@ -410,18 +402,6 @@ public class SgPlayer : SgBehavior
 	private void HandleInteractClick(SgInteractGroup hoveredInteractGroup, SgItembarItem itembarItem)
 	{
 		SgItemType itembarItemType = itembarItem != null ? itembarItem.Definition.itemType : SgItemType.Illegal;
-		//SgInteractTranslation interactConfig = null; 
-		//if(itembarItemType != SgItemType.Illegal)
-		//{
-		//	interactConfig = itembarItem.Definition.interactTranslations.SingleOrDefault(c => c.interactType == CursorController.SelectedInteractType);
-		//}
-		//else
-		//{
-		//	interactConfig = hoveredInteractGroup.GetInteractConfig(CursorController.SelectedInteractType, CursorController.SelectedItem);
-		//}
-
-		//if (interactConfig != null)
-		//{
 		SgInteraction interaction = SetInteraction(hoveredInteractGroup, itembarItemType, CursorController.SelectedItem, CursorController.SelectedInteractType);
 		SgInteractTranslation interactConfig = interaction != null ? interaction.InteractConfig : null;
 			
@@ -441,8 +421,6 @@ public class SgPlayer : SgBehavior
 			CurrentSkin.walkAnimation.Stop();
 			StartInteraction();
 		}
-
-		//}
 	}
 
 	private bool HasReachedDestination()
@@ -483,7 +461,14 @@ public class SgPlayer : SgBehavior
 					interactTranslationIds = ItemManager.Get(interaction.itembarItem).GetInteractTranslationIds(interaction.type);
 					break;
 				case SgInteractType.Use:
-					CursorController.SetSelectedItem(interaction.itembarItem);
+					if(interaction.itembarItem == SgItemType.TshirtBlack)
+					{
+						ChangeSkin(SgSkinType.Black);
+					}
+					else
+					{
+						CursorController.SetSelectedItem(interaction.itembarItem);
+					}
 					break;
 				default: 
 					break;
