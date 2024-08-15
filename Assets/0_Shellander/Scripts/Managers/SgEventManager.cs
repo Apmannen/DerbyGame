@@ -48,13 +48,15 @@ public class SgEventManager : MonoBehaviour
 
 	public void Execute(SgEventName eventName)
 	{
-		foreach(SgEvent anEvent in m_Listeners[eventName])
+		AddIfMissing(eventName);
+		foreach (SgEvent anEvent in m_Listeners[eventName])
 		{
 			anEvent.action0?.Invoke();
 		}
 	}
 	public void Execute<T>(SgEventName eventName, T param)
 	{
+		AddIfMissing(eventName);
 		foreach (SgEvent anEvent in m_Listeners[eventName])
 		{
 			if(anEvent.action1 != null)
