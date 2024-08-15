@@ -132,3 +132,5 @@ Det blir 10 kronor.
 (Betala 10 kronor)
 190 kronor
 Det är 190 kronor.
+90 kronor
+Det är 90 kronor.
