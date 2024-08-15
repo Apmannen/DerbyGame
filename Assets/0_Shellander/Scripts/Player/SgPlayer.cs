@@ -312,10 +312,15 @@ public class SgPlayer : SgBehavior
 		}
 
 		//UI
+		SgItembarItem hoveredItembarItem = HudManager.itembar.GetHoveredItem();
 		if (IsActionsAllowed() && selectedInteractable != null)
 		{
 			hoveredInteractGroup = selectedInteractable.InteractGroup;
 			CursorController.SetText(hoveredInteractGroup.TranslatedName);
+		}
+		else if(IsActionsAllowed() && hoveredItembarItem != null)
+		{
+			CursorController.SetText(hoveredItembarItem.Definition.TranslatedName);
 		}
 		else if(m_HighlightedActionTranslation != null)
 		{

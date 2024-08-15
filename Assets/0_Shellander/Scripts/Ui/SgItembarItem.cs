@@ -8,6 +8,10 @@ public class SgItembarItem : MonoBehaviour
 	public Image image;	
 
 	private SgItemDefinition m_Definition;
+	public SgItemDefinition Definition => m_Definition;
+	private bool m_IsHovered;
+	public bool IsHovered => m_IsHovered && Definition != null;
+
 	public void Set(SgItemDefinition itemDefinition)
 	{
 		m_Definition = itemDefinition;
@@ -19,6 +23,16 @@ public class SgItembarItem : MonoBehaviour
 		{
 			image.sprite = itemDefinition.sprite;
 		}
+		m_IsHovered = false;
+	}
+
+	public void OnPointerEnter()
+	{
+		m_IsHovered = true;
+	}
+	public void OnPointerExit()
+	{
+		m_IsHovered = false;
 	}
 
 

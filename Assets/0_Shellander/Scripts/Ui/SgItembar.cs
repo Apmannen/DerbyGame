@@ -37,6 +37,11 @@ public class SgItembar : SgBehavior
 		}
 	}
 
+	public SgItembarItem GetHoveredItem()
+	{
+		return itembarItems.SingleOrDefault(i => i.IsHovered);
+	}
+
 	//public SgItembarItem[] items;
 
 	//private readonly List<SgItemDefinition> m_AvailableItems = new List<SgItemDefinition>();
