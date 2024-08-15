@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SgEventName { NamedSaveBoolUpdated, NavMeshRebuild, RoomChanged }
+public enum SgEventName { NamedSaveBoolUpdated, NavMeshRebuild, RoomChanged, ItemCollected }
 
 public class SgEventManager : MonoBehaviour
 {

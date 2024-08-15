@@ -60,6 +60,8 @@ public class SgItemManager : SgBehavior
 		{
 			RefreshMoney();
 		}
+
+		EventManager.Execute(SgEventName.ItemCollected, itemType);
 	}
 	public void RemoveItem(SgItemType itemType)
 	{

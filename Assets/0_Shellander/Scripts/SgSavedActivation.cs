@@ -4,6 +4,7 @@ using UnityEngine;
 public class SgSavedActivation : SgBehavior
 {
 	public bool auto = true;
+	public SgItemType collectedItem = SgItemType.Illegal;
     public string namedBool;
 	public bool activateWhenNamedTrue;
 
@@ -12,6 +13,7 @@ public class SgSavedActivation : SgBehavior
 		if(auto)
 		{
 			EventManager.Register(SgEventName.NamedSaveBoolUpdated, RefreshActivationVoid);
+			EventManager.Register<SgItemType>(SgEventName.ItemCollected, OnItemCollected);
 			RefreshActivation();
 		}
 	}
@@ -20,7 +22,12 @@ public class SgSavedActivation : SgBehavior
 		if (auto)
 		{
 			EventManager.Unregister(SgEventName.NamedSaveBoolUpdated, RefreshActivationVoid);
+			EventManager.Unregister<SgItemType>(SgEventName.ItemCollected, OnItemCollected);
 		}
+	}
+	private void OnItemCollected(SgItemType itemType)
+	{
+		RefreshActivation();
 	}
 
 	private void RefreshActivationVoid()
@@ -30,7 +37,15 @@ public class SgSavedActivation : SgBehavior
 
 	public bool RefreshActivation()
 	{
-		bool value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(namedBool);
+		bool value;
+		if(collectedItem != SgItemType.Illegal)
+		{
+			value = ItemManager.IsCollected(collectedItem);
+		}
+		else
+		{
+			value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(namedBool);
+		}		
 
 		bool oldActive = this.gameObject.activeSelf;
 		bool newActive = (activateWhenNamedTrue && value) || (!activateWhenNamedTrue && !value);
