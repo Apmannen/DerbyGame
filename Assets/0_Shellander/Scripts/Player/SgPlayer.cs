@@ -77,7 +77,7 @@ public class SgPlayer : SgBehavior
 
 		HudManager.AddWheelListener(OnItemWheelChange);
 
-		m_CurrentSkinType = SaveDataManager.CurrentSaveFile.currentSkin.Get();
+		ChangeSkin(SaveDataManager.CurrentSaveFile.currentSkin.Get());
 
 		//if the navmesh is rebuilt, the positioning must
 		//be performed in the update loop for whatever reason
@@ -97,6 +97,7 @@ public class SgPlayer : SgBehavior
 	private void ChangeSkin(SgSkinType type)
 	{
 		m_CurrentSkinType = type;
+		this.mainRenderer.sprite = CurrentSkin.walkAnimation.sprites[0];
 		SaveDataManager.CurrentSaveFile.currentSkin.Set(type);
 	}
 
