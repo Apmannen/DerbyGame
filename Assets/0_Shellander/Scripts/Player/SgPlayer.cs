@@ -482,6 +482,9 @@ public class SgPlayer : SgBehavior
 				case SgInteractType.Look:
 					interactTranslationIds = ItemManager.Get(interaction.itembarItem).GetInteractTranslationIds(interaction.type);
 					break;
+				case SgInteractType.Use:
+					CursorController.SetSelectedItem(interaction.itembarItem);
+					break;
 				default: 
 					break;
 			}			
