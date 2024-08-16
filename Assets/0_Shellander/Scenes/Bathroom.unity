@@ -644,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   auto: 1
+  collectedItem: 0
   namedBool: BathroomBillColl
   activateWhenNamedTrue: 0
 --- !u!1 &1020350718
@@ -1211,10 +1212,6 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 537423196534831295}
-    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: skins.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: spawnPositions.Array.size
       value: 0

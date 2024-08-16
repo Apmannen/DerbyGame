@@ -67,7 +67,7 @@ public class SgInteractGroup : SgBehavior
 
 	private void RefreshPickedUpVisibility()
 	{
-		SetVisibleSprite(IsConnectedToItem && ItemDefinition.IsColleted ? collectedRendererIndex : defaultRendererIndex);
+		SetVisibleSprite(IsConnectedToItem && ItemDefinition.HasEverBeenCollected ? collectedRendererIndex : defaultRendererIndex);
 		foreach (SgInteractable childInteractable in Interactables)
 		{
 			childInteractable.gameObject.SetActive(interactableAfterPickup || !IsConnectedToItem || !ItemDefinition.IsColleted);
