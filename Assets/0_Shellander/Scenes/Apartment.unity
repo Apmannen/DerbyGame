@@ -1350,17 +1350,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5683821618311090348, guid: 8930dffe758e8d84ab5d59891d352696, type: 3}
   m_PrefabInstance: {fileID: 1136062613}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1265490665 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6058173534052741082, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-  m_PrefabInstance: {fileID: 1521378755555208319}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e0192fc4b701d4d950e79f170fdcbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1348712315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2126,10 +2115,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 537423196534831295}
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: skins.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: spawnPositions.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2137,10 +2122,6 @@ PrefabInstance:
       propertyPath: spawnPositions.Array.data[0]
       value: 
       objectReference: {fileID: 169112029}
-    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: skins.Array.data[1].walkAnimation
-      value: 
-      objectReference: {fileID: 1265490665}
     - target: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.74

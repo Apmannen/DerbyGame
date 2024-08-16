@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public enum SgPlayerStance { Normal, Sitting, Hidden }
-public enum SgSkinType { Illegal, Normal, Black, BlackPatch }
+public enum SgSkinType { Illegal, Normal, Black, Aik }
 public class SgPlayer : SgBehavior
 {
 	public SgCamera mainCam;
@@ -466,6 +466,10 @@ public class SgPlayer : SgBehavior
 				case SgInteractType.Use:
 					if(interaction.ItembarItemDefinition.skinType != SgSkinType.Illegal)
 					{
+						if(interactConfig != null)
+						{
+							interactTranslationIds = interactConfig.translationIds;
+						}
 						ChangeSkin(interaction.ItembarItemDefinition.skinType);
 					}
 					else
@@ -474,9 +478,18 @@ public class SgPlayer : SgBehavior
 					}
 					break;
 				case SgInteractType.Item:
+					//Some duplicated code
 					if(interactConfig != null)
 					{
 						interactTranslationIds = interactConfig.translationIds;
+						if(interactConfig.triggerCollect != SgItemType.Illegal)
+						{
+							ItemManager.Collect(interactConfig.triggerCollect);
+						}
+						foreach(SgItemType removeItemType in interactConfig.triggerRemove)
+						{
+							ItemManager.RemoveItem(removeItemType);
+						}
 					}
 					else
 					{
@@ -590,6 +603,10 @@ public class SgPlayer : SgBehavior
 				}
 				if (IsItemInteraction)
 				{
+					if(this.useItem != SgItemType.Illegal)
+					{
+						return ItembarItemDefinition.interactTranslations.SingleOrDefault(c => c.interactType == type && c.itemType == useItem);
+					}
 					return ItembarItemDefinition.interactTranslations.SingleOrDefault(c => c.interactType == type);
 				}
 				return null;

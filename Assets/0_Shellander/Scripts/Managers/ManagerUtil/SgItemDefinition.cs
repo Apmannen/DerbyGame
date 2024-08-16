@@ -20,6 +20,7 @@ public enum SgItemType
 	Patch,
 	GluedTshirtBlack,
 	GluedPatch,
+	TshirtAik,
 }
 
 public class SgItemDefinition : SgBehavior

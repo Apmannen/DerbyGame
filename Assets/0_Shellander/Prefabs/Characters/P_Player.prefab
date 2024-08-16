@@ -42,6 +42,7 @@ Transform:
   - {fileID: 4524180085517376488}
   - {fileID: 3522261236781387152}
   - {fileID: 4795274861801434170}
+  - {fileID: 8451897036710676026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &951947914929247375
@@ -115,6 +116,9 @@ MonoBehaviour:
     sitSprite: {fileID: 21300000, guid: 2e6612f11ac0f5344b9673d4a36dd3db, type: 3}
   - skinType: 2
     walkAnimation: {fileID: 2004514351081662269}
+    sitSprite: {fileID: 21300000, guid: 3e0d70b86518bd044a1da3bb75fdb89d, type: 3}
+  - skinType: 3
+    walkAnimation: {fileID: 1070559317664552687}
     sitSprite: {fileID: 21300000, guid: 3e0d70b86518bd044a1da3bb75fdb89d, type: 3}
   mainRenderer: {fileID: 1050728045699134630}
   sitSprite: {fileID: 2778077560273534758}
@@ -510,6 +514,57 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 8c0327807dcb35a49b94f711bedf322e, type: 3}
   - {fileID: 21300000, guid: d107a4c760ce58746b9d03be2cfc7a28, type: 3}
+  changeInterval: 0.15
+  autoPlay: 0
+  randomizeOrder: 0
+--- !u!1 &8289813076103473076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8451897036710676026}
+  - component: {fileID: 1070559317664552687}
+  m_Layer: 0
+  m_Name: skin-aik
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8451897036710676026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289813076103473076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3133473233228449289}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070559317664552687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289813076103473076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0192fc4b701d4d950e79f170fdcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1050728045699134630}
+  sprites:
+  - {fileID: 21300000, guid: 1337a6ce2ce28554aafb0a2537c3a697, type: 3}
+  - {fileID: 21300000, guid: e8c571aa2b194d04fae69e879aebb8e3, type: 3}
   changeInterval: 0.15
   autoPlay: 0
   randomizeOrder: 0

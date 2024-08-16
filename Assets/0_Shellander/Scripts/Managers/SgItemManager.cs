@@ -65,6 +65,7 @@ public class SgItemManager : SgBehavior
 	}
 	public void RemoveItem(SgItemType itemType)
 	{
+		Debug.Log("*** Try remove item:"+itemType);
 		SgItemDefinition definition = Get(itemType);
 		definition.Savable.isCollected.Set(false);
 
@@ -133,16 +134,22 @@ public class SgItemManager : SgBehavior
 
 	public void RefreshTshirts(SgSkinType wornSkin)
 	{
-		if(wornSkin == SgSkinType.Black)
+		RemoveItem(SgItemType.TshirtBlack);
+		RemoveItem(SgItemType.GluedTshirtBlack);
+		RemoveItem(SgItemType.TshirtAik);
+		RemoveItem(SgItemType.TshirtBlue);
+
+		if (wornSkin == SgSkinType.Black || wornSkin == SgSkinType.Aik)
 		{
-			RemoveItem(SgItemType.TshirtBlack);
-			RemoveItem(SgItemType.GluedTshirtBlack);
 			Collect(SgItemType.TshirtBlue);
 		}
 		else if(wornSkin == SgSkinType.Normal)
 		{
-			RemoveItem(SgItemType.TshirtBlue);
-			if (HasEverBeenCollected(SgItemType.GluedTshirtBlack))
+			if (HasEverBeenCollected(SgItemType.TshirtAik))
+			{
+				Collect(SgItemType.TshirtAik);
+			}
+			else if (HasEverBeenCollected(SgItemType.GluedTshirtBlack))
 			{
 				Collect(SgItemType.GluedTshirtBlack);
 			}

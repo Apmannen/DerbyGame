@@ -174,6 +174,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 88000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -625,6 +626,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 3400000035000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -1236,6 +1238,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 68000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -1247,7 +1250,20 @@ MonoBehaviour:
   - interactType: 8
     itemType: 13
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 91000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  - interactType: 8
+    itemType: 15
+    triggerCollect: 16
+    triggerRemove: 0f0000000d00000006000000
+    translationIds: 90000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
@@ -2457,6 +2473,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 8f000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -2874,6 +2891,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 7a000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -2935,6 +2953,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 8f000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -3271,6 +3290,7 @@ Transform:
   - {fileID: 1719327576}
   - {fileID: 876484150}
   - {fileID: 754367599}
+  - {fileID: 1900583170}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -3299,6 +3319,9 @@ MonoBehaviour:
   - {fileID: 1867577938}
   - {fileID: 27914077}
   - {fileID: 1719327577}
+  - {fileID: 876484151}
+  - {fileID: 754367600}
+  - {fileID: 1900583171}
 --- !u!1 &1031056739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4358,6 +4381,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 1a000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -4871,6 +4895,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 3f000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -5490,6 +5515,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 0d0000000e000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -5551,6 +5577,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 5c000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -6454,7 +6481,20 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 8c000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  - interactType: 8
+    itemType: 10
+    triggerCollect: 15
+    triggerRemove: 0d000000
+    translationIds: 8e000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
@@ -6689,6 +6729,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 7e000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -7378,6 +7419,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 86000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -7437,6 +7479,7 @@ MonoBehaviour:
   - interactType: 5
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 01000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -7448,6 +7491,7 @@ MonoBehaviour:
   - interactType: 3
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 13000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -7459,6 +7503,7 @@ MonoBehaviour:
   - interactType: 4
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 14000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -7470,6 +7515,7 @@ MonoBehaviour:
   - interactType: 8
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 4b000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -7478,6 +7524,80 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+--- !u!1 &1900583169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1900583170}
+  - component: {fileID: 1900583171}
+  m_Layer: 0
+  m_Name: TshirtAik
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1900583170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900583169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900583171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900583169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 16
+  translationId: 148
+  sprite: {fileID: 21300000, guid: c0f803ea7c9e3994f853e202c4112f26, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 8b000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  - interactType: 3
+    itemType: 0
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 92000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  moneyValue: 0
+  skinType: 3
 --- !u!1 &1925163698
 GameObject:
   m_ObjectHideFlags: 0
@@ -8771,6 +8891,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 81000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -8959,6 +9080,7 @@ MonoBehaviour:
   - interactType: 2
     itemType: 0
     triggerCollect: 0
+    triggerRemove: 
     translationIds: 73000000
     walkToItFirst: 0
     toggleSprite: 0
