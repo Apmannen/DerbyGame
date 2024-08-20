@@ -109,16 +109,17 @@ public class SgInteractTranslation
 	public string setNamedBool;
 	public SgDialogue startDialogue;
 
-	private List<SgItemType> m_ItemTypes;
+	private HashSet<SgItemType> m_ItemTypes;
 
-	public List<SgItemType> ItemTypes
+	public ICollection<SgItemType> ItemTypes
     {
 		get
         {
 			if(m_ItemTypes == null)
             {
 				m_ItemTypes = new();
-				if(itemType != SgItemType.Illegal)
+				m_ItemTypes.UnionWith(itemTypes);
+				if (itemType != SgItemType.Illegal)
                 {
 					m_ItemTypes.Add(itemType);
                 }
