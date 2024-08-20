@@ -53,16 +53,19 @@ public class SgTranslationManager : SgBehavior
 	{
 		if(interactType == SgInteractType.Item)
         {
-			SgInteractTranslation specificItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.itemType == itemType);
+			SgInteractTranslation specificItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && 
+				(c.itemType == itemType || c.itemTypes.Contains(itemType)));
 			if(specificItemConfig != null)
             {
 				return specificItemConfig;
             }
-			SgInteractTranslation genericItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.itemType == SgItemType.Illegal);
+			SgInteractTranslation genericItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && 
+				c.itemType == SgItemType.Illegal && c.itemTypes.Length == 0);
 			if(genericItemConfig != null)
             {
 				return genericItemConfig;
             }
+			return null;
 		}
 
 		foreach (SgInteractTranslation interactConfig in interactConfigs)
@@ -99,6 +102,7 @@ public class SgInteractTranslation
 {
 	public SgInteractType interactType;
 	public SgItemType itemType;
+	public SgItemType[] itemTypes;
 	public SgItemType triggerCollect;
 	public SgItemType[] triggerRemove;
 	public int[] translationIds;
