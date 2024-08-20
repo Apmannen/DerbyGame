@@ -38,7 +38,7 @@ public class SgPlayer : SgBehavior
 	private SgCursorController m_CursorController;
 	private SgCursorController CursorController => SgUtil.LazyComponent(this, ref m_CursorController);
 	private SgSkinType m_CurrentSkinType;
-	private SgSkinSettings CurrentSkin => GetSkinByType(m_CurrentSkinType);
+	public SgSkinSettings CurrentSkin => GetSkinByType(m_CurrentSkinType);
 
 	//Input
 	private InputActionMap m_CurrentActionMap;
@@ -50,6 +50,7 @@ public class SgPlayer : SgBehavior
 	private void Awake()
 	{
 		s_Player = this;
+		ChangeSkin(SaveDataManager.CurrentSaveFile.currentSkin.Get());
 	}
 
 	private void Start()
@@ -76,8 +77,6 @@ public class SgPlayer : SgBehavior
 		mainCam.AttachPlayer(this);
 
 		HudManager.AddWheelListener(OnItemWheelChange);
-
-		ChangeSkin(SaveDataManager.CurrentSaveFile.currentSkin.Get());
 
 		//if the navmesh is rebuilt, the positioning must
 		//be performed in the update loop for whatever reason
