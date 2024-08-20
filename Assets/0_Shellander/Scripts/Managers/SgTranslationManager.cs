@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class SgTranslationManager : SgBehavior
 {
@@ -50,6 +51,20 @@ public class SgTranslationManager : SgBehavior
 	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
 		SgItemType itemType)
 	{
+		if(interactType == SgInteractType.Item)
+        {
+			SgInteractTranslation specificItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.itemType == itemType);
+			if(specificItemConfig != null)
+            {
+				return specificItemConfig;
+            }
+			SgInteractTranslation genericItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.itemType == SgItemType.Illegal);
+			if(genericItemConfig != null)
+            {
+				return genericItemConfig;
+            }
+		}
+
 		foreach (SgInteractTranslation interactConfig in interactConfigs)
 		{
 			if(interactConfig.onlyWhenCollected && !isCollected)
@@ -61,14 +76,14 @@ public class SgTranslationManager : SgBehavior
 				continue;
 			}
 
-			if (interactType == SgInteractType.Item)
-			{
-				if(interactConfig.interactType == interactType && interactConfig.itemType == itemType)
-				{
-					return interactConfig;
-				}
-				continue;
-			}
+			//if (interactType == SgInteractType.Item)
+			//{
+			//	if(interactConfig.interactType == interactType && interactConfig.itemType == itemType)
+			//	{
+			//		return interactConfig;
+			//	}
+			//	continue;
+			//}
 
 			if (interactConfig.interactType == interactType)
 			{
