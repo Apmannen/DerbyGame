@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 
 public class SgRoom : MonoBehaviour
 {
-	public int uiWidth = -1;
+	//public int uiWidth = -1;
 }
 
 #if UNITY_EDITOR
@@ -20,7 +20,7 @@ public class SgSceneLoaderEditor : Editor
 	void OnEnable()
 	{
 		m_MainObject = (SgRoom)serializedObject.targetObject;
-		m_Properties = FindProperties(serializedObject, "uiWidth");
+		m_Properties = FindProperties(serializedObject); //, "uiWidth");
 	}
 
 	public override void OnInspectorGUI()

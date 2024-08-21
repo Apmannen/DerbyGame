@@ -816,10 +816,10 @@ RectTransform:
   - {fileID: 1588627414}
   m_Father: {fileID: 649291943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3145, y: 200}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &261378862
 MonoBehaviour:
@@ -2003,7 +2003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: 2895
 --- !u!4 &595409030
 Transform:
   m_ObjectHideFlags: 0
@@ -3780,7 +3779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: 2895
 --- !u!4 &1058561061
 Transform:
   m_ObjectHideFlags: 0
@@ -4178,7 +4176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: 2895
 --- !u!4 &1138734416
 Transform:
   m_ObjectHideFlags: 0
@@ -5227,7 +5224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: -1
 --- !u!224 &1386198099 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8200764182049482156, guid: af998b686b1bbae4eb541150d2c04e17, type: 3}
@@ -5694,7 +5690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: 2895
 --- !u!4 &1516207973
 Transform:
   m_ObjectHideFlags: 0
@@ -6321,7 +6316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: 2895
 --- !u!1 &1697174977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6864,7 +6858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: 3840
 --- !u!1001 &1793920507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7714,7 +7707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: -1
 --- !u!4 &1925163700
 Transform:
   m_ObjectHideFlags: 0

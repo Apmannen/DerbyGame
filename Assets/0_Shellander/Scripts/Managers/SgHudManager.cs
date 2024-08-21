@@ -22,11 +22,11 @@ public class SgHudManager : SgBehavior
 
 	private void Awake()
 	{
-		EventManager.Register<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
+		//EventManager.Register<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
 	}
 	private void OnDestroy()
 	{
-		EventManager.Unregister<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
+		//EventManager.Unregister<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
 	}
 
 	private void Start()
@@ -41,15 +41,15 @@ public class SgHudManager : SgBehavior
 		itembar.gameObject.SetActive(!replyBarContainer.gameObject.activeSelf);
 	}
 
-	private void OnRoomChanged(SgRoom newRoom)
-	{
-		UpdateBottomBarWidth(newRoom);
-	}
-	public void UpdateBottomBarWidth(SgRoom room)
-	{
-		int maxWidth = room != null && room.uiWidth >= 0 ? room.uiWidth : 10000;
-		itembar.SetMaxWidth(maxWidth);
-	}
+	//private void OnRoomChanged(SgRoom newRoom)
+	//{
+	//	UpdateBottomBarWidth(newRoom);
+	//}
+	//public void UpdateBottomBarWidth(SgRoom room)
+	//{
+	//	int maxWidth = room != null && room.uiWidth >= 0 ? room.uiWidth : 10000;
+	//	itembar.SetMaxWidth(maxWidth);
+	//}
 
 	public bool IsReplyBarVisible => replyBarContainer.gameObject.activeSelf;
 
