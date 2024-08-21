@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
 
 public class SgTranslationManager : SgBehavior
 {
@@ -20,11 +22,6 @@ public class SgTranslationManager : SgBehavior
 		//Skip first line to start at 1, easier when manually reading text file from external editor (Visual Studio Code)
 		for (int i = 0; i < lines.Length; i++)
 		{
-			if(lines[i] == "")
-			{
-				//break;
-			}
-
 			int lineId = i + 1;
 
 			m_TranslationsSe[lineId] = lines[i];
@@ -50,6 +47,21 @@ public class SgTranslationManager : SgBehavior
 	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
 		SgItemType itemType)
 	{
+		if(interactType == SgInteractType.Item)
+        {
+			SgInteractTranslation specificItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(itemType));
+			if(specificItemConfig != null)
+            {
+				return specificItemConfig;
+            }
+			SgInteractTranslation genericItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
+			if(genericItemConfig != null)
+            {
+				return genericItemConfig;
+            }
+			return null;
+		}
+
 		foreach (SgInteractTranslation interactConfig in interactConfigs)
 		{
 			if(interactConfig.onlyWhenCollected && !isCollected)
@@ -61,14 +73,14 @@ public class SgTranslationManager : SgBehavior
 				continue;
 			}
 
-			if (interactType == SgInteractType.Item)
-			{
-				if(interactConfig.interactType == interactType && interactConfig.itemType == itemType)
-				{
-					return interactConfig;
-				}
-				continue;
-			}
+			//if (interactType == SgInteractType.Item)
+			//{
+			//	if(interactConfig.interactType == interactType && interactConfig.itemType == itemType)
+			//	{
+			//		return interactConfig;
+			//	}
+			//	continue;
+			//}
 
 			if (interactConfig.interactType == interactType)
 			{
@@ -83,7 +95,9 @@ public class SgTranslationManager : SgBehavior
 public class SgInteractTranslation
 {
 	public SgInteractType interactType;
+	[System.Obsolete]
 	public SgItemType itemType;
+	public SgItemType[] itemTypes;
 	public SgItemType triggerCollect;
 	public SgItemType[] triggerRemove;
 	public int[] translationIds;
@@ -94,4 +108,23 @@ public class SgInteractTranslation
 	public SgRoomName transitionToRoom = SgRoomName.Illegal;
 	public string setNamedBool;
 	public SgDialogue startDialogue;
+
+	private HashSet<SgItemType> m_ItemTypes;
+
+	public ICollection<SgItemType> ItemTypes
+    {
+		get
+        {
+			if(m_ItemTypes == null)
+            {
+				m_ItemTypes = new();
+				m_ItemTypes.UnionWith(itemTypes);
+				if (itemType != SgItemType.Illegal)
+                {
+					m_ItemTypes.Add(itemType);
+                }
+            }
+			return m_ItemTypes;
+        }
+    }
 }

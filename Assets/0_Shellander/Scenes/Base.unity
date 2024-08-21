@@ -173,6 +173,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 88000000
@@ -625,6 +626,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 3400000035000000
@@ -1126,6 +1128,69 @@ MonoBehaviour:
       holeTexture: {fileID: 2800000, guid: aca7b9ca2437fbd4dabb29b46bab404f, type: 3}
     isFoldedOut: 1
   sliceIndex: 2
+--- !u!1 &380265712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380265713}
+  - component: {fileID: 380265714}
+  m_Layer: 0
+  m_Name: Id
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &380265713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380265712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &380265714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380265712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 17
+  translationId: 170
+  sprite: {fileID: 21300000, guid: 0e6cb88f60b6cd347b22ba0c9ea141ca, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: ab000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  moneyValue: 0
+  skinType: 0
 --- !u!1 &395457574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1302,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 68000000
@@ -1249,6 +1315,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 8
     itemType: 13
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 91000000
@@ -1261,6 +1328,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 8
     itemType: 15
+    itemTypes: 
     triggerCollect: 16
     triggerRemove: 0f0000000d00000006000000
     translationIds: 90000000
@@ -2472,6 +2540,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 8f000000
@@ -2890,6 +2959,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 7a000000
@@ -2952,6 +3022,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 8f000000
@@ -3291,6 +3362,7 @@ Transform:
   - {fileID: 876484150}
   - {fileID: 754367599}
   - {fileID: 1900583170}
+  - {fileID: 380265713}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -3322,6 +3394,7 @@ MonoBehaviour:
   - {fileID: 876484151}
   - {fileID: 754367600}
   - {fileID: 1900583171}
+  - {fileID: 380265714}
 --- !u!1 &1031056739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4380,6 +4453,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 1a000000
@@ -4894,6 +4968,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 3f000000
@@ -5514,6 +5589,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 0d0000000e000000
@@ -5576,6 +5652,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 5c000000
@@ -6480,6 +6557,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 8c000000
@@ -6492,6 +6570,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 8
     itemType: 10
+    itemTypes: 
     triggerCollect: 15
     triggerRemove: 0d000000
     translationIds: 8e000000
@@ -6728,6 +6807,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 7e000000
@@ -6784,7 +6864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25787918dec2cbf4389bc2f4f99860e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiWidth: -1
+  uiWidth: 3840
 --- !u!1001 &1793920507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7418,6 +7498,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 86000000
@@ -7478,6 +7559,7 @@ MonoBehaviour:
   defaultTranslations:
   - interactType: 5
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 01000000
@@ -7490,6 +7572,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 3
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 13000000
@@ -7502,6 +7585,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 4
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 14000000
@@ -7514,6 +7598,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 8
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 4b000000
@@ -7574,6 +7659,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 8b000000
@@ -7586,6 +7672,7 @@ MonoBehaviour:
     startDialogue: {fileID: 0}
   - interactType: 3
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 92000000
@@ -8890,6 +8977,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 81000000
@@ -9079,6 +9167,7 @@ MonoBehaviour:
   interactTranslations:
   - interactType: 2
     itemType: 0
+    itemTypes: 
     triggerCollect: 0
     triggerRemove: 
     translationIds: 73000000
