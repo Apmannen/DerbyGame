@@ -1252,6 +1252,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 069ac09db56faa34abf455b499273750, type: 3}
   changeInterval: 0.15
   autoPlay: 1
+  randomizeOrder: 0
 --- !u!212 &546162881
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3550,6 +3551,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21d96410e5dbedf41a2801a64a0c8499, type: 3}
   changeInterval: 0.15
   autoPlay: 1
+  randomizeOrder: 0
 --- !u!212 &1907583779
 SpriteRenderer:
   m_ObjectHideFlags: 0
