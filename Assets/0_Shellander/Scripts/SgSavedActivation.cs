@@ -56,11 +56,11 @@ public class SgSavedActivation : SgBehavior
 		//Legacy conversion
 		if (!string.IsNullOrEmpty(namedBool))
 		{
-			m_Conditions.Add(new SgActivationCondition { successOnTrue = activateWhenNamedTrue, namedBool = namedBool, collectedItem = SgItemType.Illegal });
+			m_Conditions.Add(new SgActivationCondition { successOnTrue = true, namedBool = namedBool, collectedItem = SgItemType.Illegal });
 		}
 		if (collectedItem != SgItemType.Illegal)
 		{
-			m_Conditions.Add(new SgActivationCondition { successOnTrue = activateWhenNamedTrue, namedBool = "", collectedItem = collectedItem });
+			m_Conditions.Add(new SgActivationCondition { successOnTrue = true, namedBool = "", collectedItem = collectedItem });
 		}
 	}
 
