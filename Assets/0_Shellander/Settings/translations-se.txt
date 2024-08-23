@@ -174,3 +174,6 @@ Han har nog hamnat fel...
 Ölflaska
 Det är en flaska med öl.
 Han verkar kunna dricka hur mycket som helst.
+Sömntabletter
+Den kan jag söva ner någon med.
+Helst inte mig själv.

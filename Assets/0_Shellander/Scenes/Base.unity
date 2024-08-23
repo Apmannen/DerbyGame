@@ -1842,6 +1842,69 @@ MonoBehaviour:
     highlightColor: {r: 1, g: 0.9027058, b: 0, a: 1}
     highlightAnimations: []
     selectAnimations: []
+--- !u!1 &506300099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 506300101}
+  - component: {fileID: 506300100}
+  m_Layer: 0
+  m_Name: SleepingPills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &506300100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506300099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 18
+  translationId: 177
+  sprite: {fileID: 21300000, guid: b9321675e5c28ff459093cdc7b7556f1, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: b2000000b3000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+  moneyValue: 0
+  skinType: 0
+--- !u!4 &506300101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506300099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &550496954
 Material:
   serializedVersion: 8
@@ -3407,6 +3470,7 @@ Transform:
   - {fileID: 754367599}
   - {fileID: 1900583170}
   - {fileID: 380265713}
+  - {fileID: 506300101}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -3439,6 +3503,7 @@ MonoBehaviour:
   - {fileID: 754367600}
   - {fileID: 1900583171}
   - {fileID: 380265714}
+  - {fileID: 506300100}
 --- !u!1 &1031056739
 GameObject:
   m_ObjectHideFlags: 0

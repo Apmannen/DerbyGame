@@ -22,6 +22,7 @@ public enum SgItemType
 	GluedPatch,
 	TshirtAik,
 	Id,
+	SleepingPills,
 }
 
 public class SgItemDefinition : SgBehavior
