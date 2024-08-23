@@ -8,17 +8,19 @@ public class SgHoboInteractable : SgInteractGroup
 	//public SpriteRenderer spriteRenderer;
 	public SgAnimation animationDown;
 	public SgAnimation animationUp;
+	public SgInteractGroup bottle;
 
 	private ISgScheduledEvent m_ScheduledEvent;
 
 	protected override void Start()
 	{
-		Schedule(AnimateUp);
+		bottle.gameObject.SetActive(false);
+		Schedule(5, AnimateUp);
 	}
-	private void Schedule(Action action)
+	private void Schedule(float delay, Action action)
 	{
 		Scheduler.Cancel(m_ScheduledEvent);
-		m_ScheduledEvent = Scheduler.Schedule(5, action);
+		m_ScheduledEvent = Scheduler.Schedule(delay, action);
 	}
 
 	private void OnDestroy()
@@ -28,12 +30,18 @@ public class SgHoboInteractable : SgInteractGroup
 
 	private void AnimateUp()
 	{
+		bottle.gameObject.SetActive(false);
 		animationUp.Play();
-		Schedule(AnimateDown);
+		Schedule(3, AnimateDown);
 	}
 	private void AnimateDown()
 	{
-		animationDown.Play();
-		Schedule(AnimateUp);
+		StartCoroutine(AnimateDownRoutine());
+	}
+	private IEnumerator AnimateDownRoutine()
+	{
+		yield return animationDown.PlayRoutine();
+		bottle.gameObject.SetActive(true);
+		Schedule(5, AnimateUp);
 	}
 }

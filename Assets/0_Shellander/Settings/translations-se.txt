@@ -171,3 +171,6 @@ Legitimation
 Behövs om man exempelvis ska gå på krogen.
 Brajare
 Han har nog hamnat fel...
+Ölflaska
+Det är en flaska med öl.
+Han verkar kunna dricka hur mycket som helst.

@@ -36,6 +36,15 @@ public class SgAnimation : SgBehavior
 		m_CurrentIndex = 0;
 		spriteRenderer.sprite = sprites[m_CurrentIndex];
 	}
+	public IEnumerator PlayRoutine()
+	{
+		repeat = false;
+		Play();
+		while(m_IsPlaying)
+		{
+			yield return null;
+		}
+	}
 
 	private void FixedUpdate()
 	{
