@@ -25,18 +25,28 @@ public class SgHoboInteractable : SgInteractGroup
 		m_ScheduledDelay = delay;
 		m_ScheduledAction = action;
 	}
+	private void ClearSchedule()
+	{
+		m_ScheduledTimeCounter = 0;
+		m_ScheduledDelay = float.MaxValue;
+		m_ScheduledAction = null;
+	}
+
 	private void Update()
 	{
+		//Could actually do this in SgScheduler too, in one way or another (there are ways around coupling).
 		SgPlayer player = SgPlayer.Get();
-		if(m_ScheduledAction == null || player == null || !player.IsActionsAllowed())
+		Action scheduledAction = m_ScheduledAction;
+		if(scheduledAction == null || player == null || !player.IsActionsAllowed())
 		{
 			return;
 		}
 
 		m_ScheduledTimeCounter += Time.deltaTime;
 		if(m_ScheduledTimeCounter >= m_ScheduledDelay)
-		{
-			m_ScheduledAction();
+		{			
+			ClearSchedule();
+			scheduledAction();
 		}
 	}
 
