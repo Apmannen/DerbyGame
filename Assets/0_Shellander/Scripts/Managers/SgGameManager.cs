@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SgGameManager : SgBehavior
 {
+	public SgScheduler scheduler;
+
 	void Start()
 	{
 		string initialized = "IsGameInitialized";

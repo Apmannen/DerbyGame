@@ -9,6 +9,7 @@ public class SgAnimation : SgBehavior
 	public float changeInterval = 0.4f;
 	public bool autoPlay = false;
 	public bool randomizeOrder = false;
+	public bool repeat = true;
 
 	private int m_CurrentIndex = 0;
 	private bool m_IsPlaying = false;
@@ -65,7 +66,15 @@ public class SgAnimation : SgBehavior
 				m_CurrentIndex++;
 				if (m_CurrentIndex >= sprites.Length)
 				{
-					m_CurrentIndex = 0;
+					if(repeat)
+					{
+						m_CurrentIndex = 0;
+					}
+					else
+					{
+						m_CurrentIndex = sprites.Length - 1;
+						m_IsPlaying = false;
+					}					
 				}
 			}
 			spriteRenderer.sprite = sprites[m_CurrentIndex];

@@ -10,5 +10,6 @@ public class SgBehavior : MonoBehaviour
 	protected SgLayerManager LayerManager => SgManagers._.layerManager;
 	protected SgSaveDataManager SaveDataManager => SgManagers._.saveDataManager;
 	protected SgSceneManager SceneManager => SgManagers._.sceneManager;
+	protected SgScheduler Scheduler => SgManagers._.gameManager.scheduler;
 	protected SgTranslationManager TranslationManager => SgManagers._.translationManager;
 }
