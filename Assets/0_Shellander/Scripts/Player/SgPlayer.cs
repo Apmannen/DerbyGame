@@ -262,7 +262,7 @@ public class SgPlayer : SgBehavior
 	{
 		return m_State is SgPlayerState.Interacting or SgPlayerState.InteractWalking;
 	}
-	private bool IsActionsAllowed()
+	public bool IsActionsAllowed()
 	{
 		return !IsStateAnyInteract() && !HudManager.IsWheelVisible && m_State != SgPlayerState.AwaitingDialogueReply;
 	}
