@@ -105,6 +105,10 @@ public class SgItemManager : SgBehavior
 		{
 			money -= 10;
 		}
+		if(HasEverBeenCollected(SgItemType.BottlesBag) && !IsCollected(SgItemType.BottlesBag))
+		{
+			money += 10;
+		}
 
 		if (money > 0)
 		{

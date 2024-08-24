@@ -183,3 +183,9 @@ Nu ska vi se här...
 Glassplitter
 Tomflaskor
 Det är en säck full med tomflaskor.
+Pantmaskin
+Här stoppar man in burkar och flaskor och får en slant för besväret.
+Vad ska jag panta?
+Nu ska vi se här.
+20 flaskor, 10 kronor.
+Alltid något.
