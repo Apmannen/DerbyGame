@@ -184,6 +184,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 90
   skinType: 0
 --- !u!1 &39429428
@@ -637,6 +640,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &164954673
@@ -1189,6 +1195,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &395457574
@@ -1313,6 +1322,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   - interactType: 8
     itemType: 13
     itemTypes: 
@@ -1326,6 +1338,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   - interactType: 8
     itemType: 15
     itemTypes: 
@@ -1339,6 +1354,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 2
 --- !u!1 &441934431
@@ -1888,6 +1906,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!4 &506300101
@@ -2658,6 +2679,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &773699072
@@ -3016,6 +3040,72 @@ MonoBehaviour:
       holeTexture: {fileID: 2800000, guid: aca7b9ca2437fbd4dabb29b46bab404f, type: 3}
     isFoldedOut: 1
   sliceIndex: 0
+--- !u!1 &839335081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839335082}
+  - component: {fileID: 839335083}
+  m_Layer: 0
+  m_Name: BottlesBag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &839335082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839335081}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839335083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839335081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 19
+  translationId: 184
+  sprite: {fileID: 21300000, guid: 00cb2936d8a40444d8f0aa851c503995, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: b9000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+  moneyValue: 0
+  skinType: 0
 --- !u!1 &839854202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,6 +3167,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 1
 --- !u!1 &876484149
@@ -3140,6 +3233,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 2
 --- !u!1 &915688428
@@ -3471,6 +3567,7 @@ Transform:
   - {fileID: 1900583170}
   - {fileID: 380265713}
   - {fileID: 506300101}
+  - {fileID: 839335082}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -3504,6 +3601,7 @@ MonoBehaviour:
   - {fileID: 1900583171}
   - {fileID: 380265714}
   - {fileID: 506300100}
+  - {fileID: 839335083}
 --- !u!1 &1031056739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4571,6 +4669,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1194111897
@@ -5086,6 +5187,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1325046922
@@ -5706,6 +5810,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1511871020
@@ -5769,6 +5876,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 100
   skinType: 0
 --- !u!1 &1516207971
@@ -6672,6 +6782,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -6685,6 +6798,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1733570265
@@ -6922,6 +7038,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 200
   skinType: 0
 --- !u!1 &1788875282
@@ -7614,6 +7733,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 190
   skinType: 0
 --- !u!1 &1879435077
@@ -7675,6 +7797,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -7688,6 +7813,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   - interactType: 4
     itemType: 0
     itemTypes: 
@@ -7701,6 +7829,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   - interactType: 8
     itemType: 0
     itemTypes: 
@@ -7714,6 +7845,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1900583169
 GameObject:
   m_ObjectHideFlags: 0
@@ -7775,6 +7909,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -7788,6 +7925,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 3
 --- !u!1 &1925163698
@@ -9092,6 +9232,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &2124069126
@@ -9282,6 +9425,9 @@ MonoBehaviour:
     transitionToRoom: 0
     setNamedBool: 
     startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
   moneyValue: 0
   skinType: 0
 --- !u!1001 &297584127786414223

@@ -23,6 +23,7 @@ public enum SgItemType
 	TshirtAik,
 	Id,
 	SleepingPills,
+	BottlesBag,
 }
 
 public class SgItemDefinition : SgBehavior
