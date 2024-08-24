@@ -34,6 +34,7 @@ public class SgInteractGroup : SgBehavior
 			return m_ItemDefinition;
 		}
 	}
+	protected bool m_IsBlocked = false;
 
 	protected virtual void Start()
 	{
@@ -110,7 +111,9 @@ public class SgInteractGroup : SgBehavior
 			return;
 		}
 
-		if(!string.IsNullOrEmpty(interactConfig.setNamedBool))
+		interactConfig.method.Invoke();
+
+		if (!string.IsNullOrEmpty(interactConfig.setNamedBool))
 		{
 			SaveDataManager.CurrentSaveFile.SetNamedBoolValue(interactConfig.setNamedBool, true);
 		}
@@ -138,6 +141,10 @@ public class SgInteractGroup : SgBehavior
 	}
 	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
-		yield break;
+		Debug.Log("**** TRIGGER InteractRoutine");
+		while (m_IsBlocked)
+		{
+			yield return null;
+		}
 	}
 }

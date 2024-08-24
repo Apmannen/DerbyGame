@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class SgHoboInteractable : SgInteractGroup
 {
-	//public SpriteRenderer spriteRenderer;
 	public SgAnimation animationDown;
 	public SgAnimation animationUp;
 	public SgInteractGroup bottle;
+	public Sprite dropSprite;
+	public Sprite sleepingSprite;
 
 	private Action m_ScheduledAction;
 	private float m_ScheduledDelay;
 	private float m_ScheduledTimeCounter;
+	private SpriteRenderer SpriteRenderer => spriteRenderers[0];
 
 	protected override void Start()
 	{
@@ -66,16 +68,19 @@ public class SgHoboInteractable : SgInteractGroup
 		bottle.gameObject.SetActive(true);
 		Schedule(5, AnimateUp);
 	}
+
+	public void TriggerSleepingPillDrop()
+	{
+		m_IsBlocked = true;
+		Debug.Log("**** TRIGGER SLEEP");
+	}
+	private IEnumerator TriggerSleepingPillDropEnumerator()
+	{
+		bottle.gameObject.SetActive(false);
+		yield return animationUp.PlayRoutine();
+		yield return new WaitForSeconds(1);
+		yield return animationDown.PlayRoutine();
+		SpriteRenderer.sprite = dropSprite;
+		m_IsBlocked = false;
+	}
 }
-
-//private ISgScheduledEvent m_ScheduledEvent;
-//private void Schedule(float delay, Action action)
-//{
-//	Scheduler.Cancel(m_ScheduledEvent);
-//	m_ScheduledEvent = Scheduler.Schedule(delay, action);
-//}
-
-//private void OnDestroy()
-//{
-//	Scheduler.Cancel(m_ScheduledEvent);
-//}

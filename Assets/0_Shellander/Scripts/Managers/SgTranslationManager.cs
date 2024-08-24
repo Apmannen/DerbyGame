@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class SgTranslationManager : SgBehavior
 {
@@ -108,6 +109,7 @@ public class SgInteractTranslation
 	public SgRoomName transitionToRoom = SgRoomName.Illegal;
 	public string setNamedBool;
 	public SgDialogue startDialogue;
+	public UnityEvent method;
 
 	private HashSet<SgItemType> m_ItemTypes;
 
