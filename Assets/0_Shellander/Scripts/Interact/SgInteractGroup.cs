@@ -120,7 +120,12 @@ public class SgInteractGroup : SgBehavior
 			SaveDataManager.CurrentSaveFile.SetNamedBoolValue(interactConfig.setNamedBool, true);
 		}
 
-		if(interactConfig.triggerCollect != SgItemType.Illegal)
+		foreach (SgItemType removeItemType in interactConfig.triggerRemove)
+		{
+			ItemManager.RemoveItem(removeItemType);
+		}
+
+		if (interactConfig.triggerCollect != SgItemType.Illegal)
 		{
 			ItemManager.Collect(interactConfig.triggerCollect);
 		}
