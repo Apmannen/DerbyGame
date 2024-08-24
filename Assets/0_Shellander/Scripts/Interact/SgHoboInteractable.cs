@@ -33,13 +33,21 @@ public class SgHoboInteractable : SgInteractGroup
 		m_ScheduledDelay = float.MaxValue;
 		m_ScheduledAction = null;
 	}
+	private const string m_BottleSmashedString = "BottleSmashed";
+	private bool IsSleeping => SaveDataManager.CurrentSaveFile.GetNamedBoolValue(m_BottleSmashedString);
 
 	private void Update()
 	{
+		if(IsSleeping)
+		{
+			SpriteRenderer.sprite = sleepingSprite;
+			return;
+		}
+
 		//Could actually do this in SgScheduler too, in one way or another (there are ways around coupling).
 		SgPlayer player = SgPlayer.Get();
 		Action scheduledAction = m_ScheduledAction;
-		if(scheduledAction == null || player == null || !player.IsActionsAllowed())
+		if(m_IsBlocked || scheduledAction == null || player == null || !player.IsActionsAllowed())
 		{
 			return;
 		}
@@ -72,7 +80,7 @@ public class SgHoboInteractable : SgInteractGroup
 	public void TriggerSleepingPillDrop()
 	{
 		m_IsBlocked = true;
-		Debug.Log("**** TRIGGER SLEEP");
+		StartCoroutine(TriggerSleepingPillDropEnumerator());
 	}
 	private IEnumerator TriggerSleepingPillDropEnumerator()
 	{
@@ -81,6 +89,9 @@ public class SgHoboInteractable : SgInteractGroup
 		yield return new WaitForSeconds(1);
 		yield return animationDown.PlayRoutine();
 		SpriteRenderer.sprite = dropSprite;
+
+		SaveDataManager.CurrentSaveFile.SetNamedBoolValue(m_BottleSmashedString, true);
+
 		m_IsBlocked = false;
 	}
 }

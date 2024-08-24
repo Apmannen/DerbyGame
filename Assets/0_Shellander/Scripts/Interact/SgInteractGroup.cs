@@ -17,6 +17,7 @@ public class SgInteractGroup : SgBehavior
 	public bool redirectToItem = true;
 	//public TMPro.TextMeshPro speechText;
 	public SgCharacter character;
+	public SgInteractGroup[] blockDependencies;
 
 	private int m_RenderIndex = 0;
 	private SgInteractable[] m_Interactables;
@@ -35,6 +36,7 @@ public class SgInteractGroup : SgBehavior
 		}
 	}
 	protected bool m_IsBlocked = false;
+	public bool IsBlocked => m_IsBlocked;
 
 	protected virtual void Start()
 	{
@@ -141,10 +143,22 @@ public class SgInteractGroup : SgBehavior
 	}
 	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
-		Debug.Log("**** TRIGGER InteractRoutine");
-		while (m_IsBlocked)
+		Debug.Log("**** TRIGGER InteractRoutine m_IsBlocked="+ m_IsBlocked);
+		bool isAnyBlocked = IsBlocked;
+		foreach(SgInteractGroup otherInteractGroup in blockDependencies)
+		{
+			if(isAnyBlocked)
+			{
+				break;
+			}
+			isAnyBlocked = otherInteractGroup.IsBlocked;
+		}
+
+		while (isAnyBlocked)
 		{
 			yield return null;
 		}
+
+		Debug.Log("**** TRIGGER InteractRoutine done!? m_IsBlocked="+ m_IsBlocked);
 	}
 }
