@@ -195,3 +195,4 @@ Fotografi
 Det är ett fotografi tagit med min kamera.
 En kamera, tack.
 Det är jag på fotot.
+Dörren leder till den lokala DIF-puben.
