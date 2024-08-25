@@ -101,10 +101,15 @@ public class SgItemManager : SgBehavior
 		{
 			money -= 100;
 		}
-		if(HasEverBeenCollected(SgItemType.Glue))
+		if (IsCollected(SgItemType.Camera))
+		{
+			money -= 100;
+		}
+		if (IsCollected(SgItemType.Glue))
 		{
 			money -= 10;
 		}
+		
 		if(HasEverBeenCollected(SgItemType.BottlesBag) && !IsCollected(SgItemType.BottlesBag))
 		{
 			money += 10;
