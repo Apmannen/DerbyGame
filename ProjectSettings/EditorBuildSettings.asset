@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Shellander/Scenes/Bathroom.unity
     guid: df811bc88b9130e449affdb2a71e9983
+  - enabled: 1
+    path: Assets/0_Shellander/Scenes/Pub.unity
+    guid: 0dfeafa3d21e191429a833f6f27fdd0b
   m_configObjects: {}
