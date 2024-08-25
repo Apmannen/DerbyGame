@@ -481,14 +481,15 @@ public class SgPlayer : SgBehavior
 					if(interactConfig != null)
 					{
 						interactTranslationIds = interactConfig.translationIds;
-						if(interactConfig.triggerCollect != SgItemType.Illegal)
-						{
-							ItemManager.Collect(interactConfig.triggerCollect);
-						}
-						foreach(SgItemType removeItemType in interactConfig.triggerRemove)
+						foreach (SgItemType removeItemType in interactConfig.triggerRemove)
 						{
 							ItemManager.RemoveItem(removeItemType);
 						}
+						if (interactConfig.triggerCollect != SgItemType.Illegal)
+						{
+							ItemManager.Collect(interactConfig.triggerCollect);
+						}
+						
 					}
 					else
 					{

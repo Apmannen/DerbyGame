@@ -84,15 +84,18 @@ public class SgInteractGroup : SgBehavior
 		SgInteractTranslation interactConfig = null;
 		if (interactConfig == null && IsConnectedToItem && redirectToItem)
 		{
+			//Item redirect override (not really used anymore?)
 			interactConfig = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
+			//This (interacted SgInteractGroup)
 			interactConfig = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
-			interactConfig = TranslationManager.GetDefaultTranslation(interactType);
+			//Global default fallback
+			interactConfig = SgTranslationManager.GetInteractTranslation(TranslationManager.defaultTranslations, interactType, false, useItemType);
 		}
 
 		return interactConfig;

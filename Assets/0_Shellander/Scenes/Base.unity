@@ -2406,7 +2406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 21
+  itemType: 22
   translationId: 194
   sprite: {fileID: 21300000, guid: 8d84c1d74fe434e49adf1e4e81ec2b27, type: 3}
   interactTranslations:
@@ -3933,6 +3933,8 @@ Transform:
   - {fileID: 2004834534}
   - {fileID: 758691913}
   - {fileID: 613333318}
+  - {fileID: 1930649341}
+  - {fileID: 2093564509}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -3970,6 +3972,8 @@ MonoBehaviour:
   - {fileID: 2004834533}
   - {fileID: 758691914}
   - {fileID: 613333317}
+  - {fileID: 1930649342}
+  - {fileID: 2093564510}
 --- !u!1 &1031056739
 GameObject:
   m_ObjectHideFlags: 0
@@ -8329,6 +8333,22 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+  - interactType: 8
+    itemType: 20
+    itemTypes: 
+    triggerCollect: 21
+    triggerRemove: 15000000160000001700000018000000
+    translationIds: 
+    walkToItFirst: 1
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1900583169
 GameObject:
   m_ObjectHideFlags: 0
@@ -8455,6 +8475,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1811018496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1930649340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1930649341}
+  - component: {fileID: 1930649342}
+  m_Layer: 0
+  m_Name: CutPhoto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1930649341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930649340}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930649342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930649340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 23
+  translationId: 194
+  sprite: {fileID: 21300000, guid: 8d84c1d74fe434e49adf1e4e81ec2b27, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: c3000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+  moneyValue: 0
+  skinType: 0
 --- !u!1 &1947392219
 GameObject:
   m_ObjectHideFlags: 0
@@ -9617,6 +9703,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822a2b7d0cb7c004da1f51e100dffa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2093564508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093564509}
+  - component: {fileID: 2093564510}
+  m_Layer: 0
+  m_Name: CutPhotoSelfie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2093564509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093564508}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093564510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093564508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 24
+  translationId: 194
+  sprite: {fileID: 21300000, guid: 8d84c1d74fe434e49adf1e4e81ec2b27, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: c3000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+  moneyValue: 0
+  skinType: 0
 --- !u!1 &2093955339
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,12 +34,6 @@ public class SgTranslationManager : SgBehavior
 		return m_TranslationsSe[translationId];
 	}
 
-	
-	public SgInteractTranslation GetDefaultTranslation(SgInteractType interactType)
-	{
-		return GetInteractTranslation(defaultTranslations, interactType, false, SgItemType.Illegal);
-	}
-
 	public static int[] GetInteractTranslationIds(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
 	{
 		return GetInteractTranslation(interactTranslations, interactType, isCollected, SgItemType.Illegal).translationIds;
