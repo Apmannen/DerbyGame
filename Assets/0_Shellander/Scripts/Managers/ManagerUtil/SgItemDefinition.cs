@@ -24,6 +24,11 @@ public enum SgItemType
 	Id,
 	SleepingPills,
 	BottlesBag,
+	Camera,
+	Photo,
+	PhotoSelfie,
+	CutPhoto,
+	CutPhotoSelfie,
 }
 
 public class SgItemDefinition : SgBehavior
