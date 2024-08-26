@@ -104,6 +104,7 @@ public class SgInteractTranslation
 	public string setNamedBool;
 	public SgDialogue startDialogue;
 	public UnityEvent method;
+	public Sprite fullscreenSprite;
 
 	private HashSet<SgItemType> m_ItemTypes;
 

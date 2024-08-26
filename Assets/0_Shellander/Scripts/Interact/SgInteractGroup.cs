@@ -148,6 +148,11 @@ public class SgInteractGroup : SgBehavior
 		{
 			SceneManager.SetNewRoom(interactConfig.transitionToRoom);
 		}
+
+		if(interactConfig.fullscreenSprite)
+		{
+			HudManager.SetFullscreenImage(interactConfig.fullscreenSprite);
+		}
 	}
 	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{

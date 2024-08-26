@@ -15,24 +15,17 @@ public class SgHudManager : SgBehavior
 	public SgWheelSliceMapping[] sliceMappings;
 	public RectTransform replyBarContainer;
 	public SgReplyItem replyItemTemplate;
+	public Image fullscreenImage;
 
 	private float m_BgAlphaVel = 0;
 	private List<SgReplyItem> m_ReplyItems = new();
 	private SgReplyItem m_SelectedReplyItem;
 
-	private void Awake()
-	{
-		//EventManager.Register<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
-	}
-	private void OnDestroy()
-	{
-		//EventManager.Unregister<SgRoom>(SgEventName.RoomChanged, OnRoomChanged);
-	}
-
 	private void Start()
 	{
 		replyBarContainer.gameObject.SetActive(false);
 		replyItemTemplate.gameObject.SetActive(false);
+		SetFullscreenImage(null);
 	}
 	private void Update()
 	{
@@ -40,16 +33,6 @@ public class SgHudManager : SgBehavior
 		wheelRaycaster.enabled = IsWheelVisible;
 		itembar.gameObject.SetActive(!replyBarContainer.gameObject.activeSelf);
 	}
-
-	//private void OnRoomChanged(SgRoom newRoom)
-	//{
-	//	UpdateBottomBarWidth(newRoom);
-	//}
-	//public void UpdateBottomBarWidth(SgRoom room)
-	//{
-	//	int maxWidth = room != null && room.uiWidth >= 0 ? room.uiWidth : 10000;
-	//	itembar.SetMaxWidth(maxWidth);
-	//}
 
 	public bool IsReplyBarVisible => replyBarContainer.gameObject.activeSelf;
 
@@ -87,10 +70,6 @@ public class SgHudManager : SgBehavior
 			i++;
 		}
 
-		//Vector2 size = replyBarContainer.sizeDelta;
-		//size.y = 100 + (100 * replies.Length);
-		//replyBarContainer.sizeDelta = size;
-
 		SgUtil.SetSizeDeltaY(replyBarContainer, 100 + (100 * replies.Length));
 
 		replyBarContainer.gameObject.SetActive(true);
@@ -110,8 +89,13 @@ public class SgHudManager : SgBehavior
 		return sliceMappings.Single(m => m.sliceName == sliceName);
 	}
 
+	public void SetFullscreenImage(Sprite sprite)
+	{
+		fullscreenImage.sprite = sprite;
+		fullscreenImage.gameObject.SetActive(sprite != null);
+	}
 
-
+	public bool IsFullscreenImageVisible => fullscreenImage.sprite != null;
 	public bool IsWheelVisible => weaponWheel.IsVisible;
 }
 
