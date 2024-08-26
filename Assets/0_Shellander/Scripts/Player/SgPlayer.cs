@@ -476,10 +476,22 @@ public class SgPlayer : SgBehavior
 			interactTranslationIds = interaction.interactGroup.GetInteractTranslationIds(interaction.type, interaction.useItem);
 			interaction.interactGroup.OnBeforeInteract(interaction.type, interaction.useItem);
 		}
-		else if(interaction.IsItemInteraction)
+		//Some duplicated code
+		else if (interaction.IsItemInteraction)
 		{
-			switch(interaction.type)
+			bool ignoreUse = false;
+			if (interactConfig != null)
 			{
+				if(interactConfig.fullscreenSprite != null)
+				{
+					HudManager.SetFullscreenImage(interactConfig.fullscreenSprite);
+					ignoreUse = true;
+				}
+			}
+
+			switch (interaction.type)
+			{
+
 				case SgInteractType.Look:
 					interactTranslationIds = ItemManager.Get(interaction.itembarItem).GetInteractTranslationIds(interaction.type);
 					break;
@@ -492,13 +504,13 @@ public class SgPlayer : SgBehavior
 						}
 						ChangeSkin(interaction.ItembarItemDefinition.skinType);
 					}
-					else
+					else if(!ignoreUse)
 					{
 						CursorController.SetSelectedItem(interaction.itembarItem);
 					}
 					break;
 				case SgInteractType.Item:
-					//Some duplicated code
+					
 					if(interactConfig != null)
 					{
 						interactTranslationIds = interactConfig.translationIds;
@@ -510,7 +522,6 @@ public class SgPlayer : SgBehavior
 						{
 							ItemManager.Collect(interactConfig.triggerCollect);
 						}
-						
 					}
 					else
 					{

@@ -187,6 +187,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 90
   skinType: 0
 --- !u!1 &39429428
@@ -643,6 +644,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &164954673
@@ -1202,6 +1204,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &395457574
@@ -1329,6 +1332,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 8
     itemType: 13
     itemTypes: 
@@ -1345,6 +1349,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 8
     itemType: 15
     itemTypes: 
@@ -1361,6 +1366,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 2
 --- !u!1 &441934431
@@ -2026,6 +2032,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!4 &506300101
@@ -2426,6 +2433,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!4 &613333318
@@ -2866,6 +2874,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &758691912
@@ -2932,6 +2941,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &773699072
@@ -3467,6 +3477,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &839854202
@@ -3533,6 +3544,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 1
 --- !u!1 &876484149
@@ -3599,6 +3611,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 2
 --- !u!1 &915688428
@@ -3936,6 +3949,7 @@ Transform:
   - {fileID: 613333318}
   - {fileID: 1930649341}
   - {fileID: 2093564509}
+  - {fileID: 2057229363}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -3975,6 +3989,7 @@ MonoBehaviour:
   - {fileID: 613333317}
   - {fileID: 1930649342}
   - {fileID: 2093564510}
+  - {fileID: 2057229362}
 --- !u!1 &1031056739
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,6 +5060,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &1194111897
@@ -5564,6 +5580,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &1325046922
@@ -6231,6 +6248,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &1511871020
@@ -6297,6 +6315,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 100
   skinType: 0
 --- !u!1 &1516207971
@@ -7203,6 +7222,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -7219,6 +7239,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &1733570265
@@ -7459,6 +7480,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 200
   skinType: 0
 --- !u!1001 &1788383199
@@ -8269,6 +8291,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 190
   skinType: 0
 --- !u!1 &1879435077
@@ -8333,6 +8356,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -8349,6 +8373,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 4
     itemType: 0
     itemTypes: 
@@ -8365,6 +8390,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 8
     itemType: 0
     itemTypes: 
@@ -8381,6 +8407,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 8
     itemType: 20
     itemTypes: 
@@ -8397,6 +8424,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
 --- !u!1 &1900583169
 GameObject:
   m_ObjectHideFlags: 0
@@ -8461,6 +8489,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -8477,6 +8506,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 3
 --- !u!1 &1922297024
@@ -8662,6 +8692,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &1947392219
@@ -9158,6 +9189,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!4 &2004834534
@@ -9713,6 +9745,90 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &2057229361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057229363}
+  - component: {fileID: 2057229362}
+  m_Layer: 0
+  m_Name: Newspaper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2057229362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057229361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 25
+  translationId: 207
+  sprite: {fileID: 21300000, guid: d2ff58a05353c4d4783af7ca0747c2ca, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 21300000, guid: f2620fd191bbfb74a99022860c7143a0, type: 3}
+  - interactType: 3
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 21300000, guid: f2620fd191bbfb74a99022860c7143a0, type: 3}
+  moneyValue: 0
+  skinType: 0
+--- !u!4 &2057229363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057229361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2066934422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9890,6 +10006,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &2093955339
@@ -10174,6 +10291,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1 &2124069126
@@ -10367,6 +10485,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!1001 &297584127786414223

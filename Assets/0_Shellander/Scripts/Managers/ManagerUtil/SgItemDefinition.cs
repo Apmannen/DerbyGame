@@ -29,6 +29,7 @@ public enum SgItemType
 	PhotoSelfie,
 	CutPhoto,
 	CutPhotoSelfie,
+	Newspaper,
 }
 
 public class SgItemDefinition : SgBehavior
