@@ -16,34 +16,18 @@ public class SgCharacter : SgBehavior
 	private void Start()
 	{
 		m_DefaultSpeechAnimationPos = speechAnimation.transform.localPosition;
-		m_FlippedSpeechAnimationPos = speechAnimationPosWhenFlipped.localPosition;
+		m_FlippedSpeechAnimationPos = speechAnimationPosWhenFlipped != null ? speechAnimationPosWhenFlipped.localPosition : m_DefaultSpeechAnimationPos;
 		speechAnimation.gameObject.SetActive(true);
-		speechAnimationPosWhenFlipped.gameObject.SetActive(false);
+		if(speechAnimationPosWhenFlipped != null)
+		{
+			speechAnimationPosWhenFlipped.gameObject.SetActive(false);
+		}		
 		ClearSpeech();
 	}
 
-	//private SgAnimation RefreshSpeechAnimation()
-	//{
-	//	SgAnimation selectedAnimation;
-	//	SgAnimation otherAnimation;
-	//	if(mainRenderer.flipX)
-	//	{
-	//		selectedAnimation = speechAnimationWhenFlipped;
-	//		otherAnimation = speechAnimationPrimary;
-	//	}
-	//	else
-	//	{
-	//		selectedAnimation = speechAnimationPrimary;
-	//		otherAnimation = speechAnimationWhenFlipped;
-	//	}
-	//	selectedAnimation.gameObject.SetActive(true);
-	//	otherAnimation.gameObject.SetActive(false);
-	//	return selectedAnimation;
-	//}
-
 	private void Update()
 	{
-		Vector3 speechAnimationPos = mainRenderer.flipX ? m_FlippedSpeechAnimationPos : m_DefaultSpeechAnimationPos;
+		Vector3 speechAnimationPos = mainRenderer != null && mainRenderer.flipX ? m_FlippedSpeechAnimationPos : m_DefaultSpeechAnimationPos;
 		speechAnimation.transform.localPosition = speechAnimationPos;
 	}
 
