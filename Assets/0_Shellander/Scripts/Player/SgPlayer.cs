@@ -27,6 +27,7 @@ public class SgPlayer : SgBehavior
 	
 	private SgPlayerState m_State = SgPlayerState.None;
 	private Vector3 m_WalkTarget;
+	private Vector3 m_LookTarget;
 	private NavMeshAgent m_Agent;
 	private Vector3 m_PrevPos;
 	private readonly SgInteraction m_CurrentInteraction = new();
@@ -67,6 +68,7 @@ public class SgPlayer : SgBehavior
 		m_PrevPos = this.transform.position;
 
 		m_WalkTarget = this.transform.position;
+		m_LookTarget = this.transform.position;
 
 		m_Agent = GetComponent<NavMeshAgent>();
 		m_Agent.updateRotation = false;
@@ -358,7 +360,7 @@ public class SgPlayer : SgBehavior
 				SetState(SgPlayerState.Walking);
 				CurrentSkin.walkAnimation.Play();
 
-				SetDestination(walkTarget);
+				SetDestination(walkTarget, cursorWorldPos);
 
 				if(IsCursorAnyInteract() && (hoveredInteractGroup != null || hoveredItembarItem != null))
 				{
@@ -384,20 +386,28 @@ public class SgPlayer : SgBehavior
 			float currentSpeed = curMove.magnitude / Time.deltaTime;
 			float animationInterval = Mathf.Lerp(0.2f, 0.1f, currentSpeed / 4f);
 			CurrentSkin.walkAnimation.changeInterval = animationInterval;
-
-			float diff = this.transform.position.x - m_WalkTarget.x;
-			bool isRight = diff < 0;
-
-			mainRenderer.flipX = isRight;
 		}
+
+		RefreshFlip();
 
 		//Prevs
 		m_PrevPos = this.transform.position;
 	}
 
-	private void SetDestination(Vector3 targetPosition)
+	private void RefreshFlip()
+	{
+		float diff = this.transform.position.x - m_LookTarget.x;
+		bool isRight = diff < 0;
+		mainRenderer.flipX = isRight;
+	}
+
+	private void SetDestination(Vector3 targetPosition, Vector3? overrideLookTarget)
 	{
 		m_WalkTarget = targetPosition;
+		if(overrideLookTarget != null)
+		{
+			m_LookTarget = (Vector3)overrideLookTarget;
+		}
 		m_Agent.SetDestination(targetPosition);
 	}
 
@@ -413,13 +423,13 @@ public class SgPlayer : SgBehavior
 				m_CurrentInteraction.interactGroup.walkTarget != null; //null propagation shouldn't be used on Unity objects
 			if (overrideDestination) 
 			{
-				SetDestination(m_CurrentInteraction.interactGroup.walkTarget.position);
+				SetDestination(m_CurrentInteraction.interactGroup.walkTarget.position, null);
 			}
 			SetState(SgPlayerState.InteractWalking);
 		}
 		else
 		{
-			SetDestination(this.transform.position);
+			SetDestination(this.transform.position, null);
 			CurrentSkin.walkAnimation.Stop();
 			StartInteraction();
 		}
