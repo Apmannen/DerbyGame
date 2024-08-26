@@ -266,7 +266,7 @@ public class SgPlayer : SgBehavior
 	}
 	public bool IsActionsAllowed()
 	{
-		return !IsStateAnyInteract() && !HudManager.IsWheelVisible && m_State != SgPlayerState.AwaitingDialogueReply;
+		return !IsStateAnyInteract() && !HudManager.IsWheelVisible && !HudManager.IsFullscreenImageVisible && m_State != SgPlayerState.AwaitingDialogueReply;
 	}
 	private bool IsCursorAnyInteract()
 	{
@@ -345,12 +345,12 @@ public class SgPlayer : SgBehavior
 		}
 
 		//Input handling
-		if(m_State == SgPlayerState.AwaitingDialogueReply && HudManager.SelectedDialogueReply != null)
+		if (m_State == SgPlayerState.AwaitingDialogueReply && HudManager.SelectedDialogueReply != null)
 		{
-			StartDialogueReply(HudManager.SelectedDialogueReply);			
+			StartDialogueReply(HudManager.SelectedDialogueReply);
 			return;
 		}
-		else if(IsActionsAllowed())
+		else if (IsActionsAllowed())
 		{
 			if (m_ClickAction.WasPressedThisFrame())
 			{
@@ -362,21 +362,28 @@ public class SgPlayer : SgBehavior
 
 				SetDestination(walkTarget, cursorWorldPos);
 
-				if(IsCursorAnyInteract() && (hoveredInteractGroup != null || hoveredItembarItem != null))
+				if (IsCursorAnyInteract() && (hoveredInteractGroup != null || hoveredItembarItem != null))
 				{
 					HandleInteractClick(hoveredInteractGroup, hoveredItembarItem);
 				}
-				
+
 			}
 			else if (m_ShiftCursorRight.WasPressedThisFrame())
 			{
 				CursorController.CycleCursor(1);
 			}
 		}
-		else if(m_State == SgPlayerState.Interacting && Time.time > (m_StateActivatedTime+0.25f) && 
+		else if (m_State == SgPlayerState.Interacting && Time.time > (m_StateActivatedTime + 0.25f) &&
 			(m_ClickAction.WasPressedThisFrame() || m_ShiftCursorRight.WasPressedThisFrame()))
 		{
 			SkipAnySpeech();
+		}
+		else if (HudManager.IsFullscreenImageVisible)
+		{
+			if (m_ClickAction.WasPressedThisFrame())
+			{
+				HudManager.SetFullscreenImage(null);
+			}
 		}
 
 		//State handling 2
