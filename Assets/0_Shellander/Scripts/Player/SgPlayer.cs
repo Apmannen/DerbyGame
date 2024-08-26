@@ -300,7 +300,7 @@ public class SgPlayer : SgBehavior
 				continue;
 			}
 			SgInteractable interactable = hit.collider.gameObject.GetComponent<SgInteractable>();
-			if (interactable.priority < bestPrio)
+			if (interactable.priority < bestPrio || interactable.InteractGroup.AlwaysWalkTo)
 			{
 				continue;
 			}

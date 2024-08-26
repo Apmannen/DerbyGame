@@ -37,6 +37,7 @@ public class SgInteractGroup : SgBehavior
 	}
 	protected bool m_IsBlocked = false;
 	public bool IsBlocked => m_IsBlocked;
+	public bool AlwaysWalkTo => nameTranslationId <= 0;
 
 	protected virtual void Start()
 	{
@@ -103,7 +104,12 @@ public class SgInteractGroup : SgBehavior
 
 	public int[] GetInteractTranslationIds(SgInteractType interactType, SgItemType itemType)
 	{
-		return GetInteractConfig(interactType, itemType).translationIds;
+		SgInteractTranslation interactConfig = GetInteractConfig(interactType, itemType);
+		if(interactConfig == null)
+		{
+			return new int[] { };
+		}
+		return interactConfig.translationIds;
 	}
 
 	//Should use more customizable predefined actions like toggle and pick up. In other words, pick up should be configurable in the same way as toggle. 
