@@ -501,19 +501,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].interactType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[1].interactType
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].walkToItFirst
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[1].walkToItFirst
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].transitionToRoom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[1].transitionToRoom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[0].translationIds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[0]
+      value: 208
       objectReference: {fileID: 0}
     - target: {fileID: 7110489863182733389, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_Enabled
@@ -878,6 +898,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -894,6 +915,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   - interactType: 4
     itemType: 0
     itemTypes: 
@@ -910,6 +932,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
+    fullscreenSprite: {fileID: 0}
   spriteRenderers:
   - {fileID: 1103192081}
   defaultRendererIndex: 0
