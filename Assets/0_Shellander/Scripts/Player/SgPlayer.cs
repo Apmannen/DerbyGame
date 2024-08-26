@@ -397,6 +397,10 @@ public class SgPlayer : SgBehavior
 	private void RefreshFlip()
 	{
 		float diff = this.transform.position.x - m_LookTarget.x;
+		if(diff == 0)
+		{
+			return;
+		}
 		bool isRight = diff < 0;
 		mainRenderer.flipX = isRight;
 	}
