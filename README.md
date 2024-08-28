@@ -6,6 +6,9 @@ Licenses:
 Cursor icons created by Freepik - Flaticon
 https://www.flaticon.com/free-icons/cursor
 
+Next icons created by Roundicons - Flaticon
+https://www.flaticon.com/free-icons/next
+
 External open source dependencies:
 NavMeshPlus - h8man
 https://github.com/h8man/NavMeshPlus
