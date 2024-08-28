@@ -2483,8 +2483,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1194111898}
   - {fileID: 261378861}
+  - {fileID: 1194111898}
   - {fileID: 1922297027}
   m_Father: {fileID: 1235134320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5080,7 +5080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1194111898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7007,10 +7007,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1978326258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1319.6342, y: -50}
-  m_SizeDelta: {x: 2639.2683, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697174979
 MonoBehaviour:
@@ -7138,6 +7138,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1697174982}
+          m_TargetAssemblyTypeName: SgReplyItem, Assembly-CSharp
+          m_MethodName: OnHoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1697174982}
+          m_TargetAssemblyTypeName: SgReplyItem, Assembly-CSharp
+          m_MethodName: OnHoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1697174982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7158,6 +7190,7 @@ MonoBehaviour:
     nextDialogue: {fileID: 0}
     addItem: 0
     reduceMoney: 0
+  hoverColor: {r: 1, g: 0.9019608, b: 0, a: 1}
 --- !u!1 &1719327575
 GameObject:
   m_ObjectHideFlags: 0

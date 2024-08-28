@@ -7,15 +7,25 @@ public class SgReplyItem : SgBehavior
 	public TMPro.TextMeshProUGUI text;
 	public int index;
 	public SgDialogueReply dialogueReply;
+	public Color hoverColor;
+
+	private Color m_DefaultColor;
+	private void Start()
+	{
+		m_DefaultColor = text.color;
+	}
 
 	public void OnClick()
 	{
-		Debug.Log("***** ONCLICK!!!!!!!!!");
 		HudManager.NotifyReplyItemClicked(this);
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
+	public void OnHoverEnter()
 	{
-		print("I was clicked");
+		text.color = hoverColor;
+	}
+	public void OnHoverExit()
+	{
+		text.color = m_DefaultColor;
 	}
 }
