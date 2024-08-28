@@ -38,10 +38,15 @@ public class SgHudManager : SgBehavior
 
 	public void NotifyReplyItemClicked(SgReplyItem replyItem)
 	{
+		HideReplyBar();
 		m_SelectedReplyItem = replyItem;
 	}
 	public SgDialogueReply SelectedDialogueReply => m_SelectedReplyItem != null ? m_SelectedReplyItem.dialogueReply : null;
 
+	public void HideReplyBar()
+	{
+		replyBarContainer.gameObject.SetActive(false);
+	}
 	public void ClearReplyBar()
 	{
 		foreach (SgReplyItem oldReplyItem in m_ReplyItems)
