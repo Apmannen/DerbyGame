@@ -31,7 +31,12 @@ public class SgHudManager : SgBehavior
 	{
 		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
 		wheelRaycaster.enabled = IsWheelVisible;
-		itembar.gameObject.SetActive(!replyBarContainer.gameObject.activeSelf);
+		//itembar.gameObject.SetActive(!IsReplyBarVisible && m_SelectedReplyItem == null);
+	}
+
+	public void SetItembarVisible(bool visible)
+	{
+		itembar.gameObject.SetActive(visible);
 	}
 
 	public bool IsReplyBarVisible => replyBarContainer.gameObject.activeSelf;
@@ -62,6 +67,7 @@ public class SgHudManager : SgBehavior
 	{
 		ClearReplyBar();
 
+		SetItembarVisible(false);
 		int i = 0;
 		foreach (SgDialogueReply reply in replies)
 		{

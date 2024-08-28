@@ -602,6 +602,7 @@ public class SgPlayer : SgBehavior
 		else
 		{
 			SetState(SgPlayerState.None);
+			HudManager.SetItembarVisible(true);
 		}
 	}
 
