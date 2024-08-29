@@ -214,3 +214,15 @@ Bananlåda
 Bananer för 25 kronor kilot.
 De är dock slutsålda.
 Pris
+Det är en vanlig hylla man kan placera varor på.
+Det är en sån där kamera som skriver ut fotot direkt efter att det har tagits.
+Kameror för 100 kronor styck.
+Kamera
+Hylla
+Prisskylt
+Disk
+Det är en disk.
+Kan jag få prova den innan jag köper den?
+Nej, det går dessvärre inte för sig.
+Kanske det, men jag måste betala först.
+Jag vill inte ha det där.
