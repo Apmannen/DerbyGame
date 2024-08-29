@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SgAutoInFrameUi : MonoBehaviour
 {
@@ -9,10 +6,6 @@ public class SgAutoInFrameUi : MonoBehaviour
 
 	private RectTransform m_RectTransform;
 	private RectTransform RectTransform => SgUtil.LazyComponent(this, ref m_RectTransform);
-	//private Canvas m_Canvas;
-	//private Canvas Canvas => SgUtil.LazyParentComponent(this, ref m_Canvas);
-	//private CanvasScaler m_CanvasScaler;
-	//private CanvasScaler CanvasScaler => SgUtil.LazyParentComponent(this, ref m_CanvasScaler);
 
 	void Start()
 	{
@@ -27,7 +20,5 @@ public class SgAutoInFrameUi : MonoBehaviour
 		{
 			SgUtil.SetPos(RectTransform, Screen.height, 1);
 		}
-
-		//Debug.Log("**** POS:"+RectTransform.position.y+", screen="+Screen.currentResolution.height+", s2="+Screen.height+"; "+Canvas.GetComponent<RectTransform>().sizeDelta.y+"; //"+CanvasScaler.referenceResolution.y+"; ");
 	}
 }
