@@ -541,7 +541,7 @@ public class SgPlayer : SgBehavior
 
 			if (interactConfig != null && interactConfig.startDialogue)
 			{
-				yield return DialogueRoutine(interactConfig.startDialogue, interaction.interactGroup.character);
+				yield return DialogueRoutine(interactConfig.startDialogue);
 			}
 		}
 
@@ -577,15 +577,17 @@ public class SgPlayer : SgBehavior
 
 		if (reply.nextDialogue != null)
 		{
-			yield return DialogueRoutine(reply.nextDialogue, otherCharacter);
+			yield return DialogueRoutine(reply.nextDialogue);
 		}
 		else
 		{
 			SetState(SgPlayerState.None);
 		}
 	}
-	private IEnumerator DialogueRoutine(SgDialogue dialogue, SgCharacter otherCharacter)
+	private IEnumerator DialogueRoutine(SgDialogue dialogue)
 	{
+		SgCharacter otherCharacter = dialogue.character;
+
 		HudManager.ClearReplyBar();
 		SetState(SgPlayerState.Interacting);
 		yield return otherCharacter.Talk(dialogue.mainTranslationIds);
@@ -597,7 +599,7 @@ public class SgPlayer : SgBehavior
 		}
 		else if(dialogue.redirectAfterDialogue != null)
 		{
-			yield return DialogueRoutine(dialogue.redirectAfterDialogue, otherCharacter);
+			yield return DialogueRoutine(dialogue.redirectAfterDialogue);
 		}
 		else
 		{

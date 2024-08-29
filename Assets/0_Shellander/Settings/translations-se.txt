@@ -217,7 +217,7 @@ Pris
 Det är en vanlig hylla man kan placera varor på.
 Det är en sån där kamera som skriver ut fotot direkt efter att det har tagits.
 Kameror för 100 kronor styck.
-Kamera
+Kameror
 Hylla
 Prisskylt
 Disk
