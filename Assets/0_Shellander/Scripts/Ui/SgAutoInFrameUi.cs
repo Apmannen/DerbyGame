@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SgAutoInFrameUi : MonoBehaviour
 {
-	private Vector3 m_DefaultLocalPos;
+	public bool checkScreen = true;
+	public float maxY;
 
-	//private RectTransform m_RectTransform;
-	//private RectTransform RectTransform => SgUtil.LazyComponent(this, ref m_RectTransform);
+	private Vector3 m_DefaultLocalPos;
 
 	void Start()
 	{
@@ -16,9 +16,10 @@ public class SgAutoInFrameUi : MonoBehaviour
 	{
 		transform.localPosition = m_DefaultLocalPos;
 
-		if(transform.position.y > Screen.height)
+		float compareMaxY = checkScreen ? Screen.height : maxY;
+		if (transform.position.y > compareMaxY)
 		{
-			SgUtil.SetPos(transform, Screen.height, 1);
+			SgUtil.SetPos(transform, compareMaxY, 1);
 		}
 	}
 }
