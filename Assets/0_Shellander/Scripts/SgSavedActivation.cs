@@ -76,6 +76,10 @@ public class SgSavedActivation : SgBehavior
             {
 				value = ItemManager.IsCollected(condition.collectedItem);
             }
+			else if(condition.collectedItemEver != SgItemType.Illegal)
+			{
+				value = ItemManager.HasEverBeenCollected(condition.collectedItemEver);
+			}
 			else if(!string.IsNullOrEmpty(condition.namedBool))
             {
 				value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(condition.namedBool);
@@ -103,11 +107,9 @@ public class SgSavedActivation : SgBehavior
         {
 			newActive = !SetActiveWhenAllSuccess;
         }
-		//(activateWhenNamedTrue && value) || (!activateWhenNamedTrue && !value);
 		this.gameObject.SetActive(newActive);
 
-		Debug.Log("*** allSuccess="+ allSuccess+ ", newActive="+ newActive+ 
-			", SetActiveWhenAllSuccess="+ SetActiveWhenAllSuccess+", this="+this, this.gameObject);
+		//Debug.Log("*** allSuccess="+ allSuccess+ ", newActive="+ newActive+", SetActiveWhenAllSuccess="+ SetActiveWhenAllSuccess+", this="+this, this.gameObject);
 
 		return newActive != oldActive;
 	}
@@ -119,5 +121,6 @@ public class SgActivationCondition
 	public bool successOnTrue;
 	public string namedBool;
 	public SgItemType collectedItem = SgItemType.Illegal;
+	public SgItemType collectedItemEver = SgItemType.Illegal;
 	public SgSkinType skinType = SgSkinType.Illegal;
 }

@@ -5650,6 +5650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50992053b0929349945cb24bc791229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkScreen: 1
+  maxY: 0
 --- !u!1 &1290979838
 GameObject:
   m_ObjectHideFlags: 0
