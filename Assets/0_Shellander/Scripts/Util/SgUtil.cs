@@ -83,10 +83,10 @@ public static class SgUtil
 		sizeVector[index] = sizeValue;
 		rectTransform.sizeDelta = sizeVector;
 	}
-	public static void SetPos(RectTransform rectTransform, float value, int index)
+	public static void SetPos(Transform aTransform, float value, int index)
 	{
-		Vector2 vector = rectTransform.position;
+		Vector2 vector = aTransform.position;
 		vector[index] = value;
-		rectTransform.position = vector;
+		aTransform.position = vector;
 	}
 }

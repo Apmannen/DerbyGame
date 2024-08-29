@@ -4210,6 +4210,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.10379982
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.5758
+      objectReference: {fileID: 0}
     - target: {fileID: 7696495994123542416, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_Camera
       value: 
