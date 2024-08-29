@@ -77,10 +77,16 @@ public static class SgUtil
 	{
 		SetSizeDelta(rectTransform, sizeValue, 1);
 	}
-	private static void SetSizeDelta(RectTransform rectTransform, float sizeValue, int index)
+	public static void SetSizeDelta(RectTransform rectTransform, float sizeValue, int index)
 	{
 		Vector2 sizeVector = rectTransform.sizeDelta;
 		sizeVector[index] = sizeValue;
 		rectTransform.sizeDelta = sizeVector;
+	}
+	public static void SetPos(RectTransform rectTransform, float value, int index)
+	{
+		Vector2 vector = rectTransform.position;
+		vector[index] = value;
+		rectTransform.position = vector;
 	}
 }
