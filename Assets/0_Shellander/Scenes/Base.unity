@@ -5655,6 +5655,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkScreen: 1
+  useMaxY: 0
+  useMinX: 1
   maxY: 0
   minX: 100
 --- !u!1 &1290979838

@@ -9,36 +9,41 @@ public class SgCondition
 	public SgItemType collectedItemEver = SgItemType.Illegal;
 	public SgItemType discoveredItem = SgItemType.Illegal;
 	public SgSkinType skinType = SgSkinType.Illegal;
+	public int minMoney = -1;
 
 	private static SgItemManager ItemManager => SgManagers._.itemManager;
 	private static SgSaveDataManager SaveDataManager => SgManagers._.saveDataManager;
 	public static bool TestConditions(IList<SgCondition> conditions)
 	{
-		foreach (SgCondition condition in conditions)
+		foreach (SgCondition c in conditions)
 		{
 			bool value = false;
-			if (condition.collectedItem != SgItemType.Illegal)
+			if (c.collectedItem != SgItemType.Illegal)
 			{
-				value = ItemManager.IsCollected(condition.collectedItem);
+				value = ItemManager.IsCollected(c.collectedItem);
 			}
-			else if (condition.collectedItemEver != SgItemType.Illegal)
+			else if (c.collectedItemEver != SgItemType.Illegal)
 			{
-				value = ItemManager.HasEverBeenCollected(condition.collectedItemEver);
+				value = ItemManager.HasEverBeenCollected(c.collectedItemEver);
 			}
-			else if(condition.discoveredItem != SgItemType.Illegal)
+			else if(c.discoveredItem != SgItemType.Illegal)
 			{
-				value = ItemManager.IsDiscovered(condition.discoveredItem);
+				value = ItemManager.IsDiscovered(c.discoveredItem);
 			}
-			else if (!string.IsNullOrEmpty(condition.namedBool))
+			else if (!string.IsNullOrEmpty(c.namedBool))
 			{
-				value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(condition.namedBool);
+				value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(c.namedBool);
 			}
-			else if (condition.skinType != SgSkinType.Illegal)
+			else if (c.skinType != SgSkinType.Illegal)
 			{
-				value = SgPlayer.Get().CurrentSkin.skinType == condition.skinType;
+				value = SgPlayer.Get().CurrentSkin.skinType == c.skinType;
+			}
+			else if(c.minMoney >= 0)
+			{
+				value = c.minMoney >= ItemManager.GetCurrentMoney();
 			}
 
-			bool conditionSuccess = (condition.successOnTrue && value) || (!condition.successOnTrue && !value);
+			bool conditionSuccess = (c.successOnTrue && value) || (!c.successOnTrue && !value);
 			if (!conditionSuccess)
 			{
 				return false;

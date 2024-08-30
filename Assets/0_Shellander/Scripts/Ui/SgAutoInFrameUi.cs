@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class SgAutoInFrameUi : MonoBehaviour
 {
-	public bool checkScreen = true;
+	public bool checkScreen;
+	public bool useMaxY;
+	public bool useMinX;
+
 	public float maxY;
 	public float minX;
 
@@ -23,7 +26,12 @@ public class SgAutoInFrameUi : MonoBehaviour
 
 	private void AdjustMinX()
 	{
-		float compareMinX = minX;
+		float compareMinX = float.MinValue;
+		if(useMinX)
+		{
+			compareMinX = minX;
+		}
+
 		if (transform.position.x < compareMinX)
 		{
 			SgUtil.SetPos(transform, compareMinX, 0);
@@ -32,7 +40,16 @@ public class SgAutoInFrameUi : MonoBehaviour
 
 	private void AdjustY()
 	{
-		float compareMaxY = checkScreen ? Screen.height : maxY;
+		float compareMaxY = float.MaxValue; 
+		if(useMaxY)
+		{
+			compareMaxY = maxY;
+		}
+		else if(checkScreen)
+		{
+			compareMaxY = Screen.height;
+		}
+
 		if (transform.position.y > compareMaxY)
 		{
 			SgUtil.SetPos(transform, compareMaxY, 1);

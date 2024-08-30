@@ -186,4 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkScreen: 0
+  useMaxY: 1
+  useMinX: 0
   maxY: 12
+  minX: 0
