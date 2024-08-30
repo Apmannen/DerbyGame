@@ -1734,7 +1734,27 @@ MonoBehaviour:
     nextDialogue: {fileID: 1950015196}
     addItem: 6
     reduceMoney: 100
-    conditions: []
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 0
+      minMoney: 100
+  - translationId: 239
+    isSilent: 0
+    nextDialogue: {fileID: 233747238}
+    addItem: 0
+    reduceMoney: 0
+    conditions:
+    - successOnTrue: 0
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 0
+      minMoney: 100
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1779,7 +1799,27 @@ MonoBehaviour:
     nextDialogue: {fileID: 1950015196}
     addItem: 10
     reduceMoney: 0
-    conditions: []
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 0
+      minMoney: 10
+  - translationId: 239
+    isSilent: 0
+    nextDialogue: {fileID: 233747238}
+    addItem: 0
+    reduceMoney: 0
+    conditions:
+    - successOnTrue: 0
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 0
+      minMoney: 10
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1936,7 +1976,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: 100
-  - translationId: 236
+  - translationId: 239
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0

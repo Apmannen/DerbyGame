@@ -40,7 +40,7 @@ public class SgCondition
 			}
 			else if(c.minMoney >= 0)
 			{
-				value = c.minMoney >= ItemManager.GetCurrentMoney();
+				value = ItemManager.GetCurrentMoney() >= c.minMoney;
 			}
 
 			bool conditionSuccess = (c.successOnTrue && value) || (!c.successOnTrue && !value);
