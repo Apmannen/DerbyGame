@@ -613,11 +613,16 @@ public class SgPlayer : SgBehavior
 	private void SkipAnySpeech()
 	{
 		character.SkipSpeech();
-		if(m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null 
-			&& m_CurrentInteraction.interactGroup.character != null)
+
+		if(m_CurrentInteraction != null && m_CurrentInteraction.InteractConfig != null && m_CurrentInteraction.InteractConfig.startDialogue != null)
 		{
-			m_CurrentInteraction.interactGroup.character.SkipSpeech();
+			m_CurrentInteraction.InteractConfig.startDialogue.character.SkipSpeech();
 		}
+		//if(m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null 
+		//	&& m_CurrentInteraction.interactGroup.character != null)
+		//{
+		//	m_CurrentInteraction.interactGroup.character.SkipSpeech();
+		//}
 	}
 
 	private class SgInteraction
