@@ -676,6 +676,24 @@ MonoBehaviour:
       collectedItemEver: 0
       discoveredItem: 6
       skinType: 0
+    - successOnTrue: 0
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 6
+      discoveredItem: 0
+      skinType: 0
+  - translationId: 96
+    isSilent: 0
+    nextDialogue: {fileID: 669984798}
+    addItem: 0
+    reduceMoney: 0
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 6
+      discoveredItem: 0
+      skinType: 0
   - translationId: 130
     isSilent: 0
     nextDialogue: {fileID: 736566077}
