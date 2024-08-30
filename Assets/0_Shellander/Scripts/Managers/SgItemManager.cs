@@ -43,6 +43,16 @@ public class SgItemManager : SgBehavior
 		return definition != null && definition.HasEverBeenCollected;
 	}
 
+	public void Discover(SgItemType itemType)
+	{
+		SgItemDefinition definition = Get(itemType);
+		definition.Savable.isDiscovered.Set(true);
+	}
+	public bool IsDiscovered(SgItemType itemType)
+	{
+		SgItemDefinition definition = Get(itemType);
+		return definition.Savable.isDiscovered.Value || HasEverBeenCollected(itemType);
+	}
 	public void Collect(SgItemType itemType)
 	{
 		SgItemDefinition definition = Get(itemType);
@@ -52,7 +62,7 @@ public class SgItemManager : SgBehavior
 		}
 		definition.Savable.isCollected.Set(true);
 		definition.Savable.hasEverBeenCollected.Set(true);
-		definition.Savable.isDiscovered.Set(true);		
+		//definition.Savable.isDiscovered.Set(true);		
 
 		HudManager.itembar.Refresh();
 

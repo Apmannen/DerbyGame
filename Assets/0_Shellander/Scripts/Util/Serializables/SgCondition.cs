@@ -7,6 +7,7 @@ public class SgCondition
 	public string namedBool;
 	public SgItemType collectedItem = SgItemType.Illegal;
 	public SgItemType collectedItemEver = SgItemType.Illegal;
+	public SgItemType discoveredItem = SgItemType.Illegal;
 	public SgSkinType skinType = SgSkinType.Illegal;
 
 	private static SgItemManager ItemManager => SgManagers._.itemManager;
@@ -23,6 +24,10 @@ public class SgCondition
 			else if (condition.collectedItemEver != SgItemType.Illegal)
 			{
 				value = ItemManager.HasEverBeenCollected(condition.collectedItemEver);
+			}
+			else if(condition.discoveredItem != SgItemType.Illegal)
+			{
+				value = ItemManager.IsDiscovered(condition.discoveredItem);
 			}
 			else if (!string.IsNullOrEmpty(condition.namedBool))
 			{

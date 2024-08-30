@@ -8,6 +8,7 @@ public class SgInteractGroup : SgBehavior
 	public string nameId;
 	public int nameTranslationId = -1;
 	public SgItemType itemType = SgItemType.Illegal;
+	public SgItemType[] discoverItems;
 	public SgInteractTranslation[] interactTranslations; //interact translation is a obsolete name, more of an interact config. Shouldn't be handled by translation manager anymore.
 	public SpriteRenderer[] spriteRenderers;
 	public int defaultRendererIndex = 0;
@@ -15,7 +16,6 @@ public class SgInteractGroup : SgBehavior
 	public Transform walkTarget;
 	public bool interactableAfterPickup;
 	public bool redirectToItem = true;
-	//public TMPro.TextMeshPro speechText;
 	public SgCharacter character;
 	public SgInteractGroup[] blockDependencies;
 
@@ -115,6 +115,15 @@ public class SgInteractGroup : SgBehavior
 	//Should use more customizable predefined actions like toggle and pick up. In other words, pick up should be configurable in the same way as toggle. 
 	public virtual void OnBeforeInteract(SgInteractType interactType, SgItemType itemType)
 	{
+		foreach(SgItemType discoverItem in discoverItems)
+		{
+			ItemManager.Discover(discoverItem);
+		}
+		if(IsConnectedToItem)
+		{
+			ItemManager.Discover(ItemDefinition.itemType);
+		}
+
 		SgInteractTranslation interactConfig = GetInteractConfig(interactType, itemType);
 
 		if (interactConfig == null)
