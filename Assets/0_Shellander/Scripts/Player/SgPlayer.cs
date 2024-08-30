@@ -1,5 +1,6 @@
 using ShellanderGames.WeaponWheel;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -592,9 +593,10 @@ public class SgPlayer : SgBehavior
 		SetState(SgPlayerState.Interacting);
 		yield return otherCharacter.Talk(dialogue.mainTranslationIds);
 
-		if(dialogue.replies.Length > 0)
+		IList<SgDialogueReply> validReplies = dialogue.ValidReplies;
+		if(validReplies.Count > 0)
 		{
-			HudManager.ShowReplyBar(dialogue.replies);
+			HudManager.ShowReplyBar(validReplies);
 			SetState(SgPlayerState.AwaitingDialogueReply);
 		}
 		else if(dialogue.redirectAfterDialogue != null)

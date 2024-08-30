@@ -63,7 +63,7 @@ public class SgHudManager : SgBehavior
 		replyBarContainer.gameObject.SetActive(false);
 	}
 
-	public void ShowReplyBar(SgDialogueReply[] replies)
+	public void ShowReplyBar(IList<SgDialogueReply> replies)
 	{
 		ClearReplyBar();
 
@@ -81,7 +81,7 @@ public class SgHudManager : SgBehavior
 			i++;
 		}
 
-		SgUtil.SetSizeDeltaY(replyBarContainer, 100 + (100 * replies.Length));
+		SgUtil.SetSizeDeltaY(replyBarContainer, 100 + (100 * replies.Count));
 
 		replyBarContainer.gameObject.SetActive(true);
 	}
