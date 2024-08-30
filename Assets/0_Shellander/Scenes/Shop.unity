@@ -935,15 +935,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.size
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].itemType
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].itemType
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[4].itemType
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[5].itemType
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[6].itemType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[7].itemType
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].interactType
@@ -955,11 +971,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].interactType
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].interactType
-      value: 4
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[4].interactType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[5].interactType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[6].interactType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[7].interactType
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].startDialogue
@@ -972,18 +1004,50 @@ PrefabInstance:
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].startDialogue
       value: 
-      objectReference: {fileID: 255484240}
+      objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].walkToItFirst
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].startDialogue
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 255484240}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].walkToItFirst
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[4].startDialogue
+      value: 
+      objectReference: {fileID: 255484240}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[4].walkToItFirst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[5].startDialogue
+      value: 
+      objectReference: {fileID: 255484240}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[5].walkToItFirst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[6].startDialogue
+      value: 
+      objectReference: {fileID: 255484240}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[6].walkToItFirst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[7].startDialogue
+      value: 
+      objectReference: {fileID: 255484240}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[7].walkToItFirst
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.size
@@ -994,8 +1058,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      propertyPath: interactTranslations.Array.data[3].translationIds.Array.size
+      propertyPath: interactTranslations.Array.data[2].translationIds.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[3].translationIds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[4].translationIds.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[0]
@@ -1006,7 +1078,15 @@ PrefabInstance:
       value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[2].translationIds.Array.data[0]
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[3].translationIds.Array.data[0]
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[4].translationIds.Array.data[0]
       value: 155
       objectReference: {fileID: 0}
     m_RemovedComponents: []
