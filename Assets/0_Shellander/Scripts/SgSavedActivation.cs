@@ -4,7 +4,7 @@ using UnityEngine;
 public class SgSavedActivation : SgBehavior
 {
 	public bool auto = true;
-	public SgActivationCondition[] conditions;
+	public SgCondition[] conditions;
 
 	//Legacy name conversion
 	public bool activateWhenNamedTrue;
@@ -14,7 +14,7 @@ public class SgSavedActivation : SgBehavior
 	public SgItemType collectedItem = SgItemType.Illegal;
     public string namedBool;	
 
-	private List<SgActivationCondition> m_Conditions = null;
+	private List<SgCondition> m_Conditions = null;
 
 	private void Start()
 	{
@@ -50,17 +50,17 @@ public class SgSavedActivation : SgBehavior
 			return;
 		}
 
-		m_Conditions = new List<SgActivationCondition>();
+		m_Conditions = new List<SgCondition>();
 		m_Conditions.AddRange(conditions);
 
 		//Legacy conversion
 		if (!string.IsNullOrEmpty(namedBool))
 		{
-			m_Conditions.Add(new SgActivationCondition { successOnTrue = true, namedBool = namedBool, collectedItem = SgItemType.Illegal });
+			m_Conditions.Add(new SgCondition { successOnTrue = true, namedBool = namedBool, collectedItem = SgItemType.Illegal });
 		}
 		if (collectedItem != SgItemType.Illegal)
 		{
-			m_Conditions.Add(new SgActivationCondition { successOnTrue = true, namedBool = "", collectedItem = collectedItem });
+			m_Conditions.Add(new SgCondition { successOnTrue = true, namedBool = "", collectedItem = collectedItem });
 		}
 	}
 
@@ -68,34 +68,7 @@ public class SgSavedActivation : SgBehavior
 	{
 		Init();
 
-		bool allSuccess = true;
-		foreach (SgActivationCondition condition in m_Conditions)
-        {
-			bool value = false;
-			if(condition.collectedItem != SgItemType.Illegal)
-            {
-				value = ItemManager.IsCollected(condition.collectedItem);
-            }
-			else if(condition.collectedItemEver != SgItemType.Illegal)
-			{
-				value = ItemManager.HasEverBeenCollected(condition.collectedItemEver);
-			}
-			else if(!string.IsNullOrEmpty(condition.namedBool))
-            {
-				value = SaveDataManager.CurrentSaveFile.GetNamedBoolValue(condition.namedBool);
-			}
-			else if(condition.skinType != SgSkinType.Illegal)
-            {
-				value = SgPlayer.Get().CurrentSkin.skinType == condition.skinType;
-			}
-
-			bool conditionSuccess = (condition.successOnTrue && value) || (!condition.successOnTrue && !value);
-			if(!conditionSuccess)
-            {
-				allSuccess = false;
-				break;
-			}
-		}
+		bool allSuccess = SgCondition.TestConditions(m_Conditions);
 
 		bool oldActive = this.gameObject.activeSelf;
 		bool newActive;
@@ -115,12 +88,3 @@ public class SgSavedActivation : SgBehavior
 	}
 }
 
-[System.Serializable]
-public class SgActivationCondition
-{
-	public bool successOnTrue;
-	public string namedBool;
-	public SgItemType collectedItem = SgItemType.Illegal;
-	public SgItemType collectedItemEver = SgItemType.Illegal;
-	public SgSkinType skinType = SgSkinType.Illegal;
-}

@@ -1736,9 +1736,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   auto: 1
-  conditions: []
+  conditions:
+  - successOnTrue: 1
+    namedBool: 
+    collectedItem: 10
+    collectedItemEver: 0
+    skinType: 0
   activateWhenNamedTrue: 1
-  collectedItem: 10
+  collectedItem: 0
   namedBool: 
 --- !u!212 &941082204
 SpriteRenderer:
