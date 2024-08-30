@@ -1403,6 +1403,7 @@ MonoBehaviour:
     nextDialogue: {fileID: 0}
     addItem: 0
     reduceMoney: 0
+    conditions: []
   hoverColor: {r: 1, g: 0.70980394, b: 0.24705884, a: 1}
 --- !u!114 &400843041
 MonoBehaviour:
@@ -4147,6 +4148,7 @@ Transform:
   - {fileID: 1930649341}
   - {fileID: 2093564509}
   - {fileID: 2057229363}
+  - {fileID: 1780321981}
   m_Father: {fileID: 130489665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016912861
@@ -4187,6 +4189,8 @@ MonoBehaviour:
   - {fileID: 1930649342}
   - {fileID: 2093564510}
   - {fileID: 2057229362}
+  - {fileID: 1780321982}
+  currentMoneyDebug: 0
 --- !u!1 &1031056739
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,6 +7647,73 @@ MonoBehaviour:
         m_Calls: []
     fullscreenSprite: {fileID: 0}
   moneyValue: 200
+  skinType: 0
+--- !u!1 &1780321980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1780321981}
+  - component: {fileID: 1780321982}
+  m_Layer: 0
+  m_Name: Money210
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1780321981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780321980}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016912860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1780321982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780321980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 26
+  translationId: 237
+  sprite: {fileID: 21300000, guid: 2a3538762cae87e438a51020cd8ba400, type: 3}
+  interactTranslations:
+  - interactType: 2
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: ee000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    transitionToRoom: 0
+    setNamedBool: 
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+  moneyValue: 210
   skinType: 0
 --- !u!1001 &1788383199
 PrefabInstance:

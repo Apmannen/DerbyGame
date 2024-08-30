@@ -30,6 +30,7 @@ public enum SgItemType
 	CutPhoto,
 	CutPhotoSelfie,
 	Newspaper,
+	Money210,
 }
 
 public class SgItemDefinition : SgBehavior

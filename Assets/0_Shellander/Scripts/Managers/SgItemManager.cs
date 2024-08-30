@@ -5,6 +5,7 @@ using UnityEngine;
 public class SgItemManager : SgBehavior
 {
 	public SgItemDefinition[] itemDefinitions;
+	public int currentMoneyDebug;
 
 	private void Start()
 	{
@@ -55,6 +56,7 @@ public class SgItemManager : SgBehavior
 	}
 	public void Collect(SgItemType itemType)
 	{
+		Debug.Log("*** Try Collect item:" + itemType);
 		SgItemDefinition definition = Get(itemType);
 		if(!definition.Savable.isCollected.Value)
 		{
@@ -149,6 +151,8 @@ public class SgItemManager : SgBehavior
 				}
 			}
 		}
+
+		currentMoneyDebug = money;
 	}
 
 	public void RefreshTshirts(SgSkinType wornSkin)

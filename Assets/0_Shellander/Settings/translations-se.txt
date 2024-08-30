@@ -234,3 +234,5 @@ Det finns inga provhyttar här.
 T-shirts
 T-shirts för 100 kronor styck.
 Max en per kund.
+210 kronor
+Det är 210 kronor.
