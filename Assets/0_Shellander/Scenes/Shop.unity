@@ -644,7 +644,7 @@ MonoBehaviour:
     addItem: 0
     reduceMoney: 0
     conditions:
-    - successOnTrue: 0
+    - successOnTrue: 1
       namedBool: 
       collectedItem: 0
       collectedItemEver: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
     addItem: 0
     reduceMoney: 0
     conditions:
-    - successOnTrue: 0
+    - successOnTrue: 1
       namedBool: 
       collectedItem: 0
       collectedItemEver: 0

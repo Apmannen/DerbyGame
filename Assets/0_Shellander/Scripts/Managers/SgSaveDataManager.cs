@@ -104,6 +104,7 @@ public class SgSaveDataManager : SgBehavior
 		public SgItemSavable(long saveFileId, SgItemType itemType)
 		{
 			isCollected = new SgSavableBool(saveFileId, "Item" + itemType + "Collected", false, SgPropertySaveAction.Delayed);
+			isDiscovered = new SgSavableBool(saveFileId, "Item" + itemType + "Discovered", false, SgPropertySaveAction.Delayed);
 			hasEverBeenCollected = new SgSavableBool(saveFileId, "Item" + itemType + "EverCollected", false, SgPropertySaveAction.Delayed);
 			collectTime = new SgSavableLong(saveFileId, "Item" + itemType + "Time", 0, SgPropertySaveAction.Delayed);
 
