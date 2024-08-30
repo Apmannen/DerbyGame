@@ -97,8 +97,9 @@ public class SgSaveDataManager : SgBehavior
 	public class SgItemSavable : SgSavable
 	{
 		public readonly SgSavableBool isCollected;
+		public readonly SgSavableBool isDiscovered;
 		public readonly SgSavableBool hasEverBeenCollected;
-		public readonly SgSavableLong collectTime;
+		public readonly SgSavableLong collectTime;		
 
 		public SgItemSavable(long saveFileId, SgItemType itemType)
 		{

@@ -52,7 +52,7 @@ public class SgItemManager : SgBehavior
 		}
 		definition.Savable.isCollected.Set(true);
 		definition.Savable.hasEverBeenCollected.Set(true);
-		
+		definition.Savable.isDiscovered.Set(true);		
 
 		HudManager.itembar.Refresh();
 
