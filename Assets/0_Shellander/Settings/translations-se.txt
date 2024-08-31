@@ -237,3 +237,6 @@ Max en per kund.
 210 kronor
 Det är 210 kronor.
 Jag har inte råd.
+Det är en dörr till någon lägenhet.
+Den dörren kan jag inte bryta upp.
+Dörren är låst.
