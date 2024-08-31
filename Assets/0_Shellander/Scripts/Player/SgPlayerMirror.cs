@@ -18,6 +18,6 @@ public class SgPlayerMirror : MonoBehaviour
 		spriteRenderer.sprite = player.mainRenderer.sprite;
 		spriteRenderer.flipX = player.mainRenderer.flipX;
 
-		Debug.Log("*** Y:"+player.transform.position.y);
+		//Debug.Log("*** Y:"+player.transform.position.y);
 	}
 }
