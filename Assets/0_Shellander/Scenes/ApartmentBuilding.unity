@@ -2054,6 +2054,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_SpawnPosition
       objectReference: {fileID: 0}
+    - target: {fileID: 736386290447381019, guid: 12a4b8f3fc7dadb42b88f186b76d59b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644363702813622944, guid: 12a4b8f3fc7dadb42b88f186b76d59b1, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8845174684874812469, guid: 12a4b8f3fc7dadb42b88f186b76d59b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.69
