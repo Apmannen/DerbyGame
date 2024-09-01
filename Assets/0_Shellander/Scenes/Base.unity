@@ -2702,9 +2702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc29152982317840b5c0291cfa9f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 25
+  itemType: 27
   translationId: 265
-  sprite: {fileID: 21300000, guid: d2ff58a05353c4d4783af7ca0747c2ca, type: 3}
+  sprite: {fileID: 21300000, guid: 9b5966112d8639a4891104d24975473b, type: 3}
   interactTranslations:
   - interactType: 2
     itemType: 0
@@ -2725,7 +2725,7 @@ MonoBehaviour:
     method:
       m_PersistentCalls:
         m_Calls: []
-    fullscreenSprite: {fileID: 21300000, guid: f2620fd191bbfb74a99022860c7143a0, type: 3}
+    fullscreenSprite: {fileID: 0}
   moneyValue: 0
   skinType: 0
 --- !u!4 &645148963
