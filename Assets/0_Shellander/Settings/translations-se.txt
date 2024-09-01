@@ -245,3 +245,5 @@ Toalettstol
 Nån här behöver lära sig att sikta.
 Nej, jag klarar mig.
 Jag vill inte spola ner det där.
+Toapappershållare.
+Det är en hållare med toalettpapper på.
