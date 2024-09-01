@@ -257,3 +257,10 @@ Här tvättar man händerna.
 Jag är redan ren.
 Vattenpöl
 Här var det blött.
+Spegel
+Trots att den är lite trasig så får man en bra blick över sig själv här.
+Badrumsskåp
+Det ligger en kniv här.
+Det låg en kniv här förut.
+Kniv
+Det är en gammal hederlig kniv.

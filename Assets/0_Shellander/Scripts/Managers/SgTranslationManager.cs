@@ -34,12 +34,12 @@ public class SgTranslationManager : SgBehavior
 		return m_TranslationsSe[translationId];
 	}
 
-	public static int[] GetInteractTranslationIds(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
+	public int[] GetInteractTranslationIds(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
 	{
 		return GetInteractTranslation(interactTranslations, interactType, isCollected, SgItemType.Illegal).translationIds;
 	}
 	//TODO: move away from here, is not (only) translations anymore
-	public static SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
+	public SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
 		SgItemType itemType)
 	{
 		if(interactType == SgInteractType.Item)
@@ -67,15 +67,15 @@ public class SgTranslationManager : SgBehavior
 			{
 				continue;
 			}
-
-			//if (interactType == SgInteractType.Item)
-			//{
-			//	if(interactConfig.interactType == interactType && interactConfig.itemType == itemType)
-			//	{
-			//		return interactConfig;
-			//	}
-			//	continue;
-			//}
+			
+			if(interactConfig.onlyWhenCollectedItemTypes.SingleOrDefault(aItemType => ItemManager.HasEverBeenCollected(aItemType)) != SgItemType.Illegal)
+			{
+				continue;
+			}
+			if (interactConfig.onlyWhenNotCollectedItemTypes.SingleOrDefault(aItemType => !ItemManager.HasEverBeenCollected(aItemType)) != SgItemType.Illegal)
+			{
+				continue;
+			}
 
 			if (interactConfig.interactType == interactType)
 			{
@@ -98,10 +98,15 @@ public class SgInteractTranslation
 	public int[] translationIds;
 	public bool walkToItFirst;
 	public bool toggleSprite = false;
+	[System.Obsolete("I don't really map items directly to room objects anymore")]
 	public bool onlyWhenCollected;
+	[System.Obsolete("I don't really map items directly to room objects anymore")]
 	public bool onlyWhenNotCollected;
+	public SgItemType[] onlyWhenCollectedItemTypes;
+	public SgItemType[] onlyWhenNotCollectedItemTypes;
 	public SgRoomName transitionToRoom = SgRoomName.Illegal;
 	public string setNamedBool;
+	public bool setNamedBoolToFalse;
 	public SgDialogue startDialogue;
 	public UnityEvent method;
 	public Sprite fullscreenSprite;

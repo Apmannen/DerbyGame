@@ -86,17 +86,17 @@ public class SgInteractGroup : SgBehavior
 		if (interactConfig == null && IsConnectedToItem && redirectToItem)
 		{
 			//Item redirect override (not really used anymore?)
-			interactConfig = SgTranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
+			interactConfig = TranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
 			//This (interacted SgInteractGroup)
-			interactConfig = SgTranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected, useItemType);
+			interactConfig = TranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
 			//Global default fallback
-			interactConfig = SgTranslationManager.GetInteractTranslation(TranslationManager.defaultTranslations, interactType, false, useItemType);
+			interactConfig = TranslationManager.GetInteractTranslation(TranslationManager.defaultTranslations, interactType, false, useItemType);
 		}
 
 		return interactConfig;
@@ -135,7 +135,7 @@ public class SgInteractGroup : SgBehavior
 
 		if (!string.IsNullOrEmpty(interactConfig.setNamedBool))
 		{
-			SaveDataManager.CurrentSaveFile.SetNamedBoolValue(interactConfig.setNamedBool, true);
+			SaveDataManager.CurrentSaveFile.SetNamedBoolValue(interactConfig.setNamedBool, !interactConfig.setNamedBoolToFalse);
 		}
 
 		foreach (SgItemType removeItemType in interactConfig.triggerRemove)

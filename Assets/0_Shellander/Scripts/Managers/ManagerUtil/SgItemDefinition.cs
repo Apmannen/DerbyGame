@@ -31,6 +31,7 @@ public enum SgItemType
 	CutPhotoSelfie,
 	Newspaper,
 	Money210,
+	Knife,
 }
 
 public class SgItemDefinition : SgBehavior
@@ -72,7 +73,7 @@ public class SgItemDefinition : SgBehavior
 
 	public int[] GetInteractTranslationIds(SgInteractType interactType)
 	{
-		return SgTranslationManager.GetInteractTranslationIds(interactTranslations, interactType, IsColleted);
+		return TranslationManager.GetInteractTranslationIds(interactTranslations, interactType, IsColleted);
 	}
 
 	public bool IsColleted => Savable.isCollected.Get();
