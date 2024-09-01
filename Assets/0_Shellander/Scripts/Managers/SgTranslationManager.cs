@@ -116,10 +116,8 @@ public class SgInteractTranslation
             {
 				m_ItemTypes = new();
 				m_ItemTypes.UnionWith(itemTypes);
-				if (itemType != SgItemType.Illegal)
-                {
-					m_ItemTypes.Add(itemType);
-                }
+				m_ItemTypes.Add(itemType);
+				m_ItemTypes.Remove(SgItemType.Illegal);
             }
 			return m_ItemTypes;
         }

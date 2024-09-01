@@ -619,11 +619,6 @@ public class SgPlayer : SgBehavior
 		{
 			m_CurrentInteraction.InteractConfig.startDialogue.character.SkipSpeech();
 		}
-		//if(m_CurrentInteraction != null && m_CurrentInteraction.interactGroup != null 
-		//	&& m_CurrentInteraction.interactGroup.character != null)
-		//{
-		//	m_CurrentInteraction.interactGroup.character.SkipSpeech();
-		//}
 	}
 
 	private class SgInteraction
