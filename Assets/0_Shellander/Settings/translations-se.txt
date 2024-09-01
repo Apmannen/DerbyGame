@@ -255,3 +255,5 @@ Det måste vara en riktig slarver som bor här.
 Handfat
 Här tvättar man händerna.
 Jag är redan ren.
+Vattenpöl
+Här var det blött.
