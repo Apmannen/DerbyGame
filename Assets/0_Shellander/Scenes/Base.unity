@@ -3911,6 +3911,29 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+  - interactType: 3
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 2d010000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    onlyWhenCollectedItemTypes: 
+    onlyWhenNotCollectedItemTypes: 
+    transitionToRoom: 0
+    onlyInRooms: 05000000
+    setNamedBool: 
+    setNamedBoolToFalse: 0
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+    redirect: {fileID: 0}
+    debugString: 
   moneyValue: 0
   skinType: 1
 --- !u!1 &876484149
@@ -3967,6 +3990,29 @@ MonoBehaviour:
     triggerCollect: 0
     triggerRemove: 
     translationIds: 8f000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    onlyWhenCollectedItemTypes: 
+    onlyWhenNotCollectedItemTypes: 
+    transitionToRoom: 0
+    onlyInRooms: 
+    setNamedBool: 
+    setNamedBoolToFalse: 0
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+    redirect: {fileID: 0}
+    debugString: 
+  - interactType: 3
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 2d010000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
@@ -9005,6 +9051,29 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    setNamedBool: 
+    setNamedBoolToFalse: 0
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+    redirect: {fileID: 0}
+    debugString: 
+  - interactType: 3
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 2d010000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    onlyWhenCollectedItemTypes: 
+    onlyWhenNotCollectedItemTypes: 
+    transitionToRoom: 0
+    onlyInRooms: 05000000
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
