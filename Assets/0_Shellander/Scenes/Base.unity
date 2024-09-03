@@ -260,6 +260,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -723,6 +724,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -1289,6 +1291,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -1422,6 +1425,7 @@ MonoBehaviour:
     addItem: 0
     reduceMoney: 0
     conditions: []
+    connectedToDialogue: {fileID: 0}
   hoverColor: {r: 1, g: 0.70980394, b: 0.24705884, a: 1}
 --- !u!114 &400843041
 MonoBehaviour:
@@ -1546,6 +1550,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -1569,6 +1574,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -1592,6 +1598,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -1615,6 +1622,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 05000000
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -2287,6 +2295,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -2694,6 +2703,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -2767,6 +2777,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -3214,6 +3225,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -3287,6 +3299,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -3829,6 +3842,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -3902,6 +3916,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -3925,6 +3940,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 05000000
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -3998,6 +4014,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -4021,6 +4038,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -5481,6 +5499,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -6025,6 +6044,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -6699,6 +6719,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -6772,6 +6793,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -7634,6 +7656,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -7657,6 +7680,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -7904,6 +7928,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -7977,6 +8002,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -8716,6 +8742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scheduler: {fileID: 442450447}
+  isBeta: 1
 --- !u!4 &1858158409
 Transform:
   m_ObjectHideFlags: 0
@@ -8794,6 +8821,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -8865,6 +8893,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -8888,6 +8917,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -8911,6 +8941,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -8934,6 +8965,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -8957,6 +8989,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -9028,6 +9061,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -9051,6 +9085,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -9074,6 +9109,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 05000000
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -9266,6 +9302,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -9769,6 +9806,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -10380,6 +10418,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -10403,6 +10442,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -10604,6 +10644,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -10895,6 +10936,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}
@@ -11095,6 +11137,7 @@ MonoBehaviour:
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
     onlyInRooms: 
+    onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 0}

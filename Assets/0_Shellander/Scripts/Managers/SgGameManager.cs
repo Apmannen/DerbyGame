@@ -5,6 +5,7 @@ using UnityEngine;
 public class SgGameManager : SgBehavior
 {
 	public SgScheduler scheduler;
+	public bool isBeta;
 
 	void Start()
 	{
