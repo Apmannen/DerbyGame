@@ -454,6 +454,17 @@ public class SgPlayer : SgBehavior
 			StartInteraction();
 		}
 	}
+	public void OnTriggerCollision(SgInteractGroup interactGroup)
+	{
+		if(m_State != SgPlayerState.Walking)
+		{
+			return;
+		}
+		SetInteraction(interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Collision);
+		SetDestination(this.transform.position, null);
+		CurrentSkin.walkAnimation.Stop();
+		StartInteraction();
+	}
 
 	private bool HasReachedDestination()
 	{

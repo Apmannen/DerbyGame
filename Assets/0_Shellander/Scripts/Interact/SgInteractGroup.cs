@@ -177,7 +177,7 @@ public class SgInteractGroup : SgBehavior
 	}
 	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
 	{
-		Debug.Log("**** TRIGGER InteractRoutine m_IsBlocked="+ m_IsBlocked);
+		//Debug.Log("**** TRIGGER InteractRoutine m_IsBlocked="+ m_IsBlocked);
 		bool isAnyBlocked = IsBlocked;
 		foreach(SgInteractGroup otherInteractGroup in blockDependencies)
 		{
@@ -193,6 +193,6 @@ public class SgInteractGroup : SgBehavior
 			yield return null;
 		}
 
-		Debug.Log("**** TRIGGER InteractRoutine done!? m_IsBlocked="+ m_IsBlocked);
+		//Debug.Log("**** TRIGGER InteractRoutine done!? m_IsBlocked="+ m_IsBlocked);
 	}
 }
