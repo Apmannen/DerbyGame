@@ -111,6 +111,7 @@ public class SgInteractTranslation
 	public UnityEvent method;
 	public Sprite fullscreenSprite;
 	public SgInteractGroup redirect;
+	public string debugString;
 
 	private HashSet<SgItemType> m_ItemTypes;
 

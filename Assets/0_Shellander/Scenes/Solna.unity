@@ -1826,6 +1826,10 @@ PrefabInstance:
       propertyPath: goToRoom
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6369541186556177405, guid: c2b0480dbd90f8c48af545ee9815bb25, type: 3}
+      propertyPath: interactTranslations.Array.data[1].debugString
+      value: u2
+      objectReference: {fileID: 0}
     - target: {fileID: 6615176120359154955, guid: c2b0480dbd90f8c48af545ee9815bb25, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8303831
@@ -2872,53 +2876,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3582483890005811309, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.36047122
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582483890005811309, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6511128
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582483890005811309, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0246
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582483890005811309, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0391
-      objectReference: {fileID: 0}
     - target: {fileID: 4568261953267207634, guid: 0295948e723f173409e420b2b723a211, type: 3}
       propertyPath: m_Name
       value: P_BusSign
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714739117194025437, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: nameTranslationId
-      value: 267
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714739117194025437, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: interactTranslations.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4714739117194025437, guid: 0295948e723f173409e420b2b723a211, type: 3}
       propertyPath: interactTranslations.Array.data[1].redirect
       value: 
       objectReference: {fileID: 1285155704}
     - target: {fileID: 4714739117194025437, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: interactTranslations.Array.data[0].interactType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714739117194025437, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: interactTranslations.Array.data[1].interactType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714739117194025437, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: interactTranslations.Array.data[0].translationIds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714739117194025437, guid: 0295948e723f173409e420b2b723a211, type: 3}
-      propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[0]
-      value: 268
+      propertyPath: interactTranslations.Array.data[1].debugString
+      value: u1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

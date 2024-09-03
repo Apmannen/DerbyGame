@@ -429,12 +429,13 @@ public class SgPlayer : SgBehavior
 		SgItemType itembarItemType = itembarItem != null ? itembarItem.Definition.itemType : SgItemType.Illegal;
 		SgInteraction interaction = SetInteraction(hoveredInteractGroup, itembarItemType, CursorController.SelectedItem, CursorController.SelectedInteractType);
 		SgInteractTranslation interactConfig = interaction?.InteractConfig;
-		if(interactConfig != null && interactConfig.redirect)
+		//Debug.Log("**** inter:1:" + interaction.interactGroup + ", redir:" + interactConfig.redirect + ", debugString=" + interactConfig.debugString);
+		if (interactConfig != null && interactConfig.redirect)
 		{
 			interaction.interactGroup = interactConfig.redirect;
 			interactConfig = interaction.InteractConfig;
 		}
-		Debug.Log("**** inter:"+interaction.interactGroup+", redir:"+interactConfig.redirect+", ");
+		//Debug.Log("**** inter:2:"+interaction.interactGroup+", redir:"+interactConfig.redirect+ ", debugString="+ interactConfig.debugString);
 			
 		if (interactConfig != null && interactConfig.walkToItFirst)
 		{
