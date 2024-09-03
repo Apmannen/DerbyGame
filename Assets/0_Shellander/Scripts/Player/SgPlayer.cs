@@ -584,7 +584,7 @@ public class SgPlayer : SgBehavior
 	private void StartDialogueReply(SgDialogueReply reply)
 	{
 		//Do BEFORE routine
-		SgCharacter otherCharacter = m_CurrentInteraction.interactGroup.character;
+		SgCharacter otherCharacter = reply.connectedToDialogue.character;
 		SetState(SgPlayerState.Interacting);
 		character.ClearSpeech();
 		otherCharacter.ClearSpeech();

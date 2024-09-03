@@ -17,6 +17,10 @@ public class SgDialogue : MonoBehaviour
 		{
 			character = GetComponentInParent<SgCharacter>();
 		}
+		foreach(SgDialogueReply reply in replies)
+		{
+			reply.connectedToDialogue = this;
+		}
 	}
 
 	public IList<int> MainTranslationIds
@@ -61,4 +65,5 @@ public class SgDialogueReply
 	public SgItemType addItem;
 	public int reduceMoney;
 	public SgCondition[] conditions;
+	public SgDialogue connectedToDialogue;
 }
