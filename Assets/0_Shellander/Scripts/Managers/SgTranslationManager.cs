@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class SgTranslationManager : SgBehavior
 {
@@ -42,14 +43,28 @@ public class SgTranslationManager : SgBehavior
 	public SgInteractTranslation GetInteractConfig(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
 		SgItemType itemType)
 	{
-		if(interactType == SgInteractType.Item)
+		SgSkinType currentSkin = SgPlayer.Get().CurrentSkin.skinType;
+
+		List<SgInteractTranslation> filteredConfigs = new();
+		filteredConfigs.AddRange(interactConfigs);
+		List<SgInteractTranslation> skinSpecifics = interactConfigs.Where(c => c.onlyForSkins.Contains(currentSkin)).ToList();
+		if(skinSpecifics.Count > 0)
+		{
+			filteredConfigs = skinSpecifics;
+		}
+		else
+		{
+			filteredConfigs = interactConfigs.Where(c => c.onlyForSkins.Length == 0).ToList();
+		}
+
+		if (interactType == SgInteractType.Item)
         {
-			SgInteractTranslation specificItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(itemType));
+			SgInteractTranslation specificItemConfig = filteredConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(itemType));
 			if(specificItemConfig != null)
             {
 				return specificItemConfig;
             }
-			SgInteractTranslation genericItemConfig = interactConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
+			SgInteractTranslation genericItemConfig = filteredConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
 			if(genericItemConfig != null)
             {
 				return genericItemConfig;
@@ -57,7 +72,7 @@ public class SgTranslationManager : SgBehavior
 			return null;
 		}
 
-		foreach (SgInteractTranslation interactConfig in interactConfigs)
+		foreach (SgInteractTranslation interactConfig in filteredConfigs)
 		{
 			if(interactConfig.onlyWhenCollected && !isCollected)
 			{
@@ -106,6 +121,7 @@ public class SgInteractTranslation
 	public SgItemType[] onlyWhenNotCollectedItemTypes;
 	public SgRoomName transitionToRoom = SgRoomName.Illegal;
 	public SgRoomName[] onlyInRooms;
+	public SgSkinType[] onlyForSkins;
 	public string setNamedBool;
 	public bool setNamedBoolToFalse;
 	public SgDialogue startDialogue;
