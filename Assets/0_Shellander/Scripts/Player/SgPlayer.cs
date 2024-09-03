@@ -430,13 +430,11 @@ public class SgPlayer : SgBehavior
 		SgItemType itembarItemType = itembarItem != null ? itembarItem.Definition.itemType : SgItemType.Illegal;
 		SgInteraction interaction = SetInteraction(hoveredInteractGroup, itembarItemType, CursorController.SelectedItem, CursorController.SelectedInteractType);
 		SgInteractTranslation interactConfig = interaction?.InteractConfig;
-		//Debug.Log("**** inter:1:" + interaction.interactGroup + ", redir:" + interactConfig.redirect + ", debugString=" + interactConfig.debugString);
 		if (interactConfig != null && interactConfig.redirect)
 		{
 			interaction.interactGroup = interactConfig.redirect;
 			interactConfig = interaction.InteractConfig;
 		}
-		//Debug.Log("**** inter:2:"+interaction.interactGroup+", redir:"+interactConfig.redirect+ ", debugString="+ interactConfig.debugString);
 			
 		if (interactConfig != null && interactConfig.walkToItFirst)
 		{
@@ -572,13 +570,40 @@ public class SgPlayer : SgBehavior
 				yield return DialogueRoutine(interactConfig.startDialogue);
 			}
 		}
+		
 
 		character.ClearSpeech();
-		if(m_State != SgPlayerState.AwaitingDialogueReply)
+
+		if(m_State == SgPlayerState.AwaitingDialogueReply)
+		{
+			//
+		}
+		else
+		{
+			AfterInteraction();
+		}
+	}
+	private void AfterInteraction()
+	{
+		HudManager.SetItembarVisible(true);
+
+		SgInteraction interaction = m_CurrentInteraction;
+		SgInteractTranslation interactConfig = interaction.InteractConfig;
+
+		bool shouldWalkToATarget = interaction.type == SgInteractType.Collision && interactConfig != null && interactConfig.walkToItFirst;
+		if (shouldWalkToATarget)
+		{
+			Vector3 pos = m_CurrentInteraction.interactGroup.walkTarget.position;
+			SetDestination(pos, pos);
+			CurrentSkin.walkAnimation.Play();
+			SetInteraction(m_CurrentInteraction.interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Generic);
+			SetState(SgPlayerState.InteractWalking);
+		}
+		else
 		{
 			SetState(SgPlayerState.None);
 			ClearInteraction();
-		}
+		}		
 	}
 
 	private void StartDialogueReply(SgDialogueReply reply)
@@ -609,7 +634,7 @@ public class SgPlayer : SgBehavior
 		}
 		else
 		{
-			SetState(SgPlayerState.None);
+			AfterInteraction();
 		}
 	}
 	private IEnumerator DialogueRoutine(SgDialogue dialogue)
