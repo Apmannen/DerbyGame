@@ -1434,6 +1434,9 @@ PrefabInstance:
       addedObject: {fileID: 1446144254}
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1307084449}
+    - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1930574381}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
@@ -2195,6 +2198,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
   m_PrefabInstance: {fileID: 1183673724}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1307084448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1307084449}
+  - component: {fileID: 1307084450}
+  m_Layer: 0
+  m_Name: dialogue-explain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1307084449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307084448}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 700963334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307084450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307084448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028abaa7c7a8d84199fb28f36afdfaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainTranslationIds: 2a0100002b0100002c010000
+  mainDialogueSpeaks: []
+  replies: []
+  redirectAfterDialogue: {fileID: 0}
+  character: {fileID: 0}
 --- !u!1 &1356840317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
@@ -2805,9 +2857,35 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 1
       minMoney: 0
-  replies: []
+  replies:
+  - translationId: 296
+    isSilent: 0
+    nextDialogue: {fileID: 1307084450}
+    addItem: 0
+    reduceMoney: 0
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 2
+      minMoney: 0
+  - translationId: 297
+    isSilent: 0
+    nextDialogue: {fileID: 0}
+    addItem: 0
+    reduceMoney: 0
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 2
+      minMoney: 0
   redirectAfterDialogue: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1356840319}
 --- !u!1 &1930574380
 GameObject:
   m_ObjectHideFlags: 0
