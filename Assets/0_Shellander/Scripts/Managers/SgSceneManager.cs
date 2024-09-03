@@ -64,6 +64,7 @@ public class SgSceneManager : SgBehavior
 		}
 		m_IsTransitioning = true;
 		StartCoroutine(RoomTransition(roomName));
+		SaveDataManager.Save();
 	}
 
 	private IEnumerator RoomTransition(SgRoomName roomName)
@@ -83,7 +84,7 @@ public class SgSceneManager : SgBehavior
 		}
 
 		SetCurrentRoom(roomName); //intentionally set before fully loaded, could have a different one afterwards if necessary
-		yield return AsyncLoadScene(roomName.ToString());		
+		yield return AsyncLoadScene(roomName.ToString());
 
 		m_IsTransitioning = false;
 	}

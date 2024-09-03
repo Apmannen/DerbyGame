@@ -15,7 +15,6 @@ public class SgSaveDataManager : SgBehavior
 	public HashSet<string> SaveKeys => m_SaveKeys;
 	private SgSaveFile m_CurrentSaveFile;
 	public SgSaveFile CurrentSaveFile => m_CurrentSaveFile;
-	private SgPlayerPrefs m_Prefs = new SgPlayerPrefs();
 
 	private void Awake()
 	{
@@ -24,7 +23,7 @@ public class SgSaveDataManager : SgBehavior
 
 	public void Save()
 	{
-		m_Prefs.Save(0);
+		SgPrefsSingleton._.Save(0);
 	}
 
 	public class SgSaveFile
@@ -111,11 +110,13 @@ public class SgSaveDataManager : SgBehavior
 
 		public override void Set(bool value)
 		{
-			PlayerPrefs.SetInt(FullKey, value ? 1 : 0);
+			//PlayerPrefs.SetInt(FullKey, value ? 1 : 0);
+			SgPrefsSingleton._.SetInt(FullKey, value ? 1 : 0);
 		}
 		public override bool Get()
 		{
-			return PlayerPrefs.GetInt(FullKey, DefaultValue ? 1 : 0) == 1;
+			//return PlayerPrefs.GetInt(FullKey, DefaultValue ? 1 : 0) == 1;
+			return SgPrefsSingleton._.GetInt(FullKey, DefaultValue ? 1 : 0) == 1;
 		}
 	}
 
@@ -127,16 +128,19 @@ public class SgSaveDataManager : SgBehavior
 
 		public override void Set(E value)
 		{
-			PlayerPrefs.SetInt(FullKey, Convert.ToInt32(value));
+			//PlayerPrefs.SetInt(FullKey, Convert.ToInt32(value));
+			SgPrefsSingleton._.SetInt(FullKey, Convert.ToInt32(value));
 		}
 		public override E Get()
 		{
-			if(!PlayerPrefs.HasKey(FullKey))
+			//if(!PlayerPrefs.HasKey(FullKey))
+			if(SgPrefsSingleton._.HasKey(FullKey))
 			{
 				return this.DefaultValue;
 			}
 
-			int intValue = PlayerPrefs.GetInt(FullKey);
+			//int intValue = PlayerPrefs.GetInt(FullKey);
+			int intValue = SgPrefsSingleton._.GetInt(FullKey, -1);
 			var enumValues = Enum.GetValues(typeof(E));
 
 			return (E) enumValues.GetValue(intValue);
@@ -153,16 +157,19 @@ public class SgSaveDataManager : SgBehavior
 		{
 			if (value == DefaultValue)
 			{
-				PlayerPrefs.DeleteKey(FullKey);
+				//PlayerPrefs.DeleteKey(FullKey);
+				SgPrefsSingleton._.DeleteKey(FullKey);
 			}
 			else
 			{
-				PlayerPrefs.SetString(FullKey, value.ToString());
+				//PlayerPrefs.SetString(FullKey, value.ToString());
+				SgPrefsSingleton._.SetLong(FullKey, value);
 			}
 		}
 		public override long Get()
 		{
-			return long.Parse(PlayerPrefs.GetString(FullKey, DefaultValue.ToString()));
+			//return long.Parse(PlayerPrefs.GetString(FullKey, DefaultValue.ToString()));
+			return SgPrefsSingleton._.GetLong(FullKey, DefaultValue);
 		}
 	}
 
@@ -223,6 +230,24 @@ public class SgSaveDataManager : SgBehavior
 		}
 	}
 
+	/// <summary>
+	/// Use singleton to be consistent with previous PlayerPrefs solution and to survive new game / load.
+	/// </summary>
+	private static class SgPrefsSingleton
+	{
+		private static SgPlayerPrefs s_Instance;
+		public static SgPlayerPrefs _
+		{
+			get
+			{
+				if (s_Instance == null)
+				{
+					s_Instance = new SgPlayerPrefs();
+				}
+				return s_Instance;
+			}
+		}
+	}
 	private class SgPlayerPrefs
 	{
 		private readonly Dictionary<string, object> m_Map = new Dictionary<string, object>();
@@ -371,7 +396,7 @@ public class SgSaveDataManager : SgBehavior
 			}
 		}
 
-		private void DeleteKey(string fullKey)
+		public void DeleteKey(string fullKey)
 		{
 			m_Map.Remove(fullKey);
 		}
