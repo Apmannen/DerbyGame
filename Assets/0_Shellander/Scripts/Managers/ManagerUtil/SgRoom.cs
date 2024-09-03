@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 
 public class SgRoom : MonoBehaviour
 {
-	//public int uiWidth = -1;
+	public SgRoomName RoomName => (SgRoomName) System.Enum.Parse(typeof(SgRoomName), this.name);
 }
 
 #if UNITY_EDITOR

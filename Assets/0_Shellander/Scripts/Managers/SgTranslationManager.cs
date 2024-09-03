@@ -105,6 +105,7 @@ public class SgInteractTranslation
 	public SgItemType[] onlyWhenCollectedItemTypes;
 	public SgItemType[] onlyWhenNotCollectedItemTypes;
 	public SgRoomName transitionToRoom = SgRoomName.Illegal;
+	public SgRoomName[] onlyInRooms;
 	public string setNamedBool;
 	public bool setNamedBoolToFalse;
 	public SgDialogue startDialogue;

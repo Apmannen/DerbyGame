@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public enum SgPlayerStance { Normal, Sitting, Hidden }
 public enum SgSkinType { Illegal, Normal, Black, Aik }
@@ -526,7 +527,10 @@ public class SgPlayer : SgBehavior
 						{
 							interactTranslationIds = interactConfig.translationIds;
 						}
-						ChangeSkin(interaction.ItembarItemDefinition.skinType);
+						if(SceneManager.CurrentRoom.RoomName != SgRoomName.Sewers)
+						{
+							ChangeSkin(interaction.ItembarItemDefinition.skinType);
+						}
 					}
 					else if(!ignoreUse)
 					{
@@ -653,6 +657,8 @@ public class SgPlayer : SgBehavior
 		public bool IsItemInteraction => itembarItem != SgItemType.Illegal;
 		public SgItemDefinition ItembarItemDefinition => SgManagers._.itemManager.Get(itembarItem);
 
+		private static SgSceneManager SceneManager => SgManagers._.sceneManager;
+
 		public SgInteractTranslation InteractConfig
 		{
 			get
@@ -663,11 +669,15 @@ public class SgPlayer : SgBehavior
 				}
 				if (IsItemInteraction)
 				{
+					List<SgInteractTranslation> filteredConfigs = new();
+					filteredConfigs.AddRange(ItembarItemDefinition.interactTranslations);
+					filteredConfigs.Where(c => c.onlyInRooms.Length == 0 || c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName));
+
 					if(this.useItem != SgItemType.Illegal)
 					{
-						return ItembarItemDefinition.interactTranslations.SingleOrDefault(c => c.interactType == type && c.itemType == useItem);
+						return filteredConfigs.SingleOrDefault(c => c.interactType == type && c.itemType == useItem);
 					}
-					return ItembarItemDefinition.interactTranslations.SingleOrDefault(c => c.interactType == type);
+					return filteredConfigs.SingleOrDefault(c => c.interactType == type);
 				}
 				return null;
 			}
