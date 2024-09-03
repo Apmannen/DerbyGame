@@ -36,10 +36,10 @@ public class SgTranslationManager : SgBehavior
 
 	public int[] GetInteractTranslationIds(SgInteractTranslation[] interactTranslations, SgInteractType interactType, bool isCollected)
 	{
-		return GetInteractTranslation(interactTranslations, interactType, isCollected, SgItemType.Illegal).translationIds;
+		return GetInteractConfig(interactTranslations, interactType, isCollected, SgItemType.Illegal).translationIds;
 	}
-	//TODO: move away from here, is not (only) translations anymore
-	public SgInteractTranslation GetInteractTranslation(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
+	//TODO: move away from here, is not (only) translations anymore... or rather convert this class to InteractManager.
+	public SgInteractTranslation GetInteractConfig(SgInteractTranslation[] interactConfigs, SgInteractType interactType, bool isCollected, 
 		SgItemType itemType)
 	{
 		if(interactType == SgInteractType.Item)
@@ -110,6 +110,7 @@ public class SgInteractTranslation
 	public SgDialogue startDialogue;
 	public UnityEvent method;
 	public Sprite fullscreenSprite;
+	public SgInteractGroup redirect;
 
 	private HashSet<SgItemType> m_ItemTypes;
 

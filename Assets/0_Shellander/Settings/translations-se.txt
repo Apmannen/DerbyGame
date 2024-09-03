@@ -264,3 +264,5 @@ Det ligger en kniv här.
 Det låg en kniv här förut.
 Kniv
 Det är en gammal hederlig kniv.
+Skylt
+Det är en busshållplats här

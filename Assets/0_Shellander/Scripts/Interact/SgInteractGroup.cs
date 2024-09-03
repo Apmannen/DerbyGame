@@ -86,17 +86,22 @@ public class SgInteractGroup : SgBehavior
 		if (interactConfig == null && IsConnectedToItem && redirectToItem)
 		{
 			//Item redirect override (not really used anymore?)
-			interactConfig = TranslationManager.GetInteractTranslation(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
+			interactConfig = TranslationManager.GetInteractConfig(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
 			//This (interacted SgInteractGroup)
-			interactConfig = TranslationManager.GetInteractTranslation(interactTranslations, interactType, IsItemCollected, useItemType);
+			interactConfig = TranslationManager.GetInteractConfig(this.interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
 			//Global default fallback
-			interactConfig = TranslationManager.GetInteractTranslation(TranslationManager.defaultTranslations, interactType, false, useItemType);
+			interactConfig = TranslationManager.GetInteractConfig(TranslationManager.defaultTranslations, interactType, false, useItemType);
+		}
+		if (interactConfig != null && interactConfig.redirect != null)
+		{
+			SgInteractTranslation tmpInteractConfig = TranslationManager.GetInteractConfig(interactConfig.redirect.interactTranslations, interactType, IsItemCollected, useItemType);
+			interactConfig = tmpInteractConfig ?? interactConfig;
 		}
 
 		return interactConfig;
