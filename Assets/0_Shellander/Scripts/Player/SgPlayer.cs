@@ -449,10 +449,14 @@ public class SgPlayer : SgBehavior
 		}
 		else
 		{
-			SetDestination(this.transform.position, null);
-			CurrentSkin.walkAnimation.Stop();
+			StopMoving();
 			StartInteraction();
 		}
+	}
+	private void StopMoving()
+	{
+		SetDestination(this.transform.position, null);
+		CurrentSkin.walkAnimation.Stop();
 	}
 	public void OnTriggerCollision(SgInteractGroup interactGroup)
 	{
@@ -462,8 +466,7 @@ public class SgPlayer : SgBehavior
 		}
 
 		SetInteraction(interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Collision);
-		SetDestination(this.transform.position, null);
-		CurrentSkin.walkAnimation.Stop();
+		StopMoving();
 		StartInteraction();
 	}
 
