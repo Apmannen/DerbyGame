@@ -100,7 +100,8 @@ public class SgInteractGroup : SgBehavior
 		}
 		if (interactConfig != null && interactConfig.redirect != null)
 		{
-			SgInteractTranslation tmpInteractConfig = TranslationManager.GetInteractConfig(interactConfig.redirect.interactTranslations, interactType, IsItemCollected, useItemType);
+			SgInteractTranslation tmpInteractConfig = TranslationManager.GetInteractConfig(interactConfig.redirect.interactTranslations, interactType, 
+				interactConfig.redirect.IsItemCollected, useItemType);
 			interactConfig = tmpInteractConfig ?? interactConfig;
 		}
 
