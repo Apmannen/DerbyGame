@@ -460,6 +460,7 @@ public class SgPlayer : SgBehavior
 		{
 			return;
 		}
+
 		SetInteraction(interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Collision);
 		SetDestination(this.transform.position, null);
 		CurrentSkin.walkAnimation.Stop();
