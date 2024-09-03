@@ -2857,6 +2857,15 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 1
       minMoney: 0
+  - translationIds: 27010000
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 2
+      minMoney: 0
   replies:
   - translationId: 296
     isSilent: 0
