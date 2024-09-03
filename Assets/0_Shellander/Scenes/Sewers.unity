@@ -943,11 +943,17 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: SewersAccess
     collectedItem: 0
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   - successOnTrue: 1
     namedBool: 
     collectedItem: 0
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 3
+    minMoney: -1
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -996,8 +1002,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 96000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
+  character: {fileID: 0}
 --- !u!1001 &453644264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1758,7 +1766,10 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: 
     collectedItem: 17
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -2356,7 +2367,10 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: 
     collectedItem: 17
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -2457,8 +2471,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 98000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
+  character: {fileID: 0}
 --- !u!1001 &1547678860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2639,7 +2655,10 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: 
     collectedItem: 17
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -2733,7 +2752,7 @@ GameObject:
   - component: {fileID: 1913901306}
   - component: {fileID: 1913901307}
   m_Layer: 0
-  m_Name: dialogue-showmethecard
+  m_Name: dialogue-start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2766,9 +2785,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a028abaa7c7a8d84199fb28f36afdfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTranslationIds: 95000000
+  mainTranslationIds: 
+  mainDialogueSpeaks:
+  - translationIds: 95000000
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 3
+      minMoney: 0
+  - translationIds: 26010000
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 1
+      minMoney: 0
   replies: []
   redirectAfterDialogue: {fileID: 0}
+  character: {fileID: 0}
 --- !u!1 &1930574380
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,7 +3104,10 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: 
     collectedItem: 17
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -3114,8 +3156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 9f000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
+  character: {fileID: 0}
 --- !u!1 &2059130889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,35 +3506,6 @@ PrefabInstance:
     - target: {fileID: 4350015964145985588, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_Name
       value: P_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_text
-      value: "Jag har inte tid att sova nu, jag m\xE5ste ju f\xF6rbereda mig inf\xF6r
-        matchen"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_lineSpacing
-      value: -17.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7696495994123542416, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_Camera

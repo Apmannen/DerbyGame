@@ -614,7 +614,7 @@ public class SgPlayer : SgBehavior
 
 		HudManager.ClearReplyBar();
 		SetState(SgPlayerState.Interacting);
-		yield return otherCharacter.Talk(dialogue.mainTranslationIds);
+		yield return otherCharacter.Talk(dialogue.MainTranslationIds);
 
 		IList<SgDialogueReply> validReplies = dialogue.ValidReplies;
 		if(validReplies.Count > 0)
