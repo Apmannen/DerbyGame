@@ -134,7 +134,7 @@ public class SgSaveDataManager : SgBehavior
 		public override E Get()
 		{
 			//if(!PlayerPrefs.HasKey(FullKey))
-			if(SgPrefsSingleton._.HasKey(FullKey))
+			if(!SgPrefsSingleton._.HasKey(FullKey))
 			{
 				return this.DefaultValue;
 			}
@@ -250,9 +250,8 @@ public class SgSaveDataManager : SgBehavior
 	}
 	private class SgPlayerPrefs
 	{
-		private readonly Dictionary<string, object> m_Map = new Dictionary<string, object>();
+		private readonly Dictionary<string, object> m_Map = new();
 		private readonly string m_LocalFilename = "settings_local.sav"; //graphics settings etc.
-																		//private readonly string m_GlobalFilename = "savefile_global.sav"; //save data, share with cloud
 		private readonly string m_Path;
 
 		private SgGameManager GameManager => SgManagers._.gameManager;
