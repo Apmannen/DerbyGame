@@ -25,8 +25,12 @@ public class SgInteractable : SgBehavior
 		{
 			return;
 		}
+		if(!collision.gameObject.TryGetComponent<SgPlayer>(out SgPlayer player))
+		{
+			return;
+		}
 
-		SgPlayer.Get().OnTriggerCollision(this.InteractGroup);
+		player.OnTriggerCollision(this.InteractGroup);
 	}
 }
 
