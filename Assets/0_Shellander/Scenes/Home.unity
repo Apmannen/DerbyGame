@@ -992,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: nameTranslationId
-      value: -1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: collectedRendererIndex
@@ -2191,7 +2191,10 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: 
     collectedItem: 1
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -3094,7 +3097,10 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: 
     collectedItem: 25
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -3932,7 +3938,10 @@ MonoBehaviour:
   - successOnTrue: 1
     namedBool: 
     collectedItem: 1
+    collectedItemEver: 0
+    discoveredItem: 0
     skinType: 0
+    minMoney: -1
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
