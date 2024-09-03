@@ -670,14 +670,24 @@ public class SgPlayer : SgBehavior
 				if (IsItemInteraction)
 				{
 					List<SgInteractTranslation> filteredConfigs = new();
-					filteredConfigs.AddRange(ItembarItemDefinition.interactTranslations);
-					filteredConfigs.Where(c => c.onlyInRooms.Length == 0 || c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName));
+					filteredConfigs = ItembarItemDefinition.interactTranslations.Where(c => c.interactType == type).ToList();
 
 					if(this.useItem != SgItemType.Illegal)
 					{
-						return filteredConfigs.SingleOrDefault(c => c.interactType == type && c.itemType == useItem);
+						filteredConfigs = filteredConfigs.Where(c => c.itemType == useItem).ToList();
 					}
-					return filteredConfigs.SingleOrDefault(c => c.interactType == type);
+
+					List<SgInteractTranslation> roomSpecificConfigs = filteredConfigs.Where(c => c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName)).ToList();
+					if(roomSpecificConfigs.Count >= 1)
+					{
+						filteredConfigs = roomSpecificConfigs;
+					}
+					else
+					{
+						filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
+					}
+
+					return filteredConfigs.FirstOrDefault();
 				}
 				return null;
 			}
