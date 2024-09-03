@@ -290,3 +290,4 @@ Nej, vi djurgårdare håller inte på med sånt.
 Nej tack, man vet aldrig var den har varit.
 Bord
 Det är ett bord.
+Flagga
