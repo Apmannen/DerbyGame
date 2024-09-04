@@ -47,15 +47,17 @@ public class SgTranslationManager : SgBehavior
 
 		List<SgInteractTranslation> filteredConfigs = new();
 		filteredConfigs.AddRange(interactConfigs);
-		List<SgInteractTranslation> skinSpecifics = interactConfigs.Where(c => c.onlyForSkins.Contains(currentSkin)).ToList();
+		filteredConfigs = filteredConfigs.Where(c => c.interactType == interactType).ToList();
+		List<SgInteractTranslation> skinSpecifics = filteredConfigs.Where(c => c.onlyForSkins.Contains(currentSkin)).ToList();
 		if(skinSpecifics.Count > 0)
 		{
 			filteredConfigs = skinSpecifics;
 		}
 		else
 		{
-			filteredConfigs = interactConfigs.Where(c => c.onlyForSkins.Length == 0).ToList();
+			filteredConfigs = filteredConfigs.Where(c => c.onlyForSkins.Length == 0).ToList();
 		}
+		//Debug.Log("**** INTCLICK, filterlen="+filteredConfigs.Count);
 
 		if (interactType == SgInteractType.Item)
         {
@@ -92,10 +94,10 @@ public class SgTranslationManager : SgBehavior
 				continue;
 			}
 
-			if (interactConfig.interactType == interactType)
-			{
-				return interactConfig;
-			}
+			//if (interactConfig.interactType == interactType)
+			//{
+			return interactConfig;
+			//}
 		}
 		return null;
 	}

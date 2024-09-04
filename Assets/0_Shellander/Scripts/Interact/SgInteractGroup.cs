@@ -98,12 +98,6 @@ public class SgInteractGroup : SgBehavior
 			//Global default fallback
 			interactConfig = TranslationManager.GetInteractConfig(TranslationManager.defaultTranslations, interactType, false, useItemType);
 		}
-		//if (interactConfig != null && interactConfig.redirect != null)
-		//{
-		//	SgInteractTranslation tmpInteractConfig = TranslationManager.GetInteractConfig(interactConfig.redirect.interactTranslations, interactType, 
-		//		interactConfig.redirect.IsItemCollected, useItemType);
-		//	interactConfig = tmpInteractConfig ?? interactConfig;
-		//}
 
 		return interactConfig;
 	}
