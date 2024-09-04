@@ -10,6 +10,7 @@ using UnityEngine;
 public class SgSaveDataManager : SgBehavior
 {
 	public int saveInterval = 120;
+	public bool sortKeys = true;
 
 	private readonly HashSet<string> m_SaveKeys = new HashSet<string>();
 	public HashSet<string> SaveKeys => m_SaveKeys;
@@ -18,6 +19,7 @@ public class SgSaveDataManager : SgBehavior
 
 	private void Awake()
 	{
+		SgPrefsSingleton.Init(sortKeys);
 		m_CurrentSaveFile = new SgSaveFile(0);
 	}
 
@@ -222,18 +224,13 @@ public class SgSaveDataManager : SgBehavior
 	/// </summary>
 	private static class SgPrefsSingleton
 	{
-		private static SgPlayerPrefs s_Instance;
-		public static SgPlayerPrefs _
+		public static void Init(bool sortKeys)
 		{
-			get
-			{
-				if (s_Instance == null)
-				{
-					s_Instance = new SgPlayerPrefs();
-				}
-				return s_Instance;
-			}
+			s_Instance = new SgPlayerPrefs(SgManagers._.saveDataManager.sortKeys);
 		}
+
+		private static SgPlayerPrefs s_Instance;
+		public static SgPlayerPrefs _ => s_Instance;
 	}
 	private class SgPlayerPrefs
 	{
@@ -241,10 +238,12 @@ public class SgSaveDataManager : SgBehavior
 		private readonly string m_LocalFilename = "settings_local.sav"; //graphics settings etc.
 		private readonly string m_Path;
 
-		private SgGameManager GameManager => SgManagers._.gameManager;
+		private bool m_SortKeys;
 
-		public SgPlayerPrefs()
+		public SgPlayerPrefs(bool sortKeys)
 		{
+			m_SortKeys = sortKeys;
+
 			string innerDirectory;
 
 			if (Application.platform == RuntimePlatform.WindowsEditor)
@@ -475,7 +474,7 @@ public class SgSaveDataManager : SgBehavior
 		public void Save(int saveFileId)
 		{
 			List<string> keysList = m_Map.Keys.ToList();
-			if (GameManager.isBeta)
+			if (m_SortKeys)
 			{
 				keysList.Sort((a, b) =>
 				{
@@ -495,8 +494,8 @@ public class SgSaveDataManager : SgBehavior
 
 			string saveStartPattern = "Sg" + saveFileId + "_";
 
-			StringBuilder sbLocal = new StringBuilder();
-			StringBuilder sbGlobal = new StringBuilder(m_Map.Count * 20);
+			StringBuilder sbLocal = new();
+			StringBuilder sbGlobal = new(m_Map.Count * 20);
 			foreach (string key in keysList)
 			{
 				object value = m_Map[key];
