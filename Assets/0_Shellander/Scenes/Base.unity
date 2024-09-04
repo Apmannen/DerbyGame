@@ -270,6 +270,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 90
   skinType: 0
 --- !u!1 &50219225
@@ -700,6 +701,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &261378860
@@ -1271,6 +1273,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &395457574
@@ -1530,6 +1533,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 13
     itemTypes: 
@@ -1554,6 +1558,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 15
     itemTypes: 
@@ -1578,6 +1583,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -1602,6 +1608,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -1626,6 +1633,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 2
 --- !u!21 &434229942
@@ -2435,6 +2443,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!4 &506300101
@@ -2920,6 +2929,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!4 &613333318
@@ -2994,6 +3004,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!4 &645148963
@@ -3350,6 +3361,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -3374,6 +3386,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &758691912
@@ -3448,6 +3461,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &787276921
@@ -3763,6 +3777,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &839854202
@@ -3837,6 +3852,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -3861,6 +3877,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 1
 --- !u!1 &876484149
@@ -3935,6 +3952,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -3948,7 +3966,7 @@ MonoBehaviour:
     onlyWhenCollectedItemTypes: 
     onlyWhenNotCollectedItemTypes: 
     transitionToRoom: 0
-    onlyInRooms: 
+    onlyInRooms: 05000000
     onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
@@ -3959,6 +3977,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -3983,6 +4002,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 2
 --- !u!1 &957343116
@@ -5266,6 +5286,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &1194111897
@@ -5716,6 +5737,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &1366747703
@@ -6339,6 +6361,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &1511871020
@@ -6413,6 +6436,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 100
   skinType: 0
 --- !u!1 &1516207971
@@ -7271,6 +7295,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -7295,6 +7320,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &1733570265
@@ -7543,6 +7569,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 200
   skinType: 0
 --- !u!1 &1778100956
@@ -7744,6 +7771,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 210
   skinType: 0
 --- !u!1001 &1788383199
@@ -8420,6 +8448,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 190
   skinType: 0
 --- !u!1 &1869631125
@@ -8727,6 +8756,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -8751,6 +8781,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 4
     itemType: 0
     itemTypes: 
@@ -8775,6 +8806,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 0
     itemTypes: 
@@ -8799,6 +8831,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 20
     itemTypes: 
@@ -8823,6 +8856,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -8847,6 +8881,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
 --- !u!1 &1900583169
 GameObject:
   m_ObjectHideFlags: 0
@@ -8919,6 +8954,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -8943,6 +8979,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -8967,6 +9004,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 3
 --- !u!1 &1922297024
@@ -9160,6 +9198,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &1947392219
@@ -9430,6 +9469,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!4 &2004834534
@@ -10042,6 +10082,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 21300000, guid: f2620fd191bbfb74a99022860c7143a0, type: 3}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -10066,6 +10107,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 21300000, guid: f2620fd191bbfb74a99022860c7143a0, type: 3}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!4 &2057229363
@@ -10370,6 +10412,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1001 &2101455583
@@ -10601,6 +10644,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   - interactType: 8
     itemType: 13
     itemTypes: 
@@ -10625,6 +10669,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1 &2126825507
@@ -10699,6 +10744,7 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+    isFallback: 0
   moneyValue: 0
   skinType: 0
 --- !u!1001 &297584127786414223
