@@ -28,6 +28,11 @@ public class SgTranslationManager : SgBehavior
 
 			m_TranslationsSe[lineId] = lines[i];
 		}
+
+		foreach(SgInteractTranslation interactConfig in defaultTranslations)
+		{
+			interactConfig.isFallback = true;
+		}
 	}
 
 	public string Get(int translationId)
@@ -176,6 +181,7 @@ public class SgInteractTranslation
 	public Sprite fullscreenSprite;
 	public SgInteractGroup redirect;
 	public string debugString;
+	public bool isFallback;
 
 	private HashSet<SgItemType> m_ItemTypes;
 

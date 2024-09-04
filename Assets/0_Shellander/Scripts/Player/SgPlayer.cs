@@ -477,7 +477,7 @@ public class SgPlayer : SgBehavior
 				case SgInteractType.Use:
 					if(interaction.ItembarItemDefinition.skinType != SgSkinType.Illegal)
 					{
-						if(interactConfig != null)
+						if(interactConfig != null && !interactConfig.isFallback)
 						{
 							interactTranslationIds = interactConfig.translationIds;
 						}
@@ -505,17 +505,9 @@ public class SgPlayer : SgBehavior
 							ItemManager.Collect(interactConfig.triggerCollect);
 						}
 					}
-					else //why necessary? Should get it from interaction.InteractConfig
+					else
 					{
 						Debug.LogError("Why didn't we find any in interaction.InteractConfig?");
-						//SgInteractTranslation aDefaultConfig = TranslationManager.defaultTranslations
-						//	.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(interaction.useItem));
-						//if(aDefaultConfig == null)
-						//{
-						//	aDefaultConfig = TranslationManager.defaultTranslations
-						//		.Single(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
-						//}
-						//interactTranslationIds = aDefaultConfig.translationIds;
 					}
 					break;
 				default: 
