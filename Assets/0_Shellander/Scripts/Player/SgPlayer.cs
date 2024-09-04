@@ -646,7 +646,6 @@ public class SgPlayer : SgBehavior
 		public bool IsItemInteraction => itembarItem != SgItemType.Illegal;
 		public SgItemDefinition ItembarItemDefinition => SgManagers._.itemManager.Get(itembarItem);
 
-		//private static SgSceneManager SceneManager => SgManagers._.sceneManager;
 		private static SgTranslationManager InteractManager => SgManagers._.translationManager;
 
 		public SgInteractTranslation InteractConfig
@@ -660,36 +659,6 @@ public class SgPlayer : SgBehavior
 				else if (IsItemInteraction)
 				{
 					return InteractManager.GetItembarInteractConfig(type, ItembarItemDefinition, useItem);
-					//List<SgInteractTranslation> filteredConfigs = new();
-					//filteredConfigs = ItembarItemDefinition.interactTranslations.Where(c => c.interactType == type).ToList();
-					//Debug.Log("**** FILTER1:"+filteredConfigs.Count+", it="+ type);
-
-					//if(this.useItem != SgItemType.Illegal)
-					//{
-					//	List<SgInteractTranslation>  itemSpecificConfigs = filteredConfigs.Where(c => c.ItemTypes.Contains(useItem)).ToList();
-					//	if (itemSpecificConfigs.Count >= 1)
-					//	{
-					//		filteredConfigs = itemSpecificConfigs;
-					//	}
-					//	else
-					//	{
-					//		filteredConfigs = filteredConfigs.Where(c => c.ItemTypes.Count == 0).ToList();
-					//	}
-					//}
-					//Debug.Log("**** FILTER2:" + filteredConfigs.Count);
-
-					//List<SgInteractTranslation> roomSpecificConfigs = filteredConfigs.Where(c => c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName)).ToList();
-					//if(roomSpecificConfigs.Count >= 1)
-					//{
-					//	filteredConfigs = roomSpecificConfigs;
-					//}
-					//else
-					//{
-					//	filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
-					//}
-					//Debug.Log("**** FILTER3:" + filteredConfigs.Count);
-
-					//return filteredConfigs.FirstOrDefault();
 				}
 				return null;
 			}
