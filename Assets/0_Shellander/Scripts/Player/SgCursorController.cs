@@ -15,6 +15,7 @@ public class SgCursorController : SgBehavior
 
 	public void Init()
 	{
+		SetWaitMode(false);
 		if(m_IsInitialized)
 		{
 			return;
