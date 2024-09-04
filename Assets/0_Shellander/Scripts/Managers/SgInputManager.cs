@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class SgInputManager : MonoBehaviour
 {
 	public PlayerInput playerInput;
+	public SgCursorController cursorController;
 
 	private InputActionMap m_CurrentActionMap;
 	private InputAction m_ClickAction;

@@ -15,12 +15,16 @@ public class SgCursorController : SgBehavior
 
 	public void Init()
 	{
+		if(m_IsInitialized)
+		{
+			return;
+		}
+		m_IsInitialized = true;
 		for (int i = 0; i < cursors.Length; i++)
 		{
 			cursors[i].index = i;
 		}
 		SetCursor(GetCursorByInteractType(SgInteractType.Walk));
-		m_IsInitialized = true;
 	}
 	public SgInteractType SelectedInteractType => m_SelectedInteract;
 	private SgCursorTypeDefinition ItemCursor => GetCursorByInteractType(SgInteractType.Item);

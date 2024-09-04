@@ -7226,6 +7226,7 @@ GameObject:
   - component: {fileID: 1626964503}
   - component: {fileID: 1626964502}
   - component: {fileID: 1626964504}
+  - component: {fileID: 1626964505}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -7246,6 +7247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 1626964504}
+  cursorController: {fileID: 1626964505}
 --- !u!4 &1626964503
 Transform:
   m_ObjectHideFlags: 0
@@ -7291,6 +7293,43 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1626964505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626964501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834350d8e80c9845a59a0ee6079a8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursors:
+  - interactType: 1
+    sprite: {fileID: 21300000, guid: 9de62038dfa4d5a4c98ba85c53c0db20, type: 3}
+    index: 0
+  - interactType: 2
+    sprite: {fileID: 21300000, guid: bd9e490a377969246be8e5ce3bdf7f00, type: 3}
+    index: 0
+  - interactType: 3
+    sprite: {fileID: 21300000, guid: fd9d74f08ca634a488d8d2f4ea5a97e5, type: 3}
+    index: 0
+  - interactType: 4
+    sprite: {fileID: 21300000, guid: 2a49dee26b7a8d14f9641bc1d28e229a, type: 3}
+    index: 0
+  - interactType: 5
+    sprite: {fileID: 21300000, guid: 52792fcf29f4032409f7d358ff110307, type: 3}
+    index: 0
+  - interactType: 8
+    sprite: {fileID: 0}
+    index: 0
+  - interactType: 6
+    sprite: {fileID: 21300000, guid: 676498c45f03d9b48a40a53d22e835a2, type: 3}
+    index: 0
+  - interactType: 9
+    sprite: {fileID: 21300000, guid: 1bca0ade681507943be2024303196cd1, type: 3}
+    index: 0
 --- !u!1 &1641391067
 GameObject:
   m_ObjectHideFlags: 0

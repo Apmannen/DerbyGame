@@ -38,8 +38,7 @@ public class SgPlayer : SgBehavior
 	private string? m_HighlightedActionTranslation;
 	private bool m_ScheduledMoveToSpawnPos;
 	private SgWheelSliceMapping m_LastHighlightedSlice;
-	private SgCursorController m_CursorController;
-	private SgCursorController CursorController => SgUtil.LazyComponent(this, ref m_CursorController);
+	private SgCursorController CursorController => InputManager.cursorController;
 	private SgSkinType m_CurrentSkinType;
 	public SgSkinSettings CurrentSkin => GetSkinByType(m_CurrentSkinType);
 
