@@ -3350,6 +3350,30 @@ MonoBehaviour:
     fullscreenSprite: {fileID: 0}
     redirect: {fileID: 0}
     debugString: 
+  - interactType: 8
+    itemType: 10
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 3c010000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    onlyWhenCollectedItemTypes: 
+    onlyWhenNotCollectedItemTypes: 
+    transitionToRoom: 0
+    onlyInRooms: 
+    onlyForSkins: 
+    setNamedBool: 
+    setNamedBoolToFalse: 0
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+    redirect: {fileID: 0}
+    debugString: 
   moneyValue: 0
   skinType: 0
 --- !u!1 &758691912
@@ -10559,6 +10583,30 @@ MonoBehaviour:
     triggerCollect: 0
     triggerRemove: 
     translationIds: 81000000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    onlyWhenCollectedItemTypes: 
+    onlyWhenNotCollectedItemTypes: 
+    transitionToRoom: 0
+    onlyInRooms: 
+    onlyForSkins: 
+    setNamedBool: 
+    setNamedBoolToFalse: 0
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+    redirect: {fileID: 0}
+    debugString: 
+  - interactType: 8
+    itemType: 13
+    itemTypes: 
+    triggerCollect: 15
+    triggerRemove: 0d000000
+    translationIds: 93000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
