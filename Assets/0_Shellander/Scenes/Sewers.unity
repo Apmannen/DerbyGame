@@ -4618,6 +4618,29 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 3
       minMoney: 0
+    - successOnTrue: 0
+      namedBool: SewersAccess
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 3
+      minMoney: 0
+  - translationIds: 96000000
+    conditions:
+    - successOnTrue: 1
+      namedBool: 
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 3
+      minMoney: 0
+    - successOnTrue: 1
+      namedBool: SewersAccess
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 3
+      minMoney: 0
   - translationIds: 26010000
     conditions:
     - successOnTrue: 1
