@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SgRoomName { Illegal, Home, Stockholm, Solna, ApartmentBuilding, Sewers, Shop, Apartment, Bathroom, Pub }
+public enum SgRoomName { Illegal, Home, Stockholm, Solna, ApartmentBuilding, Sewers, Shop, Apartment, Bathroom, Pub, SewersRoom }
 
 public class SgSceneManager : SgBehavior
 {

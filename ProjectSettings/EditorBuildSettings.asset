@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Shellander/Scenes/Pub.unity
     guid: 0dfeafa3d21e191429a833f6f27fdd0b
+  - enabled: 1
+    path: Assets/0_Shellander/Scenes/SewersRoom.unity
+    guid: 54e5240de40e6f74fa18308ab1baba8c
   m_configObjects: {}
