@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SgMoveAnimation : MonoBehaviour
+public class SgMoveAnimation : SgBehavior
 {
 	public bool autoStart;
 	public SgMoveAnimationStep[] steps;
@@ -75,12 +75,7 @@ public class SgMoveAnimation : MonoBehaviour
 
 	private void Update()
 	{
-		SgPlayer player = SgPlayer.Get();
-		if (player == null)
-		{
-			return;
-		}
-		if (player.ClickAction.WasPressedThisFrame())
+		if (InputManager.ClickAction.WasPressedThisFrame())
 		{
 			AbortStep();
 		}

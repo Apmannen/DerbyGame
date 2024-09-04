@@ -44,11 +44,11 @@ public class SgPlayer : SgBehavior
 	public SgSkinSettings CurrentSkin => GetSkinByType(m_CurrentSkinType);
 
 	//Input
-	private InputActionMap m_CurrentActionMap;
-	private PlayerInput m_PlayerInput;
-	private InputAction m_ClickAction;
-	private InputAction m_PointerAction;
-	private InputAction m_ShiftCursorRight; //TODO: rename since it's multi-purpose
+	//private InputActionMap m_CurrentActionMap;
+	//private PlayerInput m_PlayerInput;
+	//private InputAction m_ClickAction;
+	//private InputAction m_PointerAction;
+	//private InputAction m_ShiftCursorRight; //TODO: rename since it's multi-purpose
 
 	private void Awake()
 	{
@@ -58,8 +58,6 @@ public class SgPlayer : SgBehavior
 
 	private void Start()
 	{
-		ResetInput();
-
 		MoveToSpawnPos();
 
 		CursorController.Init();
@@ -173,38 +171,38 @@ public class SgPlayer : SgBehavior
 		}
 	}
 
-	public InputAction ClickAction => m_ClickAction;
+	
 
-	private void ResetInput()
-	{
-		m_CurrentActionMap = null;
-		if (m_PlayerInput == null)
-		{
-			m_PlayerInput = GetComponent<PlayerInput>();
-		}
-		foreach (UnityEngine.InputSystem.InputActionMap map in m_PlayerInput.actions.actionMaps)
-		{
-			if (map.name == "Player")
-			{
-				m_CurrentActionMap = map.Clone();
-				break;
-			}
-		}
-		m_ClickAction = FindInputAction("Click");
-		m_PointerAction = FindInputAction("PointerPos");
-		m_ShiftCursorRight = FindInputAction("ShiftCursorRight");
-		m_CurrentActionMap.Enable();
-	}
+	//private void ResetInput()
+	//{
+	//	m_CurrentActionMap = null;
+	//	if (m_PlayerInput == null)
+	//	{
+	//		m_PlayerInput = GetComponent<PlayerInput>();
+	//	}
+	//	foreach (UnityEngine.InputSystem.InputActionMap map in m_PlayerInput.actions.actionMaps)
+	//	{
+	//		if (map.name == "Player")
+	//		{
+	//			m_CurrentActionMap = map.Clone();
+	//			break;
+	//		}
+	//	}
+	//	m_ClickAction = FindInputAction("Click");
+	//	m_PointerAction = FindInputAction("PointerPos");
+	//	m_ShiftCursorRight = FindInputAction("ShiftCursorRight");
+	//	m_CurrentActionMap.Enable();
+	//}
 
-	private InputAction FindInputAction(string name)
-	{
-		InputAction action = m_CurrentActionMap.FindAction(name, false);
-		if (action == null)
-		{
-			Debug.Log("Ignoring input action: " + name);
-		}
-		return action;
-	}
+	//private InputAction FindInputAction(string name)
+	//{
+	//	InputAction action = m_CurrentActionMap.FindAction(name, false);
+	//	if (action == null)
+	//	{
+	//		Debug.Log("Ignoring input action: " + name);
+	//	}
+	//	return action;
+	//}
 
 	private void StartInteraction()
 	{
@@ -288,7 +286,7 @@ public class SgPlayer : SgBehavior
 		}
 
 		//Variables
-		Vector3 cursorWorldPos = CursorController.UpdateCursorPos(m_PointerAction, mainCam.cam);
+		Vector3 cursorWorldPos = CursorController.UpdateCursorPos(InputManager.PointerAction, mainCam.cam);
 		SgInteractGroup hoveredInteractGroup = null;
 
 		//Detect interactable hover
@@ -355,7 +353,7 @@ public class SgPlayer : SgBehavior
 		}
 		else if (IsActionsAllowed())
 		{
-			if (m_ClickAction.WasPressedThisFrame())
+			if (InputManager.ClickAction.WasPressedThisFrame())
 			{
 				Vector3 walkTarget = cursorWorldPos;
 				walkTarget.z = this.transform.position.z;
@@ -371,19 +369,19 @@ public class SgPlayer : SgBehavior
 				}
 
 			}
-			else if (m_ShiftCursorRight.WasPressedThisFrame())
+			else if (InputManager.ShiftCursorRightAction.WasPressedThisFrame())
 			{
 				CursorController.CycleCursor(1);
 			}
 		}
 		else if (m_State == SgPlayerState.Interacting && Time.time > (m_StateActivatedTime + 0.25f) &&
-			(m_ClickAction.WasPressedThisFrame() || m_ShiftCursorRight.WasPressedThisFrame()))
+			(InputManager.ClickAction.WasPressedThisFrame() || InputManager.ShiftCursorRightAction.WasPressedThisFrame()))
 		{
 			SkipAnySpeech();
 		}
 		else if (HudManager.IsFullscreenImageVisible)
 		{
-			if (m_ClickAction.WasPressedThisFrame())
+			if (InputManager.ClickAction.WasPressedThisFrame())
 			{
 				HudManager.SetFullscreenImage(null);
 			}

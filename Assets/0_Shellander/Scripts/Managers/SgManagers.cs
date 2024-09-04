@@ -7,6 +7,7 @@ public class SgManagers : MonoBehaviour
 	public SgEventManager eventManager;
 	public SgGameManager gameManager;
 	public SgHudManager hudManager;
+	public SgInputManager inputManager;
 	public SgItemManager itemManager;
 	public SgLayerManager layerManager;
 	public SgSaveDataManager saveDataManager;
