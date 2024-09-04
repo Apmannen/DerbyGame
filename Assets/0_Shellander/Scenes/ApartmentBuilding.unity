@@ -2262,6 +2262,10 @@ PrefabInstance:
       propertyPath: spawnPositions.Array.data[0]
       value: 
       objectReference: {fileID: 8105757069028215213}
+    - target: {fileID: 1050728045699134630, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.190001
