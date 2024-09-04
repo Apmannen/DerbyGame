@@ -58,7 +58,8 @@ public class SgItemManager : SgBehavior
 	{
 		Debug.Log("*** Try Collect item:" + itemType);
 		SgItemDefinition definition = Get(itemType);
-		if(!definition.Savable.isCollected.Value)
+		bool wasCollected = definition.Savable.isCollected.Value;
+		if (!wasCollected)
 		{
 			definition.Savable.collectTime.Set(SgUtil.CurrentTimeMs());
 		}
@@ -74,6 +75,11 @@ public class SgItemManager : SgBehavior
 		}
 
 		EventManager.Execute(SgEventName.ItemCollected, itemType);
+
+		if(!wasCollected)
+		{
+			SaveDataManager.ScheduleSave();
+		}
 	}
 	public void RemoveItem(SgItemType itemType)
 	{

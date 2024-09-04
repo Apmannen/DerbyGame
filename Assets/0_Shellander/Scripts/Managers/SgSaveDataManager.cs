@@ -17,26 +17,44 @@ public class SgSaveDataManager : SgBehavior
 	private SgSaveFile m_CurrentSaveFile;
 	public SgSaveFile CurrentSaveFile => m_CurrentSaveFile;
 	private float m_TimeElapsedSinceSave;
+	private bool m_IsSaveScheduled;
 
 	private void Awake()
 	{
 		SgPrefsSingleton.Init(sortKeys);
 		m_CurrentSaveFile = new SgSaveFile(0);
+
+		EventManager.Register<SgRoom>(SgEventName.RoomChanged, OnRoomChange);
+	}
+
+	private void OnDestroy()
+	{
+		EventManager.Unregister<SgRoom>(SgEventName.RoomChanged, OnRoomChange);
+	}
+
+	private void OnRoomChange(SgRoom room)
+	{
+		Save();
 	}
 
 	private void Update()
 	{
 		m_TimeElapsedSinceSave += Time.deltaTime;
-		if (m_TimeElapsedSinceSave >= saveInterval)
+		if (m_IsSaveScheduled || m_TimeElapsedSinceSave >= saveInterval)
 		{
 			m_TimeElapsedSinceSave = 0;
 			Save();
 		}
 	}
 
-	public void Save()
+	public void ScheduleSave()
+	{
+		m_IsSaveScheduled = true;
+	}
+	private void Save()
 	{
 		m_TimeElapsedSinceSave = 0;
+		m_IsSaveScheduled = false;
 		SgPrefsSingleton._.Save(0);
 	}
 
@@ -485,6 +503,8 @@ public class SgSaveDataManager : SgBehavior
 
 		public void Save(int saveFileId)
 		{
+			Debug.Log("*** SAVING!");
+
 			List<string> keysList = m_Map.Keys.ToList();
 			if (m_SortKeys)
 			{

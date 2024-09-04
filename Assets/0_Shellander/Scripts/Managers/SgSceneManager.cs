@@ -64,7 +64,6 @@ public class SgSceneManager : SgBehavior
 		}
 		m_IsTransitioning = true;
 		StartCoroutine(RoomTransition(roomName));
-		SaveDataManager.Save();
 	}
 
 	private IEnumerator RoomTransition(SgRoomName roomName)
