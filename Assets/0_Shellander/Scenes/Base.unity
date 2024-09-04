@@ -1563,7 +1563,7 @@ MonoBehaviour:
     itemType: 15
     itemTypes: 
     triggerCollect: 16
-    triggerRemove: 0f0000000d00000006000000
+    triggerRemove: 0f0000000d000000060000000e000000
     translationIds: 90000000
     walkToItFirst: 0
     toggleSprite: 0
@@ -3984,6 +3984,31 @@ MonoBehaviour:
     triggerCollect: 0
     triggerRemove: 
     translationIds: 3c010000
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    onlyWhenCollectedItemTypes: 
+    onlyWhenNotCollectedItemTypes: 
+    transitionToRoom: 0
+    onlyInRooms: 
+    onlyForSkins: 
+    setNamedBool: 
+    setNamedBoolToFalse: 0
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+    redirect: {fileID: 0}
+    debugString: 
+    isFallback: 0
+  - interactType: 8
+    itemType: 0
+    itemTypes: 0d0000000f000000
+    triggerCollect: 16
+    triggerRemove: 0e0000000f000000060000000d000000
+    translationIds: 90000000
     walkToItFirst: 0
     toggleSprite: 0
     onlyWhenCollected: 0
