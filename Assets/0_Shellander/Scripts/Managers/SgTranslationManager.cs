@@ -117,7 +117,7 @@ public class SgTranslationManager : SgBehavior
 	{
 		List<SgInteractTranslation> filteredConfigs = new();
 		filteredConfigs = interactConfigs.Where(c => c.interactType == interactType).ToList();
-		Debug.Log("**** FILTER1:" + filteredConfigs.Count + ", it=" + interactType);
+		Debug.Log("**** FILTER1:" + filteredConfigs.Count + ", it=" + interactType+", clen="+ interactConfigs.Count);
 
 		if (useItemType != SgItemType.Illegal)
 		{
