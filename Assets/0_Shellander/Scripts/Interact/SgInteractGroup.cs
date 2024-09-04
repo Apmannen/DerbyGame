@@ -7,7 +7,7 @@ public enum SgInteractType {
 	Look, 
 	Use, 
 	Pickup, 
-	[System.Obsolete("Merged with use")]
+	//Obsolete: Merged with use
 	Talk, 
 	Wait, 
 	Collision, 
