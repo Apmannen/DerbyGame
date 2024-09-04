@@ -101,6 +101,82 @@ public class SgTranslationManager : SgBehavior
 		}
 		return null;
 	}
+
+	public SgInteractTranslation GetItembarInteractConfig(SgInteractType interactType, SgItemDefinition itembarItemDefinition, SgItemType useItemType)
+	{
+		SgInteractTranslation interactConfig = null;
+		interactConfig = GetItembarInteractConfigInternal(itembarItemDefinition.interactTranslations, interactType, itembarItemDefinition, useItemType);
+		if (interactConfig == null)
+		{
+			interactConfig = GetItembarInteractConfigInternal(this.defaultTranslations, interactType, itembarItemDefinition, useItemType);
+		}
+		return interactConfig;
+
+		//List<SgInteractTranslation> filteredConfigs = new();
+		//filteredConfigs = itembarItemDefinition.interactTranslations.Where(c => c.interactType == interactType).ToList();
+		//Debug.Log("**** FILTER1:" + filteredConfigs.Count + ", it=" + interactType);
+
+		//if (useItemType != SgItemType.Illegal)
+		//{
+		//	List<SgInteractTranslation> itemSpecificConfigs = filteredConfigs.Where(c => c.ItemTypes.Contains(useItemType)).ToList();
+		//	if (itemSpecificConfigs.Count >= 1)
+		//	{
+		//		filteredConfigs = itemSpecificConfigs;
+		//	}
+		//	else
+		//	{
+		//		filteredConfigs = filteredConfigs.Where(c => c.ItemTypes.Count == 0).ToList();
+		//	}
+		//}
+		//Debug.Log("**** FILTER2:" + filteredConfigs.Count);
+
+		//List<SgInteractTranslation> roomSpecificConfigs = filteredConfigs.Where(c => c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName)).ToList();
+		//if (roomSpecificConfigs.Count >= 1)
+		//{
+		//	filteredConfigs = roomSpecificConfigs;
+		//}
+		//else
+		//{
+		//	filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
+		//}
+		//Debug.Log("**** FILTER3:" + filteredConfigs.Count);
+
+		//return filteredConfigs.FirstOrDefault();
+	}
+	private SgInteractTranslation GetItembarInteractConfigInternal(IList<SgInteractTranslation> interactConfigs, SgInteractType interactType,
+		SgItemDefinition itembarItemDefinition, SgItemType useItemType)
+	{
+		List<SgInteractTranslation> filteredConfigs = new();
+		filteredConfigs = interactConfigs.Where(c => c.interactType == interactType).ToList();
+		Debug.Log("**** FILTER1:" + filteredConfigs.Count + ", it=" + interactType);
+
+		if (useItemType != SgItemType.Illegal)
+		{
+			List<SgInteractTranslation> itemSpecificConfigs = filteredConfigs.Where(c => c.ItemTypes.Contains(useItemType)).ToList();
+			if (itemSpecificConfigs.Count >= 1)
+			{
+				filteredConfigs = itemSpecificConfigs;
+			}
+			else
+			{
+				filteredConfigs = filteredConfigs.Where(c => c.ItemTypes.Count == 0).ToList();
+			}
+		}
+		Debug.Log("**** FILTER2:" + filteredConfigs.Count);
+
+		List<SgInteractTranslation> roomSpecificConfigs = filteredConfigs.Where(c => c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName)).ToList();
+		if (roomSpecificConfigs.Count >= 1)
+		{
+			filteredConfigs = roomSpecificConfigs;
+		}
+		else
+		{
+			filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
+		}
+		Debug.Log("**** FILTER3:" + filteredConfigs.Count);
+
+		return filteredConfigs.FirstOrDefault();
+	}
 }
 
 [System.Serializable]

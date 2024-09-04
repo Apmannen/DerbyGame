@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum SgInteractType { 
@@ -64,7 +66,7 @@ public class SgInteractGroup : SgBehavior
 			{
 				return ItemDefinition.TranslatedName;
 			}
-			return TranslationManager.Get(nameTranslationId);
+			return InteractManager.Get(nameTranslationId);
 		}
 	}
 
@@ -98,17 +100,17 @@ public class SgInteractGroup : SgBehavior
 		if (interactConfig == null && IsConnectedToItem && redirectToItem)
 		{
 			//Item redirect override (not really used anymore?)
-			interactConfig = TranslationManager.GetInteractConfig(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
+			interactConfig = InteractManager.GetInteractConfig(ItemDefinition.interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
 			//This (interacted SgInteractGroup)
-			interactConfig = TranslationManager.GetInteractConfig(this.interactTranslations, interactType, IsItemCollected, useItemType);
+			interactConfig = InteractManager.GetInteractConfig(this.interactTranslations, interactType, IsItemCollected, useItemType);
 		}
 		if (interactConfig == null)
 		{
 			//Global default fallback
-			interactConfig = TranslationManager.GetInteractConfig(TranslationManager.defaultTranslations, interactType, false, useItemType);
+			interactConfig = InteractManager.GetInteractConfig(InteractManager.defaultTranslations, interactType, false, useItemType);
 		}
 
 		return interactConfig;

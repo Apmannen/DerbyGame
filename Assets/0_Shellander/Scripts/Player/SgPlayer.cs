@@ -125,7 +125,7 @@ public class SgPlayer : SgBehavior
 				CursorController.SetSelectedInteract(sliceMapping.interactType);
 				break;
 			case SgWeaponWheelEventType.Highlight:
-				m_HighlightedActionTranslation = TranslationManager.Get(sliceMapping.translationId);
+				m_HighlightedActionTranslation = InteractManager.Get(sliceMapping.translationId);
 				m_LastHighlightedSlice = sliceMapping;
 				break;
 			case SgWeaponWheelEventType.Dehighlight:
@@ -471,7 +471,6 @@ public class SgPlayer : SgBehavior
 
 			switch (interaction.type)
 			{
-
 				case SgInteractType.Look:
 					interactTranslationIds = ItemManager.Get(interaction.itembarItem).GetInteractTranslationIds(interaction.type);
 					break;
@@ -506,16 +505,17 @@ public class SgPlayer : SgBehavior
 							ItemManager.Collect(interactConfig.triggerCollect);
 						}
 					}
-					else
+					else //why necessary? Should get it from interaction.InteractConfig
 					{
-						SgInteractTranslation aDefaultConfig = TranslationManager.defaultTranslations
-							.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(interaction.useItem));
-						if(aDefaultConfig == null)
-						{
-							aDefaultConfig = TranslationManager.defaultTranslations
-								.Single(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
-						}
-						interactTranslationIds = aDefaultConfig.translationIds;
+						Debug.LogError("Why didn't we find any in interaction.InteractConfig?");
+						//SgInteractTranslation aDefaultConfig = TranslationManager.defaultTranslations
+						//	.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(interaction.useItem));
+						//if(aDefaultConfig == null)
+						//{
+						//	aDefaultConfig = TranslationManager.defaultTranslations
+						//		.Single(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
+						//}
+						//interactTranslationIds = aDefaultConfig.translationIds;
 					}
 					break;
 				default: 
@@ -646,7 +646,8 @@ public class SgPlayer : SgBehavior
 		public bool IsItemInteraction => itembarItem != SgItemType.Illegal;
 		public SgItemDefinition ItembarItemDefinition => SgManagers._.itemManager.Get(itembarItem);
 
-		private static SgSceneManager SceneManager => SgManagers._.sceneManager;
+		//private static SgSceneManager SceneManager => SgManagers._.sceneManager;
+		private static SgTranslationManager InteractManager => SgManagers._.translationManager;
 
 		public SgInteractTranslation InteractConfig
 		{
@@ -656,27 +657,39 @@ public class SgPlayer : SgBehavior
 				{
 					return interactGroup.GetInteractConfig(this.type, this.useItem);
 				}
-				if (IsItemInteraction)
+				else if (IsItemInteraction)
 				{
-					List<SgInteractTranslation> filteredConfigs = new();
-					filteredConfigs = ItembarItemDefinition.interactTranslations.Where(c => c.interactType == type).ToList();
+					return InteractManager.GetItembarInteractConfig(type, ItembarItemDefinition, useItem);
+					//List<SgInteractTranslation> filteredConfigs = new();
+					//filteredConfigs = ItembarItemDefinition.interactTranslations.Where(c => c.interactType == type).ToList();
+					//Debug.Log("**** FILTER1:"+filteredConfigs.Count+", it="+ type);
 
-					if(this.useItem != SgItemType.Illegal)
-					{
-						filteredConfigs = filteredConfigs.Where(c => c.itemType == useItem).ToList();
-					}
+					//if(this.useItem != SgItemType.Illegal)
+					//{
+					//	List<SgInteractTranslation>  itemSpecificConfigs = filteredConfigs.Where(c => c.ItemTypes.Contains(useItem)).ToList();
+					//	if (itemSpecificConfigs.Count >= 1)
+					//	{
+					//		filteredConfigs = itemSpecificConfigs;
+					//	}
+					//	else
+					//	{
+					//		filteredConfigs = filteredConfigs.Where(c => c.ItemTypes.Count == 0).ToList();
+					//	}
+					//}
+					//Debug.Log("**** FILTER2:" + filteredConfigs.Count);
 
-					List<SgInteractTranslation> roomSpecificConfigs = filteredConfigs.Where(c => c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName)).ToList();
-					if(roomSpecificConfigs.Count >= 1)
-					{
-						filteredConfigs = roomSpecificConfigs;
-					}
-					else
-					{
-						filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
-					}
+					//List<SgInteractTranslation> roomSpecificConfigs = filteredConfigs.Where(c => c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName)).ToList();
+					//if(roomSpecificConfigs.Count >= 1)
+					//{
+					//	filteredConfigs = roomSpecificConfigs;
+					//}
+					//else
+					//{
+					//	filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
+					//}
+					//Debug.Log("**** FILTER3:" + filteredConfigs.Count);
 
-					return filteredConfigs.FirstOrDefault();
+					//return filteredConfigs.FirstOrDefault();
 				}
 				return null;
 			}

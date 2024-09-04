@@ -62,7 +62,7 @@ public class SgItemDefinition : SgBehavior
 	{
 		get
 		{
-			return TranslationManager.Get(translationId);
+			return InteractManager.Get(translationId);
 		}
 	}
 
@@ -73,7 +73,7 @@ public class SgItemDefinition : SgBehavior
 
 	public int[] GetInteractTranslationIds(SgInteractType interactType)
 	{
-		return TranslationManager.GetInteractTranslationIds(interactTranslations, interactType, IsColleted);
+		return InteractManager.GetInteractTranslationIds(interactTranslations, interactType, IsColleted);
 	}
 
 	public bool IsColleted => Savable.isCollected.Get();

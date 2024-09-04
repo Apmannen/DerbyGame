@@ -52,7 +52,7 @@ public class SgCharacter : SgBehavior
 		speechAnimation.Play();
 		foreach (int id in translationIds)
 		{
-			string translation = TranslationManager.Get(id);
+			string translation = InteractManager.Get(id);
 			speechText.text = translation;
 			m_SpeechAborted = false;
 			yield return Wait(3f);

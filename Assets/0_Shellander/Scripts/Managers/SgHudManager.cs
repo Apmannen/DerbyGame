@@ -72,7 +72,7 @@ public class SgHudManager : SgBehavior
 		foreach (SgDialogueReply reply in replies)
 		{
 			SgReplyItem replyItem = Instantiate(replyItemTemplate, replyItemTemplate.transform.parent);
-			replyItem.text.text = TranslationManager.Get(reply.translationId);
+			replyItem.text.text = InteractManager.Get(reply.translationId);
 			replyItem.index = i;
 			replyItem.dialogueReply = reply;
 			replyItem.gameObject.SetActive(true);
