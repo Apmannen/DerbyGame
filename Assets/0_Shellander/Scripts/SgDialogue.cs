@@ -29,6 +29,10 @@ public class SgDialogue : MonoBehaviour
 		{
 			List<int> translationIds = new List<int>();
 			translationIds.AddRange(mainTranslationIds);
+			if(mainDialogueSpeaks == null)
+			{
+				mainDialogueSpeaks = new SgMainDialogueSpeak[0];
+			}
 			foreach (SgMainDialogueSpeak dialogueItem in mainDialogueSpeaks)
 			{
 				if (SgCondition.TestConditions(dialogueItem.conditions))
