@@ -74,7 +74,7 @@ public class SgCursorController : SgBehavior
 		{
 			case SgInteractType.Look:
 			case SgInteractType.Pickup:
-			case SgInteractType.Talk:
+			//case SgInteractType.Talk:
 			case SgInteractType.Use:
 			case SgInteractType.Item:
 				return true;
