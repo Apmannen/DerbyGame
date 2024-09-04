@@ -17,12 +17,14 @@ public class SgSaveDataManager : SgBehavior
 	private SgSaveFile m_CurrentSaveFile;
 	public SgSaveFile CurrentSaveFile => m_CurrentSaveFile;
 	private float m_TimeElapsedSinceSave;
+	private float m_PlayTime;
 	private bool m_IsSaveScheduled;
 
 	private void Awake()
 	{
 		SgPrefsSingleton.Init(sortKeys);
 		m_CurrentSaveFile = new SgSaveFile(0);
+		m_PlayTime = m_CurrentSaveFile.timePlayedInt.Get();
 
 		EventManager.Register<SgRoom>(SgEventName.RoomChanged, OnRoomChange);
 	}
@@ -40,6 +42,7 @@ public class SgSaveDataManager : SgBehavior
 	private void Update()
 	{
 		m_TimeElapsedSinceSave += Time.deltaTime;
+		m_PlayTime += Time.deltaTime;
 		if (m_IsSaveScheduled || m_TimeElapsedSinceSave >= saveInterval)
 		{
 			m_TimeElapsedSinceSave = 0;
@@ -55,6 +58,7 @@ public class SgSaveDataManager : SgBehavior
 	{
 		m_TimeElapsedSinceSave = 0;
 		m_IsSaveScheduled = false;
+		m_CurrentSaveFile.timePlayedInt.Set(Mathf.FloorToInt(m_PlayTime));
 		SgPrefsSingleton._.Save(0);
 	}
 
@@ -62,7 +66,8 @@ public class SgSaveDataManager : SgBehavior
 	{
 		public readonly Dictionary<SgItemType, SgItemSavable> items = new();
 		private readonly Dictionary<string, SgSavableBool> m_NamedBools = new();
-		public SgSavableEnum<SgSkinType> currentSkin;
+		public readonly SgSavableEnum<SgSkinType> currentSkin;
+		public readonly SgSavableInt timePlayedInt;
 
 		private readonly int m_SaveFileId;
 		public int SaveFileId => m_SaveFileId;
@@ -77,6 +82,8 @@ public class SgSaveDataManager : SgBehavior
 			{
 				items[itemType] = new SgItemSavable(saveFileId, itemType);
 			}
+
+			timePlayedInt = new SgSavableInt(saveFileId, "PlayTimeCounter", 0);
 		}
 
 		private SgSavableBool GetNamedBool(string name)
@@ -189,6 +196,22 @@ public class SgSaveDataManager : SgBehavior
 		public override long Get()
 		{
 			return SgPrefsSingleton._.GetLong(FullKey, DefaultValue);
+		}
+	}
+
+	public class SgSavableInt : SgSavableProperty<int>
+	{
+		public SgSavableInt(long saveFileId, string key, int defaultValue) :
+			base(saveFileId, key, defaultValue)
+		{ }
+
+		public override void Set(int value)
+		{
+			SgPrefsSingleton._.SetInt(FullKey, value, DefaultValue);
+		}
+		public override int Get()
+		{
+			return SgPrefsSingleton._.GetInt(FullKey, DefaultValue);
 		}
 	}
 
