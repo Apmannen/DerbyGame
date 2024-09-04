@@ -508,7 +508,13 @@ public class SgPlayer : SgBehavior
 					}
 					else
 					{
-						interactTranslationIds = TranslationManager.defaultTranslations.Single(c => c.interactType == SgInteractType.Item).translationIds;
+						interactTranslationIds = TranslationManager.defaultTranslations
+							.Single(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(interaction.useItem)).translationIds;
+						if(interactTranslationIds.Length == 0)
+						{
+							interactTranslationIds = TranslationManager.defaultTranslations
+								.Single(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0).translationIds;
+						}
 					}
 					break;
 				default: 
