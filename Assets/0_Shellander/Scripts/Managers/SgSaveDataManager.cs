@@ -108,15 +108,15 @@ public class SgSaveDataManager : SgBehavior
 			base(saveFileId, key, defaultValue)
 		{ }
 
+		private int DefaultIntValue => DefaultValue ? 1 : 0;
+
 		public override void Set(bool value)
 		{
-			//PlayerPrefs.SetInt(FullKey, value ? 1 : 0);
-			SgPrefsSingleton._.SetInt(FullKey, value ? 1 : 0);
+			SgPrefsSingleton._.SetInt(FullKey, value ? 1 : 0, DefaultIntValue);
 		}
 		public override bool Get()
 		{
-			//return PlayerPrefs.GetInt(FullKey, DefaultValue ? 1 : 0) == 1;
-			return SgPrefsSingleton._.GetInt(FullKey, DefaultValue ? 1 : 0) == 1;
+			return SgPrefsSingleton._.GetInt(FullKey, DefaultIntValue) == 1;
 		}
 	}
 
@@ -128,18 +128,15 @@ public class SgSaveDataManager : SgBehavior
 
 		public override void Set(E value)
 		{
-			//PlayerPrefs.SetInt(FullKey, Convert.ToInt32(value));
-			SgPrefsSingleton._.SetInt(FullKey, Convert.ToInt32(value));
+			SgPrefsSingleton._.SetInt(FullKey, Convert.ToInt32(value), Convert.ToInt32(DefaultValue));
 		}
 		public override E Get()
 		{
-			//if(!PlayerPrefs.HasKey(FullKey))
 			if(!SgPrefsSingleton._.HasKey(FullKey))
 			{
 				return this.DefaultValue;
 			}
 
-			//int intValue = PlayerPrefs.GetInt(FullKey);
 			int intValue = SgPrefsSingleton._.GetInt(FullKey, -1);
 			var enumValues = Enum.GetValues(typeof(E));
 
@@ -155,20 +152,10 @@ public class SgSaveDataManager : SgBehavior
 
 		public override void Set(long value)
 		{
-			if (value == DefaultValue)
-			{
-				//PlayerPrefs.DeleteKey(FullKey);
-				SgPrefsSingleton._.DeleteKey(FullKey);
-			}
-			else
-			{
-				//PlayerPrefs.SetString(FullKey, value.ToString());
-				SgPrefsSingleton._.SetLong(FullKey, value);
-			}
+			SgPrefsSingleton._.SetLong(FullKey, value, DefaultValue);
 		}
 		public override long Get()
 		{
-			//return long.Parse(PlayerPrefs.GetString(FullKey, DefaultValue.ToString()));
 			return SgPrefsSingleton._.GetLong(FullKey, DefaultValue);
 		}
 	}
@@ -408,35 +395,35 @@ public class SgSaveDataManager : SgBehavior
 			}
 			return m_Map.ContainsKey(fullKey);
 		}
-		public void SetInt(string fullKey, int value)
+		public void SetInt(string fullKey, int value, int defaultValue)
 		{
-			m_Map[fullKey] = value;
+			Set(fullKey, value, defaultValue);
 		}
-		public void SetFloat(string fullKey, float value)
+		public void SetFloat(string fullKey, float value, float defaultValue)
 		{
-			m_Map[fullKey] = value;
+			Set(fullKey, value, defaultValue);
 		}
-		public void SetLong(string fullKey, long value)
+		public void SetLong(string fullKey, long value, long defaultValue)
 		{
-			m_Map[fullKey] = value;
+			Set(fullKey, value, defaultValue);
 		}
-		public void SetString(string fullKey, string value)
+		public void SetString(string fullKey, string value, string defaultValue)
 		{
-			m_Map[fullKey] = value;
+			Set(fullKey, value, defaultValue);
 		}
-		public void SetInt(string fullKey, int value, Dictionary<string, object> map)
-		{
-			map[fullKey] = value;
-		}
-		public void SetFloat(string fullKey, float value, Dictionary<string, object> map)
+		private void SetInt(string fullKey, int value, Dictionary<string, object> map)
 		{
 			map[fullKey] = value;
 		}
-		public void SetLong(string fullKey, long value, Dictionary<string, object> map)
+		private void SetFloat(string fullKey, float value, Dictionary<string, object> map)
 		{
 			map[fullKey] = value;
 		}
-		public void SetString(string fullKey, string value, Dictionary<string, object> map)
+		private void SetLong(string fullKey, long value, Dictionary<string, object> map)
+		{
+			map[fullKey] = value;
+		}
+		private void SetString(string fullKey, string value, Dictionary<string, object> map)
 		{
 			map[fullKey] = value;
 		}
@@ -457,20 +444,31 @@ public class SgSaveDataManager : SgBehavior
 		{
 			return Get<string>(fullKey, defaultValue);
 		}
-		private T Get<T>(string fullKey, object defaultValue)
+		private T Get<T>(string fullKey, T defaultValue)
 		{
 			try
 			{
 				if (!m_Map.ContainsKey(fullKey))
 				{
-					return (T)defaultValue;
+					return defaultValue;
 				}
 				return (T)m_Map[fullKey];
 			}
 			catch
 			{
 				//exceptions creates garbage, prevent it
-				return (T)defaultValue;
+				return defaultValue;
+			}
+		}
+		private void Set<T>(string fullKey, T newValue, T defaultValue)
+		{
+			if(newValue.Equals(defaultValue))
+			{
+				DeleteKey(fullKey);
+			}
+			else
+			{
+				m_Map[fullKey] = newValue;
 			}
 		}
 
