@@ -16,6 +16,7 @@ public class SgSaveDataManager : SgBehavior
 	public HashSet<string> SaveKeys => m_SaveKeys;
 	private SgSaveFile m_CurrentSaveFile;
 	public SgSaveFile CurrentSaveFile => m_CurrentSaveFile;
+	private float m_TimeElapsedSinceSave;
 
 	private void Awake()
 	{
@@ -23,8 +24,19 @@ public class SgSaveDataManager : SgBehavior
 		m_CurrentSaveFile = new SgSaveFile(0);
 	}
 
+	private void Update()
+	{
+		m_TimeElapsedSinceSave += Time.deltaTime;
+		if (m_TimeElapsedSinceSave >= saveInterval)
+		{
+			m_TimeElapsedSinceSave = 0;
+			Save();
+		}
+	}
+
 	public void Save()
 	{
+		m_TimeElapsedSinceSave = 0;
 		SgPrefsSingleton._.Save(0);
 	}
 
