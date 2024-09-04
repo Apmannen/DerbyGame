@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 58000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -585,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 61000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 255484240}
   character: {fileID: 0}
@@ -633,6 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 56000000
+  mainDialogueSpeaks: []
   replies:
   - translationId: 196
     isSilent: 0
@@ -654,6 +657,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: -1
+    connectedToDialogue: {fileID: 0}
   - translationId: 196
     isSilent: 0
     nextDialogue: {fileID: 669984798}
@@ -667,6 +671,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: -1
+    connectedToDialogue: {fileID: 0}
   - translationId: 96
     isSilent: 0
     nextDialogue: {fileID: 686176197}
@@ -687,6 +692,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: -1
+    connectedToDialogue: {fileID: 0}
   - translationId: 96
     isSilent: 0
     nextDialogue: {fileID: 669984798}
@@ -700,6 +706,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: -1
+    connectedToDialogue: {fileID: 0}
   - translationId: 130
     isSilent: 0
     nextDialogue: {fileID: 736566077}
@@ -720,6 +727,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: -1
+    connectedToDialogue: {fileID: 0}
   - translationId: 130
     isSilent: 0
     nextDialogue: {fileID: 669984798}
@@ -733,12 +741,14 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: -1
+    connectedToDialogue: {fileID: 0}
   - translationId: 87
     isSilent: 0
     nextDialogue: {fileID: 175087642}
     addItem: 0
     reduceMoney: 0
     conditions: []
+    connectedToDialogue: {fileID: 0}
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &292454409
@@ -944,7 +954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[2].itemType
@@ -969,6 +979,10 @@ PrefabInstance:
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[7].itemType
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[8].itemType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].interactType
@@ -1001,6 +1015,10 @@ PrefabInstance:
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[7].interactType
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[8].interactType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[1].startDialogue
@@ -1059,6 +1077,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[8].startDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[8].walkToItFirst
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1079,6 +1105,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[8].translationIds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[0].translationIds.Array.data[0]
       value: 89
       objectReference: {fileID: 0}
@@ -1097,6 +1127,10 @@ PrefabInstance:
     - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: interactTranslations.Array.data[4].translationIds.Array.data[0]
       value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443398430473356474, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      propertyPath: interactTranslations.Array.data[8].translationIds.Array.data[0]
+      value: 154
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1290,6 +1324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 66000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -1680,6 +1715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: ec000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 255484240}
   character: {fileID: 0}
@@ -1728,6 +1764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 5d000000
+  mainDialogueSpeaks: []
   replies:
   - translationId: 94
     isSilent: 1
@@ -1742,6 +1779,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: 100
+    connectedToDialogue: {fileID: 0}
   - translationId: 239
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1755,12 +1793,14 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: 100
+    connectedToDialogue: {fileID: 0}
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
     reduceMoney: 0
     conditions: []
+    connectedToDialogue: {fileID: 0}
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &736566076
@@ -1793,6 +1833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 83000000
+  mainDialogueSpeaks: []
   replies:
   - translationId: 132
     isSilent: 1
@@ -1807,6 +1848,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: 10
+    connectedToDialogue: {fileID: 0}
   - translationId: 239
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1820,12 +1862,14 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: 10
+    connectedToDialogue: {fileID: 0}
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
     reduceMoney: 0
     conditions: []
+    connectedToDialogue: {fileID: 0}
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!4 &736566078
@@ -1962,6 +2006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 5d000000
+  mainDialogueSpeaks: []
   replies:
   - translationId: 94
     isSilent: 1
@@ -1976,6 +2021,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: 100
+    connectedToDialogue: {fileID: 0}
   - translationId: 239
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1989,12 +2035,14 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 0
       minMoney: 100
+    connectedToDialogue: {fileID: 0}
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
     reduceMoney: 0
     conditions: []
+    connectedToDialogue: {fileID: 0}
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &941082202
@@ -2982,6 +3030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: e2000000
+  mainDialogueSpeaks: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -4588,6 +4637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTranslationIds: 6200000063000000
+  mainDialogueSpeaks: []
   replies:
   - translationId: 100
     isSilent: 0
@@ -4595,12 +4645,14 @@ MonoBehaviour:
     addItem: 0
     reduceMoney: 0
     conditions: []
+    connectedToDialogue: {fileID: 0}
   - translationId: 101
     isSilent: 0
     nextDialogue: {fileID: 255484240}
     addItem: 0
     reduceMoney: 0
     conditions: []
+    connectedToDialogue: {fileID: 0}
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1001 &537423196534831294
