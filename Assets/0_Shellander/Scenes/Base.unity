@@ -1402,6 +1402,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   hoverColor: {r: 1, g: 0.70980394, b: 0.24705884, a: 1}
 --- !u!114 &400843041
 MonoBehaviour:
