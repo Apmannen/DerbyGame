@@ -12,6 +12,14 @@ public class SgDialogue : MonoBehaviour
 	public SgDialogue redirectAfterDialogue;
 	public SgCharacter character;
 
+	private void Awake()
+	{
+		if(autoReplies == null)
+		{
+			autoReplies = new SgMainDialogueSpeak[] { };
+		}
+	}
+
 	private void Start()
 	{
 		if(character == null)
