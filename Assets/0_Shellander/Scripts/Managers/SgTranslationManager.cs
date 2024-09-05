@@ -122,7 +122,6 @@ public class SgTranslationManager : SgBehavior
 	{
 		List<SgInteractTranslation> filteredConfigs = new();
 		filteredConfigs = interactConfigs.Where(c => c.interactType == interactType).ToList();
-		Debug.Log("**** FILTER1:" + filteredConfigs.Count + ", it=" + interactType+", clen="+ interactConfigs.Count);
 
 		if (useItemType != SgItemType.Illegal)
 		{
@@ -136,7 +135,6 @@ public class SgTranslationManager : SgBehavior
 				filteredConfigs = filteredConfigs.Where(c => c.ItemTypes.Count == 0).ToList();
 			}
 		}
-		Debug.Log("**** FILTER2:" + filteredConfigs.Count);
 
 		List<SgInteractTranslation> roomSpecificConfigs = filteredConfigs.Where(c => c.onlyInRooms.Contains(SceneManager.CurrentRoom.RoomName)).ToList();
 		if (roomSpecificConfigs.Count >= 1)
@@ -147,7 +145,8 @@ public class SgTranslationManager : SgBehavior
 		{
 			filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
 		}
-		Debug.Log("**** FILTER3:" + filteredConfigs.Count);
+
+		filteredConfigs = filteredConfigs.Where(c => SgCondition.TestConditions(c.conditions)).ToList();
 
 		return filteredConfigs.FirstOrDefault();
 	}
@@ -182,6 +181,7 @@ public class SgInteractTranslation
 	public SgInteractGroup redirect;
 	public string debugString;
 	public bool isFallback;
+	public SgCondition[] conditions; //could replace the conditional fields
 
 	private HashSet<SgItemType> m_ItemTypes;
 

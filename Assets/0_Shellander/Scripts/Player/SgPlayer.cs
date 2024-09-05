@@ -17,7 +17,7 @@ public class SgPlayer : SgBehavior
 	public SpriteRenderer sitSprite;
 	public SgSpawnPosition[] spawnPositions;
 	public SgCharacter character;
-	public SgConditionInteraction[] startInteractions;
+	public SgInteractGroup[] roomEnterInteractions;
 
 	private enum SgPlayerState 
 	{ 
@@ -75,7 +75,9 @@ public class SgPlayer : SgBehavior
 
 		//if the navmesh is rebuilt, the positioning must
 		//be performed in the update loop for whatever reason
-		m_ScheduledMoveToSpawnPos = true; 
+		m_ScheduledMoveToSpawnPos = true;
+
+		RunRoomEnterInteractions();
 	}
 
 	private void OnDestroy()
@@ -425,6 +427,13 @@ public class SgPlayer : SgBehavior
 		SetInteraction(interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Collision);
 		StopMoving();
 		StartInteraction();
+	}
+	private void RunRoomEnterInteractions()
+	{
+		foreach(SgInteractGroup interactGroup in roomEnterInteractions)
+		{
+			SetInteraction(interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Generic);
+		}
 	}
 
 	private bool HasReachedDestination()
