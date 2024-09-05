@@ -582,6 +582,7 @@ public class SgPlayer : SgBehavior
 		SetState(SgPlayerState.Interacting);
 		character.ClearSpeech();
 		otherCharacter.ClearSpeech();
+		reply.hasBeenUsed = true;
 
 		StartCoroutine(DialogueReplyRoutine(reply, otherCharacter));
 	}

@@ -2018,6 +2018,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 1
+    hasBeenUsed: 0
   - translationId: 323
     isSilent: 0
     nextDialogue: {fileID: 539536894}
@@ -2025,6 +2027,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 1
+    hasBeenUsed: 0
   - translationId: 324
     isSilent: 0
     nextDialogue: {fileID: 998844934}
@@ -2032,6 +2036,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!4 &1938762180

@@ -57,7 +57,7 @@ public class SgDialogue : MonoBehaviour
 	{
 		get
 		{
-			return replies.Where(r => SgCondition.TestConditions(r.conditions)).ToList();
+			return replies.Where(r => SgCondition.TestConditions(r.conditions) && (!r.autoRemove || !r.hasBeenUsed)).ToList();
 		}
 	}
 }
@@ -80,4 +80,6 @@ public class SgDialogueReply
 	public int reduceMoney;
 	public SgCondition[] conditions;
 	public SgDialogue connectedToDialogue;
+	public bool autoRemove;
+	public bool hasBeenUsed;
 }
