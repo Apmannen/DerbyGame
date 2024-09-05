@@ -55,6 +55,7 @@ public class SgDialogue : MonoBehaviour
 }
 
 [System.Serializable]
+//TODO: crap name
 public class SgMainDialogueSpeak
 {
 	public int[] translationIds;

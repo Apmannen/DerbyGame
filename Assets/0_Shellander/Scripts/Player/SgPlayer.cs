@@ -612,6 +612,15 @@ public class SgPlayer : SgBehavior
 		SetState(SgPlayerState.Interacting);
 		yield return otherCharacter.Talk(dialogue.MainTranslationIds);
 
+		foreach(SgMainDialogueSpeak speak in dialogue.autoReplies)
+		{
+			if(!SgCondition.TestConditions(speak.conditions))
+			{
+				continue;
+			}
+			yield return character.Talk(speak.translationIds);
+		}
+
 		IList<SgDialogueReply> validReplies = dialogue.ValidReplies;
 		if(validReplies.Count > 0)
 		{
