@@ -578,7 +578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 734592286}
-  - component: {fileID: 734592285}
+  - component: {fileID: 734592287}
   m_Layer: 0
   m_Name: startinteraction
   m_TagString: Untagged
@@ -586,7 +586,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &734592285
+--- !u!4 &734592286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734592284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979347105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734592287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -595,19 +610,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 734592284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4105050e2baaa7847b6df5e66cc4c096, type: 3}
+  m_Script: {fileID: 11500000, guid: 92fd11644625b0e4bbc96458166c0748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - successOnTrue: 1
-    namedBool: SewersRoomVisited
-    collectedItem: 0
-    collectedItemEver: 0
-    discoveredItem: 0
-    skinType: 0
-    minMoney: 0
-  interactConfig:
-    interactType: 0
+  nameId: 
+  nameTranslationId: 0
+  itemType: 0
+  discoverItems: 
+  interactTranslations:
+  - interactType: 9
     itemType: 0
     itemTypes: 
     triggerCollect: 0
@@ -624,7 +635,7 @@ MonoBehaviour:
     onlyForSkins: 
     setNamedBool: 
     setNamedBoolToFalse: 0
-    startDialogue: {fileID: 0}
+    startDialogue: {fileID: 1165165401}
     method:
       m_PersistentCalls:
         m_Calls: []
@@ -632,21 +643,15 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
---- !u!4 &734592286
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734592284}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 979347105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+    conditions: []
+  spriteRenderers: []
+  defaultRendererIndex: 0
+  collectedRendererIndex: 1
+  walkTarget: {fileID: 0}
+  interactableAfterPickup: 0
+  redirectToItem: 1
+  character: {fileID: 0}
+  blockDependencies: []
 --- !u!1001 &749118248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1925,13 +1930,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 537423196534831295}
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: spawnPositions.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: spawnPositions.Array.data[0]
+      propertyPath: roomEnterInteraction
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 734592287}
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: startInteractions.Array.size
       value: 1
@@ -1939,7 +1940,15 @@ PrefabInstance:
     - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: startInteractions.Array.data[0]
       value: 
-      objectReference: {fileID: 734592285}
+      objectReference: {fileID: 0}
+    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: roomEnterInteractions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: roomEnterInteractions.Array.data[0]
+      value: 
+      objectReference: {fileID: 734592287}
     - target: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.69

@@ -17,7 +17,7 @@ public class SgPlayer : SgBehavior
 	public SpriteRenderer sitSprite;
 	public SgSpawnPosition[] spawnPositions;
 	public SgCharacter character;
-	public SgInteractGroup[] roomEnterInteractions;
+	public SgInteractGroup roomEnterInteraction;
 
 	private enum SgPlayerState 
 	{ 
@@ -77,7 +77,10 @@ public class SgPlayer : SgBehavior
 		//be performed in the update loop for whatever reason
 		m_ScheduledMoveToSpawnPos = true;
 
-		RunRoomEnterInteractions();
+		if(roomEnterInteraction != null)
+		{
+			RunRoomEnterInteraction(roomEnterInteraction);
+		}		
 	}
 
 	private void OnDestroy()
@@ -428,12 +431,10 @@ public class SgPlayer : SgBehavior
 		StopMoving();
 		StartInteraction();
 	}
-	private void RunRoomEnterInteractions()
+	private void RunRoomEnterInteraction(SgInteractGroup interactGroup)
 	{
-		foreach(SgInteractGroup interactGroup in roomEnterInteractions)
-		{
-			SetInteraction(interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Generic);
-		}
+		SetInteraction(interactGroup, SgItemType.Illegal, SgItemType.Illegal, SgInteractType.Generic);
+		StartInteraction();
 	}
 
 	private bool HasReachedDestination()
