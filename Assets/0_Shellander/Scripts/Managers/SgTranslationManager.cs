@@ -52,7 +52,7 @@ public class SgTranslationManager : SgBehavior
 
 		List<SgInteractTranslation> filteredConfigs = new();
 		filteredConfigs.AddRange(interactConfigs);
-		filteredConfigs = filteredConfigs.Where(c => c.interactType == interactType).ToList();
+		filteredConfigs = filteredConfigs.Where(c => c.interactType == interactType && SgCondition.TestConditions(c.conditions)).ToList();
 		List<SgInteractTranslation> skinSpecifics = filteredConfigs.Where(c => c.onlyForSkins.Contains(currentSkin)).ToList();
 		if(skinSpecifics.Count > 0)
 		{
@@ -121,7 +121,7 @@ public class SgTranslationManager : SgBehavior
 		SgItemDefinition itembarItemDefinition, SgItemType useItemType)
 	{
 		List<SgInteractTranslation> filteredConfigs = new();
-		filteredConfigs = interactConfigs.Where(c => c.interactType == interactType).ToList();
+		filteredConfigs = interactConfigs.Where(c => c.interactType == interactType && SgCondition.TestConditions(c.conditions)).ToList();
 
 		if (useItemType != SgItemType.Illegal)
 		{
@@ -145,8 +145,6 @@ public class SgTranslationManager : SgBehavior
 		{
 			filteredConfigs = filteredConfigs.Where(c => c.onlyInRooms.Length == 0).ToList();
 		}
-
-		filteredConfigs = filteredConfigs.Where(c => SgCondition.TestConditions(c.conditions)).ToList();
 
 		return filteredConfigs.FirstOrDefault();
 	}

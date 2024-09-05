@@ -683,7 +683,7 @@ MonoBehaviour:
     transitionToRoom: 0
     onlyInRooms: 
     onlyForSkins: 
-    setNamedBool: 
+    setNamedBool: SewersRoomVisited
     setNamedBoolToFalse: 0
     startDialogue: {fileID: 1165165401}
     method:
@@ -693,7 +693,14 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
-    conditions: []
+    conditions:
+    - successOnTrue: 0
+      namedBool: SewersRoomVisited
+      collectedItem: 0
+      collectedItemEver: 0
+      discoveredItem: 0
+      skinType: 0
+      minMoney: 0
   spriteRenderers: []
   defaultRendererIndex: 0
   collectedRendererIndex: 1

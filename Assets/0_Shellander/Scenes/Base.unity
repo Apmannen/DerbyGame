@@ -271,6 +271,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 90
   skinType: 0
 --- !u!1 &50219225
@@ -702,6 +703,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &261378860
@@ -1274,6 +1276,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &395457574
@@ -1534,6 +1537,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 13
     itemTypes: 
@@ -1559,6 +1563,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 15
     itemTypes: 
@@ -1584,6 +1589,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -1609,6 +1615,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -1634,6 +1641,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 2
 --- !u!21 &434229942
@@ -2488,6 +2496,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!4 &506300101
@@ -2974,6 +2983,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!4 &613333318
@@ -3049,6 +3059,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!4 &645148963
@@ -3406,6 +3417,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -3431,6 +3443,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &758691912
@@ -3506,6 +3519,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &787276921
@@ -3822,6 +3836,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &839854202
@@ -3897,6 +3912,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -3922,6 +3938,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 1
 --- !u!1 &876484149
@@ -3997,6 +4014,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -4022,6 +4040,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -4047,6 +4066,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 0
     itemTypes: 0d0000000f000000
@@ -4072,6 +4092,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 2
 --- !u!1 &957343116
@@ -5356,6 +5377,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1194111897
@@ -5807,6 +5829,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1366747703
@@ -6431,6 +6454,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1511871020
@@ -6506,6 +6530,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 100
   skinType: 0
 --- !u!1 &1516207971
@@ -7365,6 +7390,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -7390,6 +7416,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1733570265
@@ -7639,6 +7666,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 200
   skinType: 0
 --- !u!1 &1778100956
@@ -7841,6 +7869,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 210
   skinType: 0
 --- !u!1001 &1788383199
@@ -8520,6 +8549,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 190
   skinType: 0
 --- !u!1 &1869631125
@@ -8828,6 +8858,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -8853,6 +8884,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 4
     itemType: 0
     itemTypes: 
@@ -8878,6 +8910,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 0
     itemTypes: 
@@ -8903,6 +8936,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 20
     itemTypes: 
@@ -8928,6 +8962,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 10
     itemTypes: 
@@ -8953,6 +8988,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
 --- !u!1 &1900583169
 GameObject:
   m_ObjectHideFlags: 0
@@ -9026,6 +9062,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -9051,6 +9088,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -9076,6 +9114,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 3
 --- !u!1 &1922297024
@@ -9270,6 +9309,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &1947392219
@@ -9403,7 +9443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee0bb4a87a37e24391c4c2a3ed9551d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveInterval: 120
+  saveInterval: 60
   sortKeys: 1
 --- !u!4 &1963018354
 Transform:
@@ -9541,6 +9581,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!4 &2004834534
@@ -10154,6 +10195,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 3
     itemType: 0
     itemTypes: 
@@ -10179,6 +10221,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!4 &2057229363
@@ -10484,6 +10527,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1001 &2101455583
@@ -10716,6 +10760,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   - interactType: 8
     itemType: 13
     itemTypes: 
@@ -10741,6 +10786,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1 &2126825507
@@ -10816,6 +10862,7 @@ MonoBehaviour:
     redirect: {fileID: 0}
     debugString: 
     isFallback: 0
+    conditions: []
   moneyValue: 0
   skinType: 0
 --- !u!1001 &297584127786414223
