@@ -214,6 +214,7 @@ public class SgPlayer : SgBehavior
 		m_CurrentInteraction.itembarItem = itembarItem;
 		m_CurrentInteraction.useItem = useItemType;
 		m_CurrentInteraction.type = type;
+		m_CurrentInteraction.cachedInteractConfig = null;
 		return m_CurrentInteraction;
 	}
 
@@ -460,6 +461,7 @@ public class SgPlayer : SgBehavior
 	private IEnumerator InteractRoutine(SgInteraction interaction)
 	{
 		SgInteractTranslation interactConfig = interaction.InteractConfig;
+		interaction.cachedInteractConfig = interactConfig;
 
 		int[] interactTranslationIds = new int[] { };
 		if (interaction.IsRoomInteraction)
@@ -555,7 +557,7 @@ public class SgPlayer : SgBehavior
 		HudManager.SetItembarVisible(true);
 
 		SgInteraction interaction = m_CurrentInteraction;
-		SgInteractTranslation interactConfig = interaction.InteractConfig;
+		SgInteractTranslation interactConfig = interaction.cachedInteractConfig;
 
 		bool shouldWalkToATarget = interaction.type == SgInteractType.Collision && interactConfig != null && interactConfig.walkToItFirst; //could be generalized to "walkToItAfter"
 		if (shouldWalkToATarget)
@@ -642,9 +644,10 @@ public class SgPlayer : SgBehavior
 	{
 		character.SkipSpeech();
 
-		if(m_CurrentInteraction != null && m_CurrentInteraction.InteractConfig != null && m_CurrentInteraction.InteractConfig.startDialogue != null)
+		if(m_CurrentInteraction != null && m_CurrentInteraction.cachedInteractConfig != null 
+			&& m_CurrentInteraction.cachedInteractConfig.startDialogue != null)
 		{
-			m_CurrentInteraction.InteractConfig.startDialogue.character.SkipSpeech();
+			m_CurrentInteraction.cachedInteractConfig.startDialogue.character.SkipSpeech();
 		}
 	}
 
@@ -657,6 +660,8 @@ public class SgPlayer : SgBehavior
 		public bool IsRoomInteraction => interactGroup != null;
 		public bool IsItemInteraction => itembarItem != SgItemType.Illegal;
 		public SgItemDefinition ItembarItemDefinition => SgManagers._.itemManager.Get(itembarItem);
+		//conditions can be changed when a interaction is started, so don't always get the config by using function call
+		public SgInteractTranslation cachedInteractConfig;
 
 		private static SgTranslationManager InteractManager => SgManagers._.translationManager;
 
