@@ -7,6 +7,7 @@ public class SgDialogue : MonoBehaviour
 {
 	public int[] mainTranslationIds;
 	public SgMainDialogueSpeak[] mainDialogueSpeaks;
+	public SgMainDialogueSpeak[] autoReplies;
 	public SgDialogueReply[] replies;
 	public SgDialogue redirectAfterDialogue;
 	public SgCharacter character;

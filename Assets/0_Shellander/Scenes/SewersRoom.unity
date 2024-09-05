@@ -569,6 +569,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &734592284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734592286}
+  - component: {fileID: 734592285}
+  m_Layer: 0
+  m_Name: startinteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &734592285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734592284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4105050e2baaa7847b6df5e66cc4c096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditions:
+  - successOnTrue: 1
+    namedBool: SewersRoomVisited
+    collectedItem: 0
+    collectedItemEver: 0
+    discoveredItem: 0
+    skinType: 0
+    minMoney: 0
+  interactConfig:
+    interactType: 0
+    itemType: 0
+    itemTypes: 
+    triggerCollect: 0
+    triggerRemove: 
+    translationIds: 
+    walkToItFirst: 0
+    toggleSprite: 0
+    onlyWhenCollected: 0
+    onlyWhenNotCollected: 0
+    onlyWhenCollectedItemTypes: 
+    onlyWhenNotCollectedItemTypes: 
+    transitionToRoom: 0
+    onlyInRooms: 
+    onlyForSkins: 
+    setNamedBool: 
+    setNamedBoolToFalse: 0
+    startDialogue: {fileID: 0}
+    method:
+      m_PersistentCalls:
+        m_Calls: []
+    fullscreenSprite: {fileID: 0}
+    redirect: {fileID: 0}
+    debugString: 
+    isFallback: 0
+--- !u!4 &734592286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734592284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979347105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &749118248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -959,7 +1037,7 @@ GameObject:
   - component: {fileID: 1120836795}
   - component: {fileID: 1120836796}
   m_Layer: 0
-  m_Name: d-start
+  m_Name: d-talkstart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,6 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 41010000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies:
   - translationId: 322
     isSilent: 0
@@ -1016,6 +1095,58 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+  redirectAfterDialogue: {fileID: 0}
+  character: {fileID: 0}
+--- !u!1 &1165165399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165165400}
+  - component: {fileID: 1165165401}
+  m_Layer: 0
+  m_Name: d-roomstartfirst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1165165400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165165399}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1902645301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1165165401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165165399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028abaa7c7a8d84199fb28f36afdfaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainTranslationIds: 4b010000
+  mainDialogueSpeaks: []
+  autoReplies:
+  - translationIds: 42010000
+    conditions: []
+  replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &1377456560
@@ -1561,10 +1692,13 @@ PrefabInstance:
       addedObject: {fileID: 668434754}
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 333374691}
+    - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1120836795}
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 333374691}
+      addedObject: {fileID: 1165165400}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
@@ -1798,6 +1932,14 @@ PrefabInstance:
       propertyPath: spawnPositions.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: startInteractions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 835391061253983819, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: startInteractions.Array.data[0]
+      value: 
+      objectReference: {fileID: 734592285}
     - target: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.69
@@ -1852,6 +1994,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1377456561}
+    - targetCorrespondingSourceObject: {fileID: 3133473233228449289, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 734592286}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5290676582257001887, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       insertIndex: -1

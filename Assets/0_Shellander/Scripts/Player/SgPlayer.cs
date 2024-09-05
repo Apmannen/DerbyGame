@@ -17,6 +17,7 @@ public class SgPlayer : SgBehavior
 	public SpriteRenderer sitSprite;
 	public SgSpawnPosition[] spawnPositions;
 	public SgCharacter character;
+	public SgConditionInteraction[] startInteractions;
 
 	private enum SgPlayerState 
 	{ 
