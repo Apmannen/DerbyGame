@@ -624,8 +624,15 @@ public class SgPlayer : SgBehavior
 			yield return character.Talk(speak.translationIds);
 		}
 
+		bool finish = false;
+
 		IList<SgDialogueReply> validReplies = dialogue.ValidReplies;
-		if(validReplies.Count > 0)
+		if(validReplies.Count == 1)
+		{
+			yield return character.Talk(validReplies[0].translationId);
+			finish = true;
+		}
+		else if(validReplies.Count > 1)
 		{
 			HudManager.ShowReplyBar(validReplies);
 			SetState(SgPlayerState.AwaitingDialogueReply);
@@ -635,6 +642,11 @@ public class SgPlayer : SgBehavior
 			yield return DialogueRoutine(dialogue.redirectAfterDialogue);
 		}
 		else
+		{
+			finish = true;
+		}
+
+		if(finish)
 		{
 			SetState(SgPlayerState.None);
 			HudManager.SetItembarVisible(true);
