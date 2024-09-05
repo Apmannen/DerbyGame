@@ -15,26 +15,35 @@ public class SgCharacter : SgBehavior
 
 	private void Start()
 	{
-		m_DefaultSpeechAnimationPos = speechAnimation.transform.localPosition;
-		m_FlippedSpeechAnimationPos = speechAnimationPosWhenFlipped != null ? speechAnimationPosWhenFlipped.localPosition : m_DefaultSpeechAnimationPos;
-		speechAnimation.gameObject.SetActive(true);
-		if(speechAnimationPosWhenFlipped != null)
+		if(speechAnimation != null)
 		{
-			speechAnimationPosWhenFlipped.gameObject.SetActive(false);
-		}		
+			m_DefaultSpeechAnimationPos = speechAnimation.transform.localPosition;
+			m_FlippedSpeechAnimationPos = speechAnimationPosWhenFlipped != null ? speechAnimationPosWhenFlipped.localPosition : m_DefaultSpeechAnimationPos;
+			speechAnimation.gameObject.SetActive(true);
+			if (speechAnimationPosWhenFlipped != null)
+			{
+				speechAnimationPosWhenFlipped.gameObject.SetActive(false);
+			}
+		}
 		ClearSpeech();
 	}
 
 	private void Update()
 	{
-		Vector3 speechAnimationPos = mainRenderer != null && mainRenderer.flipX ? m_FlippedSpeechAnimationPos : m_DefaultSpeechAnimationPos;
-		speechAnimation.transform.localPosition = speechAnimationPos;
+		if(speechAnimation != null)
+		{
+			Vector3 speechAnimationPos = mainRenderer != null && mainRenderer.flipX ? m_FlippedSpeechAnimationPos : m_DefaultSpeechAnimationPos;
+			speechAnimation.transform.localPosition = speechAnimationPos;
+		}
 	}
 
 	public void ClearSpeech()
 	{
-		speechAnimation.Stop();
-		speechAnimation.spriteRenderer.sprite = null;
+		if(speechAnimation != null)
+		{
+			speechAnimation.Stop();
+			speechAnimation.spriteRenderer.sprite = null;
+		}
 		speechText.text = "";
 		StopAllCoroutines();
 	}
@@ -49,7 +58,10 @@ public class SgCharacter : SgBehavior
 	}
 	public IEnumerator Talk(IList<int> translationIds)
 	{
-		speechAnimation.Play();
+		if(speechAnimation != null)
+		{
+			speechAnimation.Play();
+		}
 		foreach (int id in translationIds)
 		{
 			string translation = InteractManager.Get(id);
