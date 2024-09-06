@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class SgCondition
@@ -13,8 +14,9 @@ public class SgCondition
 
 	private static SgItemManager ItemManager => SgManagers._.itemManager;
 	private static SgSaveDataManager SaveDataManager => SgManagers._.saveDataManager;
-	public static bool TestConditions(IList<SgCondition> conditions)
+	public static bool TestConditions(IList<SgCondition> conditions, bool orCheckAll)
 	{
+		int successCount = 0;
 		foreach (SgCondition c in conditions)
 		{
 			bool value = false;
@@ -44,11 +46,17 @@ public class SgCondition
 			}
 
 			bool conditionSuccess = (c.successOnTrue && value) || (!c.successOnTrue && !value);
-			if (!conditionSuccess)
-			{
-				return false;
+
+			if(conditionSuccess)
+            {
+				successCount++;
 			}
 		}
-		return true;
+
+		if(orCheckAll)
+        {
+			return successCount >= Mathf.Min(1, conditions.Count);
+        }
+		return successCount == conditions.Count;
 	}
 }

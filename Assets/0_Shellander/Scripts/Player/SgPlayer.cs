@@ -623,7 +623,7 @@ public class SgPlayer : SgBehavior
 
 		foreach(SgMainDialogueSpeak speak in dialogue.autoReplies)
 		{
-			if(!SgCondition.TestConditions(speak.conditions))
+			if(!SgCondition.TestConditions(speak.conditions, false))
 			{
 				continue;
 			}

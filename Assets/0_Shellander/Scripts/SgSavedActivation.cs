@@ -5,6 +5,8 @@ public class SgSavedActivation : SgBehavior
 {
 	public bool auto = true;
 	public SgCondition[] conditions;
+	public bool orCheckAll = false;
+	public SgSavedActivation inverseFor;
 
 	//Legacy name conversion
 	public bool activateWhenNamedTrue;
@@ -15,6 +17,7 @@ public class SgSavedActivation : SgBehavior
     public string namedBool;	
 
 	private List<SgCondition> m_Conditions = null;
+	public IList<SgCondition> Conditions => m_Conditions;
 
 	private void Start()
 	{
@@ -68,11 +71,20 @@ public class SgSavedActivation : SgBehavior
 	{
 		Init();
 
-		bool allSuccess = SgCondition.TestConditions(m_Conditions);
+		bool conditionsSuccess;
+		if(inverseFor != null)
+        {
+			conditionsSuccess = !SgCondition.TestConditions(inverseFor.Conditions, inverseFor.orCheckAll);
+		}
+		else
+        {
+			conditionsSuccess = SgCondition.TestConditions(m_Conditions, orCheckAll);
+		}
+		
 
 		bool oldActive = this.gameObject.activeSelf;
 		bool newActive;
-		if(allSuccess)
+		if(conditionsSuccess)
         {
 			newActive = SetActiveWhenAllSuccess;
         }
@@ -81,8 +93,6 @@ public class SgSavedActivation : SgBehavior
 			newActive = !SetActiveWhenAllSuccess;
         }
 		this.gameObject.SetActive(newActive);
-
-		//Debug.Log("*** allSuccess="+ allSuccess+ ", newActive="+ newActive+", SetActiveWhenAllSuccess="+ SetActiveWhenAllSuccess+", this="+this, this.gameObject);
 
 		return newActive != oldActive;
 	}

@@ -44,7 +44,7 @@ public class SgDialogue : MonoBehaviour
 			}
 			foreach (SgMainDialogueSpeak dialogueItem in mainDialogueSpeaks)
 			{
-				if (SgCondition.TestConditions(dialogueItem.conditions))
+				if (SgCondition.TestConditions(dialogueItem.conditions, false))
 				{
 					translationIds.AddRange(dialogueItem.translationIds);
 				}
@@ -57,7 +57,7 @@ public class SgDialogue : MonoBehaviour
 	{
 		get
 		{
-			return replies.Where(r => SgCondition.TestConditions(r.conditions) && (!r.autoRemove || !r.hasBeenUsed)).ToList();
+			return replies.Where(r => SgCondition.TestConditions(r.conditions, false) && (!r.autoRemove || !r.hasBeenUsed)).ToList();
 		}
 	}
 }

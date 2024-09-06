@@ -177,6 +177,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -270,6 +272,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -577,6 +581,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -634,6 +640,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -977,8 +985,9 @@ Transform:
   - {fileID: 1902645301}
   - {fileID: 2141752661}
   - {fileID: 2119719561}
-  - {fileID: 1350304511}
   - {fileID: 74615259}
+  - {fileID: 673679975}
+  - {fileID: 1096376356}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &650059438
@@ -1233,6 +1242,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &673679974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673679975}
+  - component: {fileID: 673679976}
+  m_Layer: 0
+  m_Name: FullyCutStuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &673679975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673679974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1350304511}
+  m_Father: {fileID: 633702610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &673679976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673679974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accc3bc5b9905c54a9c74bffd3c68d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  auto: 1
+  conditions:
+  - successOnTrue: 1
+    namedBool: Rope1Cut
+    collectedItem: 0
+    collectedItemEver: 0
+    discoveredItem: 0
+    skinType: 0
+    minMoney: 0
+  - successOnTrue: 1
+    namedBool: Rope2Cut
+    collectedItem: 0
+    collectedItemEver: 0
+    discoveredItem: 0
+    skinType: 0
+    minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
+  activateWhenNamedTrue: 1
+  collectedItem: 0
+  namedBool: 
 --- !u!1 &719375383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1421,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -2319,6 +2396,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1096376355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096376356}
+  - component: {fileID: 1096376357}
+  m_Layer: 0
+  m_Name: NotFullCutStuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1096376356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096376355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 633702610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096376357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096376355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accc3bc5b9905c54a9c74bffd3c68d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  auto: 1
+  conditions: []
+  orCheckAll: 0
+  inverseFor: {fileID: 673679976}
+  activateWhenNamedTrue: 1
+  collectedItem: 0
+  namedBool: 
 --- !u!1 &1120836794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,7 +2655,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 633702610}
+    m_TransformParent: {fileID: 673679975}
     m_Modifications:
     - target: {fileID: 409524126327557039, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       propertyPath: m_LocalScale.x
@@ -2647,52 +2775,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 478189700}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1350304513}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
 --- !u!4 &1350304511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3966157000089192036, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
   m_PrefabInstance: {fileID: 1350304510}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1350304512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1607366259030866218, guid: 61b4833931ceb7e47b8944579eb1ebab, type: 3}
-  m_PrefabInstance: {fileID: 1350304510}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1350304513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350304512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: accc3bc5b9905c54a9c74bffd3c68d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  auto: 1
-  conditions:
-  - successOnTrue: 1
-    namedBool: Rope1Cut
-    collectedItem: 0
-    collectedItemEver: 0
-    discoveredItem: 0
-    skinType: 0
-    minMoney: 0
-  - successOnTrue: 1
-    namedBool: Rope2Cut
-    collectedItem: 0
-    collectedItemEver: 0
-    discoveredItem: 0
-    skinType: 0
-    minMoney: 0
-  activateWhenNamedTrue: 1
-  collectedItem: 0
-  namedBool: 
 --- !u!1 &1377456560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,6 +3958,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
