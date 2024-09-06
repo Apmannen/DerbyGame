@@ -50,13 +50,28 @@ public class SgCharacter : SgBehavior
 		}
 
 		//TODO: keep in frame and then generalize this so that it can be used by cursor text as well
+		//Don't wanna get component each frame
 		Vector3 worldPos = speechText.transform.position;
 		worldPos.x += m_XOffset;
 		m_OverlayText.transform.position = Camera.main.WorldToScreenPoint(worldPos);
 
 		RectTransform rectTransform = m_OverlayText.GetComponent<RectTransform>();
 		//rectTransform.anchoredPosition
+		//TestTopLeft(rectTransform);
 	}
+
+	private void TestTopLeft(RectTransform rectTransform)
+    {
+		TestPreset(rectTransform, new Vector2(0,1), new Vector2(0, 1), new Vector2(0, 1));
+    }
+
+	private static void TestPreset(RectTransform rectTransform, Vector2 min, Vector2 max, Vector2 pivot)
+    {
+		rectTransform.anchorMin = min;
+		rectTransform.anchorMax = max;
+		rectTransform.pivot = pivot;
+	}
+
 	/*
 	Pivot presets
 

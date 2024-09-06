@@ -5353,6 +5353,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.45000076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.84
+      objectReference: {fileID: 0}
     - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_text
       value: "Det \xE4r ett tag kvar till matchstart och det finns ett par saker
