@@ -20,7 +20,6 @@ public class SgCharacter : SgBehavior
 
 	private void Start()
 	{
-		//speechText.gameObject.SetActive(false);
 		m_OverlayText = GameObject.Instantiate(HudManager.speechTextOverlayTemplate, HudManager.speechTextOverlayTemplate.transform.parent);
 		m_OverlayText.gameObject.SetActive(true);		
 		m_OverlayText.color = vertexColor;
@@ -38,7 +37,15 @@ public class SgCharacter : SgBehavior
 		ClearSpeech();
 	}
 
-	public void SetXOffset(float xOffset)
+    private void OnDestroy()
+    {
+        if(m_OverlayText != null)
+        {
+			GameObject.Destroy(m_OverlayText.gameObject);
+        }
+    }
+
+    public void SetXOffset(float xOffset)
     {
 		m_XOffset = xOffset;
 	}
@@ -53,41 +60,12 @@ public class SgCharacter : SgBehavior
 
 		if(!string.IsNullOrEmpty(m_OverlayText.text))
         {
-			//TODO: keep in frame and then generalize this so that it can be used by cursor text as well
 			Vector2 worldPos = speechText.transform.position;
 			worldPos.x += m_XOffset;
 			Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
 			HudManager.KeepInFrame(m_OverlayText.transform, screenPos, HudManager.textLimitTopLeft, HudManager.textLimitTopRight);
 		}
 	}
-
-	/*
-	Pivot presets
-
-	min x y
-	max x y
-	pivot x y
-
-	top left
-	0 1
-	0 1
-	0 1
-
-	top right
-	1 1
-	1 1
-	1 1
-
-	bottom left
-	0 0
-	0 0
-	0 y
-
-	bottom right
-	1 0
-	1 0
-	1 y
-	*/
 
 	public void ClearSpeech()
 	{
@@ -135,3 +113,31 @@ public class SgCharacter : SgBehavior
 		}
 	}
 }
+
+/*
+Pivot presets
+
+min x y
+max x y
+pivot x y
+
+top left
+0 1
+0 1
+0 1
+
+top right
+1 1
+1 1
+1 1
+
+bottom left
+0 0
+0 0
+0 y
+
+bottom right
+1 0
+1 0
+1 y
+*/
