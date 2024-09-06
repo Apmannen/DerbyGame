@@ -25,8 +25,8 @@ public class SgLayerOrderTrigger : MonoBehaviour
     {
 		for(int i = 0; i < affectedSpriteRenderers.Length; i++)
         {
-			Debug.Log("**** i="+i+", iid="+ affectedSpriteRenderers[i].gameObject.GetInstanceID()+", iid="+ sprite.GetInstanceID());
-			if(affectedSpriteRenderers[i].gameObject.GetInstanceID() == sprite.GetInstanceID())
+			//Debug.Log("**** i="+i+", iid="+ affectedSpriteRenderers[i].gameObject.GetInstanceID()+", iid="+ sprite.GetInstanceID());
+			if(affectedSpriteRenderers[i].GetInstanceID() == sprite.GetInstanceID())
             {
 				return i;
             }
