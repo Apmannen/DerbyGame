@@ -149,6 +149,11 @@ public class SgPlayer : SgBehavior
 	{
 		return s_Player;
 	}
+	public static SgPlayer GetFromCollider(Collider2D collider)
+    {
+		bool success = collider.gameObject.TryGetComponent(out SgPlayer player);
+		return success ? player : null;
+	}
 
 	public void SetStance(SgPlayerStance stance)
 	{

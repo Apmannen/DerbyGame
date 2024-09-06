@@ -18,14 +18,15 @@ public class SgInteractable : SgBehavior
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
 		SgInteractTranslation collisionInteractConfig = InteractGroup.GetInteractConfig(SgInteractType.Collision, SgItemType.Illegal);
 		if (collisionInteractConfig == null)
 		{
 			return;
 		}
-		if(!collision.gameObject.TryGetComponent<SgPlayer>(out SgPlayer player))
+		SgPlayer player = SgPlayer.GetFromCollider(other);
+		if (player == null)
 		{
 			return;
 		}
