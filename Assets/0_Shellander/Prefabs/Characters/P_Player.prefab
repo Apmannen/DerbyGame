@@ -237,6 +237,7 @@ MonoBehaviour:
   speechAnimationPosWhenFlipped: {fileID: 8623529508510075113}
   mainRenderer: {fileID: 1050728045699134630}
   vertexColor: {r: 0, g: 0.74509805, b: 1, a: 1}
+  minMaxAnchoredX: 1080
 --- !u!1 &4422259011511044071
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,10 +789,6 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -845,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.45
+      value: -0.45000076
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y

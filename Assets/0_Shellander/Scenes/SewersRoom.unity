@@ -260,7 +260,8 @@ MonoBehaviour:
   speechAnimation: {fileID: 0}
   speechAnimationPosWhenFlipped: {fileID: 0}
   mainRenderer: {fileID: 0}
-  vertexColor: {r: 1, g: 1, b: 1, a: 1}
+  vertexColor: {r: 0.6784314, g: 0, b: 1, a: 1}
+  minMaxAnchoredX: 1080
 --- !u!1 &93947183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1178,7 +1179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2.9316
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1210,11 +1211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.55
+      value: 5.51
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4391,7 +4392,8 @@ MonoBehaviour:
   speechAnimation: {fileID: 0}
   speechAnimationPosWhenFlipped: {fileID: 0}
   mainRenderer: {fileID: 0}
-  vertexColor: {r: 1, g: 1, b: 1, a: 1}
+  vertexColor: {r: 0.6784314, g: 0, b: 1, a: 1}
+  minMaxAnchoredX: 1080
 --- !u!1 &1938762178
 GameObject:
   m_ObjectHideFlags: 0
@@ -5352,18 +5354,6 @@ PrefabInstance:
     - target: {fileID: 4350015964145985588, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_Name
       value: P_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.45000076
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 8.84
       objectReference: {fileID: 0}
     - target: {fileID: 5632593816990681997, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_text
