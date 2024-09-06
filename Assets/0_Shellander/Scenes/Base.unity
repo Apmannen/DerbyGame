@@ -5416,8 +5416,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 976.05, y: 962}
-  m_SizeDelta: {x: 1312.1001, y: 100}
+  m_AnchoredPosition: {x: 1080, y: 962}
+  m_SizeDelta: {x: 1300, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1187204859
 MonoBehaviour:
@@ -5439,7 +5439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Det \xE4r ett tag kvar till matchstart och det finns ett par saker jag
+  m_text: "Det \xE4r ett tag kvar till matchstartss och det finns ett par saker jag
     beh\xF6ver ta hand om f\xF6rst."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee6f8491896d944282305670832679c, type: 2}

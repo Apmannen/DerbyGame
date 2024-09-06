@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SgCharacter : SgBehavior
 {
@@ -9,6 +10,7 @@ public class SgCharacter : SgBehavior
 	public Transform speechAnimationPosWhenFlipped;
 	public SpriteRenderer mainRenderer;
 	public Color vertexColor = Color.white;
+	public float minMaxAnchoredX = 1080;
 
 	private Vector3 m_DefaultSpeechAnimationPos;
 	private Vector3 m_FlippedSpeechAnimationPos;
@@ -51,13 +53,33 @@ public class SgCharacter : SgBehavior
 
 		//TODO: keep in frame and then generalize this so that it can be used by cursor text as well
 		//Don't wanna get component each frame
-		Vector3 worldPos = speechText.transform.position;
+		Vector2 worldPos = speechText.transform.position;
 		worldPos.x += m_XOffset;
-		m_OverlayText.transform.position = Camera.main.WorldToScreenPoint(worldPos);
+		Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+		m_OverlayText.transform.position = screenPos;
 
 		RectTransform rectTransform = m_OverlayText.GetComponent<RectTransform>();
-		//rectTransform.anchoredPosition
+		Vector2 anchoredPos = rectTransform.anchoredPosition;
+		anchoredPos.x = Mathf.Clamp(anchoredPos.x, -minMaxAnchoredX, minMaxAnchoredX);
+		rectTransform.anchoredPosition = anchoredPos;
+
 		//TestTopLeft(rectTransform);
+
+		//CanvasScaler canvasScaler = m_OverlayText.GetComponentInParent<CanvasScaler>();
+
+		//if(m_OverlayText.text != "")
+		//      {
+		//	Debug.Log($"**** SCREENTEST: screenpos:{screenPos}, worldpos:{worldPos}, Screen.width:{Screen.width}, " +
+		//		$"w2={Screen.currentResolution.width}, ref={canvasScaler.referenceResolution}, achpos={rectTransform.anchoredPosition}");
+		//}
+
+
+
+		//Debug.Log($"*** SCREENTEST: min:{Screen.safeArea.min}, max:{Screen.safeArea.min}, overlaytext:{m_OverlayText.transform.position}, Screen.width={Screen.width}");
+
+		//Vector2 pos = 
+
+
 	}
 
 	private void TestTopLeft(RectTransform rectTransform)
