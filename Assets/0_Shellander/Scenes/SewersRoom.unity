@@ -260,6 +260,7 @@ MonoBehaviour:
   speechAnimation: {fileID: 0}
   speechAnimationPosWhenFlipped: {fileID: 0}
   mainRenderer: {fileID: 0}
+  vertexColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &93947183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4390,6 +4391,7 @@ MonoBehaviour:
   speechAnimation: {fileID: 0}
   speechAnimationPosWhenFlipped: {fileID: 0}
   mainRenderer: {fileID: 0}
+  vertexColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1938762178
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,6 +5352,14 @@ PrefabInstance:
     - target: {fileID: 4350015964145985588, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_Name
       value: P_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.64
       objectReference: {fileID: 0}
     - target: {fileID: 7696495994123542416, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_Camera

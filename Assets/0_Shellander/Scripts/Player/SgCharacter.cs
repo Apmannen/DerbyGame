@@ -17,7 +17,7 @@ public class SgCharacter : SgBehavior
 
 	private void Start()
 	{
-		speechText.gameObject.SetActive(false);
+		//speechText.gameObject.SetActive(false);
 		m_OverlayText = GameObject.Instantiate(HudManager.speechTextOverlayTemplate, HudManager.speechTextOverlayTemplate.transform.parent);
 		m_OverlayText.gameObject.SetActive(true);		
 		m_OverlayText.color = vertexColor;
@@ -52,6 +52,7 @@ public class SgCharacter : SgBehavior
 			speechAnimation.spriteRenderer.sprite = null;
 		}
 		m_OverlayText.text = "";
+		speechText.text = "";
 		StopAllCoroutines();
 	}
 	public void SkipSpeech()
@@ -66,6 +67,9 @@ public class SgCharacter : SgBehavior
 	public IEnumerator Talk(IList<int> translationIds)
 	{
 		m_OverlayText.transform.position = Camera.main.WorldToScreenPoint(speechText.transform.position);
+		//m_OverlayText.transform.SetParent(speechText.transform.parent, true);
+		//m_OverlayText.transform.localPosition = speechText.transform.localPosition;
+		//m_OverlayText.transform.SetParent(HudManager.speechTextOverlayTemplate.transform.parent, true);
 
 		if (speechAnimation != null)
 		{

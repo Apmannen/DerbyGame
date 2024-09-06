@@ -5393,7 +5393,6 @@ GameObject:
   - component: {fileID: 1187204857}
   - component: {fileID: 1187204860}
   - component: {fileID: 1187204859}
-  - component: {fileID: 1187204858}
   m_Layer: 5
   m_Name: ScreenSpaceSpeech
   m_TagString: Untagged
@@ -5420,23 +5419,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1247, y: 644}
   m_SizeDelta: {x: 1312.1, y: 100}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1187204858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187204856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50992053b0929349945cb24bc791229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkScreen: 1
-  useMaxY: 0
-  useMinX: 0
-  maxY: 0
-  minX: 100
 --- !u!114 &1187204859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5493,7 +5475,7 @@ MonoBehaviour:
   m_fontSizeMax: 0
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: -3.5
   m_wordSpacing: -2
