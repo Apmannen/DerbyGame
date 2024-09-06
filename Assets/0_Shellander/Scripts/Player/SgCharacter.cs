@@ -57,11 +57,7 @@ public class SgCharacter : SgBehavior
 			Vector2 worldPos = speechText.transform.position;
 			worldPos.x += m_XOffset;
 			Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-
-			screenPos.x = Mathf.Clamp(screenPos.x, HudManager.textLimitTopLeft.position.x, HudManager.textLimitTopRight.position.x);
-			//screenPos.y = Mathf.Clamp(screenPos.y, HudManager.textLimitTopLeft.position.y, float.MaxValue);
-
-			m_OverlayText.transform.position = screenPos;
+			HudManager.KeepInFrame(m_OverlayText.transform, screenPos, HudManager.textLimitTopLeft, HudManager.textLimitTopRight);
 		}
 	}
 

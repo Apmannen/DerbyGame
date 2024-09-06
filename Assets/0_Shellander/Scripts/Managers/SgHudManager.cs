@@ -19,6 +19,8 @@ public class SgHudManager : SgBehavior
 	public TMPro.TextMeshProUGUI speechTextOverlayTemplate;
 	public RectTransform textLimitTopLeft;
 	public RectTransform textLimitTopRight;
+	public RectTransform cursorTextLimitTopLeft;
+	public RectTransform cursorTextLimitTopRight;
 
 	private float m_BgAlphaVel = 0;
 	private List<SgReplyItem> m_ReplyItems = new();
@@ -35,7 +37,6 @@ public class SgHudManager : SgBehavior
 	{
 		wheelBgGroup.alpha = Mathf.SmoothDamp(wheelBgGroup.alpha, IsWheelVisible ? 1 : 0, ref m_BgAlphaVel, wheelBgAlphaSmoothTime);
 		wheelRaycaster.enabled = IsWheelVisible;
-		//itembar.gameObject.SetActive(!IsReplyBarVisible && m_SelectedReplyItem == null);
 	}
 
 	public void SetItembarVisible(bool visible)
@@ -65,6 +66,13 @@ public class SgHudManager : SgBehavior
 		m_ReplyItems.Clear();
 		m_SelectedReplyItem = null;
 		replyBarContainer.gameObject.SetActive(false);
+	}
+
+	//Could be generalized to only one set of limits, but since there's only two use cases it's not worth it
+	public void KeepInFrame(Transform aTransform, Vector2 desiredPos, Transform topLeftLimit, Transform topRightLimit)
+    {
+		desiredPos.x = Mathf.Clamp(desiredPos.x, topLeftLimit.position.x, topRightLimit.position.x);
+		aTransform.transform.position = desiredPos;
 	}
 
 	public void ShowReplyBar(IList<SgDialogueReply> replies)
