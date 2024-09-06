@@ -173,19 +173,23 @@ public class SgInteractGroup : SgBehavior
 			SetVisibleSprite(m_RenderIndex == 0 ? 1 : 0);
 		}
 		
-		if(interactConfig.transitionToRoom != SgRoomName.Illegal)
-		{
-			SceneManager.SetNewRoom(interactConfig.transitionToRoom);
-		}
 
 		if(interactConfig.fullscreenSprite)
 		{
 			HudManager.SetFullscreenImage(interactConfig.fullscreenSprite);
 		}
 	}
-	public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
+    public virtual void OnAfterInteract(SgInteractTranslation interactConfig)
 	{
-		//Debug.Log("**** TRIGGER InteractRoutine m_IsBlocked="+ m_IsBlocked);
+        if (interactConfig.transitionToRoom != SgRoomName.Illegal)
+        {
+            SceneManager.SetNewRoom(interactConfig.transitionToRoom);
+        }
+    }
+
+
+    public virtual IEnumerator InteractRoutine(SgPlayer player, SgInteractType interactType)
+	{
 		bool isAnyBlocked = IsBlocked;
 		foreach(SgInteractGroup otherInteractGroup in blockDependencies)
 		{
@@ -200,7 +204,5 @@ public class SgInteractGroup : SgBehavior
 		{
 			yield return null;
 		}
-
-		//Debug.Log("**** TRIGGER InteractRoutine done!? m_IsBlocked="+ m_IsBlocked);
 	}
 }

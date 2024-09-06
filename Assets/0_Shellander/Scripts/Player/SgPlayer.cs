@@ -559,7 +559,13 @@ public class SgPlayer : SgBehavior
 		SgInteraction interaction = m_CurrentInteraction;
 		SgInteractTranslation interactConfig = interaction.cachedInteractConfig;
 
-		bool shouldWalkToATarget = interaction.type == SgInteractType.Collision && interactConfig != null && interactConfig.walkToItFirst; //could be generalized to "walkToItAfter"
+        if (interactConfig != null && interaction.IsRoomInteraction)
+        {
+            interaction.interactGroup.OnAfterInteract(interactConfig);
+        }
+
+        bool shouldWalkToATarget = interaction.type == SgInteractType.Collision 
+			&& interactConfig != null && interactConfig.walkToItFirst; //could be generalized to "walkToItAfter"
 		if (shouldWalkToATarget)
 		{
 			Vector3 pos = m_CurrentInteraction.interactGroup.walkTarget.position;
