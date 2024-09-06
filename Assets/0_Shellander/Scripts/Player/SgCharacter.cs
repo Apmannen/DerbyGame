@@ -65,7 +65,9 @@ public class SgCharacter : SgBehavior
 	}
 	public IEnumerator Talk(IList<int> translationIds)
 	{
-		if(speechAnimation != null)
+		m_OverlayText.transform.position = Camera.main.WorldToScreenPoint(speechText.transform.position);
+
+		if (speechAnimation != null)
 		{
 			speechAnimation.Play();
 		}
