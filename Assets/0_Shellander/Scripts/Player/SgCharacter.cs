@@ -8,14 +8,21 @@ public class SgCharacter : SgBehavior
 	public SgAnimation speechAnimation;
 	public Transform speechAnimationPosWhenFlipped;
 	public SpriteRenderer mainRenderer;
+	public Color vertexColor = Color.white;
 
 	private Vector3 m_DefaultSpeechAnimationPos;
 	private Vector3 m_FlippedSpeechAnimationPos;
 	private bool m_SpeechAborted = false;
+	private TMPro.TextMeshProUGUI m_OverlayText;
 
 	private void Start()
 	{
-		if(speechAnimation != null)
+		speechText.gameObject.SetActive(false);
+		m_OverlayText = GameObject.Instantiate(HudManager.speechTextOverlayTemplate, HudManager.speechTextOverlayTemplate.transform.parent);
+		m_OverlayText.gameObject.SetActive(true);		
+		m_OverlayText.color = vertexColor;
+
+		if (speechAnimation != null)
 		{
 			m_DefaultSpeechAnimationPos = speechAnimation.transform.localPosition;
 			m_FlippedSpeechAnimationPos = speechAnimationPosWhenFlipped != null ? speechAnimationPosWhenFlipped.localPosition : m_DefaultSpeechAnimationPos;
@@ -44,7 +51,7 @@ public class SgCharacter : SgBehavior
 			speechAnimation.Stop();
 			speechAnimation.spriteRenderer.sprite = null;
 		}
-		speechText.text = "";
+		m_OverlayText.text = "";
 		StopAllCoroutines();
 	}
 	public void SkipSpeech()
@@ -65,7 +72,7 @@ public class SgCharacter : SgBehavior
 		foreach (int id in translationIds)
 		{
 			string translation = InteractManager.Get(id);
-			speechText.text = translation;
+			m_OverlayText.text = translation;
 			m_SpeechAborted = false;
 			yield return Wait(3f);
 		}

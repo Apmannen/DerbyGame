@@ -16,6 +16,7 @@ public class SgHudManager : SgBehavior
 	public RectTransform replyBarContainer;
 	public SgReplyItem replyItemTemplate;
 	public Image fullscreenImage;
+	public TMPro.TextMeshProUGUI speechTextOverlayTemplate;
 
 	private float m_BgAlphaVel = 0;
 	private List<SgReplyItem> m_ReplyItems = new();
@@ -23,6 +24,7 @@ public class SgHudManager : SgBehavior
 
 	private void Start()
 	{
+		speechTextOverlayTemplate.gameObject.SetActive(false);
 		replyBarContainer.gameObject.SetActive(false);
 		replyItemTemplate.gameObject.SetActive(false);
 		SetFullscreenImage(null);

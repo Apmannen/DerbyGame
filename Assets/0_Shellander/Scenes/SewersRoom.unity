@@ -1143,6 +1143,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294901856
       objectReference: {fileID: 0}
+    - target: {fileID: 4499134915600010376, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

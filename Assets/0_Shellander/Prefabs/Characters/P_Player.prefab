@@ -124,6 +124,7 @@ MonoBehaviour:
   sitSprite: {fileID: 2778077560273534758}
   spawnPositions: []
   character: {fileID: 4358481149397824370}
+  roomEnterInteraction: {fileID: 0}
 --- !u!195 &6665080452964013111
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -234,6 +235,7 @@ MonoBehaviour:
   speechAnimation: {fileID: 5281442519834814460}
   speechAnimationPosWhenFlipped: {fileID: 8623529508510075113}
   mainRenderer: {fileID: 1050728045699134630}
+  vertexColor: {r: 0, g: 0.74509805, b: 1, a: 1}
 --- !u!1 &4422259011511044071
 GameObject:
   m_ObjectHideFlags: 0
