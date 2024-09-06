@@ -62,16 +62,15 @@ public class SgTranslationManager : SgBehavior
 		{
 			filteredConfigs = filteredConfigs.Where(c => c.onlyForSkins.Length == 0).ToList();
 		}
-		//Debug.Log("**** INTCLICK, filterlen="+filteredConfigs.Count);
 
 		if (interactType == SgInteractType.Item)
         {
-			SgInteractTranslation specificItemConfig = filteredConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(itemType));
+			SgInteractTranslation specificItemConfig = filteredConfigs.FirstOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Contains(itemType));
 			if(specificItemConfig != null)
             {
 				return specificItemConfig;
             }
-			SgInteractTranslation genericItemConfig = filteredConfigs.SingleOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
+			SgInteractTranslation genericItemConfig = filteredConfigs.FirstOrDefault(c => c.interactType == SgInteractType.Item && c.ItemTypes.Count == 0);
 			if(genericItemConfig != null)
             {
 				return genericItemConfig;
@@ -90,19 +89,16 @@ public class SgTranslationManager : SgBehavior
 				continue;
 			}
 			
-			if(interactConfig.onlyWhenCollectedItemTypes.SingleOrDefault(aItemType => ItemManager.HasEverBeenCollected(aItemType)) != SgItemType.Illegal)
+			if(interactConfig.onlyWhenCollectedItemTypes.FirstOrDefault(aItemType => ItemManager.HasEverBeenCollected(aItemType)) != SgItemType.Illegal)
 			{
 				continue;
 			}
-			if (interactConfig.onlyWhenNotCollectedItemTypes.SingleOrDefault(aItemType => !ItemManager.HasEverBeenCollected(aItemType)) != SgItemType.Illegal)
+			if (interactConfig.onlyWhenNotCollectedItemTypes.FirstOrDefault(aItemType => !ItemManager.HasEverBeenCollected(aItemType)) != SgItemType.Illegal)
 			{
 				continue;
 			}
 
-			//if (interactConfig.interactType == interactType)
-			//{
 			return interactConfig;
-			//}
 		}
 		return null;
 	}

@@ -17,7 +17,14 @@ public class SgSavedActivation : SgBehavior
     public string namedBool;	
 
 	private List<SgCondition> m_Conditions = null;
-	public IList<SgCondition> Conditions => m_Conditions;
+	public IList<SgCondition> Conditions
+	{
+		get
+        {
+			Init();
+			return m_Conditions;
+		}
+	}
 
 	private void Start()
 	{
@@ -74,6 +81,7 @@ public class SgSavedActivation : SgBehavior
 		bool conditionsSuccess;
 		if(inverseFor != null)
         {
+			inverseFor.Init();
 			conditionsSuccess = !SgCondition.TestConditions(inverseFor.Conditions, inverseFor.orCheckAll);
 		}
 		else
