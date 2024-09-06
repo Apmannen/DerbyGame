@@ -17,6 +17,8 @@ public class SgHudManager : SgBehavior
 	public SgReplyItem replyItemTemplate;
 	public Image fullscreenImage;
 	public TMPro.TextMeshProUGUI speechTextOverlayTemplate;
+	public RectTransform textLimitTopLeft;
+	public RectTransform textLimitTopRight;
 
 	private float m_BgAlphaVel = 0;
 	private List<SgReplyItem> m_ReplyItems = new();

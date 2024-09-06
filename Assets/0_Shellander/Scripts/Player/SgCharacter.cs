@@ -51,47 +51,18 @@ public class SgCharacter : SgBehavior
 			speechAnimation.transform.localPosition = speechAnimationPos;
 		}
 
-		//TODO: keep in frame and then generalize this so that it can be used by cursor text as well
-		//Don't wanna get component each frame
-		Vector2 worldPos = speechText.transform.position;
-		worldPos.x += m_XOffset;
-		Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-		m_OverlayText.transform.position = screenPos;
+		if(!string.IsNullOrEmpty(m_OverlayText.text))
+        {
+			//TODO: keep in frame and then generalize this so that it can be used by cursor text as well
+			Vector2 worldPos = speechText.transform.position;
+			worldPos.x += m_XOffset;
+			Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
 
-		RectTransform rectTransform = m_OverlayText.GetComponent<RectTransform>();
-		Vector2 anchoredPos = rectTransform.anchoredPosition;
-		anchoredPos.x = Mathf.Clamp(anchoredPos.x, -minMaxAnchoredX, minMaxAnchoredX);
-		rectTransform.anchoredPosition = anchoredPos;
+			screenPos.x = Mathf.Clamp(screenPos.x, HudManager.textLimitTopLeft.position.x, HudManager.textLimitTopRight.position.x);
+			//screenPos.y = Mathf.Clamp(screenPos.y, HudManager.textLimitTopLeft.position.y, float.MaxValue);
 
-		//TestTopLeft(rectTransform);
-
-		//CanvasScaler canvasScaler = m_OverlayText.GetComponentInParent<CanvasScaler>();
-
-		//if(m_OverlayText.text != "")
-		//      {
-		//	Debug.Log($"**** SCREENTEST: screenpos:{screenPos}, worldpos:{worldPos}, Screen.width:{Screen.width}, " +
-		//		$"w2={Screen.currentResolution.width}, ref={canvasScaler.referenceResolution}, achpos={rectTransform.anchoredPosition}");
-		//}
-
-
-
-		//Debug.Log($"*** SCREENTEST: min:{Screen.safeArea.min}, max:{Screen.safeArea.min}, overlaytext:{m_OverlayText.transform.position}, Screen.width={Screen.width}");
-
-		//Vector2 pos = 
-
-
-	}
-
-	private void TestTopLeft(RectTransform rectTransform)
-    {
-		TestPreset(rectTransform, new Vector2(0,1), new Vector2(0, 1), new Vector2(0, 1));
-    }
-
-	private static void TestPreset(RectTransform rectTransform, Vector2 min, Vector2 max, Vector2 pivot)
-    {
-		rectTransform.anchorMin = min;
-		rectTransform.anchorMax = max;
-		rectTransform.pivot = pivot;
+			m_OverlayText.transform.position = screenPos;
+		}
 	}
 
 	/*
