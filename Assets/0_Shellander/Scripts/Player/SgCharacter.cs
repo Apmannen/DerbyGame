@@ -49,10 +49,41 @@ public class SgCharacter : SgBehavior
 			speechAnimation.transform.localPosition = speechAnimationPos;
 		}
 
+		//TODO: keep in frame and then generalize this so that it can be used by cursor text as well
 		Vector3 worldPos = speechText.transform.position;
 		worldPos.x += m_XOffset;
 		m_OverlayText.transform.position = Camera.main.WorldToScreenPoint(worldPos);
+
+		RectTransform rectTransform = m_OverlayText.GetComponent<RectTransform>();
+		//rectTransform.anchoredPosition
 	}
+	/*
+	Pivot presets
+
+	min x y
+	max x y
+	pivot x y
+
+	top left
+	0 1
+	0 1
+	0 1
+
+	top right
+	1 1
+	1 1
+	1 1
+
+	bottom left
+	0 0
+	0 0
+	0 y
+
+	bottom right
+	1 0
+	1 0
+	1 y
+	*/
 
 	public void ClearSpeech()
 	{
