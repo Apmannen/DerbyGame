@@ -14,6 +14,7 @@ public class SgCharacter : SgBehavior
 	private Vector3 m_FlippedSpeechAnimationPos;
 	private bool m_SpeechAborted = false;
 	private TMPro.TextMeshProUGUI m_OverlayText;
+	private float m_XOffset;
 
 	private void Start()
 	{
@@ -35,6 +36,11 @@ public class SgCharacter : SgBehavior
 		ClearSpeech();
 	}
 
+	public void SetXOffset(float xOffset)
+    {
+		m_XOffset = xOffset;
+	}
+
 	private void Update()
 	{
 		if(speechAnimation != null)
@@ -42,6 +48,10 @@ public class SgCharacter : SgBehavior
 			Vector3 speechAnimationPos = mainRenderer != null && mainRenderer.flipX ? m_FlippedSpeechAnimationPos : m_DefaultSpeechAnimationPos;
 			speechAnimation.transform.localPosition = speechAnimationPos;
 		}
+
+		Vector3 worldPos = speechText.transform.position;
+		worldPos.x += m_XOffset;
+		m_OverlayText.transform.position = Camera.main.WorldToScreenPoint(worldPos);
 	}
 
 	public void ClearSpeech()
@@ -65,12 +75,7 @@ public class SgCharacter : SgBehavior
 		return Talk(new int[] { translationId });
 	}
 	public IEnumerator Talk(IList<int> translationIds)
-	{
-		m_OverlayText.transform.position = Camera.main.WorldToScreenPoint(speechText.transform.position);
-		//m_OverlayText.transform.SetParent(speechText.transform.parent, true);
-		//m_OverlayText.transform.localPosition = speechText.transform.localPosition;
-		//m_OverlayText.transform.SetParent(HudManager.speechTextOverlayTemplate.transform.parent, true);
-
+	{	
 		if (speechAnimation != null)
 		{
 			speechAnimation.Play();

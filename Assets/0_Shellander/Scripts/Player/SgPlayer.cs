@@ -18,6 +18,7 @@ public class SgPlayer : SgBehavior
 	public SgSpawnPosition[] spawnPositions;
 	public SgCharacter character;
 	public SgInteractGroup roomEnterInteraction;
+	public float textOffsetFlippedLeft;
 
 	private enum SgPlayerState 
 	{ 
@@ -110,7 +111,7 @@ public class SgPlayer : SgBehavior
 			{
 				this.transform.position = spawnPos.transform.position;
 				m_LookTarget = this.transform.position;
-				this.mainRenderer.flipX = spawnPos.sprite.flipX;
+				SetFlipX(spawnPos.sprite.flipX);
 				break;
 			}
 		}
@@ -381,7 +382,13 @@ public class SgPlayer : SgBehavior
 			return;
 		}
 		bool isRight = diff < 0;
+		SetFlipX(isRight);
+	}
+
+	private void SetFlipX(bool isRight)
+    {
 		mainRenderer.flipX = isRight;
+		character.SetXOffset(isRight ? 0 : textOffsetFlippedLeft);
 	}
 
 	private void SetDestination(Vector3 targetPosition, Vector3? overrideLookTarget)

@@ -125,6 +125,7 @@ MonoBehaviour:
   spawnPositions: []
   character: {fileID: 4358481149397824370}
   roomEnterInteraction: {fileID: 0}
+  textOffsetFlippedLeft: 1
 --- !u!195 &6665080452964013111
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -812,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2.9316
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -844,11 +845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.10379982
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 9.5758
+      value: 8.84
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
