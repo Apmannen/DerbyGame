@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2.9316
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,11 +272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.007
+      value: 0.006999433
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.47
+      value: 3.9357991
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -527,6 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 58000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -587,6 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 61000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 255484240}
   character: {fileID: 0}
@@ -636,6 +638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 56000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies:
   - translationId: 196
     isSilent: 0
@@ -658,6 +661,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: -1
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 196
     isSilent: 0
     nextDialogue: {fileID: 669984798}
@@ -672,6 +677,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: -1
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 96
     isSilent: 0
     nextDialogue: {fileID: 686176197}
@@ -693,6 +700,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: -1
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 96
     isSilent: 0
     nextDialogue: {fileID: 669984798}
@@ -707,6 +716,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: -1
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 130
     isSilent: 0
     nextDialogue: {fileID: 736566077}
@@ -728,6 +739,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: -1
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 130
     isSilent: 0
     nextDialogue: {fileID: 669984798}
@@ -742,6 +755,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: -1
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 87
     isSilent: 0
     nextDialogue: {fileID: 175087642}
@@ -749,6 +764,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &292454409
@@ -1279,6 +1296,8 @@ MonoBehaviour:
   speechAnimation: {fileID: 292454411}
   speechAnimationPosWhenFlipped: {fileID: 0}
   mainRenderer: {fileID: 0}
+  vertexColor: {r: 1, g: 0, b: 0.050980393, a: 1}
+  minMaxAnchoredX: 1080
 --- !u!1 &488228922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 66000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -1557,6 +1577,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -1716,6 +1738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: ec000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 255484240}
   character: {fileID: 0}
@@ -1765,6 +1788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 5d000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies:
   - translationId: 94
     isSilent: 1
@@ -1780,6 +1804,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: 100
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 239
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1794,6 +1820,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: 100
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1801,6 +1829,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &736566076
@@ -1834,6 +1864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 83000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies:
   - translationId: 132
     isSilent: 1
@@ -1849,6 +1880,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: 10
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 239
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1863,6 +1896,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: 10
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -1870,6 +1905,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!4 &736566078
@@ -2007,6 +2044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 5d000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies:
   - translationId: 94
     isSilent: 1
@@ -2022,6 +2060,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: 100
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 239
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -2036,6 +2076,8 @@ MonoBehaviour:
       skinType: 0
       minMoney: 100
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 95
     isSilent: 0
     nextDialogue: {fileID: 233747238}
@@ -2043,6 +2085,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &941082202
@@ -2084,6 +2128,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -3031,6 +3077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: e2000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -3362,6 +3409,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -4173,6 +4222,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -4395,6 +4446,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -4638,6 +4691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 6200000063000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies:
   - translationId: 100
     isSilent: 0
@@ -4646,6 +4700,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 101
     isSilent: 0
     nextDialogue: {fileID: 255484240}
@@ -4653,6 +4709,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1001 &537423196534831294
@@ -4827,26 +4885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.10379982
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524180085517376488, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9.5758
-      objectReference: {fileID: 0}
     - target: {fileID: 7696495994123542416, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8862377414496050032, guid: 61a45cdfca704d249a89ff6ee91c6312, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: -1167085086243419216, guid: 2ee6f8491896d944282305670832679c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
