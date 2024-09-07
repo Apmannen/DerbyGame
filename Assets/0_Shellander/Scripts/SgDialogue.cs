@@ -77,6 +77,7 @@ public class SgDialogueReply
 	public bool isSilent = false;
 	public SgDialogue nextDialogue;
 	public SgItemType addItem;
+	public SgItemType[] discoverItems;
 	public int reduceMoney;
 	public SgCondition[] conditions;
 	public SgDialogue connectedToDialogue;

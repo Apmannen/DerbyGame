@@ -601,6 +601,10 @@ public class SgPlayer : SgBehavior
 		character.ClearSpeech();
 		otherCharacter.ClearSpeech();
 		reply.hasBeenUsed = true;
+		foreach(SgItemType itemType in reply.discoverItems)
+		{
+			ItemManager.Discover(itemType);
+		}
 
 		StartCoroutine(DialogueReplyRoutine(reply, otherCharacter));
 	}

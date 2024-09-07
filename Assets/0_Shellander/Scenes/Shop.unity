@@ -590,7 +590,7 @@ MonoBehaviour:
   mainDialogueSpeaks: []
   autoReplies: []
   replies: []
-  redirectAfterDialogue: {fileID: 255484240}
+  redirectAfterDialogue: {fileID: 1803839890}
   character: {fileID: 0}
 --- !u!1 &255484238
 GameObject:
@@ -644,6 +644,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 843683532}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 1
@@ -667,6 +668,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 669984798}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 1
@@ -683,6 +685,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 686176197}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 1
@@ -706,6 +709,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 669984798}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 1
@@ -722,6 +726,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 736566077}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 1
@@ -745,6 +750,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 669984798}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 1
@@ -761,6 +767,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 746723858}
     addItem: 0
+    discoverItems: 14000000
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
@@ -770,6 +777,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 175087642}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
@@ -1809,6 +1817,7 @@ MonoBehaviour:
     isSilent: 1
     nextDialogue: {fileID: 1950015196}
     addItem: 6
+    discoverItems: 
     reduceMoney: 100
     conditions:
     - successOnTrue: 1
@@ -1825,6 +1834,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 0
@@ -1841,6 +1851,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
@@ -1885,6 +1896,7 @@ MonoBehaviour:
     isSilent: 1
     nextDialogue: {fileID: 1950015196}
     addItem: 10
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 1
@@ -1901,6 +1913,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 0
@@ -1917,6 +1930,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
@@ -2115,6 +2129,7 @@ MonoBehaviour:
     isSilent: 1
     nextDialogue: {fileID: 1950015196}
     addItem: 20
+    discoverItems: 
     reduceMoney: 100
     conditions:
     - successOnTrue: 1
@@ -2131,6 +2146,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions:
     - successOnTrue: 0
@@ -2147,6 +2163,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 233747238}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
@@ -4812,6 +4829,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 488228924}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
@@ -4821,6 +4839,7 @@ MonoBehaviour:
     isSilent: 0
     nextDialogue: {fileID: 255484240}
     addItem: 0
+    discoverItems: 
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
