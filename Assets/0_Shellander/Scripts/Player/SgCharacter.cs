@@ -23,6 +23,7 @@ public class SgCharacter : SgBehavior
 		m_OverlayText = GameObject.Instantiate(HudManager.speechTextOverlayTemplate, HudManager.speechTextOverlayTemplate.transform.parent);
 		m_OverlayText.gameObject.SetActive(true);		
 		m_OverlayText.color = vertexColor;
+		m_OverlayText.alignment = speechText.alignment;
 
 		if (speechAnimation != null)
 		{

@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4499134915600010376, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 256
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 4499134915600010376, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_hasFontAssetChanged
