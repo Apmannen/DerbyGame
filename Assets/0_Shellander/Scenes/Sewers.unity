@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 3301000034010000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -470,6 +471,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 3
     minMoney: 0
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -552,7 +555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2.9316
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalScale.x
@@ -596,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.412
+      value: 1.294
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -969,6 +972,8 @@ MonoBehaviour:
   speechAnimation: {fileID: 207689697}
   speechAnimationPosWhenFlipped: {fileID: 0}
   mainRenderer: {fileID: 0}
+  vertexColor: {r: 1, g: 0.90588236, b: 0, a: 1}
+  minMaxAnchoredX: 1080
 --- !u!1001 &168051725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1373,6 +1378,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 3
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -1422,6 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 36010000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -1471,6 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 96000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -1680,6 +1689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 35010000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -2278,6 +2288,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 3
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -2484,6 +2496,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -2650,7 +2664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2.9316
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalScale.x
@@ -2694,7 +2708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.412
+      value: 1.282
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2998,6 +3012,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 2
       minMoney: 0
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 1356840319}
@@ -3062,6 +3077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 2a0100002b0100002c010000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -3342,6 +3358,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -3366,6 +3384,8 @@ MonoBehaviour:
   speechAnimation: {fileID: 1930574383}
   speechAnimationPosWhenFlipped: {fileID: 0}
   mainRenderer: {fileID: 0}
+  vertexColor: {r: 1, g: 0.90588236, b: 0, a: 1}
+  minMaxAnchoredX: 1080
 --- !u!1 &1423665265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,6 +3541,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -3622,6 +3644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 98000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -3828,6 +3851,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -4156,6 +4181,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -4284,6 +4311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 2e010000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
@@ -4383,6 +4411,7 @@ MonoBehaviour:
       discoveredItem: 0
       skinType: 2
       minMoney: 0
+  autoReplies: []
   replies:
   - translationId: 296
     isSilent: 0
@@ -4398,6 +4427,8 @@ MonoBehaviour:
       skinType: 2
       minMoney: 0
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 297
     isSilent: 0
     nextDialogue: {fileID: 0}
@@ -4412,6 +4443,8 @@ MonoBehaviour:
       skinType: 2
       minMoney: 0
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 1356840319}
 --- !u!1 &1930574380
@@ -4565,6 +4598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 2f010000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies:
   - translationId: 304
     isSilent: 0
@@ -4573,6 +4607,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 305
     isSilent: 0
     nextDialogue: {fileID: 691607510}
@@ -4580,6 +4616,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   - translationId: 306
     isSilent: 0
     nextDialogue: {fileID: 70423069}
@@ -4587,6 +4625,8 @@ MonoBehaviour:
     reduceMoney: 0
     conditions: []
     connectedToDialogue: {fileID: 0}
+    autoRemove: 0
+    hasBeenUsed: 0
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
 --- !u!1001 &1942147327
@@ -4932,6 +4972,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 0
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 1
   collectedItem: 0
   namedBool: 
@@ -5104,6 +5146,8 @@ MonoBehaviour:
     discoveredItem: 0
     skinType: 3
     minMoney: -1
+  orCheckAll: 0
+  inverseFor: {fileID: 0}
   activateWhenNamedTrue: 0
   collectedItem: 0
   namedBool: 
@@ -5153,6 +5197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTranslationIds: 9f000000
   mainDialogueSpeaks: []
+  autoReplies: []
   replies: []
   redirectAfterDialogue: {fileID: 0}
   character: {fileID: 0}
