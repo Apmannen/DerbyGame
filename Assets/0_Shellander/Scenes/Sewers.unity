@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -595,11 +595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.003
+      value: 0.0030001777
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.294
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2640,7 +2640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2704,11 +2704,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.003
+      value: 0.0029999502
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.282
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 5662081039083183341, guid: 27db2436298dcde43ba7b5fe7ad9936c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
